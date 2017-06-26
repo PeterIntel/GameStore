@@ -1,0 +1,12 @@
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\GameDataAccessLayer.DAL.dll.config
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\GameDataAccessLayer.DAL.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\GameDataAccessLayer.DAL.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\DomainLayer.contracts.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\EntityFramework.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\DomainLayer.contracts.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\EntityFramework.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\obj\Debug\GameDataAccessLayer.DAL.csprojResolveAssemblyReference.cache
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\obj\Debug\GameDataAccessLayer.DAL.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\obj\Debug\GameDataAccessLayer.DAL.pdb

@@ -1,0 +1,11 @@
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\GameStore.services.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\GameStore.services.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\DomainLayer.contracts.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\GameDataAccessLayer.DAL.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\EntityFramework.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\DomainLayer.contracts.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\GameDataAccessLayer.DAL.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\EntityFramework.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\obj\Debug\GameStore.services.csprojResolveAssemblyReference.cache
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\obj\Debug\GameStore.services.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\obj\Debug\GameStore.services.pdb

@@ -9,7 +9,7 @@ using DomainLayer.contracts;
 
 namespace GameDataAccessLayer.DAL.UnitOfWork
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private GamesContext _context;
         private GenericDataRepository<Comment> _comments;
@@ -20,7 +20,7 @@ namespace GameDataAccessLayer.DAL.UnitOfWork
         {
             _context = new GamesContext();
         }
-        public GenericDataRepository<Comment> Comments
+        public IGenericDataRepository<Comment> Comments
         {
             get
             {
@@ -32,7 +32,7 @@ namespace GameDataAccessLayer.DAL.UnitOfWork
             }
         }
 
-        public GenericDataRepository<Game> Games
+        public IGenericDataRepository<Game> Games
         {
             get
             {
@@ -44,7 +44,7 @@ namespace GameDataAccessLayer.DAL.UnitOfWork
             }
         }
 
-        public GenericDataRepository<Genre> Genres
+        public IGenericDataRepository<Genre> Genres
         {
             get
             {
@@ -56,7 +56,7 @@ namespace GameDataAccessLayer.DAL.UnitOfWork
             }
         }
 
-        public GenericDataRepository<PlatformType> PlatformTypes
+        public IGenericDataRepository<PlatformType> PlatformTypes
         {
             get
             {
@@ -66,6 +66,11 @@ namespace GameDataAccessLayer.DAL.UnitOfWork
                 }
                 return _platformTypes;
             }
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

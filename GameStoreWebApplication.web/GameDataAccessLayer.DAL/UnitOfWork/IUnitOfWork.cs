@@ -8,11 +8,12 @@ using GameDataAccessLayer.DAL.Repositories;
 
 namespace GameDataAccessLayer.DAL.UnitOfWork
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
-        GenericDataRepository<Comment> Comments { get; }
-        GenericDataRepository<Game> Games { get; }
-        GenericDataRepository<Genre> Genres { get; }
-        GenericDataRepository<PlatformType> PlatformTypes { get; }
+        IGenericDataRepository<Comment> Comments { get; }
+        IGenericDataRepository<Game> Games { get; }
+        IGenericDataRepository<Genre> Genres { get; }
+        IGenericDataRepository<PlatformType> PlatformTypes { get; }
+        void Save();
     }
 }
