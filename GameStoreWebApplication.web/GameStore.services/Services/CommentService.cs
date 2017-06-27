@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace GameStore.services.Services
 {
-    class CommentService : ICommentService
+    public class CommentService : ICommentService
     {
         private IUnitOfWork _unitOfWork;
         public CommentService()
@@ -22,9 +22,9 @@ namespace GameStore.services.Services
             _unitOfWork.Save();
         }
 
-        public IList<Comment> GetAllCommentsByGameKey(int id)
+        public IList<Comment> GetAllCommentsByGameKey(string gameKey)
         {
-            return _unitOfWork.Comments.GetAll(x => x.GameId == id);
+            return _unitOfWork.Comments.GetAll(x => x.Game.Key == gameKey);
         }
 
         public void Remove(int id)

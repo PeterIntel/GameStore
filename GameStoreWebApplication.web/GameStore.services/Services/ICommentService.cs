@@ -9,6 +9,6 @@ namespace GameStore.services.Services
 {
     public interface ICommentService : IService<Comment>
     {
-        IList<Comment> GetAllCommentsByGameKey(int id);
+        IList<Comment> GetAllCommentsByGameKey(string gameKey);
     }
 }

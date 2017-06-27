@@ -9,7 +9,7 @@ using DomainLayer.contracts.DomainModels;
 
 namespace GameStore.services.Services
 {
-    class GameService : IGameService
+    public class GameService : IGameService
     {
         private IUnitOfWork _unitOfWork;
         public GameService()

@@ -122,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,8 +145,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Comment\" />
+    <Folder Include="Views\Download\" />
+    <Folder Include="Views\Game\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLayer.contracts\DomainLayer.contracts.csproj">
+      <Project>{9845e92f-89f8-47f7-8747-7b80d5b90783}</Project>
+      <Name>DomainLayer.contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameStore.services\GameStore.services.csproj">
+      <Project>{dc9f595c-917a-49aa-b108-6c29e6d1fbc4}</Project>
+      <Name>GameStore.services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
