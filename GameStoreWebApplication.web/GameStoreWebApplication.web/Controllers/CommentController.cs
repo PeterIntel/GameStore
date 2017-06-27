@@ -11,13 +11,19 @@ namespace GameStoreWebApplication.web.Controllers
 {
     public class CommentController : Controller
     {
-        private CommentService _commentService;
+        private ICommentService _commentService;
+
+        public CommentController()
+        {
+            _commentService = new CommentService();
+        }
         // GET: Comment
         [HttpPost]
-        public ActionResult AddComment(Comment comment)
+        public ActionResult AddComment(string gamekey, Comment comment)
         {
             try
             {
+                comment.Game.Key = gamekey;
                 _commentService.Add(comment);
                 return new HttpStatusCodeResult(200); 
 
@@ -35,7 +41,7 @@ namespace GameStoreWebApplication.web.Controllers
             {
                 if (gameKey != null)
                 {
-                    return Json(_commentService.GetAllCommentsByGameKey(gameKey));
+                    return Json(_commentService.GetAllCommentsByGameKey(gameKey), JsonRequestBehavior.AllowGet);
                 }
                 else
                 {

@@ -27,9 +27,9 @@ namespace GameStore.services.Services
             return _unitOfWork.Games.GetAll(filter, includeProperties);
         }
 
-        public Game GetItemById(int id)
+        public Game GetItemByKey(string key)
         {
-            return _unitOfWork.Games.GetItemById(id);
+            return _unitOfWork.Games.GetAll(x => x.Key == key).First();
         }
 
         public void Remove(int id)

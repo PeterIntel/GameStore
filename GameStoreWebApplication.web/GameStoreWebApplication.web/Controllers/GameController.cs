@@ -11,9 +11,15 @@ namespace GameStoreWebApplication.web.Controllers
 {
     public class GameController : Controller
     {
-        private GameService _gameService;
+        private IGameService _gameService;
+
+        public GameController()
+        {
+            _gameService = new GameService();
+        }
         // GET: Game
-        [HttpPost]
+        //[HttpPost]
+        [ActionName("new")]
         public ActionResult AddGame(Game game)
         {
             try
@@ -55,18 +61,26 @@ namespace GameStoreWebApplication.web.Controllers
             }
         }
 
-        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
-        public ActionResult GetGames(int? gameId)
+        //[OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
+        public ActionResult GetGames(string key)
         {
+            //_gameService.Add(new Game()
+            //{
+            //    Id = 1,
+            //    Description = "blabls",
+            //    Key = "Fellout 4",
+            //    IsDeleted = false
+            //});
+
             try
             {
-                if (gameId == null)
+                if (key == null)
                 {
-                    return Json(_gameService.GetAll(null));
+                    return Json(_gameService.GetAll(null), JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    return Json(_gameService.GetItemById((int)gameId));
+                    return Json(_gameService.GetItemByKey(key), JsonRequestBehavior.AllowGet);
                 }
             }
             catch

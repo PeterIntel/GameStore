@@ -14,5 +14,6 @@ namespace DomainLayer.contracts.DomainModels
         public int? ParentCommentId { set; get; }
         public int? GameId { set; get; }
         public virtual Game Game { set; get; }
+        public virtual IList<Comment> Comments { set; get; }
     }
 }

@@ -11,6 +11,6 @@ namespace GameStore.services.Services
     public interface IGameService : IService<Game>
     {
         IList<Game> GetAll(Expression<Func<Game, bool>> filter, string includeProperties = "");
-        Game GetItemById(int id);
+        Game GetItemByKey(string key);
     }
 }

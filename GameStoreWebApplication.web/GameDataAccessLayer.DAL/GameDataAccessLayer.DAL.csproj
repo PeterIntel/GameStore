@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GamesContext.cs" />
+    <Compile Include="Migrations\201706271545194_InitialCreate.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericDataRepository.cs" />
     <Compile Include="Repositories\IGenericDataRepository.cs" />

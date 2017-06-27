@@ -1,5 +1,10 @@
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\DomainLayer.contracts.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\DomainLayer.contracts.pdb
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.csprojResolveAssemblyReference.cache
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\DomainLayer.contracts.dll.config
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\EntityFramework.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\EntityFramework.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.csprojResolveAssemblyReference.cache

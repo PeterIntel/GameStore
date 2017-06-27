@@ -9,7 +9,7 @@ using DomainLayer.contracts.DomainModels;
 
 namespace GameDataAccessLayer.DAL
 {
-    class GamesContext : DbContext
+    public class GamesContext : DbContext
     {
         public GamesContext() : base("GamesContext")
         {
