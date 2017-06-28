@@ -13,65 +13,23 @@ namespace GameStoreWebApplication.web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //  name: "getGame1",
-            //  url: "game/test",
-            //  defaults: new { controller = "Game", action = "GetGames", key = UrlParameter.Optional }
-            //  );
+            routes.MapRoute(
+               name: "gameKey",
+               url: "game/{key}",
+               defaults: new { controller = "Game", action = "GetGames", key = UrlParameter.Optional }
+               );
+
+            routes.MapRoute(
+             name: "addComment",
+             url: "game/{gamekey}/{action}",
+             defaults: new { controller = "Comment", action = "AddComment", gamekey = UrlParameter.Optional }
+             );
 
             routes.MapRoute(
                 name: "default",
-                url: "{controller}s/{action}/{id}",
-                defaults: new { controller = "Game", action = "GetGames", Id = UrlParameter.Optional }
+                url: "{controller}s/{action}",
+                defaults: new { controller = "Game", action = "GetGames" }
                 );
-
-            //routes.MapRoute(
-            //    name: "addGame",
-            //    url: "games/new",
-            //    defaults: new {controller = "Game", action = "AddGame"}
-            //    );
-
-            //routes.MapRoute(
-            //    name: "updateGame",
-            //    url: "games/update",
-            //    defaults: new { controller = "Game", action = "UpdateGame"}
-            //    );
-
-            //routes.MapRoute(
-            //   name: "removeGame",
-            //   url: "games/remove",
-            //   defaults: new { controller = "Game", action = "RemoveGame" }
-            //   );
-
-            //routes.MapRoute(
-            //    name: "getGames",
-            //    url: "games",
-            //    defaults: new { controller = "Game", action = "GetGames"}
-            //    );
-
-            //routes.MapRoute(
-            //  name: "getGame",
-            //  url: "game/{key}",
-            //  defaults: new { controller = "Game", action = "GetGames", key = UrlParameter.Optional }
-            //  );
-
-            //routes.MapRoute(
-            //    name: "addComment",
-            //    url: "game/{gamekey}/newcomment",
-            //    defaults: new { controller = "Comment", action = "AddComment"}
-            //    );
-
-            //routes.MapRoute(
-            //   name: "getCommentsForGame",
-            //   url: "game/{gamekey}/comments",
-            //   defaults: new { controller = "Commnet", action = "GetCommentsForGame" }
-            //   );
-
-            //routes.MapRoute(
-            //    name: "downloadGame",
-            //    url: "game/{gamekey}/download",
-            //    defaults: new { controller = "Download", action = "DownloadGame" }
-            //    );
         }
     }
 }

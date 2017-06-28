@@ -19,6 +19,7 @@ namespace GameStoreWebApplication.web.Controllers
         }
         // GET: Comment
         [HttpPost]
+        [ActionName("newcomment")]
         public ActionResult AddComment(string gamekey, Comment comment)
         {
             try
@@ -35,6 +36,7 @@ namespace GameStoreWebApplication.web.Controllers
         }
 
         [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
+        [ActionName("comments")]
         public ActionResult GetCommentsForGame(string gameKey)
         {
             try

@@ -54,3 +54,6 @@ D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebAp
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\obj\Debug\GameStoreWebApplication.web.pdb
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\EntityFramework.SqlServer.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\EntityFramework.SqlServer.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\NLog.config
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\NLog.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\NLog.xml

@@ -18,7 +18,7 @@ namespace GameStoreWebApplication.web.Controllers
             _gameService = new GameService();
         }
         // GET: Game
-        //[HttpPost]
+        [HttpPost]
         [ActionName("new")]
         public ActionResult AddGame(Game game)
         {
@@ -32,7 +32,7 @@ namespace GameStoreWebApplication.web.Controllers
                 return new HttpStatusCodeResult(400);
             }
         }
-
+        [ActionName("update")]
         [HttpPost]
         public ActionResult UpdateGame(Game game)
         {
@@ -47,12 +47,13 @@ namespace GameStoreWebApplication.web.Controllers
             }
         }
 
+        [ActionName("remove")]
         [HttpPost]
-        public ActionResult RemoveGame(int gameId)
+        public ActionResult RemoveGame(Game game)
         {
             try
             {
-                _gameService.Remove(gameId);
+                _gameService.Remove(game);
                 return new HttpStatusCodeResult(200);
             }
             catch
@@ -61,16 +62,9 @@ namespace GameStoreWebApplication.web.Controllers
             }
         }
 
-        //[OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
+        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         public ActionResult GetGames(string key)
         {
-            //_gameService.Add(new Game()
-            //{
-            //    Id = 1,
-            //    Description = "blabls",
-            //    Key = "Fellout 4",
-            //    IsDeleted = false
-            //});
 
             try
             {
