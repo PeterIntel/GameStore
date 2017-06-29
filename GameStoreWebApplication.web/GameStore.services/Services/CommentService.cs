@@ -12,9 +12,9 @@ namespace GameStore.services.Services
     public class CommentService : ICommentService
     {
         private IUnitOfWork _unitOfWork;
-        public CommentService()
+        public CommentService(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
         public void Add(Comment item)
         {

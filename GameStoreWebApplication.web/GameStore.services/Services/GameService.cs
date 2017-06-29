@@ -12,9 +12,9 @@ namespace GameStore.services.Services
     public class GameService : IGameService
     {
         private IUnitOfWork _unitOfWork;
-        public GameService()
+        public GameService(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
         public void Add(Game item)
         {

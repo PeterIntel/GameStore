@@ -10,3 +10,5 @@ D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccess
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\obj\Debug\GameDataAccessLayer.DAL.csprojResolveAssemblyReference.cache
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\obj\Debug\GameDataAccessLayer.DAL.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\obj\Debug\GameDataAccessLayer.DAL.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\Ninject.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameDataAccessLayer.DAL\bin\Debug\Ninject.xml

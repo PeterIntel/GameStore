@@ -1,0 +1,13 @@
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\InfrastructureDependencyInjection.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\InfrastructureDependencyInjection.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\DomainLayer.contracts.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\GameDataAccessLayer.DAL.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\Ninject.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\EntityFramework.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\DomainLayer.contracts.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\GameDataAccessLayer.DAL.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\Ninject.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\bin\Debug\EntityFramework.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\obj\Debug\InfrastructureDependencyInjection.csprojResolveAssemblyReference.cache
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\obj\Debug\InfrastructureDependencyInjection.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\InfrastructureDependencyInjection\obj\Debug\InfrastructureDependencyInjection.pdb

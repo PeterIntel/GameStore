@@ -9,3 +9,7 @@ D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.serv
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\obj\Debug\GameStore.services.csprojResolveAssemblyReference.cache
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\obj\Debug\GameStore.services.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\obj\Debug\GameStore.services.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\WebActivatorEx.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\Ninject.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services\bin\Debug\Ninject.xml

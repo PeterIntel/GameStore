@@ -13,9 +13,9 @@ namespace GameStoreWebApplication.web.Controllers
     {
         private ICommentService _commentService;
 
-        public CommentController()
+        public CommentController(ICommentService commentService)
         {
-            _commentService = new CommentService();
+            _commentService = commentService;
         }
         // GET: Comment
         [HttpPost]

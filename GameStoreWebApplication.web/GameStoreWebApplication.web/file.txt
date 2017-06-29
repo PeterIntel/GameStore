@@ -1,0 +1,54 @@
+2017-06-28 21:39:52.0655|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-28 21:39:52.0836|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-28 21:39:52.0836|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-28 21:39:52.0836|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-28 21:39:52.0971|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 08:41:05.1198|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 08:41:05.1387|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 08:41:05.1432|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 08:41:05.1432|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 08:41:05.1432|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 08:41:05.1432|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 08:41:05.1602|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 08:42:58.0148|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 08:42:58.0338|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 08:42:58.0338|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 08:42:58.0338|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 08:42:58.0338|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 08:42:58.0509|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 08:42:58.0509|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 08:46:57.0612|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 08:46:57.0802|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 08:46:57.0802|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 08:46:57.0802|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 08:46:57.0802|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 08:46:57.0983|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 08:46:57.0983|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 15:42:13.9756|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 15:42:14.2058|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 15:42:14.3582|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 15:42:15.3653|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 15:42:21.3137|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 15:42:21.8215|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 15:42:22.1474|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 17:29:00.6519|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 17:29:00.6709|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 17:29:00.6750|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 17:29:00.6750|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 17:29:00.6750|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 17:29:00.6890|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 17:29:00.6890|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 17:30:21.6390|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 17:30:21.6571|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 17:30:21.6571|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 17:30:21.6571|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 17:30:21.6571|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 17:30:21.6741|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 17:30:21.6741|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 17:31:02.2033|TRACE|GameStoreWebApplication.web.Controllers.GameController|Sample trace message, k=42, l=100
+2017-06-29 17:31:02.2218|DEBUG|GameStoreWebApplication.web.Controllers.GameController|Sample debug message, k=42, l=100
+2017-06-29 17:31:02.2218|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100
+2017-06-29 17:31:02.2218|WARN|GameStoreWebApplication.web.Controllers.GameController|Sample warning message, k=42, l=100
+2017-06-29 17:31:02.2218|ERROR|GameStoreWebApplication.web.Controllers.GameController|Sample error message, k=42, l=100
+2017-06-29 17:31:02.2384|FATAL|GameStoreWebApplication.web.Controllers.GameController|Sample fatal error message, k=42, l=100
+2017-06-29 17:31:02.2384|INFO|GameStoreWebApplication.web.Controllers.GameController|Sample informational message, k=42, l=100

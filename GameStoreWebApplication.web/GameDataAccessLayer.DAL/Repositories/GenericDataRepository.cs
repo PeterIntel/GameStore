@@ -10,7 +10,7 @@ using GameDataAccessLayer.DAL;
 
 namespace GameDataAccessLayer.DAL.Repositories
 {
-    class GenericDataRepository<TEntity> : IGenericDataRepository<TEntity> where TEntity : BasicEntity
+    public class GenericDataRepository<TEntity> : IGenericDataRepository<TEntity> where TEntity : BasicEntity
     {
         protected GamesContext _context;
         protected DbSet<TEntity> _dbSet;
