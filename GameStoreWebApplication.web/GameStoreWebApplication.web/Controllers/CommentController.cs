@@ -22,37 +22,22 @@ namespace GameStoreWebApplication.web.Controllers
         [ActionName("newcomment")]
         public ActionResult AddComment(string gamekey, Comment comment)
         {
-            try
-            {
-                comment.Game.Key = gamekey;
-                _commentService.Add(comment);
-                return new HttpStatusCodeResult(200); 
-
-            }
-            catch
-            {
-                return new HttpStatusCodeResult(400);
-            }
+            comment.Game.Key = gamekey;
+            _commentService.Add(comment);
+            return new HttpStatusCodeResult(200);
         }
 
         [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         [ActionName("comments")]
         public ActionResult GetCommentsForGame(string gameKey)
         {
-            try
+            if (gameKey != null)
             {
-                if (gameKey != null)
-                {
-                    return Json(_commentService.GetAllCommentsByGameKey(gameKey), JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    return Content("None comment has the game!");
-                }
+                return Json(_commentService.GetAllCommentsByGameKey(gameKey), JsonRequestBehavior.AllowGet);
             }
-            catch
+            else
             {
-                return new HttpStatusCodeResult(400);
+                return Content("None comment has the game!");
             }
         }
     }

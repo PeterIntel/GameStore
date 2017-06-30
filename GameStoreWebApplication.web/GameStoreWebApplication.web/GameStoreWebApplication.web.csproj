@@ -100,6 +100,10 @@
       <HintPath>..\packages\NLog.4.4.11\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Web.4.5.0\lib\net35\NLog.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,11 +155,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Filters\ActionPerformanceFilter.cs" />
+    <Compile Include="Filters\LogErrorFilter.cs" />
+    <Compile Include="Filters\LogIPFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +213,10 @@
     <ProjectReference Include="..\InfrastructureDependencyInjection\InfrastructureDependencyInjection.csproj">
       <Project>{795d8a42-9fea-4750-82e2-a6874ecae6a1}</Project>
       <Name>InfrastructureDependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
+      <Name>Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

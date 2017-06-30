@@ -66,3 +66,7 @@ D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebAp
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\Ninject.Web.Mvc.xml
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\InfrastructureDependencyInjection.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\InfrastructureDependencyInjection.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\Logging.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\Logging.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\NLog.Web.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStoreWebApplication.web\bin\NLog.Web.xml

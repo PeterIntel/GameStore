@@ -1,0 +1,8 @@
+2017-06-29 21:21:55.8585|ERROR|Logging.WrapNLogLogger|The method or operation is not implemented.
+2017-06-29 21:24:46.1096|INFO|Logging.WrapNLogLogger|User IP Address: ::1
+2017-06-29 21:47:42.2826|INFO|Logging.WrapNLogLogger|User IP Address: ::1
+2017-06-29 21:47:57.2525|INFO|Logging.WrapNLogLogger|User IP Address: ::1
+2017-06-29 21:47:57.2666|ERROR|Logging.WrapNLogLogger|GameController
+2017-06-29 22:07:04.6865|INFO|Logging.WrapNLogLogger|User IP Address: ::1
+2017-06-29 22:07:14.9639|INFO|Logging.WrapNLogLogger|User IP Address: ::1
+2017-06-29 22:07:14.9784|ERROR|Logging.WrapNLogLogger|GameController
