@@ -13,9 +13,9 @@ namespace GameDataAccessLayer.DAL.UnitOfWork
     {
         private GamesContext _context;
 
-        public UnitOfWork()
+         public UnitOfWork()
         {
-            _context = new GamesContext();
+            //_context = new GamesContext();
         }
         
         [Inject]

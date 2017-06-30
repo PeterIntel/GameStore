@@ -1,0 +1,17 @@
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\GameStore.services.tests.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\GameStore.services.tests.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\DomainLayer.contracts.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\GameDataAccessLayer.DAL.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\GameStore.services.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\nunit.framework.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\EntityFramework.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\Ninject.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\DomainLayer.contracts.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\GameDataAccessLayer.DAL.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\GameStore.services.pdb
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\nunit.framework.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\EntityFramework.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\bin\Debug\Ninject.xml
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\obj\Debug\GameStore.services.tests.csprojResolveAssemblyReference.cache
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\obj\Debug\GameStore.services.tests.dll
+D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\GameStore.services.tests\obj\Debug\GameStore.services.tests.pdb
