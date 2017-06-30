@@ -12,7 +12,7 @@ namespace GameStoreWebApplication.web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Modules;
-    using InfractructureDependencyInjecton.NinjectModules;
+    using InfrastructureDependencyInjection.NinjectModules;
     using Infractructure;
 
     public static class NinjectWebCommon 
@@ -43,7 +43,7 @@ namespace GameStoreWebApplication.web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var modules = new INinjectModule[] { new RepositoryNinjectModule(), new ServiceNinjectModule()};
+            var modules = new INinjectModule[] { new RepositoryNinjectModule(), new ServiceNinjectModule(), new LogNinjectModule()};
             var kernel = new StandardKernel(modules);
             try
             {

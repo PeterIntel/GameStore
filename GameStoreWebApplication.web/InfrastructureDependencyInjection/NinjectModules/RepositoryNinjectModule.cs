@@ -7,7 +7,7 @@ using Ninject.Modules;
 using GameDataAccessLayer.DAL.Repositories;
 using DomainLayer.contracts.DomainModels;
 
-namespace InfractructureDependencyInjecton.NinjectModules
+namespace InfrastructureDependencyInjection.NinjectModules
 {
     public class RepositoryNinjectModule : NinjectModule
     {

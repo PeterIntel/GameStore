@@ -10,6 +10,10 @@ namespace Logging
     public class WrapNLogLogger : IWrapper
     {
         ILogger _logger = LogManager.GetCurrentClassLogger();
+        //public WrapNLogLogger(string logger)
+        //{
+
+        //}
         public void Write(Exception ex, string message, LogLevels level)
         {
             switch (level)

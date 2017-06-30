@@ -9,7 +9,7 @@ namespace GameStoreWebApplication.web.Filters
 {
     public class ActionPerformanceFilter : IActionFilter
     {
-        IWrapper _logger = DependencyResolver.Current.GetService<WrapNLogLogger>();
+        IWrapper _logger = DependencyResolver.Current.GetService<IWrapper>();
         DateTime _start;
         DateTime _end;
         public void OnActionExecuted(ActionExecutedContext filterContext)
@@ -20,7 +20,7 @@ namespace GameStoreWebApplication.web.Filters
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
             _end = DateTime.Now;
-            //_logger.Write(null, "Performance time: " + new TimeSpan(_end - _), LogLevels.Info)
+            _logger.Write(null, "Performance time: " + new TimeSpan((_end - _start).Milliseconds), LogLevels.Info);
         }
     }
 }

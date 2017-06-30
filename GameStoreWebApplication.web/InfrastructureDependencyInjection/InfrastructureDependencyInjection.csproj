@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NinjectModules\LogNinjectModule.cs" />
     <Compile Include="NinjectModules\RepositoryNinjectModule.cs" />
     <Compile Include="NinjectModules\ServiceNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\GameDataAccessLayer.DAL\GameDataAccessLayer.DAL.csproj">
       <Project>{8e719928-b4d9-4eb4-9851-4c9b8ac4cf86}</Project>
       <Name>GameDataAccessLayer.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
+      <Name>Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

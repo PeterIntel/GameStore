@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
-using GameDataAccessLayer.DAL.UnitOfWork;
+using Logging;
 
 namespace InfrastructureDependencyInjection.NinjectModules
 {
-    public class ServiceNinjectModule : NinjectModule
+    public class LogNinjectModule : NinjectModule
     {
         public override void Load()
         {
-            Bind<IUnitOfWork>().To<UnitOfWork>();
+            Bind<IWrapper>().To<WrapNLogLogger>();
         }
     }
 }

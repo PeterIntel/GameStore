@@ -9,7 +9,7 @@ namespace GameStoreWebApplication.web.Filters
 {
     public class LogIPFilter : IActionFilter
     {
-        IWrapper _logger = DependencyResolver.Current.GetService<WrapNLogLogger>();
+        IWrapper _logger = DependencyResolver.Current.GetService<IWrapper>();
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
             _logger.Write(null, "User IP Address: " + filterContext.HttpContext.Request.UserHostAddress, LogLevels.Info);

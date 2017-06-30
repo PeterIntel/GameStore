@@ -1,4 +1,3 @@
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\Logging\obj\Debug\Logging.csprojResolveAssemblyReference.cache
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\Logging\bin\Debug\Logging.dll
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\Logging\bin\Debug\Logging.pdb
 D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\Logging\bin\Debug\NLog.dll
