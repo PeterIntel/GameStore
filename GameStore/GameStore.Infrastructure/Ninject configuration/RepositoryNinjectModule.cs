@@ -7,6 +7,7 @@ using Ninject.Modules;
 using GameStore.DataAccess.Repositories;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.Business_objects;
+using GameStore.DataAccess;
 
 namespace GameStore.Infrastructure.Ninject_configuration
 {

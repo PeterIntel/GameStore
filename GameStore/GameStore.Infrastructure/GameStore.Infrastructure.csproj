@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Automapper configuration\AutoMapperConfig.cs" />
+    <Compile Include="Automapper configuration\DomainProfile.cs" />
+    <Compile Include="Ninject configuration\AutoMapperModule.cs" />
     <Compile Include="Ninject configuration\LogNinjectModule.cs" />
     <Compile Include="Ninject configuration\RepositoryNinjectModule.cs" />
     <Compile Include="Ninject configuration\ServiceNinjectModule.cs" />
@@ -70,9 +73,7 @@
       <Name>GameStore.Logging</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Automapper configuration\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

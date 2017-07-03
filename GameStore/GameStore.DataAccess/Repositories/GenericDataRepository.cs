@@ -15,11 +15,13 @@ namespace GameStore.DataAccess.Repositories
     {
         protected GamesContext _context;
         protected DbSet<TEntity> _dbSet;
+        private IMapper _mapper;
 
-        public GenericDataRepository(GamesContext context)
+        public GenericDataRepository(GamesContext context, IMapper mapper)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();
+            _mapper = mapper;
         }
 
         public void Add(TDomain domainItem)
@@ -32,23 +34,25 @@ namespace GameStore.DataAccess.Repositories
             }
         }
 
-        public IList<TDomain> GetAll(Expression<Func<TDomain, bool>> filter, string includeProperties = "")
+        public IList<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain, string includeProperties = "")
         {
             IQueryable<TEntity> queryToEntity = _dbSet;
-            Mapper.Initialize(cfg => cfg.CreateMap<TEntity, TDomain>());
-            var queryToDomain = Mapper.Map<IQueryable<TEntity>, IQueryable<TDomain>>(queryToEntity);
+            Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
+            var filterEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterDomain);
 
-            if (filter != null)
+            if (filterEntity != null)
             {
-                queryToDomain = queryToDomain.Where(filter);
+                queryToEntity = queryToEntity.Where(filterEntity);
             }
 
             foreach (var includeProperty in includeProperties.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
             {
-                queryToDomain = queryToDomain.Include(includeProperty);
+                queryToEntity = queryToEntity.Include(includeProperty);
             }
 
-            return queryToDomain.Where(x => x.IsDeleted == false).ToList();
+            var f = queryToEntity.Where(x => x.IsDeleted == false).ToList();
+
+            return _mapper.Map<IList<TEntity>, IList<TDomain>>(queryToEntity.Where(x => x.IsDeleted == false).ToList());
         }
 
         public TDomain GetItemById(int id)

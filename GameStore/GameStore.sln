@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Logging", "GameSt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{65742FA7-ADB4-4AEE-99B1-B717742BDEA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.services.tests", "GameStore.services.tests\GameStore.services.tests.csproj", "{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Services.Tests", "GameStore.services.tests\GameStore.Services.Tests.csproj", "{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Domain", "GameStore.Domain\GameStore.Domain.csproj", "{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}"
 EndProject

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStore.Services.tests
+namespace GameStore.Services.Tests
 {
     class GameServiceTests
     {

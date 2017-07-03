@@ -21,10 +21,10 @@ namespace GameStore.Domain.Business_objects
         [ScriptIgnore(ApplyToOverrides = true)]
         public IList<Comment> Comments { set; get; }
 
-        [ScriptIgnore(ApplyToOverrides = true)]
-        public virtual IList<Genre> Genres { set; get; }
+        ////[ScriptIgnore(ApplyToOverrides = true)]
+        //public virtual IList<Genre> Genres { set; get; }
 
-        [ScriptIgnore(ApplyToOverrides = true)]
-        public virtual IList<PlatformType> PlatformTypes { set; get; }
+        ////[ScriptIgnore(ApplyToOverrides = true)]
+        //public virtual IList<PlatformType> PlatformTypes { set; get; }
     }
 }

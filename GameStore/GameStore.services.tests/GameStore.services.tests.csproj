@@ -7,8 +7,8 @@
     <ProjectGuid>{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameStore.services.tests</RootNamespace>
-    <AssemblyName>GameStore.services.tests</AssemblyName>
+    <RootNamespace>GameStore.Services.Tests</RootNamespace>
+    <AssemblyName>GameStore.Services.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
