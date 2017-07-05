@@ -24,8 +24,7 @@ namespace GameStore.Services.Services_implementation
 
         public IList<Comment> GetAllCommentsByGameKey(string gameKey)
         {
-            throw new NotImplementedException();
-            //return _unitOfWork.Comments.GetAll(x => x.Game.Key == gameKey);
+            return _unitOfWork.Comments.GetAll(x => x.Game.Key == gameKey);
         }
 
         public void Remove(int id)

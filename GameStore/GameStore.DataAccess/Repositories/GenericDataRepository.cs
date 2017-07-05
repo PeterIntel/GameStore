@@ -36,7 +36,7 @@ namespace GameStore.DataAccess.Repositories
 
         public IList<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain, string includeProperties = "")
         {
-            IQueryable<TEntity> queryToEntity = _dbSet;
+            IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
             Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
             var filterEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterDomain);
 
@@ -50,9 +50,10 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity = queryToEntity.Include(includeProperty);
             }
 
-            var f = queryToEntity.Where(x => x.IsDeleted == false).ToList();
+            var resultOfQuery = queryToEntity.ToList();
+            var result = _mapper.Map<IList<TEntity>, IList<TDomain>>(resultOfQuery);
 
-            return _mapper.Map<IList<TEntity>, IList<TDomain>>(queryToEntity.Where(x => x.IsDeleted == false).ToList());
+            return result;
         }
 
         public TDomain GetItemById(int id)

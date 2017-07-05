@@ -30,7 +30,8 @@ namespace GameStore.Services.Services_implementation
 
         public Game GetItemByKey(string key)
         {
-            return _unitOfWork.Games.GetAll(x => x.Key == key).First();
+            var result = _unitOfWork.Games.GetAll(x => x.Key == key);
+            return result != null ? result.First() : null;
         }
 
         public void Remove(int id)
