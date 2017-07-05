@@ -1,7 +1,0 @@
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\bin\Debug\GameStore.Logging.dll
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\bin\Debug\GameStore.Logging.pdb
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\bin\Debug\NLog.dll
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\bin\Debug\NLog.xml
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\obj\Debug\GameStore.Logging.csprojResolveAssemblyReference.cache
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\obj\Debug\GameStore.Logging.dll
-D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Logging\obj\Debug\GameStore.Logging.pdb
