@@ -1,5 +1,0 @@
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\DomainLayer.contracts.dll
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\bin\Debug\DomainLayer.contracts.pdb
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.csprojResolveAssemblyReference.cache
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.dll
-D:\Repositories\Game\gamestore_shutka\GameStoreWebApplication.web\DomainLayer.contracts\obj\Debug\DomainLayer.contracts.pdb
