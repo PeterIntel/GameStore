@@ -20,13 +20,13 @@ namespace GameStore.DataAccess.UnitOfWork
         }
         
         [Inject]
-        public IGenericDataRepository<CommentEntity, Comment> Comments { set; get; }
+        public IGenericDataRepository<CommentEntity, Comment> CommentRepository { set; get; }
         [Inject]
-        public IGenericDataRepository<GameEntity, Game> Games { set; get; }
+        public IGenericDataRepository<GameEntity, Game> GameRepository { set; get; }
         [Inject]
-        public IGenericDataRepository<GenreEntity, Genre> Genres { set; get; }
+        public IGenericDataRepository<GenreEntity, Genre> GenreRepository { set; get; }
         [Inject]
-        public IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypes { set; get; }
+        public IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { set; get; }
 
         public void Save()
         {

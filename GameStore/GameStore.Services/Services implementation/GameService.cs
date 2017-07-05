@@ -19,36 +19,36 @@ namespace GameStore.Services.Services_implementation
         }
         public void Add(Game item)
         {
-            _unitOfWork.Games.Add(item);
+            _unitOfWork.GameRepository.Add(item);
             _unitOfWork.Save();
         }
 
         public IList<Game> GetAll(System.Linq.Expressions.Expression<Func<Game, bool>> filter, string includeProperties = "")
         {
-            return _unitOfWork.Games.GetAll(filter, includeProperties);
+            return _unitOfWork.GameRepository.GetAll(filter, includeProperties);
         }
 
         public Game GetItemByKey(string key)
         {
-            var result = _unitOfWork.Games.GetAll(x => x.Key == key);
+            var result = _unitOfWork.GameRepository.GetAll(x => x.Key == key);
             return result != null ? result.First() : null;
         }
 
         public void Remove(int id)
         {
-            _unitOfWork.Games.Remove(id);
+            _unitOfWork.GameRepository.Remove(id);
             _unitOfWork.Save();
         }
 
         public void Remove(Game item)
         {
-            _unitOfWork.Games.Remove(item);
+            _unitOfWork.GameRepository.Remove(item);
             _unitOfWork.Save();
         }
 
         public void Update(Game item)
         {
-            _unitOfWork.Games.Update(item);
+            _unitOfWork.GameRepository.Update(item);
             _unitOfWork.Save();
         }
     }

@@ -29,17 +29,17 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void Add_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(p => p.Games.Add(It.IsAny<Game>()));
+            _unitOfWork.Setup(p => p.GameRepository.Add(It.IsAny<Game>()));
 
             _sut.Add(new Game());
 
-            _unitOfWork.Verify(u => u.Games.Add(It.IsAny<Game>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.Add(It.IsAny<Game>()), Times.Once);
         }
 
         [Test]
         public void Add_ExceptoinThrown_DoesnotCatch()
         {
-            _unitOfWork.Setup(g => g.Games.Add(It.IsAny<Game>()))
+            _unitOfWork.Setup(g => g.GameRepository.Add(It.IsAny<Game>()))
                 .Throws(new Exception());
 
             Assert.Throws<Exception>(() => _sut.Add(It.IsAny<Game>()));
@@ -48,18 +48,18 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetAll_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.Games.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
+            _unitOfWork.Setup(g => g.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
                 .Returns(() => It.IsAny<IList<Game>>());
 
             _sut.GetAll(gameStub => false, "");
 
-            _unitOfWork.Verify(u => u.Games.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]
         public void GetAll_ExceptoinThrown_DoesnotCatch()
         {
-            _unitOfWork.Setup(g => g.Games.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
+            _unitOfWork.Setup(g => g.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
                .Throws(new Exception());
 
             Assert.Throws<Exception>(() => _sut.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()));
@@ -68,18 +68,18 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetItemByKey_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.Games.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
+            _unitOfWork.Setup(g => g.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
                 .Returns(() => It.IsAny<IList<Game>>());
 
             _sut.GetItemByKey("game");
 
-            _unitOfWork.Verify(u => u.Games.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]
         public void GetItemByKey_GameNotFoundWithKey_ReturnNull()
         {
-            _unitOfWork.Setup(g => g.Games.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
+            _unitOfWork.Setup(g => g.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<string>()))
                 .Returns(() => It.IsAny<IList<Game>>());
 
             var result = _sut.GetItemByKey("game");
@@ -90,17 +90,17 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void RemoteGameId_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.Games.Remove(It.IsAny<int>()));
+            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<int>()));
 
             _sut.Remove(133);
 
-            _unitOfWork.Verify(u => u.Games.Remove(It.IsAny<int>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.Remove(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
         public void RemoteGameId_ExceptoinThrown_DoesnotCatch()
         {
-            _unitOfWork.Setup(g => g.Games.Remove(It.IsAny<int>()))
+            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<int>()))
                .Throws(new Exception());
 
             Assert.Throws<Exception>(() => _sut.Remove(It.IsAny<int>()));
@@ -109,17 +109,17 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void RemoteGame_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.Games.Remove(It.IsAny<Game>()));
+            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<Game>()));
 
             _sut.Remove(_gameStub);
 
-            _unitOfWork.Verify(u => u.Games.Remove(It.IsAny<Game>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.Remove(It.IsAny<Game>()), Times.Once);
         }
 
         [Test]
         public void RemoteGame_ExceptoinThrown_DoesnotCatch()
         {
-            _unitOfWork.Setup(g => g.Games.Remove(It.IsAny<Game>()))
+            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<Game>()))
                .Throws(new Exception());
 
             Assert.Throws<Exception>(() => _sut.Remove(It.IsAny<Game>()));
@@ -128,17 +128,17 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void UpdateGame_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.Games.Update(It.IsAny<Game>()));
+            _unitOfWork.Setup(g => g.GameRepository.Update(It.IsAny<Game>()));
 
             _sut.Update(_gameStub);
 
-            _unitOfWork.Verify(u => u.Games.Update(It.IsAny<Game>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.Update(It.IsAny<Game>()), Times.Once);
         }
 
         [Test]
         public void UpdateGame_ExceptoinThrown_DoesnotCatch()
         {
-            _unitOfWork.Setup(g => g.Games.Update(It.IsAny<Game>()))
+            _unitOfWork.Setup(g => g.GameRepository.Update(It.IsAny<Game>()))
                .Throws(new Exception());
 
             Assert.Throws<Exception>(() => _sut.Update(It.IsAny<Game>()));

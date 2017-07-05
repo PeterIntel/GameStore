@@ -18,30 +18,30 @@ namespace GameStore.Services.Services_implementation
         }
         public void Add(Comment item)
         {
-            _unitOfWork.Comments.Add(item);
+            _unitOfWork.CommentRepository.Add(item);
             _unitOfWork.Save();
         }
 
         public IList<Comment> GetAllCommentsByGameKey(string gameKey)
         {
-            return _unitOfWork.Comments.GetAll(x => x.Game.Key == gameKey);
+            return _unitOfWork.CommentRepository.GetAll(x => x.Game.Key == gameKey);
         }
 
         public void Remove(int id)
         {
-            _unitOfWork.Comments.Remove(id);
+            _unitOfWork.CommentRepository.Remove(id);
             _unitOfWork.Save();
         }
 
         public void Remove(Comment item)
         {
-            _unitOfWork.Comments.Remove(item);
+            _unitOfWork.CommentRepository.Remove(item);
             _unitOfWork.Save();
         }
 
         public void Update(Comment item)
         {
-            _unitOfWork.Comments.Update(item);
+            _unitOfWork.CommentRepository.Update(item);
             _unitOfWork.Save();
         }
     }

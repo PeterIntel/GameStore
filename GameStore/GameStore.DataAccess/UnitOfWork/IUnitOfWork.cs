@@ -11,10 +11,10 @@ namespace GameStore.DataAccess.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        IGenericDataRepository<CommentEntity, Comment> Comments { get; }
-        IGenericDataRepository<GameEntity, Game> Games { get; }
-        IGenericDataRepository<GenreEntity, Genre> Genres { get; }
-        IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypes { get; }
+        IGenericDataRepository<CommentEntity, Comment> CommentRepository { get; }
+        IGenericDataRepository<GameEntity, Game> GameRepository { get; }
+        IGenericDataRepository<GenreEntity, Genre> GenreRepository { get; }
+        IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { get; }
         void Save();
     }
 }
