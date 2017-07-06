@@ -11,9 +11,6 @@ namespace GameStore.Domain.BusinessObjects
     public class Genre : BasicDomainEntity 
     {
         public int Id { set; get; }
-
-        [Index(IsUnique = true)]
-        [StringLength(450)]
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
         public IList<Genre> Genres { set; get; }

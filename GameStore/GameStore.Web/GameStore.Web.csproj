@@ -157,7 +157,6 @@
     <Content Include="App_Data\logs\IP.txt" />
     <Content Include="App_Data\logs\Performance.txt" />
     <Content Include="Content\download\download.exe" />
-    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -187,7 +186,9 @@
     <Compile Include="Infractructure\AutoMapper Configuration\ViewModelsProfile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -198,9 +199,6 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Game\AddGame.cshtml" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -214,6 +212,8 @@
     <Folder Include="Scripts\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\Download\" />
+    <Folder Include="Views\Game\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">

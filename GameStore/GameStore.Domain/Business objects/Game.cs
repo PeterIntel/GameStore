@@ -12,9 +12,6 @@ namespace GameStore.Domain.BusinessObjects
     public class Game : BasicDomainEntity
     {
         public int Id { set; get; }
-
-        [Index(IsUnique = true)]
-        [StringLength(450)]
         public string Key { set; get; }
         public string Description { set; get; }
 

@@ -11,9 +11,6 @@ namespace GameStore.Domain.BusinessObjects
     public class PlatformType : BasicDomainEntity
     {
         public int Id { set; get; }
-
-        [Index(IsUnique = true)]
-        [StringLength(450)]
         public string TypeName { set; get; }
         public IList<Game> Games { set; get; }
     }

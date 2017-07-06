@@ -37,32 +37,14 @@ namespace GameStore.Services.Tests.Services_implementation
         }
 
         [Test]
-        public void Add_ExceptoinThrown_DoesnotCatch()
-        {
-            _unitOfWork.Setup(g => g.CommentRepository.Add(It.IsAny<Comment>()))
-                .Throws(new Exception());
-
-            Assert.Throws<Exception>(() => _sut.Add(It.IsAny<Comment>()));
-        }
-
-        [Test]
         public void GetAllCommentsByGameKey_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<string>()))
+            _unitOfWork.Setup(g => g.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()))
                 .Returns(() => It.IsAny<IList<Comment>>());
 
             _sut.GetAllCommentsByGameKey("game");
 
-            _unitOfWork.Verify(u => u.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<string>()), Times.Once);
-        }
-
-        [Test]
-        public void GetAllCommentsByGameKey_ExceptoinThrown_DoesnotCatch()
-        {
-            _unitOfWork.Setup(g => g.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<string>()))
-               .Throws(new Exception());
-
-            Assert.Throws<Exception>(() => _sut.GetAllCommentsByGameKey(It.IsAny<string>()));
+            _unitOfWork.Verify(u => u.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()), Times.Once);
         }
 
         [Test]
@@ -76,15 +58,6 @@ namespace GameStore.Services.Tests.Services_implementation
         }
 
         [Test]
-        public void RemoteCommentId_ExceptoinThrown_DoesnotCatch()
-        {
-            _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<int>()))
-               .Throws(new Exception());
-
-            Assert.Throws<Exception>(() => _sut.Remove(It.IsAny<int>()));
-        }
-
-        [Test]
         public void RemoteComment_IsCalled_CalledOneTime()
         {
             _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<Comment>()));
@@ -95,15 +68,6 @@ namespace GameStore.Services.Tests.Services_implementation
         }
 
         [Test]
-        public void RemoteComment_ExceptoinThrown_DoesnotCatch()
-        {
-            _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<Comment>()))
-               .Throws(new Exception());
-
-            Assert.Throws<Exception>(() => _sut.Remove(It.IsAny<Comment>()));
-        }
-
-        [Test]
         public void UpdateComment_IsCalled_CalledOneTime()
         {
             _unitOfWork.Setup(g => g.CommentRepository.Update(It.IsAny<Comment>()));
@@ -111,15 +75,6 @@ namespace GameStore.Services.Tests.Services_implementation
             _sut.Update(_commentStub);
 
             _unitOfWork.Verify(u => u.CommentRepository.Update(It.IsAny<Comment>()), Times.Once);
-        }
-
-        [Test]
-        public void UpdateComment_ExceptoinThrown_DoesnotCatch()
-        {
-            _unitOfWork.Setup(g => g.CommentRepository.Update(It.IsAny<Comment>()))
-               .Throws(new Exception());
-
-            Assert.Throws<Exception>(() => _sut.Update(It.IsAny<Comment>()));
         }
     }
 }
