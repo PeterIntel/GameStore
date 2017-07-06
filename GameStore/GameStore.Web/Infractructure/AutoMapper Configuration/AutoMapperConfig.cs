@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using GameStore.Infrastructure.AutomapperConfiguration;
 
-namespace GameStore.Infrastructure.Automapper_configuration
+namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
 {
     public static class AutoMapperConfig
     {
@@ -14,6 +15,7 @@ namespace GameStore.Infrastructure.Automapper_configuration
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<DomainProfile>();
+                cfg.AddProfile<ViewModelsProfile>();
             });
 
             return config.CreateMapper();

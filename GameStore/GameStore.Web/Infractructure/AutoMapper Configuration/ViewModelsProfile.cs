@@ -6,7 +6,7 @@ using AutoMapper;
 using GameStore.Web.ViewModels;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.Web.Infrastructure.AutoMapper
+namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
 {
     public class ViewModelsProfile : Profile
     {

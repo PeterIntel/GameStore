@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
-using GameStore.Infrastructure.Automapper_configuration;
+using GameStore.Web.Infrastructure.AutoMapperConfiguration;
 using AutoMapper;
 
 namespace GameStore.Infrastructure.Ninject_configuration

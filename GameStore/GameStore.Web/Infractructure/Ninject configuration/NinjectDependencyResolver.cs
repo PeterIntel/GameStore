@@ -9,7 +9,7 @@ using GameStore.Services.Services_implementation;
 using GameStore.DataAccess;
 using Ninject.Web.Common;
 
-namespace GameStore.Web.Infractructure
+namespace GameStore.Web.Infrastructure.NinjectConfiguration
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {

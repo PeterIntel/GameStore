@@ -34,7 +34,7 @@ namespace GameStore.DataAccess.Repositories
             }
         }
 
-        public IEnumerable<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain, string includeProperties = "")
+        public IEnumerable<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain,params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
@@ -45,9 +45,9 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity = queryToEntity.Where(filterEntity);
             }
 
-            foreach (var includeProperty in includeProperties.Split(new char[]{','}, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var item in includeProperties)
             {
-                queryToEntity = queryToEntity.Include(includeProperty);
+                queryToEntity.Include(item);
             }
 
             var resultOfQuery = queryToEntity.ToList();

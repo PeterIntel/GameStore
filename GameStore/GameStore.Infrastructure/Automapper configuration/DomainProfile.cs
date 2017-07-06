@@ -8,7 +8,7 @@ using AutoMapper.XpressionMapper;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.Infrastructure.Automapper_configuration
+namespace GameStore.Infrastructure.AutomapperConfiguration
 {
     public class DomainProfile : Profile
     {
