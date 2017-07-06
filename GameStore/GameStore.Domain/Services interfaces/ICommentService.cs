@@ -9,6 +9,6 @@ namespace GameStore.Domain.Services_interfaces
 {
     public interface ICommentService : ICrudService<Comment>
     {
-        IList<Comment> GetAllCommentsByGameKey(string gameKey);
+        IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey);
     }
 }

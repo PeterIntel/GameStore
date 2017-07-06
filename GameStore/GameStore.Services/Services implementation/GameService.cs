@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.Services_interfaces;
+using System.Linq.Expressions;
 
 namespace GameStore.Services.Services_implementation
 {
@@ -23,15 +24,20 @@ namespace GameStore.Services.Services_implementation
             _unitOfWork.Save();
         }
 
-        public IList<Game> GetAll(System.Linq.Expressions.Expression<Func<Game, bool>> filter, string includeProperties = "")
+        public IEnumerable<Game> GetAll(Expression<Func<Game, bool>> filter, params Expression<Func<Game, object>>[] includeProperties)
         {
             return _unitOfWork.GameRepository.GetAll(filter, includeProperties);
         }
 
+        public IEnumerable<Game> GetAll(params Expression<Func<Game, object>>[] includeProperties)
+        {
+            return _unitOfWork.GameRepository.GetAll(includeProperties);
+        }
+
         public Game GetItemByKey(string key)
         {
-            var result = _unitOfWork.GameRepository.GetAll(x => x.Key == key);
-            return result != null ? result.First() : null;
+            var result = _unitOfWork.GameRepository.GetGameByKey(key);
+            return result;
         }
 
         public void Remove(int id)

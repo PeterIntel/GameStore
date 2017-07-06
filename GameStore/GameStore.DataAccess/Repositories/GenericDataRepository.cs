@@ -15,7 +15,7 @@ namespace GameStore.DataAccess.Repositories
     {
         protected GamesContext _context;
         protected DbSet<TEntity> _dbSet;
-        private IMapper _mapper;
+        protected IMapper _mapper;
 
         public GenericDataRepository(GamesContext context, IMapper mapper)
         {
@@ -28,24 +28,42 @@ namespace GameStore.DataAccess.Repositories
         {
             if (domainItem != null)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
                 var item = Mapper.Map<TDomain, TEntity>(domainItem);
                 _dbSet.Add(item);
             }
         }
 
-        public IEnumerable<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain,params Expression<Func<TEntity, object>>[] includeProperties)
+        public IEnumerable<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain,params Expression<Func<TDomain, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
             var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterDomain);
+
+            var includePropertiesForEntities = _mapper.Map<Expression<Func<TDomain, object>>[], Expression<Func<TEntity, object>>[]>(includeProperties);
 
             if (filterEntity != null)
             {
                 queryToEntity = queryToEntity.Where(filterEntity);
             }
 
-            foreach (var item in includeProperties)
+            foreach (var item in includePropertiesForEntities)
+            {
+                queryToEntity.Include(item);
+            }
+
+            var resultOfQuery = queryToEntity.ToList();
+            var result = _mapper.Map<IList<TEntity>, IList<TDomain>>(resultOfQuery);
+
+            return result;
+        }
+
+        public IEnumerable<TDomain> GetAll(params Expression<Func<TDomain, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
+
+            var includePropertiesForEntities = _mapper.Map<Expression<Func<TDomain, object>>[], Expression<Func<TEntity, object>>[]>(includeProperties);
+
+            foreach (var item in includePropertiesForEntities)
             {
                 queryToEntity.Include(item);
             }
@@ -62,7 +80,6 @@ namespace GameStore.DataAccess.Repositories
 
             if (entity != null && entity.IsDeleted == false)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<TEntity, TDomain>());
                 TDomain domain = Mapper.Map<TEntity, TDomain>(entity);
                 return domain;
             }
@@ -74,7 +91,6 @@ namespace GameStore.DataAccess.Repositories
         {
             if (item != null)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
                 TEntity entity = Mapper.Map<TDomain, TEntity>(item);
                 entity.IsDeleted = true;
             }
@@ -86,7 +102,6 @@ namespace GameStore.DataAccess.Repositories
 
             if (entity != null)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<TEntity, TDomain>());
                 TDomain domain = Mapper.Map<TEntity, TDomain>(entity);
                 Remove(domain);
             }

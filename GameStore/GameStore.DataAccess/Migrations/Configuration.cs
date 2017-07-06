@@ -11,8 +11,7 @@ namespace GameStore.DataAccess.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+
         }
 
         protected override void Seed(GameStore.DataAccess.GamesContext context)

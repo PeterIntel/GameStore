@@ -7,22 +7,26 @@ using GameStore.DataAccess.Entities;
 using GameStore.Domain.Services_interfaces;
 using GameStore.Domain.BusinessObjects;
 using System.Web.UI;
+using AutoMapper;
+using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
     public class CommentController : Controller
     {
         private ICommentService _commentService;
-
-        public CommentController(ICommentService commentService)
+        private IMapper _mapper;
+        public CommentController(ICommentService commentService, IMapper mapper)
         {
             _commentService = commentService;
+            _mapper = mapper;
         }
         // GET: Comment
         [HttpPost]
         [ActionName("newcomment")]
-        public ActionResult AddComment(string gamekey, Comment comment)
+        public ActionResult AddComment(string gamekey, CommentViewModel commentViewModel)
         {
+            var comment = _mapper.Map<CommentViewModel, Comment>(commentViewModel);
             comment.Game.Key = gamekey;
             _commentService.Add(comment);
             return new HttpStatusCodeResult(200);
@@ -38,7 +42,7 @@ namespace GameStore.Web.Controllers
             }
             else
             {
-                return Content("None comment has the game!");
+                throw new NullReferenceException("The game was not specified!!!");
             }
         }
     }

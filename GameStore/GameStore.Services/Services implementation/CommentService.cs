@@ -22,7 +22,7 @@ namespace GameStore.Services.Services_implementation
             _unitOfWork.Save();
         }
 
-        public IList<Comment> GetAllCommentsByGameKey(string gameKey)
+        public IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey)
         {
             return _unitOfWork.CommentRepository.GetAll(x => x.Game.Key == gameKey);
         }

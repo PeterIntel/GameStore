@@ -16,6 +16,7 @@ namespace GameStore.Infrastructure.Ninject_configuration
         public override void Load()
         {
             Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
+            Bind<IGameRepository>().To<GameRepository>();
         }
     }
 }

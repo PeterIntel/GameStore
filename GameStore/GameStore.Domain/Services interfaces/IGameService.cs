@@ -10,7 +10,8 @@ namespace GameStore.Domain.Services_interfaces
 {
     public interface IGameService : ICrudService<Game>
     {
-        IList<Game> GetAll(Expression<Func<Game, bool>> filter, string includeProperties = "");
+        IEnumerable<Game> GetAll(Expression<Func<Game, bool>> filter, params Expression<Func<Game, object>>[] includeProperties);
+        IEnumerable<Game> GetAll(params Expression<Func<Game, object>>[] includeProperties);
         Game GetItemByKey(string key);
     }
 }

@@ -26,8 +26,13 @@ namespace GameStore.Web
              );
 
             routes.MapRoute(
-                name: "default",
+                name: "defaultS",
                 url: "{controller}s/{action}",
+                defaults: new { controller = "Game", action = "GetGames" }
+                );
+            routes.MapRoute(
+                name: "default",
+                url: "{controller}/{action}",
                 defaults: new { controller = "Game", action = "GetGames" }
                 );
         }

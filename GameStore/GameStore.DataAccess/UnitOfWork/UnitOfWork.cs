@@ -22,7 +22,7 @@ namespace GameStore.DataAccess.UnitOfWork
         [Inject]
         public IGenericDataRepository<CommentEntity, Comment> CommentRepository { set; get; }
         [Inject]
-        public IGenericDataRepository<GameEntity, Game> GameRepository { set; get; }
+        public IGameRepository GameRepository { set; get; }
         [Inject]
         public IGenericDataRepository<GenreEntity, Genre> GenreRepository { set; get; }
         [Inject]

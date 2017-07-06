@@ -12,7 +12,7 @@ namespace GameStore.DataAccess.UnitOfWork
     public interface IUnitOfWork
     {
         IGenericDataRepository<CommentEntity, Comment> CommentRepository { get; }
-        IGenericDataRepository<GameEntity, Game> GameRepository { get; }
+        IGameRepository GameRepository { get; }
         IGenericDataRepository<GenreEntity, Genre> GenreRepository { get; }
         IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { get; }
         void Save();
