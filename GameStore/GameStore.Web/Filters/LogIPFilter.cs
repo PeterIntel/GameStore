@@ -17,7 +17,7 @@ namespace GameStore.Web.Filters
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

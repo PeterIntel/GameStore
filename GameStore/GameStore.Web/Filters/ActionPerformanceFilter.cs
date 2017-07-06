@@ -14,12 +14,12 @@ namespace GameStore.Web.Filters
         DateTime _end;
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            _start = DateTime.Now;
+            _start = DateTime.UtcNow;
         }
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            _end = DateTime.Now;
+            _end = DateTime.UtcNow;
             _logger.Write("performanceLog", null, "Performance time: " + new TimeSpan((_end - _start).Milliseconds), LogLevels.Info);
         }
     }
