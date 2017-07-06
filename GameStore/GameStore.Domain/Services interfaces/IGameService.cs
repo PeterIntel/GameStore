@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.Domain.Services_interfaces
 {

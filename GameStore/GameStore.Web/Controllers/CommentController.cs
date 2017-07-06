@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.Services_interfaces;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 using System.Web.UI;
 
 namespace GameStore.Web.Controllers

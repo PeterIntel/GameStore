@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.XpressionMapper;
 using GameStore.DataAccess.Entities;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.Infrastructure.Automapper_configuration
 {
@@ -18,7 +18,10 @@ namespace GameStore.Infrastructure.Automapper_configuration
             CreateMap<CommentEntity, Comment>();
             CreateMap<Game, GameEntity>();
             CreateMap<Comment, CommentEntity>();
-
+            CreateMap<GenreEntity, Genre>();
+            CreateMap<Genre, GenreEntity>();
+            CreateMap<PlatformTypeEntity, PlatformType>();
+            CreateMap<PlatformType, PlatformTypeEntity>();
         }
     }
 }

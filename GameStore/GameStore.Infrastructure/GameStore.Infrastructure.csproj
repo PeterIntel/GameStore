@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Automapper configuration\AutoMapperConfig.cs" />
     <Compile Include="Automapper configuration\DomainProfile.cs" />
     <Compile Include="Ninject configuration\AutoMapperModule.cs" />
     <Compile Include="Ninject configuration\LogNinjectModule.cs" />

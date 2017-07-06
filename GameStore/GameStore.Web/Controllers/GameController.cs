@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.DataAccess.Entities;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.Services_interfaces;
 using System.Web.UI;
 using NLog;

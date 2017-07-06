@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStore.Domain.Business_objects
+namespace GameStore.Domain.BusinessObjects
 {
     public abstract class BasicDomainEntity
     {

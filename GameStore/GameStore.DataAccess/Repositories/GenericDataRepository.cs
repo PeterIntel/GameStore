@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using GameStore.DataAccess.Entities;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 using AutoMapper;
 
 namespace GameStore.DataAccess.Repositories
@@ -34,11 +34,11 @@ namespace GameStore.DataAccess.Repositories
             }
         }
 
-        public IList<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain, string includeProperties = "")
+        public IEnumerable<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain, string includeProperties = "")
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
-            Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
-            var filterEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterDomain);
+
+            var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterDomain);
 
             if (filterEntity != null)
             {

@@ -8,7 +8,7 @@ using NUnit.Framework;
 using Moq;
 using GameStore.Services.Services_implementation;
 using GameStore.DataAccess.UnitOfWork;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.Services.Tests.Services_implementation
 {

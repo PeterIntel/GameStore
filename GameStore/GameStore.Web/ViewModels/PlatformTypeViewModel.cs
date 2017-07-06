@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace GameStore.Domain.BusinessObjects
+namespace GameStore.Web.ViewModels
 {
-    public class PlatformType : BasicDomainEntity
+    public class PlatformTypeViewModel
     {
         public int Id { set; get; }
-
-        [Index(IsUnique = true)]
-        [StringLength(450)]
         public string TypeName { set; get; }
-        public IList<Game> Games { set; get; }
+        public IList<GameViewModel> Games { set; get; }
     }
 }

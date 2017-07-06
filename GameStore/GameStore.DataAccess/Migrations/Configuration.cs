@@ -13,7 +13,6 @@ namespace GameStore.DataAccess.Migrations
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "GameDataAccessLayer.DAL.GamesContext";
         }
 
         protected override void Seed(GameStore.DataAccess.GamesContext context)

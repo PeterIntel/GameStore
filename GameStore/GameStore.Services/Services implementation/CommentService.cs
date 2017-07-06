@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameStore.DataAccess.UnitOfWork;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.Services_interfaces;
 
 namespace GameStore.Services.Services_implementation

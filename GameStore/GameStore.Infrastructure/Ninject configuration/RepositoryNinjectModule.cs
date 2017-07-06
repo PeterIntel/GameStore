@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Ninject.Modules;
 using GameStore.DataAccess.Repositories;
 using GameStore.DataAccess.Entities;
-using GameStore.Domain.Business_objects;
+using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess;
 
 namespace GameStore.Infrastructure.Ninject_configuration
@@ -15,10 +15,7 @@ namespace GameStore.Infrastructure.Ninject_configuration
     {
         public override void Load()
         {
-            Bind<IGenericDataRepository<GameEntity, Game>>().To<GenericDataRepository<GameEntity, Game>>();
-            Bind<IGenericDataRepository<PlatformTypeEntity, PlatformType>>().To<GenericDataRepository<PlatformTypeEntity, PlatformType>>();
-            Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDataRepository<GenreEntity, Genre>>();
-            Bind<IGenericDataRepository<CommentEntity, Comment>>().To<GenericDataRepository<CommentEntity, Comment>>();
+            Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
         }
     }
 }

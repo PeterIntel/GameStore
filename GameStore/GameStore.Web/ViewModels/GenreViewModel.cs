@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace GameStore.Domain.BusinessObjects
+namespace GameStore.Web.ViewModels
 {
-    public class Genre : BasicDomainEntity 
+    public class GenreViewModel
     {
         public int Id { set; get; }
-
-        [Index(IsUnique = true)]
-        [StringLength(450)]
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
-        public IList<Genre> Genres { set; get; }
-        public virtual IList<Game> Games { set; get; }
+        public IList<GenreViewModel> Genres { set; get; }
+        public virtual IList<GameViewModel> Games { set; get; }
     }
 }
