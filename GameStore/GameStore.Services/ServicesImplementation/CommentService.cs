@@ -7,7 +7,7 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.Services_interfaces;
 
-namespace GameStore.Services.Services_implementation
+namespace GameStore.Services.ServicesImplementation
 {
     public class CommentService : ICommentService
     {

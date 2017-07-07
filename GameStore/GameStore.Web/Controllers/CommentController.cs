@@ -14,8 +14,8 @@ namespace GameStore.Web.Controllers
 {
     public class CommentController : Controller
     {
-        private ICommentService _commentService;
-        private IMapper _mapper;
+        private readonly ICommentService _commentService;
+        private readonly IMapper _mapper;
         public CommentController(ICommentService commentService, IMapper mapper)
         {
             _commentService = commentService;
@@ -40,10 +40,8 @@ namespace GameStore.Web.Controllers
             {
                 return Json(_commentService.GetAllCommentsByGameKey(gameKey), JsonRequestBehavior.AllowGet);
             }
-            else
-            {
-                throw new NullReferenceException("The game was not specified!!!");
-            }
+
+            throw new ArgumentException("The game was not specified!!!");
         }
     }
 }

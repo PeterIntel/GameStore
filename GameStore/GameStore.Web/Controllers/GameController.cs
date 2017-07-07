@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using GameStore.DataAccess.Entities;
+﻿using System.Web.Mvc;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.Services_interfaces;
 using System.Web.UI;
 using GameStore.Web.ViewModels;
 using AutoMapper;
-using NLog;
 
 namespace GameStore.Web.Controllers
 {
     public class GameController : Controller
     {
-        private IGameService _gameService;
-        private IMapper _mapper;
+        private readonly IGameService _gameService;
+        private readonly IMapper _mapper;
         public GameController(IGameService gameService, IMapper mapper)
         {
             _gameService = gameService;
             _mapper = mapper;
         }
         // GET: Game
-        [HttpPost]
+        [HttpGet]
         [ActionName("new")]
         public ActionResult AddGame(GameViewModel gameViewModel)
         {
             var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
-            _gameService.Add(game);
-            return new HttpStatusCodeResult(200);
+            //_gameService.Add(game);
+            return View();
         }
         [ActionName("update")]
         [HttpPost]
@@ -58,6 +52,14 @@ namespace GameStore.Web.Controllers
         public ActionResult GetGameDetails(string key)
         {
             return Json(_gameService.GetItemByKey(key), JsonRequestBehavior.AllowGet);
+        }
+
+        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
+        public FileResult DownloadGame(int? gamekey)
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/download/download.exe"));
+            string filename = "download.exe";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, filename);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace GameStore.Web
             routes.MapRoute(
                 name: "default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "Game", action = "GetGames" }
+                defaults: new {controller = "Game", action = "GetGames"}
                 );
         }
     }

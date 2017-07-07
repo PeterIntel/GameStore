@@ -127,3 +127,110 @@ System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_o
 2017-07-06 15:05:07.7184|INFO|performanceLog|Performance time: 00:00:00.0000788
 2017-07-06 15:05:07.7355|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-06 15:05:07.7355|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.
+2017-07-06 19:36:32.1021|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The method or operation is not implemented.
+2017-07-06 19:39:39.3456|INFO|performanceLog|Performance time: 00:00:00.0000243
+2017-07-06 19:39:40.2312|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:40:54.0667|INFO|performanceLog|Performance time: 00:00:00.0000955
+2017-07-06 19:40:56.4048|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:41:09.0445|INFO|performanceLog|Performance time: 00:00:00.0000640
+2017-07-06 19:41:09.0694|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:41:09.0809|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.
+2017-07-06 19:41:52.9909|INFO|performanceLog|Performance time: 00:00:00.0000889
+2017-07-06 19:42:04.4661|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:42:06.6241|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_new.cshtml.a8ce8dad.nje_yr40.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:42:35.5055|INFO|performanceLog|Performance time: 00:00:00.0000439
+2017-07-06 19:42:35.5055|INFO|performanceLog|Performance time: 00:00:00.0000391
+2017-07-06 19:42:35.5967|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:42:36.0805|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_new.cshtml.a8ce8dad.ire9xop1.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:42:36.3131|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:42:38.7883|INFO|performanceLog|Performance time: 00:00:00.0000475
+2017-07-06 19:42:38.8119|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:42:38.8249|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_new.cshtml.a8ce8dad.ire9xop1.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:44:47.0654|INFO|performanceLog|Performance time: 00:00:00.0000962
+2017-07-06 19:44:47.9804|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:47:39.4726|INFO|performanceLog|Performance time: 00:00:00.0000360
+2017-07-06 19:47:40.4028|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:47:50.3062|INFO|performanceLog|Performance time: 00:00:00.0000903
+2017-07-06 19:49:55.4077|INFO|performanceLog|Performance time: 00:00:00.0000350
+2017-07-06 19:49:55.4077|INFO|performanceLog|Performance time: 00:00:00.0000304
+2017-07-06 19:49:55.5115|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:49:56.0559|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_new.cshtml.a8ce8dad.qyfclhzt.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:49:56.2399|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 19:50:16.8789|INFO|performanceLog|Performance time: 00:00:00.0000786
+2017-07-06 19:50:16.9681|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 19:50:17.4181|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_new.cshtml.a8ce8dad.fbaixwny.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:53:47.6131|INFO|performanceLog|Performance time: 00:00:00.0000517
+2017-07-06 19:53:49.9425|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:53:59.7503|INFO|performanceLog|Performance time: 00:00:00.0000808
+2017-07-06 19:53:59.7758|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:53:59.7984|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The view 'new' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/game/new.aspx
+~/Views/game/new.ascx
+~/Views/Shared/new.aspx
+~/Views/Shared/new.ascx
+~/Views/game/new.cshtml
+~/Views/game/new.vbhtml
+~/Views/Shared/new.cshtml
+~/Views/Shared/new.vbhtml
+2017-07-06 19:54:34.1753|INFO|performanceLog|Performance time: 00:00:00.0000074
+2017-07-06 19:54:34.2696|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:54:34.7468|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.njnje3ar.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:55:24.9434|INFO|performanceLog|Performance time: 00:00:00.0000798
+2017-07-06 19:55:27.3143|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:55:35.8071|INFO|performanceLog|Performance time: 00:00:00.0000493
+2017-07-06 19:55:35.8462|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:55:39.2850|INFO|performanceLog|Performance time: 00:00:00.0000438
+2017-07-06 19:55:39.3266|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:57:14.9736|INFO|performanceLog|Performance time: 00:00:00.0000869
+2017-07-06 19:57:14.9736|INFO|performanceLog|Performance time: 00:00:00.0000907
+2017-07-06 19:57:15.0633|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:57:15.5742|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.vkom016o.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:57:17.3817|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:57:49.1141|INFO|performanceLog|Performance time: 00:00:00.0000002
+2017-07-06 19:57:50.0151|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:57:56.6123|INFO|performanceLog|Performance time: 00:00:00.0000597
+2017-07-06 19:58:03.2658|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:58:05.4844|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.wcsbosjz.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 19:58:36.9550|INFO|performanceLog|Performance time: 00:00:00.0000849
+2017-07-06 19:58:37.0195|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 19:58:37.4702|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.3nsxm4o-.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 20:00:28.1269|INFO|performanceLog|Performance time: 00:00:00.0000982
+2017-07-06 20:00:30.6683|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:00:32.1286|INFO|performanceLog|Performance time: 00:00:00.0000460
+2017-07-06 20:00:32.1471|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:00:34.2755|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.cl9zixc-.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 20:00:58.7587|INFO|performanceLog|Performance time: 00:00:00.0000640
+2017-07-06 20:01:22.5475|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:02:11.3305|INFO|performanceLog|Performance time: 00:00:00.0000273
+2017-07-06 20:02:11.3305|INFO|performanceLog|Performance time: 00:00:00.0000227
+2017-07-06 20:02:11.4057|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:02:11.8950|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.2bhzzebl.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 20:02:12.1968|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 20:02:35.7993|INFO|performanceLog|Performance time: 00:00:00.0000678
+2017-07-06 20:02:35.8605|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 20:02:37.9529|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\vs\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.ryn5uyet.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+2017-07-06 20:03:10.5708|INFO|performanceLog|Performance time: 00:00:00.0000494
+2017-07-06 20:03:10.6104|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 20:03:59.4259|INFO|performanceLog|Performance time: 00:00:00.0000332
+2017-07-06 20:04:01.6629|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 20:04:05.6604|INFO|performanceLog|Performance time: 00:00:00.0000997
+2017-07-06 20:04:05.6774|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 20:04:35.6744|INFO|performanceLog|Performance time: 00:00:00.0000573
+2017-07-06 20:04:35.7592|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-06 20:07:31.6476|INFO|performanceLog|Performance time: 00:00:00.0000513
+2017-07-06 20:07:33.9727|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:10:17.4767|INFO|performanceLog|Performance time: 00:00:00.0000388
+2017-07-06 20:10:19.1099|INFO|performanceLog|Performance time: 00:00:00.0000109
+2017-07-06 20:10:19.1490|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:10:19.6455|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:10:48.8516|INFO|performanceLog|Performance time: 00:00:00.0000761
+2017-07-06 20:10:49.4056|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:12:44.1269|INFO|performanceLog|Performance time: 00:00:00.0000014
+2017-07-06 20:12:45.0388|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:14:51.3933|INFO|performanceLog|Performance time: 00:00:00.0000277
+2017-07-06 20:19:58.4859|INFO|performanceLog|Performance time: 00:00:00.0000392
+2017-07-06 20:19:59.1841|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-06 20:24:30.7689|INFO|performanceLog|Performance time: 00:00:00.0000672
+2017-07-06 20:24:30.8541|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 09:28:39.9572|INFO|performanceLog|Performance time: 00:00:00.0000842
+2017-07-07 09:28:40.8079|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1

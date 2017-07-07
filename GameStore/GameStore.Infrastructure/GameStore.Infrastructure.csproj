@@ -48,14 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Automapper configuration\DomainProfile.cs" />
-    <Compile Include="Ninject configuration\LogNinjectModule.cs" />
-    <Compile Include="Ninject configuration\RepositoryNinjectModule.cs" />
-    <Compile Include="Ninject configuration\ServiceNinjectModule.cs" />
+    <Compile Include="AutomapperConfiguration\DomainProfile.cs" />
+    <Compile Include="NinjectConfiguration\LogNinjectModule.cs" />
+    <Compile Include="NinjectConfiguration\RepositoryNinjectModule.cs" />
+    <Compile Include="NinjectConfiguration\ServiceNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">

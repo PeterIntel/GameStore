@@ -14,6 +14,6 @@ namespace GameStore.Domain.BusinessObjects
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
         public IList<Genre> Genres { set; get; }
-        public virtual IList<Game> Games { set; get; }
+        public IList<Game> Games { set; get; }
     }
 }

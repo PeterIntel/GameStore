@@ -12,7 +12,7 @@ namespace GameStore.Web.ViewModels
         public string Key { set; get; }
         public string Description { set; get; }
         public IList<CommentViewModel> Comments { set; get; }
-        public virtual IList<GenreViewModel> Genres { set; get; }
-        public virtual IList<PlatformTypeViewModel> PlatformTypes { set; get; }
+        public IList<GenreViewModel> Genres { set; get; }
+        public IList<PlatformTypeViewModel> PlatformTypes { set; get; }
     }
 }

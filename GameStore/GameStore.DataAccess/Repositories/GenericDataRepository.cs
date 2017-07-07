@@ -111,7 +111,6 @@ namespace GameStore.DataAccess.Repositories
         {
             if (item != null)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
                 TEntity entity = Mapper.Map<TDomain, TEntity>(item);
                 _dbSet.Attach(entity);
                 _context.Entry(entity).State = EntityState.Modified;

@@ -50,15 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business objects\BasicDomainEntity.cs" />
-    <Compile Include="Business objects\Comment.cs" />
-    <Compile Include="Business objects\Game.cs" />
-    <Compile Include="Business objects\Genre.cs" />
-    <Compile Include="Business objects\PlatformType.cs" />
+    <Compile Include="BusinessObjects\BasicDomainEntity.cs" />
+    <Compile Include="BusinessObjects\Comment.cs" />
+    <Compile Include="BusinessObjects\Game.cs" />
+    <Compile Include="BusinessObjects\Genre.cs" />
+    <Compile Include="BusinessObjects\PlatformType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services interfaces\ICommentService.cs" />
-    <Compile Include="Services interfaces\IGameService.cs" />
-    <Compile Include="Services interfaces\ICrudSevice.cs" />
+    <Compile Include="ServicesInterfaces\ICommentService.cs" />
+    <Compile Include="ServicesInterfaces\IGameService.cs" />
+    <Compile Include="ServicesInterfaces\ICrudSevice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

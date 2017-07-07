@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
-using GameStore.Web.Infrastructure.AutoMapperConfiguration;
 using AutoMapper;
+using GameStore.Web.Infractructure.AutoMapperConfiguration;
 
-namespace GameStore.Infrastructure.Ninject_configuration
+namespace GameStore.Infrastructure.NinjectConfiguration
 {
     public class AutoMapperModule : NinjectModule
     {

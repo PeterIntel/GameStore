@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Ninject.Modules;
 using GameStore.DataAccess.UnitOfWork;
 
-namespace GameStore.Infrastructure.Ninject_configuration
+namespace GameStore.Infrastructure.NinjectConfiguration
 {
     public class ServiceNinjectModule : NinjectModule
     {

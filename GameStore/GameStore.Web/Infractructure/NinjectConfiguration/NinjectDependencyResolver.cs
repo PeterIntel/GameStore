@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using GameStore.Domain.Services_interfaces;
-using GameStore.Services.Services_implementation;
+using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess;
 using Ninject.Web.Common;
 

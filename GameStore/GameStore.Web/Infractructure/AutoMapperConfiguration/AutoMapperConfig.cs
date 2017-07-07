@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using GameStore.Infrastructure.AutomapperConfiguration;
 
-namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
+namespace GameStore.Web.Infractructure.AutoMapperConfiguration
 {
     public static class AutoMapperConfig
     {

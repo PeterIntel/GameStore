@@ -17,11 +17,12 @@ namespace GameStore.DataAccess.Repositories
             GameEntity entity;
             try
             {
-                entity = _dbSet.Where(x => x.Key == key && x.IsDeleted == false).First();
+                var listGameEntities = _dbSet.Where(x => x.Key == key && x.IsDeleted == false);
+                entity = listGameEntities.First();
             }
             catch(Exception ex)
             {
-                throw new Exception(string.Format("Game with the key {0} wasn't found!", key), ex);
+                throw new Exception($"Game with the key {key} wasn't found!", ex);
             }
             
             Game domain = _mapper.Map<GameEntity, Game>(entity);

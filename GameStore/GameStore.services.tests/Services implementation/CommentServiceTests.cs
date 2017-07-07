@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Moq;
-using GameStore.Services.Services_implementation;
+using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using System.Linq.Expressions;

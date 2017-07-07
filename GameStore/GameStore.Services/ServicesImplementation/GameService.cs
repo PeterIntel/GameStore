@@ -9,7 +9,7 @@ using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.Services_interfaces;
 using System.Linq.Expressions;
 
-namespace GameStore.Services.Services_implementation
+namespace GameStore.Services.ServicesImplementation
 {
     public class GameService : IGameService
     {

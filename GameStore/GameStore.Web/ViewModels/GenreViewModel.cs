@@ -14,6 +14,6 @@ namespace GameStore.Web.ViewModels
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
         public IList<GenreViewModel> Genres { set; get; }
-        public virtual IList<GameViewModel> Games { set; get; }
+        public IList<GameViewModel> Games { set; get; }
     }
 }

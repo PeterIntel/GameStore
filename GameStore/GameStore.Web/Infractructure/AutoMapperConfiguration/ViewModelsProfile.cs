@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
-using GameStore.Web.ViewModels;
+﻿using AutoMapper;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Web.ViewModels;
 
-namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
+namespace GameStore.Web.Infractructure.AutoMapperConfiguration
 {
     public class ViewModelsProfile : Profile
     {

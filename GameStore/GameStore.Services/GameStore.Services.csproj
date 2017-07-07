@@ -48,8 +48,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services implementation\CommentService.cs" />
-    <Compile Include="Services implementation\GameService.cs" />
+    <Compile Include="ServicesImplementation\CommentService.cs" />
+    <Compile Include="ServicesImplementation\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
