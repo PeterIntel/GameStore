@@ -1,0 +1,793 @@
+2017-07-05 16:46:16.3828	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.8313
+2017-07-05 16:46:21.4931	INFO	Performance time: 00:00:00.0000110	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		5.9420
+2017-07-05 16:46:25.8805	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		10.3288
+2017-07-05 16:46:28.1792	ERROR	C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.spi8sfcu.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Web.HttpCompileException (0x80004005): C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.spi8sfcu.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	12.6286
+2017-07-05 16:50:29.3797	INFO	Performance time: 00:00:00.0000245	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0573
+2017-07-05 16:50:30.1785	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.7948
+2017-07-05 16:50:34.2403	INFO	Performance time: 00:00:00.0000062	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		4.8567
+2017-07-05 16:50:37.8987	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		8.5154
+2017-07-05 16:50:38.3735	ERROR	C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.sfxazhay.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Web.HttpCompileException (0x80004005): C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.sfxazhay.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	8.9913
+2017-07-05 16:52:15.3212	INFO	Performance time: 00:00:00.0000422	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		105.9376
+2017-07-05 16:52:17.8469	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		108.4647
+2017-07-05 16:52:20.0730	ERROR	C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.ulphvse9.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Web.HttpCompileException (0x80004005): C:\Users\Peter\AppData\Local\Temp\Temporary ASP.NET Files\root\c880baf5\254453b3\App_Web_addgame.cshtml.a8ce8dad.ulphvse9.0.cs(27): error CS0246: The type or namespace name 'GameStoreWebApplication' could not be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	110.6895
+2017-07-05 16:56:21.8477	INFO	Performance time: 00:00:00.0000686	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0642
+2017-07-05 16:56:22.6585	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.8172
+2017-07-05 16:56:25.7525	INFO	Performance time: 00:00:00.0000095	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		3.9113
+2017-07-05 16:56:32.8115	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		10.9701
+2017-07-05 16:56:35.5907	ERROR	D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Views\game\AddGame.cshtml(3): error CS0103: The name 'ViewBag' does not exist in the current context	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Web.HttpCompileException (0x80004005): D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Views\game\AddGame.cshtml(3): error CS0103: The name 'ViewBag' does not exist in the current context
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	13.7503
+2017-07-05 17:04:37.4096	INFO	Performance time: 00:00:00.0000287	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0562
+2017-07-05 17:04:38.3783	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.9660
+2017-07-05 17:04:44.4606	INFO	Performance time: 00:00:00.0000082	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		7.0486
+2017-07-05 17:04:46.4242	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		9.0122
+2017-07-05 17:11:09.3132	INFO	Performance time: 00:00:00.0000215	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0413
+2017-07-05 17:11:09.9479	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.6314
+2017-07-05 17:11:12.8161	INFO	Performance time: 00:00:00.0000868	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		3.4999
+2017-07-05 17:11:12.8376	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		3.5209
+2017-07-05 17:12:23.6270	INFO	Performance time: 00:00:00.0000528	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0341
+2017-07-05 17:12:25.8920	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.2625
+2017-07-05 17:13:04.8958	INFO	Performance time: 00:00:00.0000003	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		41.2659
+2017-07-05 17:13:04.9138	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		41.2840
+2017-07-05 17:13:14.8925	INFO	Performance time: 00:00:00.0000978	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		51.2632
+2017-07-05 17:13:14.9145	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		51.2849
+2017-07-05 17:14:04.9542	INFO	Performance time: 00:00:00.0000862	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0339
+2017-07-05 17:14:07.0447	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.0870
+2017-07-05 17:14:07.0638	ERROR	"Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.FindDestinationFullName(Type typeSource, Type typeDestination, String sourceFullName, List`1 propertyMapInfoList)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitMember(MemberExpression node)
+   at System.Linq.Expressions.MemberExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitBinary(BinaryExpression node)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.Extensions.MapperExtensions.MapExpression[TDestDelegate](IMapper mapper, LambdaExpression expression)
+   at AutoMapper.Mappers.ExpressionMapper.Map[TSource,TDestination](TSource expression, ResolutionContext context)
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, String includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 41
+   at GameStore.Services.Services_implementation.GameService.GetItemByKey(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 33
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 56
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	2.1168
+2017-07-05 17:14:22.9368	INFO	Performance time: 00:00:00.0000893	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		17.9791
+2017-07-05 17:14:22.9548	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		17.9973
+2017-07-05 17:20:05.6745	INFO	Performance time: 00:00:00.0000575	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0435
+2017-07-05 17:20:07.9845	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.3090
+2017-07-05 17:24:49.7711	INFO	Performance time: 00:00:00.0000662	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0369
+2017-07-05 17:24:52.2339	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.4600
+2017-07-05 17:24:52.2474	ERROR	"Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.FindDestinationFullName(Type typeSource, Type typeDestination, String sourceFullName, List`1 propertyMapInfoList)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitMember(MemberExpression node)
+   at System.Linq.Expressions.MemberExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitBinary(BinaryExpression node)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.Extensions.MapperExtensions.MapExpression[TDestDelegate](IMapper mapper, LambdaExpression expression)
+   at AutoMapper.Mappers.ExpressionMapper.Map[TSource,TDestination](TSource expression, ResolutionContext context)
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, String includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 41
+   at GameStore.Services.Services_implementation.GameService.GetItemByKey(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 33
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 56
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	2.4805
+2017-07-05 17:25:25.0947	INFO	Performance time: 00:00:00.0000996	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0345
+2017-07-05 17:25:25.0947	INFO	Performance time: 00:00:00.0000997	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0502
+2017-07-05 17:25:27.2991	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.2014
+2017-07-05 17:25:27.3162	ERROR	"Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.FindDestinationFullName(Type typeSource, Type typeDestination, String sourceFullName, List`1 propertyMapInfoList)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitMember(MemberExpression node)
+   at System.Linq.Expressions.MemberExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitBinary(BinaryExpression node)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.Extensions.MapperExtensions.MapExpression[TDestDelegate](IMapper mapper, LambdaExpression expression)
+   at AutoMapper.Mappers.ExpressionMapper.Map[TSource,TDestination](TSource expression, ResolutionContext context)
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, String includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 41
+   at GameStore.Services.Services_implementation.GameService.GetItemByKey(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 33
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 56
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	2.2282
+2017-07-05 17:25:27.4611	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.3634
+2017-07-05 17:25:43.5336	INFO	Performance time: 00:00:00.0000420	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0301
+2017-07-05 17:25:45.6289	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.0932
+2017-07-05 17:25:45.6514	ERROR	"Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.FindDestinationFullName(Type typeSource, Type typeDestination, String sourceFullName, List`1 propertyMapInfoList)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitMember(MemberExpression node)
+   at System.Linq.Expressions.MemberExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitBinary(BinaryExpression node)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.Extensions.MapperExtensions.MapExpression[TDestDelegate](IMapper mapper, LambdaExpression expression)
+   at AutoMapper.Mappers.ExpressionMapper.Map[TSource,TDestination](TSource expression, ResolutionContext context)
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, String includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 41
+   at GameStore.Services.Services_implementation.GameService.GetItemByKey(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 33
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 56
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	2.1200
+2017-07-05 17:27:16.4387	INFO	Performance time: 00:00:00.0000333	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0344
+2017-07-05 17:27:18.8184	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.3816
+2017-07-05 17:27:38.5557	INFO	Performance time: 00:00:00.0000737	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		22.1184
+2017-07-05 17:27:38.5717	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		22.1348
+2017-07-05 17:27:49.4827	INFO	Performance time: 00:00:00.0000910	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		33.0457
+2017-07-05 17:27:49.5137	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		33.0768
+2017-07-05 17:27:49.5272	ERROR	"Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.FindDestinationFullName(Type typeSource, Type typeDestination, String sourceFullName, List`1 propertyMapInfoList)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitMember(MemberExpression node)
+   at System.Linq.Expressions.MemberExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitBinary(BinaryExpression node)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.Extensions.MapperExtensions.MapExpression[TDestDelegate](IMapper mapper, LambdaExpression expression)
+   at AutoMapper.Mappers.ExpressionMapper.Map[TSource,TDestination](TSource expression, ResolutionContext context)
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, String includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 41
+   at GameStore.Services.Services_implementation.GameService.GetItemByKey(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 33
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 56
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	33.0972
+2017-07-05 17:28:25.6294	INFO	Performance time: 00:00:00.0000522	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0337
+2017-07-05 17:28:27.8587	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.2353
+2017-07-05 17:28:44.0456	INFO	Performance time: 00:00:00.0000187	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		18.4221
+2017-07-05 17:28:44.0652	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		18.4414
+2017-07-05 17:29:09.4391	INFO	Performance time: 00:00:00.0000326	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0296
+2017-07-05 17:29:09.9264	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.4846
+2017-07-05 17:29:09.9400	ERROR	"Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Expression`1 -> Expression`1
+System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_objects.Game, GameStore.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] -> System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.DataAccess.Entities.GameEntity, GameDataAccessLayer.DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.FindDestinationFullName(Type typeSource, Type typeDestination, String sourceFullName, List`1 propertyMapInfoList)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitMember(MemberExpression node)
+   at System.Linq.Expressions.MemberExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.XpressionMapperVisitor.VisitBinary(BinaryExpression node)
+   at System.Linq.Expressions.BinaryExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at AutoMapper.XpressionMapper.Extensions.MapperExtensions.MapExpression[TDestDelegate](IMapper mapper, LambdaExpression expression)
+   at AutoMapper.Mappers.ExpressionMapper.Map[TSource,TDestination](TSource expression, ResolutionContext context)
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Expression`1 , Expression`1 , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, String includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 41
+   at GameStore.Services.Services_implementation.GameService.GetItemByKey(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 33
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 56
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	0.5043
+2017-07-05 17:48:39.3929	INFO	Performance time: 00:00:00.0000291	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0333
+2017-07-05 17:48:41.6681	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.2807
+2017-07-05 17:48:41.7032	ERROR	A circular reference was detected while serializing an object of type 'GameStore.Domain.Business_objects.Game'.	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.InvalidOperationException: A circular reference was detected while serializing an object of type 'GameStore.Domain.Business_objects.Game'.
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeEnumerable(IEnumerable enumerable, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeCustomObject(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeEnumerable(IEnumerable enumerable, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeCustomObject(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeEnumerable(IEnumerable enumerable, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, StringBuilder output, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, SerializationFormat serializationFormat)
+   at System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	2.3183
+2017-07-05 17:49:22.7834	INFO	Performance time: 00:00:00.0000688	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0346
+2017-07-05 17:49:25.0571	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.2710
+2017-07-05 17:50:06.5557	INFO	Performance time: 00:00:00.0000499	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		43.7698
+2017-07-05 17:50:06.5727	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		43.7865
+2017-07-06 14:46:21.0006	INFO	Performance time: 00:00:00.0000899	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0311
+2017-07-06 14:46:23.1454	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		2.1452
+2017-07-06 14:46:23.1574	ERROR	Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	2.1637
+2017-07-06 14:46:57.1860	INFO	Performance time: 00:00:00.0000041	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		36.1855
+2017-07-06 14:46:57.2442	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		36.2433
+2017-07-06 14:46:57.2542	ERROR	Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	36.2539
+2017-07-06 14:47:00.9592	INFO	Performance time: 00:00:00.0000715	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		39.9588
+2017-07-06 14:47:01.0043	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		40.0035
+2017-07-06 14:47:01.0043	ERROR	Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	40.0143
+2017-07-06 14:47:04.1442	INFO	Performance time: 00:00:00.0000139	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		43.1436
+2017-07-06 14:47:04.1858	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		43.1852
+2017-07-06 14:47:04.1961	ERROR	Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	43.1955
+2017-07-06 14:47:06.4094	INFO	Performance time: 00:00:00.0000223	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		45.4087
+2017-07-06 14:47:06.4473	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		45.4466
+2017-07-06 14:47:06.4573	ERROR	Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	45.4570
+2017-07-06 14:49:32.8320	INFO	Performance time: 00:00:00.0000234	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0355
+2017-07-06 14:50:49.1302	INFO	Performance time: 00:00:00.0000024	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0358
+2017-07-06 14:52:30.4738	INFO	Performance time: 00:00:00.0000371	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0367
+2017-07-06 14:53:41.3302	INFO	Performance time: 00:00:00.0000218	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0355
+2017-07-06 14:53:41.7822	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.4492
+2017-07-06 14:53:41.7822	ERROR	There is already an object named 'CommentEntities' in the database.	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.SqlClient.SqlException (0x80131904): There is already an object named 'CommentEntities' in the database.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteSql(MigrationStatement migrationStatement, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinTransaction(IEnumerable`1 migrationStatements, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinNewTransaction(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClass30.<ExecuteStatements>b__2e()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements, DbTransaction existingTransaction)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, VersionedModel targetModel, IEnumerable`1 operations, IEnumerable`1 systemOperations, Boolean downgrading, Boolean auto)
+   at System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:4c318c15-cb50-4d6a-aefc-d14b9e471b95
+Error Number:2714,State:6,Class:16"	0.4726
+2017-07-06 14:55:06.9736	INFO	Performance time: 00:00:00.0000986	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0350
+2017-07-06 15:02:00.7869	INFO	Performance time: 00:00:00.0000689	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0331
+2017-07-06 15:02:01.1871	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.3977
+2017-07-06 15:02:01.1981	ERROR	Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.	Game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException: Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.GetAll(Expression`1 filterDomain, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 38
+   at GameStore.Services.Services_implementation.GameService.GetAll(Expression`1 filter, Expression`1[] includeProperties) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 29
+   at GameStore.Web.Controllers.GameController.GetGames(String key) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 52
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	0.4172
+2017-07-06 15:03:33.3629	INFO	Performance time: 00:00:00.0000261	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0460
+2017-07-06 15:03:38.7210	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		5.3551
+2017-07-06 15:03:50.8027	INFO	Performance time: 00:00:00.0000081	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		17.4367
+2017-07-06 15:03:52.1023	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		18.7362
+2017-07-06 15:05:00.2350	INFO	Performance time: 00:00:00.0000137	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		0.0343
+2017-07-06 15:05:00.9309	INFO	User IP Address: ::1	Game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		0.6928
+2017-07-06 15:05:07.7184	INFO	Performance time: 00:00:00.0000788	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__19 => AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.Begin => WrappedAsyncResult`1.CallBeginDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31 => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive => ActionPerformanceFilter.OnActionExecuting => WrapNLogLogger.Write		7.4806
+2017-07-06 15:05:07.7355	INFO	User IP Address: ::1	game	34	<>c__DisplayClass21.<BeginInvokeAction>b__1e => <>c__DisplayClass2b.<BeginInvokeAction>b__1c => AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32 => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => <>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f => LogIPFilter.OnActionExecuted => WrapNLogLogger.Write		7.4974
+2017-07-06 15:05:07.7355	ERROR	Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.	game	40	WrappedAsyncResultBase`1.End => WrappedAsyncVoid`1.CallEndDelegate => Controller.<BeginExecuteCore>b__1d => AsyncControllerActionInvoker.EndInvokeAction => WrappedAsyncResultBase`1.End => WrappedAsyncResult`1.CallEndDelegate => <>c__DisplayClass21.<BeginInvokeAction>b__1e => ControllerActionInvoker.InvokeExceptionFilters => LogErrorFilter.OnException => WrapNLogLogger.Write	"System.InvalidOperationException: Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.
+   at AutoMapper.Mapper.get_Instance()
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source)
+   at GameStore.DataAccess.Repositories.GenericDataRepository`2.Add(TDomain domainItem) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.DataAccess\Repositories\GenericDataRepository.cs:line 31
+   at GameStore.Services.Services_implementation.GameService.Add(Game item) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Services\Services implementation\GameService.cs:line 23
+   at GameStore.Web.Controllers.GameController.AddGame(Game game) in D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Controllers\GameController.cs:line 26
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)"	7.5178

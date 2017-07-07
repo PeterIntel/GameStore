@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Web", "GameStore.Web\GameStore.Web.csproj", "{211FBB72-6C8E-49AE-94BB-D1078E6EF6D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.DataAccess", "GameStore.DataAccess\GameStore.DataAccess.csproj", "{8E719928-B4D9-4EB4-9851-4C9B8AC4CF86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Services", "GameStore.Services\GameStore.Services.csproj", "{DC9F595C-917A-49AA-B108-6C29E6D1FBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Infrastructure", "GameStore.Infrastructure\GameStore.Infrastructure.csproj", "{795D8A42-9FEA-4750-82E2-A6874ECAE6A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Logging", "GameStore.Logging\GameStore.Logging.csproj", "{610B36F9-1C94-444F-86DE-B5991FA7C1E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{65742FA7-ADB4-4AEE-99B1-B717742BDEA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Services.Tests", "GameStore.services.tests\GameStore.Services.Tests.csproj", "{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Domain", "GameStore.Domain\GameStore.Domain.csproj", "{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{211FBB72-6C8E-49AE-94BB-D1078E6EF6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211FBB72-6C8E-49AE-94BB-D1078E6EF6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211FBB72-6C8E-49AE-94BB-D1078E6EF6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211FBB72-6C8E-49AE-94BB-D1078E6EF6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E719928-B4D9-4EB4-9851-4C9B8AC4CF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E719928-B4D9-4EB4-9851-4C9B8AC4CF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E719928-B4D9-4EB4-9851-4C9B8AC4CF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E719928-B4D9-4EB4-9851-4C9B8AC4CF86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9F595C-917A-49AA-B108-6C29E6D1FBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9F595C-917A-49AA-B108-6C29E6D1FBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9F595C-917A-49AA-B108-6C29E6D1FBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9F595C-917A-49AA-B108-6C29E6D1FBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{795D8A42-9FEA-4750-82E2-A6874ECAE6A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{795D8A42-9FEA-4750-82E2-A6874ECAE6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{795D8A42-9FEA-4750-82E2-A6874ECAE6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{795D8A42-9FEA-4750-82E2-A6874ECAE6A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610B36F9-1C94-444F-86DE-B5991FA7C1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610B36F9-1C94-444F-86DE-B5991FA7C1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610B36F9-1C94-444F-86DE-B5991FA7C1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610B36F9-1C94-444F-86DE-B5991FA7C1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33} = {65742FA7-ADB4-4AEE-99B1-B717742BDEA8}
+	EndGlobalSection
+EndGlobal
