@@ -48,6 +48,7 @@ namespace GameStore.Web.Controllers
                 game.Genres = _genreService.GetGenres(genres);
                 game.PlatformTypes = _platformTypeService.GetPlatformTypes(platforms);
                 _gameService.Add(game);
+                RedirectToAction("GetGames");
             }
             return View(gameViewModel);
         }
