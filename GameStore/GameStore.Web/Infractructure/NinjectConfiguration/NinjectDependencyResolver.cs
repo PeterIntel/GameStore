@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
-using GameStore.Domain.Services_interfaces;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess;
+using GameStore.DataAccess.Context;
 using Ninject.Web.Common;
 
 namespace GameStore.Web.Infrastructure.NinjectConfiguration
@@ -34,6 +35,8 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
             _kernel.Bind<GamesContext>().ToSelf().InRequestScope();
             _kernel.Bind<IGameService>().To<GameService>();
             _kernel.Bind<ICommentService>().To<CommentService>();
+            _kernel.Bind<IGenreService>().To<GenreService>();
+            _kernel.Bind<IPlatformTypeService>().To<PlatformTypeService>();
         }
     }
 }

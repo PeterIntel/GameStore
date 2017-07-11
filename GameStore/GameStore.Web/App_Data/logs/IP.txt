@@ -234,3 +234,419 @@ System.Linq.Expressions.Expression`1[[System.Func`2[[GameStore.Domain.Business_o
 2017-07-06 20:24:30.8541|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-07 09:28:39.9572|INFO|performanceLog|Performance time: 00:00:00.0000842
 2017-07-07 09:28:40.8079|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 13:34:57.2667|INFO|performanceLog|Performance time: 00:00:00.0000142
+2017-07-07 13:34:58.1934|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 13:34:58.2458|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|A circular reference was detected while serializing an object of type 'GameStore.Domain.BusinessObjects.Game'.
+2017-07-07 13:36:57.8469|INFO|performanceLog|Performance time: 00:00:00.0000747
+2017-07-07 13:36:58.7096|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 13:42:13.9404|INFO|performanceLog|Performance time: 00:00:00.0000804
+2017-07-07 13:45:21.2817|INFO|performanceLog|Performance time: 00:00:00.0000141
+2017-07-07 13:54:12.3768|INFO|performanceLog|Performance time: 00:00:00.0000273
+2017-07-07 13:54:13.0063|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 13:54:50.5795|INFO|performanceLog|Performance time: 00:00:00.0000461
+2017-07-07 13:54:53.1607|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 13:56:38.9925|INFO|performanceLog|Performance time: 00:00:00.0000832
+2017-07-07 13:56:39.0205|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 18:08:50.5023|INFO|performanceLog|Performance time: 00:00:00.0000388
+2017-07-07 18:08:50.5993|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 18:12:51.1736|INFO|performanceLog|Performance time: 00:00:00.0000068
+2017-07-07 18:12:51.2618|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 18:12:56.6555|INFO|performanceLog|Performance time: 00:00:00.0000392
+2017-07-07 18:12:56.7181|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-07 18:13:50.1579|INFO|performanceLog|Performance time: 00:00:00.0000040
+2017-07-07 18:13:50.2501|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 12:47:37.4692|INFO|performanceLog|Performance time: 00:00:00.0000340
+2017-07-10 12:47:37.4692|INFO|performanceLog|Performance time: 00:00:00.0000400
+2017-07-10 12:47:37.5819|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 12:47:38.2490|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 12:47:38.9057|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Views\Shared\EditorTemplates\GameViewModel.cshtml(15): error CS1501: No overload for method 'LabelFor' takes 0 arguments
+2017-07-10 12:48:24.2822|INFO|performanceLog|Performance time: 00:00:00.0000120
+2017-07-10 12:48:26.8483|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 12:48:31.1302|INFO|performanceLog|Performance time: 00:00:00.0000282
+2017-07-10 12:48:31.1638|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 15:42:12.6423|INFO|performanceLog|Performance time: 00:00:00.0000536
+2017-07-10 15:42:13.3103|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 15:42:20.4808|INFO|performanceLog|Performance time: 00:00:00.0000171
+2017-07-10 15:42:20.5144|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 15:42:21.8541|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-10 15:54:23.2554|INFO|performanceLog|Performance time: 00:00:00.0000164
+2017-07-10 15:54:25.5755|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 15:54:32.0746|INFO|performanceLog|Performance time: 00:00:00.0000499
+2017-07-10 15:54:32.0996|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 15:54:33.2586|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-10 15:55:12.5170|INFO|performanceLog|Performance time: 00:00:00.0000407
+2017-07-10 15:55:12.5913|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 16:07:17.3594|INFO|performanceLog|Performance time: 00:00:00.0000210
+2017-07-10 16:10:12.6430|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 16:10:19.7092|INFO|performanceLog|Performance time: 00:00:00.0000066
+2017-07-10 16:10:25.3139|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 16:59:06.5663|INFO|performanceLog|Performance time: 00:00:00.0000469
+2017-07-10 16:59:07.3143|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 16:59:57.4876|INFO|performanceLog|Performance time: 00:00:00.0000174
+2017-07-10 16:59:57.5327|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 17:29:00.0326|INFO|performanceLog|Performance time: 00:00:00.0000934
+2017-07-10 17:29:02.0755|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 17:29:05.7115|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-10 17:36:46.9742|INFO|performanceLog|Performance time: 00:00:00.0000877
+2017-07-10 17:36:49.0824|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 17:38:31.4988|INFO|performanceLog|Performance time: 00:00:00.0000415
+2017-07-10 17:38:31.5554|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:24:10.5526|INFO|performanceLog|Performance time: 00:00:00.0000441
+2017-07-10 19:24:16.2733|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:24:20.4586|INFO|performanceLog|Performance time: 00:00:00.0000185
+2017-07-10 19:24:28.9317|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:25:47.2989|INFO|performanceLog|Performance time: 00:00:00.0000183
+2017-07-10 19:25:54.5685|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:26:11.1358|INFO|performanceLog|Performance time: 00:00:00.0000567
+2017-07-10 19:26:17.2676|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:26:55.5639|INFO|performanceLog|Performance time: 00:00:00.0000422
+2017-07-10 19:26:58.4582|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:27:01.1476|INFO|performanceLog|Performance time: 00:00:00.0000690
+2017-07-10 19:27:07.0990|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:27:15.8826|INFO|performanceLog|Performance time: 00:00:00.0000783
+2017-07-10 19:29:24.9560|INFO|performanceLog|Performance time: 00:00:00.0000801
+2017-07-10 19:29:35.1940|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:29:40.5625|INFO|performanceLog|Performance time: 00:00:00.0000368
+2017-07-10 19:29:40.6235|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:29:41.0550|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Encountered end tag "br" with no matching start tag.  Are your start/end tags properly balanced?
+
+2017-07-10 19:30:52.7827|INFO|performanceLog|Performance time: 00:00:00.0000608
+2017-07-10 19:30:53.7602|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:30:53.8584|INFO|performanceLog|Performance time: 00:00:00.0000098
+2017-07-10 19:30:53.9235|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:31:04.9702|INFO|performanceLog|Performance time: 00:00:00.0000047
+2017-07-10 19:33:35.9249|INFO|performanceLog|Performance time: 00:00:00.0000818
+2017-07-10 19:33:35.9249|INFO|performanceLog|Performance time: 00:00:00.0000820
+2017-07-10 19:33:36.9382|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:33:36.9382|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:33:43.2288|INFO|performanceLog|Performance time: 00:00:00.0000287
+2017-07-10 19:36:34.0343|INFO|performanceLog|Performance time: 00:00:00.0000936
+2017-07-10 19:36:34.6859|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:36:35.8135|INFO|performanceLog|Performance time: 00:00:00.0000128
+2017-07-10 19:36:35.8659|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:36:54.9579|INFO|performanceLog|Performance time: 00:00:00.0000092
+2017-07-10 19:36:54.9930|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:36:55.0081|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-10 19:38:02.3627|INFO|performanceLog|Performance time: 00:00:00.0000225
+2017-07-10 19:38:03.3096|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:38:05.1542|INFO|performanceLog|Performance time: 00:00:00.0000845
+2017-07-10 19:38:05.2395|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:38:16.3080|INFO|performanceLog|Performance time: 00:00:00.0000068
+2017-07-10 19:48:45.3168|INFO|performanceLog|Performance time: 00:00:00.0000218
+2017-07-10 19:48:45.9921|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:48:53.8722|INFO|performanceLog|Performance time: 00:00:00.0000881
+2017-07-10 19:48:53.9379|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:49:01.9274|INFO|performanceLog|Performance time: 00:00:00.0000990
+2017-07-10 19:49:01.9595|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:49:01.9726|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-10 19:50:35.0167|INFO|performanceLog|Performance time: 00:00:00.0000872
+2017-07-10 19:50:36.1191|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:50:39.8117|INFO|performanceLog|Performance time: 00:00:00.0000692
+2017-07-10 19:50:54.8880|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-10 19:51:06.3278|INFO|performanceLog|Performance time: 00:00:00.0000442
+2017-07-11 10:48:23.3024|INFO|performanceLog|Performance time: 00:00:00.0000169
+2017-07-11 10:48:24.3220|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 10:48:30.0383|INFO|performanceLog|Performance time: 00:00:00.0000716
+2017-07-11 10:48:36.9096|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 10:48:55.8490|INFO|performanceLog|Performance time: 00:00:00.0000939
+2017-07-11 11:28:29.1793|INFO|performanceLog|Performance time: 00:00:00.0000033
+2017-07-11 11:28:30.1280|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:28:35.7493|INFO|performanceLog|Performance time: 00:00:00.0000621
+2017-07-11 11:28:38.1561|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:29:54.9738|INFO|performanceLog|Performance time: 00:00:00.0000829
+2017-07-11 11:29:55.9782|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:30:03.2590|INFO|performanceLog|Performance time: 00:00:00.0000281
+2017-07-11 11:30:12.1121|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:31:08.5370|INFO|performanceLog|Performance time: 00:00:00.0000413
+2017-07-11 11:31:09.5183|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:31:16.5498|INFO|performanceLog|Performance time: 00:00:00.0000032
+2017-07-11 11:31:16.5748|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:31:41.6479|INFO|performanceLog|Performance time: 00:00:00.0000513
+2017-07-11 11:31:42.6778|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:31:48.7481|INFO|performanceLog|Performance time: 00:00:00.0000070
+2017-07-11 11:31:48.8073|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:32:14.4041|INFO|performanceLog|Performance time: 00:00:00.0000596
+2017-07-11 11:32:27.0714|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:32:27.1225|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-11 11:32:30.5676|INFO|performanceLog|Performance time: 00:00:00.0000496
+2017-07-11 11:32:30.6017|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:36:42.1315|INFO|performanceLog|Performance time: 00:00:00.0000989
+2017-07-11 11:36:43.2087|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:36:48.4058|INFO|performanceLog|Performance time: 00:00:00.0000197
+2017-07-11 11:36:48.4611|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:38:03.6843|INFO|performanceLog|Performance time: 00:00:00.0000544
+2017-07-11 11:38:04.6499|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:38:11.5469|INFO|performanceLog|Performance time: 00:00:00.0000897
+2017-07-11 11:38:11.6116|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:39:11.2916|INFO|performanceLog|Performance time: 00:00:00.0000163
+2017-07-11 11:39:12.2836|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:39:14.3643|INFO|performanceLog|Performance time: 00:00:00.0000081
+2017-07-11 11:39:14.4288|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:39:38.8566|INFO|performanceLog|Performance time: 00:00:00.0000427
+2017-07-11 11:41:32.6623|INFO|performanceLog|Performance time: 00:00:00.0000531
+2017-07-11 11:41:33.6271|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:41:42.0248|INFO|performanceLog|Performance time: 00:00:00.0000398
+2017-07-11 11:41:42.0909|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:41:50.5338|INFO|performanceLog|Performance time: 00:00:00.0000442
+2017-07-11 11:44:26.6485|INFO|performanceLog|Performance time: 00:00:00.0000511
+2017-07-11 11:44:26.6485|INFO|performanceLog|Performance time: 00:00:00.0000511
+2017-07-11 11:44:27.7153|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:44:27.7153|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 11:44:56.9364|INFO|performanceLog|Performance time: 00:00:00.0000218
+2017-07-11 12:12:39.5064|INFO|performanceLog|Performance time: 00:00:00.0000388
+2017-07-11 12:12:52.1839|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 12:12:52.2155|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Missing map from GameStore.DataAccess.Entities.CommentEntity to GameStore.Domain.BusinessObjects.Comment. Create using Mapper.CreateMap<CommentEntity, Comment>.
+2017-07-11 12:18:38.7585|INFO|performanceLog|Performance time: 00:00:00.0000654
+2017-07-11 12:19:03.9514|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 12:19:04.0739|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 12:19:42.6485|INFO|performanceLog|Performance time: 00:00:00.0000522
+2017-07-11 12:20:15.1701|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 12:20:15.2957|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 12:20:55.9273|INFO|performanceLog|Performance time: 00:00:00.0000816
+2017-07-11 12:21:01.1790|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 12:21:01.2151|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 12:23:00.5586|INFO|performanceLog|Performance time: 00:00:00.0000444
+2017-07-11 12:23:13.4416|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 12:23:13.4696|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 12:49:58.6326|INFO|performanceLog|Performance time: 00:00:00.0000525
+2017-07-11 12:50:12.1189|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 12:50:12.1500|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 13:16:02.2891|INFO|performanceLog|Performance time: 00:00:00.0000178
+2017-07-11 13:16:14.3797|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:16:14.4158|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 13:19:15.5532|INFO|performanceLog|Performance time: 00:00:00.0000443
+2017-07-11 13:19:19.2495|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:20:27.4948|INFO|performanceLog|Performance time: 00:00:00.0000376
+2017-07-11 13:20:31.4074|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:20:31.4309|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 13:21:17.3830|INFO|performanceLog|Performance time: 00:00:00.0000273
+2017-07-11 13:21:20.0729|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:31:52.0068|INFO|performanceLog|Performance time: 00:00:00.0000907
+2017-07-11 13:32:04.0033|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:35:20.5059|INFO|performanceLog|Performance time: 00:00:00.0000387
+2017-07-11 13:35:23.4929|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:43:04.4761|INFO|performanceLog|Performance time: 00:00:00.0000361
+2017-07-11 13:43:08.1292|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:43:08.1548|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Genre' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 13:43:58.9282|INFO|performanceLog|Performance time: 00:00:00.0000821
+2017-07-11 13:43:59.5955|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:44:47.2892|INFO|performanceLog|Performance time: 00:00:00.0000178
+2017-07-11 13:44:49.5430|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:44:49.5561|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 13:45:25.4441|INFO|performanceLog|Performance time: 00:00:00.0000348
+2017-07-11 13:45:27.5817|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:46:38.8804|INFO|performanceLog|Performance time: 00:00:00.0000784
+2017-07-11 13:46:40.9192|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:46:40.9307|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 13:49:04.7399|INFO|performanceLog|Performance time: 00:00:00.0000611
+2017-07-11 13:49:07.0329|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 13:49:07.0454|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:12:25.1937|INFO|performanceLog|Performance time: 00:00:00.0000082
+2017-07-11 14:12:32.5629|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:12:32.5905|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:14:20.5704|INFO|performanceLog|Performance time: 00:00:00.0000416
+2017-07-11 14:14:21.3108|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:14:58.0090|INFO|performanceLog|Performance time: 00:00:00.0000898
+2017-07-11 14:15:01.8977|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:15:01.9208|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:17:16.8976|INFO|performanceLog|Performance time: 00:00:00.0000777
+2017-07-11 14:17:19.4935|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:20:32.1833|INFO|performanceLog|Performance time: 00:00:00.0000076
+2017-07-11 14:20:35.0479|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:25:17.3498|INFO|performanceLog|Performance time: 00:00:00.0000242
+2017-07-11 14:25:29.0364|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:25:29.0765|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:33:54.3366|INFO|performanceLog|Performance time: 00:00:00.0000200
+2017-07-11 14:38:53.6354|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:38:53.6354|INFO|performanceLog|Performance time: 00:00:00.0000005
+2017-07-11 14:38:56.3746|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:39:22.3038|INFO|performanceLog|Performance time: 00:00:00.0000186
+2017-07-11 14:39:29.8080|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:39:29.8311|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:42:30.7247|INFO|performanceLog|Performance time: 00:00:00.0000618
+2017-07-11 14:42:31.3861|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:42:31.3971|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:42:37.8129|INFO|performanceLog|Performance time: 00:00:00.0000427
+2017-07-11 14:42:37.8300|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:42:37.8430|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:42:41.4923|INFO|performanceLog|Performance time: 00:00:00.0000662
+2017-07-11 14:42:41.5133|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:42:41.5254|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:43:00.1482|INFO|performanceLog|Performance time: 00:00:00.0000011
+2017-07-11 14:43:02.5288|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:43:02.5429|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:49:46.2720|INFO|performanceLog|Performance time: 00:00:00.0000153
+2017-07-11 14:50:42.6314|INFO|performanceLog|Performance time: 00:00:00.0000525
+2017-07-11 14:50:48.0512|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:51:44.1795|INFO|performanceLog|Performance time: 00:00:00.0000072
+2017-07-11 14:51:44.8444|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:52:43.3031|INFO|performanceLog|Performance time: 00:00:00.0000204
+2017-07-11 14:52:45.3512|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 14:52:45.3512|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 14:53:06.9748|INFO|performanceLog|Performance time: 00:00:00.0000879
+2017-07-11 14:53:09.1419|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:05:59.7426|INFO|performanceLog|Performance time: 00:00:00.0000626
+2017-07-11 15:06:02.4944|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:06:02.5220|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 15:06:28.6936|INFO|performanceLog|Performance time: 00:00:00.0000581
+2017-07-11 15:06:34.8019|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:06:34.8259|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 15:07:02.1481|INFO|performanceLog|Performance time: 00:00:00.0000033
+2017-07-11 15:07:52.1351|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:07:52.1797|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Game' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-11 15:08:21.6049|INFO|performanceLog|Performance time: 00:00:00.0000492
+2017-07-11 15:08:25.0396|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:38:42.8665|INFO|performanceLog|Performance time: 00:00:00.0000744
+2017-07-11 15:38:43.4511|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:38:43.4616|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+2017-07-11 15:44:25.0991|INFO|performanceLog|Performance time: 00:00:00.0000004
+2017-07-11 15:44:27.2212|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:44:27.2333|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The object 'FK_dbo.Comments_dbo.Comments_Comment_Id' is dependent on column 'CommentEntity_Id'.
+ALTER TABLE DROP COLUMN CommentEntity_Id failed because one or more objects access this column.
+2017-07-11 15:46:14.9455|INFO|performanceLog|Performance time: 00:00:00.0000841
+2017-07-11 15:46:19.1280|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:46:19.1536|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The object 'FK_dbo.Comments_dbo.Comments_Comment_Id' is dependent on column 'CommentEntity_Id'.
+ALTER TABLE DROP COLUMN CommentEntity_Id failed because one or more objects access this column.
+2017-07-11 15:48:38.2427|INFO|performanceLog|Performance time: 00:00:00.0000136
+2017-07-11 15:48:49.4612|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:48:49.4612|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 15:49:41.2717|INFO|performanceLog|Performance time: 00:00:00.0000137
+2017-07-11 15:50:48.7407|INFO|performanceLog|Performance time: 00:00:00.0000631
+2017-07-11 15:50:48.8108|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:50:48.8204|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.
+2017-07-11 15:54:42.6457|INFO|performanceLog|Performance time: 00:00:00.0000538
+2017-07-11 15:54:43.6192|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:54:43.6433|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 15:57:08.0685|INFO|performanceLog|Performance time: 00:00:00.0000962
+2017-07-11 15:57:09.0429|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:57:09.0705|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 15:59:08.1779|INFO|performanceLog|Performance time: 00:00:00.0000059
+2017-07-11 15:59:08.5845|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 15:59:08.6108|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 16:00:15.1337|INFO|performanceLog|Performance time: 00:00:00.0000008
+2017-07-11 16:01:36.4112|INFO|performanceLog|Performance time: 00:00:00.0000267
+2017-07-11 16:01:48.4763|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:01:48.5094|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 16:05:06.3333|INFO|performanceLog|Performance time: 00:00:00.0000223
+2017-07-11 16:05:10.6847|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:05:10.7084|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 16:06:13.5074|INFO|performanceLog|Performance time: 00:00:00.0000402
+2017-07-11 16:06:14.1454|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:06:14.1580|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 16:51:04.2414|INFO|performanceLog|Performance time: 00:00:00.0000142
+2017-07-11 16:51:06.5096|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:51:06.5211|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 16:51:29.4117|INFO|performanceLog|Performance time: 00:00:00.0000307
+2017-07-11 16:51:35.4244|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:51:35.4485|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot find the object "dbo.CommentEntities" because it does not exist or you do not have permissions.
+2017-07-11 16:56:53.0834|INFO|performanceLog|Performance time: 00:00:00.0000989
+2017-07-11 16:57:04.7893|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:58:02.0206|INFO|performanceLog|Performance time: 00:00:00.0000899
+2017-07-11 16:58:04.1632|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 16:58:04.1632|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-11 16:58:55.6618|INFO|performanceLog|Performance time: 00:00:00.0000550
+2017-07-11 16:58:57.6637|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:21:36.7402|INFO|performanceLog|Performance time: 00:00:00.0000633
+2017-07-11 17:21:44.5687|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:22:13.2355|INFO|performanceLog|Performance time: 00:00:00.0000667
+2017-07-11 17:22:24.8277|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:22:40.2684|INFO|performanceLog|Performance time: 00:00:00.0000441
+2017-07-11 17:23:29.5050|INFO|performanceLog|Performance time: 00:00:00.0000377
+2017-07-11 17:23:33.3385|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:23:43.7582|INFO|performanceLog|Performance time: 00:00:00.0000419
+2017-07-11 17:23:46.7787|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:23:56.6226|INFO|performanceLog|Performance time: 00:00:00.0000843
+2017-07-11 17:31:22.4582|INFO|performanceLog|Performance time: 00:00:00.0000342
+2017-07-11 17:31:25.8993|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:31:33.7534|INFO|performanceLog|Performance time: 00:00:00.0000854
+2017-07-11 17:31:36.5977|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:31:46.2477|INFO|performanceLog|Performance time: 00:00:00.0000650
+2017-07-11 17:34:32.1738|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:34:32.2453|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-11 17:49:39.0086|INFO|performanceLog|Performance time: 00:00:00.0000878
+2017-07-11 17:49:42.3321|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:49:52.7062|INFO|performanceLog|Performance time: 00:00:00.0000375
+2017-07-11 17:49:56.1994|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 17:50:07.1179|INFO|performanceLog|Performance time: 00:00:00.0000918
+2017-07-11 17:50:24.3768|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 18:59:50.1465|INFO|performanceLog|Performance time: 00:00:00.0000043
+2017-07-11 18:59:50.7139|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:00:13.6428|INFO|performanceLog|Performance time: 00:00:00.0000928
+2017-07-11 19:00:13.7040|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:04:11.5373|INFO|performanceLog|Performance time: 00:00:00.0000411
+2017-07-11 19:04:16.4721|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:04:21.3931|INFO|performanceLog|Performance time: 00:00:00.0000922
+2017-07-11 19:04:21.4696|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:06:12.6964|INFO|performanceLog|Performance time: 00:00:00.0000580
+2017-07-11 19:06:13.4837|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:06:15.1430|INFO|performanceLog|Performance time: 00:00:00.0000659
+2017-07-11 19:06:15.2142|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:06:23.5213|INFO|performanceLog|Performance time: 00:00:00.0000307
+2017-07-11 19:06:41.7151|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:06:49.5700|INFO|performanceLog|Performance time: 00:00:00.0000854
+2017-07-11 19:06:51.2692|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:06:51.2962|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-07-11 19:12:37.3833|INFO|performanceLog|Performance time: 00:00:00.0000287
+2017-07-11 19:12:37.9143|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:12:48.0146|INFO|performanceLog|Performance time: 00:00:00.0000100
+2017-07-11 19:12:48.0773|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:12:57.4624|INFO|performanceLog|Performance time: 00:00:00.0000385
+2017-07-11 19:12:57.5145|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:13:04.3042|INFO|performanceLog|Performance time: 00:00:00.0000789
+2017-07-11 19:13:04.3327|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:13:05.7020|INFO|performanceLog|Performance time: 00:00:00.0000369
+2017-07-11 19:13:05.7211|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:13:05.7336|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-07-11 19:14:56.6643|INFO|performanceLog|Performance time: 00:00:00.0000569
+2017-07-11 19:14:57.1871|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:15:06.8509|INFO|performanceLog|Performance time: 00:00:00.0000664
+2017-07-11 19:15:06.9131|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:15:15.4899|INFO|performanceLog|Performance time: 00:00:00.0000576
+2017-07-11 19:15:15.5335|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:17:11.9614|INFO|performanceLog|Performance time: 00:00:00.0000863
+2017-07-11 19:17:13.8578|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:17:25.8066|INFO|performanceLog|Performance time: 00:00:00.0000949
+2017-07-11 19:17:25.8768|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:17:35.1963|INFO|performanceLog|Performance time: 00:00:00.0000319
+2017-07-11 19:17:35.2477|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:11.8199|INFO|performanceLog|Performance time: 00:00:00.0000707
+2017-07-11 19:38:14.1859|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:25.9450|INFO|performanceLog|Performance time: 00:00:00.0000759
+2017-07-11 19:38:26.0207|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:35.6064|INFO|performanceLog|Performance time: 00:00:00.0000586
+2017-07-11 19:38:35.6551|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:42.8691|INFO|performanceLog|Performance time: 00:00:00.0000214
+2017-07-11 19:38:42.9623|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:51.0303|INFO|performanceLog|Performance time: 00:00:00.0000068
+2017-07-11 19:38:51.0714|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:54.3764|INFO|performanceLog|Performance time: 00:00:00.0000304
+2017-07-11 19:38:54.3990|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:38:54.4155|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-07-11 19:38:57.5181|INFO|performanceLog|Performance time: 00:00:00.0000119
+2017-07-11 19:38:57.5407|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:39:13.9941|INFO|performanceLog|Performance time: 00:00:00.0000453
+2017-07-11 19:39:14.0718|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:39:22.2615|INFO|performanceLog|Performance time: 00:00:00.0000189
+2017-07-11 19:39:22.3457|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:44:17.3959|INFO|performanceLog|Performance time: 00:00:00.0000246
+2017-07-11 19:44:18.2177|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:44:38.6359|INFO|performanceLog|Performance time: 00:00:00.0000418
+2017-07-11 19:44:38.7171|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 19:44:46.3905|INFO|performanceLog|Performance time: 00:00:00.0000673
+2017-07-11 20:44:44.4321|INFO|performanceLog|Performance time: 00:00:00.0000316
+2017-07-11 20:44:45.2844|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 20:45:00.1349|INFO|performanceLog|Performance time: 00:00:00.0000851
+2017-07-11 20:45:00.2302|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 20:45:12.0730|INFO|performanceLog|Performance time: 00:00:00.0000842
+2017-07-11 20:47:53.8658|INFO|performanceLog|Performance time: 00:00:00.0000749
+2017-07-11 20:47:54.7433|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 20:49:25.9247|INFO|performanceLog|Performance time: 00:00:00.0000181
+2017-07-11 20:49:26.0069|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 20:49:35.1633|INFO|performanceLog|Performance time: 00:00:00.0000156
+2017-07-11 20:49:45.9020|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 20:49:57.6941|INFO|performanceLog|Performance time: 00:00:00.0000794
+2017-07-11 20:49:59.7810|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-11 20:50:04.7561|INFO|performanceLog|Performance time: 00:00:00.0000975

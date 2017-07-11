@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class Comment : BasicDomainEntity
+    public class Comment
     {
         public int Id { set; get; }
         public string Name { set; get; }
@@ -14,6 +14,6 @@ namespace GameStore.Domain.BusinessObjects
         public int? ParentCommentId { set; get; }
         public int? GameId { set; get; }
         public Game Game { set; get; }
-        public IList<Comment> Comments { set; get; }
+        public IEnumerable<Comment> Comments { set; get; }
     }
 }

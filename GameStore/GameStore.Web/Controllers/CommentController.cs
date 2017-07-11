@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.DataAccess.Entities;
-using GameStore.Domain.Services_interfaces;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Domain.BusinessObjects;
 using System.Web.UI;
 using AutoMapper;

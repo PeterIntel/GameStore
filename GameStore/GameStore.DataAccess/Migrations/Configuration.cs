@@ -1,3 +1,5 @@
+using GameStore.DataAccess.Context;
+
 namespace GameStore.DataAccess.Migrations
 {
     using System;
@@ -7,14 +9,15 @@ namespace GameStore.DataAccess.Migrations
     using GameStore.DataAccess.Entities;
     using System.Collections.Generic;
 
-    public sealed class Configuration : DbMigrationsConfiguration<GameStore.DataAccess.GamesContext>
+    public sealed class Configuration : DbMigrationsConfiguration<GamesContext>
     {
         public Configuration()
         {
-
+            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(GameStore.DataAccess.GamesContext context)
+        protected override void Seed(GamesContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -43,8 +46,8 @@ namespace GameStore.DataAccess.Migrations
                     Key = "Age of Empires",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 7).First() }
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.Id == 1), context.PlatformTypes.First(x => x.Id == 2) },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) }
                 },
 
                 new GameEntity()

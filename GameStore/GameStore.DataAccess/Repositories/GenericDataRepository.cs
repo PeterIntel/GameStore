@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
+using GameStore.DataAccess.Context;
 
 namespace GameStore.DataAccess.Repositories
 {
-    public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : BasicDomainEntity
+    public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : class
     {
         protected GamesContext _context;
         protected DbSet<TEntity> _dbSet;
@@ -28,7 +29,7 @@ namespace GameStore.DataAccess.Repositories
         {
             if (domainItem != null)
             {
-                var item = Mapper.Map<TDomain, TEntity>(domainItem);
+                var item = _mapper.Map<TDomain, TEntity>(domainItem);
                 _dbSet.Add(item);
             }
         }
@@ -80,7 +81,7 @@ namespace GameStore.DataAccess.Repositories
 
             if (entity != null && entity.IsDeleted == false)
             {
-                TDomain domain = Mapper.Map<TEntity, TDomain>(entity);
+                TDomain domain = _mapper.Map<TEntity, TDomain>(entity);
                 return domain;
             }
 
@@ -91,7 +92,7 @@ namespace GameStore.DataAccess.Repositories
         {
             if (item != null)
             {
-                TEntity entity = Mapper.Map<TDomain, TEntity>(item);
+                TEntity entity = _mapper.Map<TDomain, TEntity>(item);
                 entity.IsDeleted = true;
             }
         }

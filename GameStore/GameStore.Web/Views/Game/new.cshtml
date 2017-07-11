@@ -6,5 +6,11 @@
 
 <h2>AddGame</h2>
 
-@Html.EditorForModel()
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+
+    <br>
+    <input type="submit" value="Add game"/>
+}
 

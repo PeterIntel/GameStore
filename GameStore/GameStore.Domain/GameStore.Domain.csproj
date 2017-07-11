@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjects\BasicDomainEntity.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\Game.cs" />
     <Compile Include="BusinessObjects\Genre.cs" />
@@ -59,6 +58,8 @@
     <Compile Include="ServicesInterfaces\ICommentService.cs" />
     <Compile Include="ServicesInterfaces\IGameService.cs" />
     <Compile Include="ServicesInterfaces\ICrudSevice.cs" />
+    <Compile Include="ServicesInterfaces\IGenreService.cs" />
+    <Compile Include="ServicesInterfaces\IPlatformTypeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

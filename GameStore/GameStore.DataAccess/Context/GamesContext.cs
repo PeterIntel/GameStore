@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using GameStore.DataAccess.Entities;
 
-namespace GameStore.DataAccess
+namespace GameStore.DataAccess.Context
 {
     public class GamesContext : DbContext
     {
         public GamesContext() : base("GamesContext")
         {
-
+            //this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<CommentEntity> Comments { set; get; }

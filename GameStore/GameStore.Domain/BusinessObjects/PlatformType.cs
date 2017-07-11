@@ -8,10 +8,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class PlatformType : BasicDomainEntity
+    public class PlatformType
     {
         public int Id { set; get; }
         public string TypeName { set; get; }
-        public IList<Game> Games { set; get; }
+        public IEnumerable<Game> Games { set; get; }
     }
 }

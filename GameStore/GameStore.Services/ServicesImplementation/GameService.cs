@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
-using GameStore.Domain.Services_interfaces;
+using GameStore.Domain.ServicesInterfaces;
 using System.Linq.Expressions;
 
 namespace GameStore.Services.ServicesImplementation
 {
     public class GameService : IGameService
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         public GameService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;

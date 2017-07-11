@@ -10,9 +10,9 @@ namespace GameStore.Web.ViewModels
 {
     public class GenreViewModel
     {
-        public int Id { set; get; }
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
+        public bool IsChecked { set; get; }
         public IList<GenreViewModel> Genres { set; get; }
         public IList<GameViewModel> Games { set; get; }
     }

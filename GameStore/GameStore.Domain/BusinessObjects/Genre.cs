@@ -8,12 +8,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class Genre : BasicDomainEntity 
+    public class Genre
     {
         public int Id { set; get; }
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
-        public IList<Genre> Genres { set; get; }
-        public IList<Game> Games { set; get; }
+        public IEnumerable<Genre> Genres { set; get; }
+        public IEnumerable<Game> Games { set; get; }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStore.Domain.Services_interfaces
+namespace GameStore.Domain.ServicesInterfaces
 {
     public interface ICrudService<T> where T:class
     {

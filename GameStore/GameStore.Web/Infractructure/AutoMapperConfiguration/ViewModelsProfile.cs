@@ -16,6 +16,8 @@ namespace GameStore.Web.Infractructure.AutoMapperConfiguration
             CreateMap<Genre, GenreViewModel>();
             CreateMap<PlatformTypeViewModel, PlatformType>();
             CreateMap<PlatformType, PlatformTypeViewModel>();
+            CreateMap<GenreViewModel, string>().ConstructUsing(src => src.Name ?? string.Empty);
+            CreateMap<PlatformTypeViewModel, string>().ConstructUsing(src => src.TypeName ?? string.Empty);
         }
     }
 }

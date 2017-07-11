@@ -17,10 +17,10 @@ namespace GameStore.DataAccess.Entities
         public string Key { set; get; }
         public string Description { set; get; }
 
-        public virtual IList<CommentEntity> Comments { set; get; }
+        public virtual IEnumerable<CommentEntity> Comments { set; get; }
 
-        public virtual IList<GenreEntity> Genres { set; get; }
+        public virtual IEnumerable<GenreEntity> Genres { set; get; }
 
-        public virtual IList<PlatformTypeEntity> PlatformTypes { set; get; }
+        public virtual IEnumerable<PlatformTypeEntity> PlatformTypes { set; get; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.Domain.Services_interfaces
+namespace GameStore.Domain.ServicesInterfaces
 {
     public interface IGameService : ICrudService<Game>
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.Domain.Services_interfaces
+namespace GameStore.Domain.ServicesInterfaces
 {
     public interface ICommentService : ICrudService<Comment>
     {

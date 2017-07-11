@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace GameStore.Web.ViewModels
 {
     public class GameViewModel
     {
-        public int Id { set; get; }
+        [Required]
         public string Key { set; get; }
+        [Required]
         public string Description { set; get; }
         public IList<CommentViewModel> Comments { set; get; }
         public IList<GenreViewModel> Genres { set; get; }

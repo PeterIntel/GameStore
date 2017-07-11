@@ -176,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infractructure\AutoMapperConfiguration\AutoMapperConfig.cs" />
+    <Compile Include="Infractructure\CustomMethods\HelperMethods.cs" />
     <Compile Include="Infractructure\NinjectConfiguration\AutoMapperModule.cs" />
     <Compile Include="Infractructure\NinjectConfiguration\NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Game\new.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GameViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -215,6 +217,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="Views\Comment\" />
     <Folder Include="Views\Download\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">

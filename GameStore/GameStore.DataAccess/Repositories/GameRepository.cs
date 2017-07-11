@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
+using GameStore.DataAccess.Context;
 
 namespace GameStore.DataAccess.Repositories
 {
