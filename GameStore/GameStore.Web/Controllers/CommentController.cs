@@ -34,11 +34,18 @@ namespace GameStore.Web.Controllers
 
         [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         [ActionName("comments")]
+        [HttpGet]
         public ActionResult GetCommentsForGame(string gameKey)
         {
             if (gameKey != null)
             {
-                return Json(_commentService.GetAllCommentsByGameKey(gameKey), JsonRequestBehavior.AllowGet);
+                var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
+
+                var commentsViewModel = new CommentsViewModel()
+                {
+                    Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments)
+                };
+                return View(commentsViewModel);
             }
 
             throw new ArgumentException("The game was not specified!!!");

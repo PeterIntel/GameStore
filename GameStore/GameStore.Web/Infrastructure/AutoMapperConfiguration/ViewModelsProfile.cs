@@ -2,7 +2,7 @@
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 
-namespace GameStore.Web.Infractructure.AutoMapperConfiguration
+namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
 {
     public class ViewModelsProfile : Profile
     {
@@ -10,14 +10,13 @@ namespace GameStore.Web.Infractructure.AutoMapperConfiguration
         {
             CreateMap<GameViewModel, Game>();
             CreateMap<CommentViewModel, Comment>();
-            CreateMap<Game, GameViewModel>();
+            CreateMap<Game, GameViewModel>()
+                .ForMember(dst => dst.Comments, opt => opt.Ignore());
             CreateMap<Comment, CommentViewModel>();
             CreateMap<GenreViewModel, Genre>();
             CreateMap<Genre, GenreViewModel>();
             CreateMap<PlatformTypeViewModel, PlatformType>();
             CreateMap<PlatformType, PlatformTypeViewModel>();
-            CreateMap<GenreViewModel, string>().ConstructUsing(src => src.Name ?? string.Empty);
-            CreateMap<PlatformTypeViewModel, string>().ConstructUsing(src => src.TypeName ?? string.Empty);
         }
     }
 }

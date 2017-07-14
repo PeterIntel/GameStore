@@ -29,15 +29,6 @@ namespace GameStore.Services.ServicesImplementation
             return _unitOfWork.PlatformTypeRepository.GetAll(includeProperties);
         }
 
-        public IEnumerable<PlatformType> GetPlatformTypes(IList<string> platformTypes)
-        {
-            var platforms = from i in platformTypes
-                from platform in _unitOfWork.PlatformTypeRepository.GetAll()
-                where i == platform.TypeName
-                select platform;
-            return platforms;   
-        }
-
         public void Remove(int id)
         {
             _unitOfWork.PlatformTypeRepository.Remove(id);

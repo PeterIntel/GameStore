@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using GameStore.DataAccess.Context;
 
 namespace GameStore.DataAccess.Repositories
@@ -25,7 +26,7 @@ namespace GameStore.DataAccess.Repositories
             _mapper = mapper;
         }
 
-        public void Add(TDomain domainItem)
+        public virtual void Add(TDomain domainItem)
         {
             if (domainItem != null)
             {
@@ -52,9 +53,8 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var resultOfQuery = queryToEntity.ToList();
-            var result = _mapper.Map<IList<TEntity>, IList<TDomain>>(resultOfQuery);
-
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
+            
             return result;
         }
 
@@ -69,8 +69,7 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var resultOfQuery = queryToEntity.ToList();
-            var result = _mapper.Map<IList<TEntity>, IList<TDomain>>(resultOfQuery);
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
 
             return result;
         }

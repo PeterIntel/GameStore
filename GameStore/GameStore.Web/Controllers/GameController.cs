@@ -43,12 +43,10 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
-                var genres = _mapper.Map<IEnumerable<GenreViewModel>, List<string>>(gameViewModel.Genres.Where(x => x.IsChecked));
-                var platforms = _mapper.Map<IEnumerable<PlatformTypeViewModel>, List<string>>(gameViewModel.PlatformTypes.Where(x => x.IsChecked));
-                game.Genres = _genreService.GetGenres(genres);
-                game.PlatformTypes = _platformTypeService.GetPlatformTypes(platforms);
+                game.Genres = _mapper.Map<IEnumerable<GenreViewModel>, IEnumerable<Genre>>(gameViewModel.Genres.Where(x => x.IsChecked));
+                game.PlatformTypes = _mapper.Map<IEnumerable<PlatformTypeViewModel>, IEnumerable<PlatformType>>(gameViewModel.PlatformTypes.Where(x => x.IsChecked));
                 _gameService.Add(game);
-                RedirectToAction("GetGames");
+                return RedirectToAction("GetGames");
             }
             return View(gameViewModel);
         }
@@ -80,11 +78,18 @@ namespace GameStore.Web.Controllers
 
         public ActionResult GetGameDetails(string key)
         {
-            return Json(_gameService.GetItemByKey(key), JsonRequestBehavior.AllowGet);
+            var gameViewModel = _mapper.Map<Game, GameViewModel>(_gameService.GetItemByKey(key));
+            return View(gameViewModel);
+        }
+
+        [ActionName("download")]
+        public ActionResult DownloadPage(string gamekey)
+        {
+            return View((object)gamekey);
         }
 
         [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
-        public FileResult DownloadGame(int? gamekey)
+        public FileResult DownloadGame(string gamekey)
         {
             byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/download/download.exe"));
             string filename = "download.exe";

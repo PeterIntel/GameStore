@@ -14,6 +14,5 @@ namespace GameStore.Domain.BusinessObjects
         public string Name { set; get; }
         public int? ParentGenreId { set; get; }
         public IEnumerable<Genre> Genres { set; get; }
-        public IEnumerable<Game> Games { set; get; }
     }
 }

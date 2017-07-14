@@ -17,6 +17,8 @@ namespace GameStore.Infrastructure.NinjectConfiguration
         {
             Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
             Bind<IGameRepository>().To<GameRepository>();
+            Bind<IGenreRepository>().To<GenreRepository>();
+            Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
         }
     }
 }

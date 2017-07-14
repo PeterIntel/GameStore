@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using GameStore.DataAccess.Entities;
+using GameStore.DataAccess.Migrations;
 
 namespace GameStore.DataAccess.Context
 {
@@ -7,7 +8,7 @@ namespace GameStore.DataAccess.Context
     {
         public GamesContext() : base("GamesContext")
         {
-            //this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         public virtual DbSet<CommentEntity> Comments { set; get; }

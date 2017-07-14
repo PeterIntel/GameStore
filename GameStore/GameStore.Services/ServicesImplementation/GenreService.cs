@@ -29,15 +29,6 @@ namespace GameStore.Services.ServicesImplementation
             return _unitOfWork.GenreRepository.GetAll(includeProperties);
         }
 
-        public IEnumerable<Genre> GetGenres(IList<string> genres)
-        {
-            var gen = from i in genres
-                from genre in _unitOfWork.GenreRepository.GetAll()
-                where i == genre.Name
-                select genre;
-            return gen;
-        }
-
         public void Remove(int id)
         {
             _unitOfWork.GenreRepository.Remove(id);

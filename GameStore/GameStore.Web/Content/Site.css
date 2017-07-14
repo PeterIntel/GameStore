@@ -1,3 +1,12 @@
 ﻿body {
 
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.comment {
+    margin-left: 20px;
+}

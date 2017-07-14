@@ -14,9 +14,11 @@ namespace GameStore.Services.ServicesImplementation
     public class GameService : IGameService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public GameService(IUnitOfWork unitOfWork)
+        private readonly ICommentService _commentService;
+        public GameService(IUnitOfWork unitOfWork, ICommentService commentService)
         {
             _unitOfWork = unitOfWork;
+            _commentService = commentService;
         }
         public void Add(Game item)
         {
@@ -31,7 +33,12 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Game> GetAll(params Expression<Func<Game, object>>[] includeProperties)
         {
-            return _unitOfWork.GameRepository.GetAll(includeProperties);
+            var games = _unitOfWork.GameRepository.GetAll(includeProperties);
+            foreach (var game in games)
+            {
+                game.Comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(game.Key).ToList());
+            }
+            return games;
         }
 
         public Game GetItemByKey(string key)

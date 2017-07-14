@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using GameStore.Infrastructure.AutomapperConfiguration;
 
-namespace GameStore.Web.Infractructure.AutoMapperConfiguration
+namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
 {
     public static class AutoMapperConfig
     {

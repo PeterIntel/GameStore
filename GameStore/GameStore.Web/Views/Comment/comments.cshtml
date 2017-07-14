@@ -1,0 +1,18 @@
+﻿@model CommentsViewModel
+@{
+    ViewBag.Title = "comments";
+}
+
+<h2>comments</h2>
+
+@helper Comment(IList<CommentViewModel> comments)
+{
+    <ul>
+        @for (int i = 0; i < comments.Count; i++)
+        {
+            <li class="comment">
+                
+            </li>
+        }
+    </ul>
+}

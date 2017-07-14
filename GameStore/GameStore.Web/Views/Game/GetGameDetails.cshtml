@@ -1,0 +1,40 @@
+﻿@model GameViewModel
+
+@{
+    ViewBag.Title = "GetGameDetails";
+}
+
+<h2>GetGameDetails</h2>
+
+@Html.LabelFor(m => m.Key)
+<br>
+@Html.DisplayFor(m => m.Key)
+
+<br>
+
+@Html.LabelFor(m => m.Description)
+<br>
+@Html.DisplayFor(m => m.Description)
+
+<br>
+
+@Html.LabelFor(m => m.Genres)
+<br>
+@foreach (var genre in Model.Genres)
+{
+    @Html.DisplayFor(m => genre.Name)
+    <br>
+}
+
+@Html.LabelFor(m => m.PlatformTypes)
+<br>
+@foreach (var platform in Model.PlatformTypes)
+{
+    @Html.DisplayFor(m => platform.TypeName)
+    <br>
+}
+
+@Html.ActionLink("download", "download", new {gamekey =  Model.Key}, new { target = "blank"})
+@Html.ActionLink("show comments", "comments", "comment", new { gamekey = Model.Key }, new { target = "blank" })
+
+
