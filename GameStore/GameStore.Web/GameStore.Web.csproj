@@ -198,6 +198,7 @@
     <Compile Include="ViewModels\GenreViewModel.cs" />
     <Compile Include="ViewModels\PlatformTypeViewModel.cs" />
     <Compile Include="Infrastructure\AutoMapperConfiguration\ViewModelsProfile.cs" />
+    <Compile Include="ViewModels\PublisherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

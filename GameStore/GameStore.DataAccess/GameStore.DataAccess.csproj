@@ -60,11 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\GamesContext.cs" />
+    <Compile Include="EntitiesConfigurations\PublisherConfiguration.cs" />
     <Compile Include="Entities\BasicEntity.cs" />
     <Compile Include="Entities\CommentEntity.cs" />
     <Compile Include="Entities\GameEntity.cs" />
     <Compile Include="Entities\GenreEntity.cs" />
     <Compile Include="Entities\PlatformTypeEntity.cs" />
+    <Compile Include="Entities\PublisherEntity.cs" />
     <Compile Include="Migrations\201707160812186_Init.cs" />
     <Compile Include="Migrations\201707160812186_Init.Designer.cs">
       <DependentUpon>201707160812186_Init.cs</DependentUpon>

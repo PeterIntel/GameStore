@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using GameStore.DataAccess.Entities;
-using GameStore.DataAccess.Migrations;
+using GameStore.DataAccess.EntitiesConfigurations;
 
 namespace GameStore.DataAccess.Context
 {
@@ -15,5 +15,12 @@ namespace GameStore.DataAccess.Context
         public virtual DbSet<GameEntity> Games { set; get; }
         public virtual DbSet<GenreEntity> Genres { set; get; }
         public virtual DbSet<PlatformTypeEntity> PlatformTypes { set; get; }
+        public virtual DbSet<PublisherEntity> Publishers { set; get; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new PublisherConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
