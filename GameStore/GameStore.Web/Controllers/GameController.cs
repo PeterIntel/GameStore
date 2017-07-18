@@ -1,8 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
-using System.Web.UI;
 using GameStore.Web.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
@@ -70,7 +68,6 @@ namespace GameStore.Web.Controllers
             return new HttpStatusCodeResult(200);
         }
 
-        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         public ActionResult GetGames()
         {
             return Json(_gameService.GetAll().ToList(), JsonRequestBehavior.AllowGet);
@@ -88,7 +85,6 @@ namespace GameStore.Web.Controllers
             return View((object)gamekey);
         }
 
-        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         public FileResult DownloadGame(string gamekey)
         {
             byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/download/download.exe"));

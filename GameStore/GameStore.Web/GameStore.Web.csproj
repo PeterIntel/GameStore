@@ -181,6 +181,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Filters\ActionPerformanceFilter.cs" />
+    <Compile Include="Filters\GetNumberOfGamesFilter.cs" />
     <Compile Include="Filters\LogErrorFilter.cs" />
     <Compile Include="Filters\LogIPFilter.cs" />
     <Compile Include="Global.asax.cs">

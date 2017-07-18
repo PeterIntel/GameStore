@@ -41,7 +41,6 @@ namespace GameStore.Web.Controllers
             return PartialView("_CommentsPartialView", commentsViewModel);
         }
 
-        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         [ActionName("comments")]
         [HttpGet]
         public ActionResult GetCommentsForGame(string gameKey)
