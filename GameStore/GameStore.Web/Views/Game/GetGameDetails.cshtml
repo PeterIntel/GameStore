@@ -18,6 +18,21 @@
 
 <br>
 
+@Html.LabelFor(m => m.Price)
+<br>
+@Html.DisplayFor(m => m.Price)
+
+<br>
+@Html.LabelFor(m => m.UnitsInStock)
+<br>
+@Html.DisplayFor(m => m.UnitsInStock)
+
+<br>
+@Html.LabelFor(m => m.Discontinued)
+<br>
+@Html.DisplayFor(m => m.Discontinued)
+
+<br>
 @Html.LabelFor(m => m.Genres)
 <br>
 @foreach (var genre in Model.Genres)

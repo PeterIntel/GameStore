@@ -15,6 +15,9 @@ namespace GameStore.DataAccess.Entities
         [Key]
         public string Key { set; get; }
         public string Description { set; get; }
+        public decimal Price { set; get; }
+        public short UnitsInStock { set; get; }
+        public bool Discontinued { set; get; }
 
         public virtual IList<CommentEntity> Comments { set; get; }
 

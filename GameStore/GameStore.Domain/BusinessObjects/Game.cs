@@ -11,6 +11,9 @@ namespace GameStore.Domain.BusinessObjects
         public int Id { set; get; }
         public string Key { set; get; }
         public string Description { set; get; }
+        public decimal Price { set; get; }
+        public short UnitsInStock { set; get; }
+        public bool Discontinued { set; get; }
         [ScriptIgnore(ApplyToOverrides = true)]
         public IEnumerable<Comment> Comments { set; get; }
         [ScriptIgnore(ApplyToOverrides = true)]
