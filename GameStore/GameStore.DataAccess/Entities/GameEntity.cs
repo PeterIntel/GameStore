@@ -10,10 +10,9 @@ namespace GameStore.DataAccess.Entities
 {
     public class GameEntity : BasicEntity
     {
-        public int Id { set; get; }
-
         [Index(IsUnique = true)]
         [StringLength(450)]
+        [Key]
         public string Key { set; get; }
         public string Description { set; get; }
 

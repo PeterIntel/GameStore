@@ -10,3 +10,11 @@
 .comment {
     margin-left: 20px;
 }
+
+ul {
+    list-style-type: none;
+}
+
+textarea {
+    margin-top: 5px;
+}

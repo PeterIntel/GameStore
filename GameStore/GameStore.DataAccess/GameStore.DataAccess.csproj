@@ -65,9 +65,13 @@
     <Compile Include="Entities\GameEntity.cs" />
     <Compile Include="Entities\GenreEntity.cs" />
     <Compile Include="Entities\PlatformTypeEntity.cs" />
-    <Compile Include="Migrations\201707121404165_IENUMARABLE_TO_LIST.cs" />
-    <Compile Include="Migrations\201707121404165_IENUMARABLE_TO_LIST.Designer.cs">
-      <DependentUpon>201707121404165_IENUMARABLE_TO_LIST.cs</DependentUpon>
+    <Compile Include="Migrations\201707160812186_Init.cs" />
+    <Compile Include="Migrations\201707160812186_Init.Designer.cs">
+      <DependentUpon>201707160812186_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707170814379_Key_as_primaryKey_Games.cs" />
+    <Compile Include="Migrations\201707170814379_Key_as_primaryKey_Games.Designer.cs">
+      <DependentUpon>201707170814379_Key_as_primaryKey_Games.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,8 +97,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707121404165_IENUMARABLE_TO_LIST.resx">
-      <DependentUpon>201707121404165_IENUMARABLE_TO_LIST.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707160812186_Init.resx">
+      <DependentUpon>201707160812186_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707170814379_Key_as_primaryKey_Games.resx">
+      <DependentUpon>201707170814379_Key_as_primaryKey_Games.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

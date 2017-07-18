@@ -12,7 +12,7 @@ namespace GameStore.Domain.BusinessObjects
         public string Name { set; get; }
         public string Body { set; get; }
         public int? ParentCommentId { set; get; }
-        public int? GameId { set; get; }
+        public string GameKey { set; get; }
         public Game Game { set; get; }
         public IEnumerable<Comment> Comments { set; get; }
     }

@@ -21,7 +21,7 @@ namespace GameStore.Web
                );
 
             routes.MapRoute(
-                name: "gameKeyComments",
+                name: "gameKeyComment",
                 url: "game/{gamekey}/comments",
                 defaults: new { controller = "comment", action = "comments" }
             );
@@ -40,8 +40,8 @@ namespace GameStore.Web
 
             routes.MapRoute(
                 name: "default",
-                url: "{controller}/{action}",
-                defaults: new { controller = "Game", action = "GetGames" }
+                url: "{controller}/{action}/{id}/{gamekey}",
+                defaults: new { controller = "Game", action = "GetGames", id = UrlParameter.Optional, gamekey = UrlParameter.Optional }
                 );
         }
     }

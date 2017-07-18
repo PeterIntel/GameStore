@@ -24,12 +24,21 @@ namespace GameStore.Web.Controllers
         // GET: Comment
         [HttpPost]
         [ActionName("newcomment")]
-        public ActionResult AddComment(string gamekey, CommentViewModel commentViewModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddComment(CommentsViewModel commentsViewModel)
         {
-            var comment = _mapper.Map<CommentViewModel, Comment>(commentViewModel);
-            comment.Game.Key = gamekey;
-            _commentService.Add(comment);
-            return new HttpStatusCodeResult(200);
+            if (ModelState.IsValid)
+            {
+                var comment = _mapper.Map<CommentViewModel, Comment>(commentsViewModel.Comment);
+                _commentService.Add(comment);
+                ModelState.Clear();
+                commentsViewModel.Comment = new CommentViewModel()
+                {
+                    GameKey = commentsViewModel.Comment.GameKey
+                };
+            }
+            commentsViewModel.Comments = InitComments(commentsViewModel.Comment.GameKey).Comments;
+            return PartialView("_CommentsPartialView", commentsViewModel);
         }
 
         [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
@@ -39,16 +48,22 @@ namespace GameStore.Web.Controllers
         {
             if (gameKey != null)
             {
-                var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
-
-                var commentsViewModel = new CommentsViewModel()
-                {
-                    Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments)
-                };
-                return View(commentsViewModel);
+                return View(InitComments(gameKey));
             }
 
             throw new ArgumentException("The game was not specified!!!");
+        }
+
+        private CommentsViewModel InitComments(string gameKey)
+        {
+            var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
+
+            var commentsViewModel = new CommentsViewModel()
+            {
+                Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments),
+                Comment = new CommentViewModel() { GameKey = gameKey}
+            };
+            return commentsViewModel;
         }
     }
 }

@@ -29,11 +29,12 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Comment> GetStructureOfComments(IEnumerable<Comment> comments)
         {
+            IList<Comment> roots = null;
             if (comments.Any())
             {
                 var groups = comments.GroupBy(x => x.ParentCommentId).ToList();
 
-                var roots = groups.FirstOrDefault(x => x.Key.HasValue == false).ToList();
+                roots = groups.FirstOrDefault(x => x.Key.HasValue == false).ToList();
                 if (roots.Count > 0)
                 {
                     var dict = groups.Where(x => x.Key.HasValue).ToDictionary(x => x.Key.Value, x => x.ToList());
@@ -43,7 +44,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
-            return comments;
+            return roots;
         }
 
         private void AddChildren(Comment node, IDictionary<int,  List<Comment>> source)

@@ -12,7 +12,7 @@ namespace GameStore.DataAccess.Entities
         public string Name { set; get; }
         public string Body { set; get; }
         public int? ParentCommentId { set; get; }
-        public int? GameId { set; get; }
+        public string GameKey { set; get; }
         public virtual GameEntity Game { set; get; }
         public virtual IList<CommentEntity> Comments { set; get; }
     }
