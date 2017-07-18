@@ -51,7 +51,7 @@ namespace GameStore.Web.Controllers
             }
 
             throw new ArgumentException("The game was not specified!!!");
-        }
+        }c
 
         private CommentsViewModel InitComments(string gameKey)
         {
