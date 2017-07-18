@@ -28,6 +28,8 @@ namespace GameStore.DataAccess.UnitOfWork
         public IGenericDataRepository<GenreEntity, Genre> GenreRepository { set; get; }
         [Inject]
         public IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { set; get; }
+        [Inject]
+        public IPublisherRepository PublisherRepository { set; get; }
 
         public void Save()
         {

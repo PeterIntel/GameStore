@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    class Publisher
+    public class Publisher
     {
         public int Id { set; get; }
         public string CompanyName { set; get; }
         public string Description { set; get; }
         public string HomePage { set; get; }
+        public virtual IEnumerable<Game> Games { set; get; }
     }
 }

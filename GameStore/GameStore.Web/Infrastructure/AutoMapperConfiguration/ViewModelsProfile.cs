@@ -17,6 +17,7 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<Genre, GenreViewModel>();
             CreateMap<PlatformTypeViewModel, PlatformType>();
             CreateMap<PlatformType, PlatformTypeViewModel>();
+            CreateMap<Publisher, PublisherViewModel>().ReverseMap();
         }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="ServicesInterfaces\ICrudSevice.cs" />
     <Compile Include="ServicesInterfaces\IGenreService.cs" />
     <Compile Include="ServicesInterfaces\IPlatformTypeService.cs" />
+    <Compile Include="ServicesInterfaces\IPublisherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -37,6 +37,7 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
             _kernel.Bind<ICommentService>().To<CommentService>();
             _kernel.Bind<IGenreService>().To<GenreService>();
             _kernel.Bind<IPlatformTypeService>().To<PlatformTypeService>();
+            _kernel.Bind<IPublisherService>().To<PublisherService>();
         }
     }
 }

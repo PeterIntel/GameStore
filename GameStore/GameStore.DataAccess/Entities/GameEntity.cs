@@ -18,7 +18,7 @@ namespace GameStore.DataAccess.Entities
         public decimal Price { set; get; }
         public short UnitsInStock { set; get; }
         public bool Discontinued { set; get; }
-
+        public virtual PublisherEntity Publisher { set; get; }
         public virtual IList<CommentEntity> Comments { set; get; }
 
         public virtual IList<GenreEntity> Genres { set; get; }

@@ -21,6 +21,12 @@ namespace GameStore.Web
                );
 
             routes.MapRoute(
+                name: "CompanyName",
+                url: "publisher/{CompanyName}",
+                defaults: new { controller = "publisher", action = "GetPublisherDetails", CompanyName = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "gameKeyComment",
                 url: "game/{gamekey}/comments",
                 defaults: new { controller = "comment", action = "comments" }
@@ -42,7 +48,7 @@ namespace GameStore.Web
                 name: "default",
                 url: "{controller}/{action}/{id}/{gamekey}",
                 defaults: new { controller = "Game", action = "GetGames", id = UrlParameter.Optional, gamekey = UrlParameter.Optional }
-                );
+            );
         }
     }
 }

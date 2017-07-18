@@ -33,6 +33,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformType, PlatformTypeEntity>();
             CreateMap<Genre, string>().ConstructUsing(src => src.Name ?? string.Empty);
             CreateMap<PlatformType, string>().ConstructUsing(src => src.TypeName ?? string.Empty);
+            CreateMap<Publisher, PublisherEntity>().ReverseMap();
         }
     }
 }

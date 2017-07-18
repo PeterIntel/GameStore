@@ -42,7 +42,7 @@ namespace GameStore.DataAccess.Repositories
             GameEntity entity;
             try
             {
-                var listGameEntities = _dbSet.Where(x => x.Key == key && x.IsDeleted == false).ToList();
+                var listGameEntities = _dbSet.Where(x => x.Key == key && x.IsDeleted == false);
                 entity = listGameEntities.First();
             }
             catch(Exception ex)
