@@ -26,5 +26,25 @@ namespace GameStore.Web.Controllers
             var publisher = _publisherService.GetPublisherByCompanyName(companyName);
             return View(_mapper.Map<Publisher, PublisherViewModel>(publisher));
         }
+
+        [ActionName("new")]
+        public ActionResult AddPublisher()
+        {
+            return View();
+        }
+
+        [ActionName("new")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPublisher(PublisherViewModel publisherViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
+                _publisherService.Add(publisher);
+                return RedirectToAction("GetPublisherDetails", new {companyName = publisherViewModel.CompanyName});
+            }
+            return View(publisherViewModel);
+        }
     }
 }
