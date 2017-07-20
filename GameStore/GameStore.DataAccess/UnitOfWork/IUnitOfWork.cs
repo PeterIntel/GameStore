@@ -16,6 +16,8 @@ namespace GameStore.DataAccess.UnitOfWork
         IGenericDataRepository<GenreEntity, Genre> GenreRepository { get; }
         IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { get; }
         IPublisherRepository PublisherRepository { get; }
+        IGenericDataRepository<OrderEntity, Order> OrderRepository { get; }
+        IGenericDataRepository<OrderDetailsEntity, OrderDetails> OrderDetailsRepository { get; }
         void Save();
     }
 }

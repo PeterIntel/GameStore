@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
@@ -53,8 +54,8 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
-            
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
+
             return result;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -34,6 +35,8 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Genre, string>().ConstructUsing(src => src.Name ?? string.Empty);
             CreateMap<PlatformType, string>().ConstructUsing(src => src.TypeName ?? string.Empty);
             CreateMap<Publisher, PublisherEntity>().ReverseMap();
+            CreateMap<OrderEntity, Order>().ReverseMap();
+            CreateMap<OrderDetailsEntity, OrderDetails>().ReverseMap();
         }
     }
 }

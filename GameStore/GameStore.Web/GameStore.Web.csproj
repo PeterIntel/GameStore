@@ -180,6 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Filters\ActionPerformanceFilter.cs" />
     <Compile Include="Filters\GetNumberOfGamesFilter.cs" />
@@ -197,6 +198,8 @@
     <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\GenreViewModel.cs" />
+    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\PlatformTypeViewModel.cs" />
     <Compile Include="Infrastructure\AutoMapperConfiguration\ViewModelsProfile.cs" />
     <Compile Include="ViewModels\PublisherViewModel.cs" />
@@ -228,6 +231,7 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Publisher\GetPublisherDetails.cshtml" />
     <Content Include="Views\Publisher\New.cshtml" />
+    <Content Include="Views\Order\busket.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

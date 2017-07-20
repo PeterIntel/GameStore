@@ -16,10 +16,14 @@ namespace GameStore.DataAccess.Context
         public virtual DbSet<GenreEntity> Genres { set; get; }
         public virtual DbSet<PlatformTypeEntity> PlatformTypes { set; get; }
         public virtual DbSet<PublisherEntity> Publishers { set; get; }
+        public virtual DbSet<OrderDetailsEntity> OrderDetails { set; get; }
+        public virtual DbSet<OrderEntity> Orders { set; get; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PublisherConfiguration());
+            modelBuilder.Configurations.Add(new OrderDetailsConfiguration());
+            modelBuilder.Entity<OrderEntity>().Property(x => x.OrderDate).HasColumnType("datetime2");
             base.OnModelCreating(modelBuilder);
         }
     }

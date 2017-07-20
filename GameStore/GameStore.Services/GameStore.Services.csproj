@@ -52,6 +52,7 @@
     <Compile Include="ServicesImplementation\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesImplementation\GenreService.cs" />
+    <Compile Include="ServicesImplementation\OrderService.cs" />
     <Compile Include="ServicesImplementation\PlatformTypeService.cs" />
     <Compile Include="ServicesImplementation\PublisherService.cs" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 
@@ -18,6 +19,8 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<PlatformTypeViewModel, PlatformType>();
             CreateMap<PlatformType, PlatformTypeViewModel>();
             CreateMap<Publisher, PublisherViewModel>().ReverseMap();
+            CreateMap<Order, OrderViewModel>().ReverseMap();
+            CreateMap<OrderDetails, OrderDetailsViewModel>().ReverseMap();
         }
     }
 }

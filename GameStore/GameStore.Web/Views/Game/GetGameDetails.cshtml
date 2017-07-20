@@ -39,9 +39,8 @@
     @Html.LabelFor(m => m.Publisher)
     <br>
     @Html.ActionLink(Model.Publisher.CompanyName, "GetPublisherDetails", "publisher", new {companyName = Model.Publisher.CompanyName}, null)
-    <br>
 }
-
+<br>
 @Html.LabelFor(m => m.Genres)
 <br>
 @foreach (var genre in Model.Genres)

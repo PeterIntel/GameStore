@@ -15,6 +15,12 @@ namespace GameStore.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "busket",
+                url: "busket",
+                defaults: new { controller = "order", action = "busket" }
+            );
+
+            routes.MapRoute(
                 name: "publisher",
                 url: "publisher/new",
                 defaults: new { controller = "publisher", action = "new" }

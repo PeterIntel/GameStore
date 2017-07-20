@@ -38,6 +38,7 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
             _kernel.Bind<IGenreService>().To<GenreService>();
             _kernel.Bind<IPlatformTypeService>().To<PlatformTypeService>();
             _kernel.Bind<IPublisherService>().To<PublisherService>();
+            _kernel.Bind<IOrderService>().To<OrderService>();
         }
     }
 }

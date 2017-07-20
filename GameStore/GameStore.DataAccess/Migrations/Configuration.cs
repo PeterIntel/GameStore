@@ -37,18 +37,40 @@ namespace GameStore.DataAccess.Migrations
 
             context.SaveChanges();
 
+            context.Publishers.AddOrUpdate(
+                new PublisherEntity()
+                {
+                    Id = 1,
+                    CompanyName = "Nale",
+                    Description = "info",
+                    HomePage = "http://www.vk.com"
+                },
+
+                new PublisherEntity()
+                {
+                    Id = 2,
+                    CompanyName = "MicrosoftStudio",
+                    Description = "info",
+                    HomePage = "https://www.microsoftstudios.com/"
+                });
+
+            context.SaveChanges();
+            var v = context.Publishers.First(x => x.Id == 2);
             context.Games.AddOrUpdate(
                 new GameEntity()
                 {
+                    Id = 1,
                     Key = "AgeofEmpires",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.Id == 1), context.PlatformTypes.First(x => x.Id == 2) },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) }
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) },
+                    Publisher = v
                 },
 
                 new GameEntity()
                 {
+                    Id = 2,
                     Key = "Company of Heros",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
@@ -58,6 +80,7 @@ namespace GameStore.DataAccess.Migrations
 
                 new GameEntity()
                 {
+                    Id = 3,
                     Key = "Total War",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
@@ -67,6 +90,7 @@ namespace GameStore.DataAccess.Migrations
 
                 new GameEntity()
                 {
+                    Id = 4,
                     Key = "FIFA 17",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
@@ -76,31 +100,55 @@ namespace GameStore.DataAccess.Migrations
 
                 new GameEntity()
                 {
+                    Id = 5,
                     Key = "Super racing",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 8).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 8).First() },
+
                 }
                 );
             context.SaveChanges();
             context.Comments.AddOrUpdate(
                 new CommentEntity()
                 {
-                    Id = 1, GameKey = "AgeofEmpires", Name = "Peter", Body = "bla-bla-bla", ParentCommentId = null, IsDeleted = false,
+                    Id = 1, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = null, IsDeleted = false,
                     Game = context.Games.First(x => x.Key == "AgeofEmpires")
                 },
                 new CommentEntity()
                 {
-                    Id = 2, GameKey = "AgeofEmpires", Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 1, IsDeleted = false,
+                    Id = 2, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 1, IsDeleted = false,
                     Game = context.Games.First(x => x.Key == "AgeofEmpires")
                 },
                 new CommentEntity()
                 {
-                    Id = 3, GameKey = "AgeofEmpires", Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 2, IsDeleted = false,
+                    Id = 3, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 2, IsDeleted = false,
                     Game = context.Games.First(x => x.Key == "AgeofEmpires")
                 }
                 );
+
+            context.Orders.AddOrUpdate(
+                new OrderEntity()
+                {
+                    Id = 1,
+                    CustomerId = 1,
+                    IsDeleted = false,
+                    OrderDate = DateTime.UtcNow,
+                    Status = GameStore.Domain.BusinessObjects.CompletionStatus.InComplete
+                });
+
+            context.OrderDetails.AddOrUpdate(
+                new OrderDetailsEntity()
+                {
+                    Id = 1,
+                    Discount = 10,
+                    Price = 120,
+                    Quantity = 2,
+                    IsDeleted = false,
+                    GameId = 1,
+                    OrderId = 1
+                });
         }
     }
 }

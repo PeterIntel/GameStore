@@ -41,7 +41,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,8 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\Comment.cs" />
+    <Compile Include="BusinessObjects\CompletionStatus.cs" />
     <Compile Include="BusinessObjects\Game.cs" />
     <Compile Include="BusinessObjects\Genre.cs" />
+    <Compile Include="BusinessObjects\Order.cs" />
+    <Compile Include="BusinessObjects\OrderDetails.cs" />
     <Compile Include="BusinessObjects\PlatformType.cs" />
     <Compile Include="BusinessObjects\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +65,7 @@
     <Compile Include="ServicesInterfaces\IGameService.cs" />
     <Compile Include="ServicesInterfaces\ICrudSevice.cs" />
     <Compile Include="ServicesInterfaces\IGenreService.cs" />
+    <Compile Include="ServicesInterfaces\IOrderService.cs" />
     <Compile Include="ServicesInterfaces\IPlatformTypeService.cs" />
     <Compile Include="ServicesInterfaces\IPublisherService.cs" />
   </ItemGroup>

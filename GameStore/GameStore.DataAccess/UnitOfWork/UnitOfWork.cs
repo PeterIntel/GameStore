@@ -30,6 +30,10 @@ namespace GameStore.DataAccess.UnitOfWork
         public IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { set; get; }
         [Inject]
         public IPublisherRepository PublisherRepository { set; get; }
+        [Inject]
+        public IGenericDataRepository<OrderEntity, Order> OrderRepository { set; get; }
+        [Inject]
+        public IGenericDataRepository<OrderDetailsEntity, OrderDetails> OrderDetailsRepository { set; get; }
 
         public void Save()
         {

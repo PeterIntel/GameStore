@@ -18,3 +18,14 @@ ul {
 textarea {
     margin-top: 5px;
 }
+
+.table {
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+.table tr,.table td, .table th {
+    border: 1px black solid;
+}
+
+.table td
