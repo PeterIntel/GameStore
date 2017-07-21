@@ -9,6 +9,7 @@ namespace GameStore.Domain.ServicesInterfaces
 {
     public interface ICrudService<T> where T:class
     {
+        IEnumerable<T> GetAll(params Expression<Func<T, object>>[] includeProperties);
         void Add(T item);
         void Update(T item);
         void Remove(T item);

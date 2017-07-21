@@ -55,7 +55,7 @@ namespace GameStore.DataAccess.Migrations
                 });
 
             context.SaveChanges();
-            var v = context.Publishers.First(x => x.Id == 2);
+
             context.Games.AddOrUpdate(
                 new GameEntity()
                 {
@@ -65,47 +65,52 @@ namespace GameStore.DataAccess.Migrations
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.Id == 1), context.PlatformTypes.First(x => x.Id == 2) },
                     Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) },
-                    Publisher = v
+                    Publisher = context.Publishers.First(x => x.Id == 2),
+                    Price = 100
                 },
 
                 new GameEntity()
                 {
                     Id = 2,
-                    Key = "Company of Heros",
+                    Key = "CompanyofHeros",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 7).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 7).First() },
+                    Price = 120
                 },
 
                 new GameEntity()
                 {
                     Id = 3,
-                    Key = "Total War",
+                    Key = "TotalWar",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 6).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 6).First() },
+                    Price = 400
                 },
 
                 new GameEntity()
                 {
                     Id = 4,
-                    Key = "FIFA 17",
+                    Key = "FIFA17",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 2).First(), context.Genres.Where(x => x.Id == 3).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 2).First(), context.Genres.Where(x => x.Id == 3).First() },
+                    Price = 330
                 },
 
                 new GameEntity()
                 {
                     Id = 5,
-                    Key = "Super racing",
+                    Key = "Superracing",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First() },
                     Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 8).First() },
+                    Price = 110
 
                 }
                 );
@@ -135,7 +140,7 @@ namespace GameStore.DataAccess.Migrations
                     CustomerId = 1,
                     IsDeleted = false,
                     OrderDate = DateTime.UtcNow,
-                    Status = GameStore.Domain.BusinessObjects.CompletionStatus.InComplete
+                    Status = GameStore.Domain.BusinessObjects.CompletionStatus.Complete
                 });
 
             context.OrderDetails.AddOrUpdate(

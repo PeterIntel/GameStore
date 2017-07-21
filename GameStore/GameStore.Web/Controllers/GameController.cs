@@ -13,12 +13,14 @@ namespace GameStore.Web.Controllers
         private readonly IGameService _gameService;
         private readonly IGenreService _genreService;
         private readonly IPlatformTypeService _platformTypeService;
+        private readonly IPublisherService _publisherService;
         private readonly IMapper _mapper;
-        public GameController(IGameService gameService, IGenreService genreService, IPlatformTypeService platformTypeService, IMapper mapper)
+        public GameController(IGameService gameService, IGenreService genreService, IPlatformTypeService platformTypeService, IPublisherService publisherService, IMapper mapper)
         {
             _gameService = gameService;
             _genreService = genreService;
             _platformTypeService = platformTypeService;
+            _publisherService = publisherService;
             _mapper = mapper;
         }
 
@@ -29,7 +31,8 @@ namespace GameStore.Web.Controllers
             var game = new GameViewModel()
             {
                 Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAll()),
-                PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAll())
+                PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAll()),
+                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAll())
             };
             return View(game);
         }
@@ -46,6 +49,7 @@ namespace GameStore.Web.Controllers
                 _gameService.Add(game);
                 return RedirectToAction("GetGames");
             }
+            gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAll());
             return View(gameViewModel);
         }
 

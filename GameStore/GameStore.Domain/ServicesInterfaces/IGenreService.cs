@@ -11,6 +11,5 @@ namespace GameStore.Domain.ServicesInterfaces
 {
     public interface IGenreService: ICrudService<Genre>
     {
-        IEnumerable<Genre> GetAll(params Expression<Func<Genre, object>>[] includeProperties);
     }
 }

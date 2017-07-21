@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
@@ -49,6 +48,10 @@ namespace GameStore.Services.ServicesImplementation
 
         private void AddChildren(Comment node, IDictionary<int,  List<Comment>> source)
         {
+            if (node.ParentCommentId != null)
+            {
+                node.ParentComment = _unitOfWork.CommentRepository.GetItemById((int)node.ParentCommentId);
+            }
             if (source.ContainsKey(node.Id))
             {
                 node.Comments = source[node.Id];
@@ -79,6 +82,11 @@ namespace GameStore.Services.ServicesImplementation
         {
             _unitOfWork.CommentRepository.Update(item);
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<Comment> GetAll(params Expression<Func<Comment, object>>[] includeProperties)
+        {
+            return _unitOfWork.CommentRepository.GetAll(includeProperties);
         }
     }
 }

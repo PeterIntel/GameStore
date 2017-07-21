@@ -54,8 +54,9 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
-
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
+            //var res = _mapper.Map<IQueryable<TEntity>, IEnumerable<TDomain >> (queryToEntity);
+            //var com = (result[1] as CommentEntity).ParentComment;
             return result;
         }
 
@@ -112,7 +113,7 @@ namespace GameStore.DataAccess.Repositories
         {
             if (item != null)
             {
-                TEntity entity = Mapper.Map<TDomain, TEntity>(item);
+                TEntity entity = _mapper.Map<TDomain, TEntity>(item);
                 _dbSet.Attach(entity);
                 _context.Entry(entity).State = EntityState.Modified;
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using GameStore.DataAccess.UnitOfWork;
@@ -21,6 +22,11 @@ namespace GameStore.Services.ServicesImplementation
         {
             _unitOfWork.PublisherRepository.Add(item);
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<Publisher> GetAll(params Expression<Func<Publisher, object>>[] includeProperties)
+        {
+            return _unitOfWork.PublisherRepository.GetAll(includeProperties);
         }
 
         public Publisher GetPublisherByCompanyName(string companyName)

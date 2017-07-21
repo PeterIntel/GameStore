@@ -10,6 +10,5 @@ namespace GameStore.Domain.ServicesInterfaces
 {
     public interface IPlatformTypeService : ICrudService<PlatformType>
     {
-        IEnumerable<PlatformType> GetAll(params Expression<Func<PlatformType, object>>[] includeProperties);
     }
 }

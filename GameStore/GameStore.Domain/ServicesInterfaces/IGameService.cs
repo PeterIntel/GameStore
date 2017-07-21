@@ -11,7 +11,6 @@ namespace GameStore.Domain.ServicesInterfaces
     public interface IGameService : ICrudService<Game>
     {
         IEnumerable<Game> GetAll(Expression<Func<Game, bool>> filter, params Expression<Func<Game, object>>[] includeProperties);
-        IEnumerable<Game> GetAll(params Expression<Func<Game, object>>[] includeProperties);
         Game GetItemByKey(string key);
     }
 }

@@ -10,14 +10,23 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
 </head>
 <body>
-<div>
-    Quantity of games: @Cache["GamesQuantity"]
-    @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
-</div>
-<script type="text/javascript" src="~/Scripts/JavaScript.js"></script>
+    <div>
+        <div class="header">
+            <div class="left">
+                Quantity of games: @Cache["GamesQuantity"]
+            </div>
+            <div class="right">
+                @Html.ActionLink("busket", "busket", "order")
+            </div>
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script type="text/javascript" src="~/Scripts/JavaScript.js"></script>
 </body>
 </html>

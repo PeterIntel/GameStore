@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using GameStore.DataAccess.Entities;
 using GameStore.DataAccess.EntitiesConfigurations;
+using GameStore.DataAccess.Migrations;
 
 namespace GameStore.DataAccess.Context
 {
@@ -8,6 +9,7 @@ namespace GameStore.DataAccess.Context
     {
         public GamesContext() : base("GamesContext")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesContext, Configuration>("GamesContext"));
             this.Configuration.LazyLoadingEnabled = true;
         }
 

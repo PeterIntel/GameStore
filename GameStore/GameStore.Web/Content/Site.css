@@ -27,3 +27,28 @@ textarea {
 .table tr,.table td, .table th {
     border: 1px black solid;
 }
+
+label {
+    font-weight: bold;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.main {
+    clear: both;
+}
+
+.header {
+    width: 55%;
+    margin: 0 auto;
+}
+
+.form {
+    display: inline;
+}

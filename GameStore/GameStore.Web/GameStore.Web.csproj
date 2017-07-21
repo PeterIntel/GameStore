@@ -190,6 +190,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperConfiguration\AutoMapperConfig.cs" />
+    <Compile Include="Infrastructure\AutoMapperConfiguration\PublisherResolver.cs" />
     <Compile Include="Infrastructure\CustomMethods\HelperMethods.cs" />
     <Compile Include="Infrastructure\NinjectConfiguration\AutoMapperModule.cs" />
     <Compile Include="Infrastructure\NinjectConfiguration\NinjectDependencyResolver.cs" />

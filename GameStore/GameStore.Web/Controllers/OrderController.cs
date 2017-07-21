@@ -26,8 +26,16 @@ namespace GameStore.Web.Controllers
         [ActionName("busket")]
         public ActionResult GetOrderDetails()
         {
-            var order = _orderService.GetItemByCustomerId(CustomId);
+            var order = _orderService.GetOrderByCustomerId(CustomId);
             return View(_mapper.Map<Order, OrderViewModel>(order));
+        }
+
+        [ActionName("buy")]
+        [HttpPost]
+        public ActionResult AddGameToOrder(string gamekey)
+        {
+            _orderService.AddGameToOrder(gamekey, CustomId);
+            return RedirectToAction("busket");
         }
     }
 }

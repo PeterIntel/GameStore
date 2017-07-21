@@ -5649,3 +5649,961 @@ OrderDetails
 2017-07-20 17:06:39.3404|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-20 17:06:45.4813|INFO|performanceLog|Performance time: 00:00:00.0000141
 2017-07-20 17:06:45.5184|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:13:44.1768|INFO|performanceLog|Performance time: 00:00:00.0000658
+2017-07-20 17:13:44.3618|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:13:53.8843|INFO|performanceLog|Performance time: 00:00:00.0000522
+2017-07-20 17:13:53.9389|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:13:58.0416|INFO|performanceLog|Performance time: 00:00:00.0000102
+2017-07-20 17:13:58.0807|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:14:02.0319|INFO|performanceLog|Performance time: 00:00:00.0000951
+2017-07-20 17:14:02.1151|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:21:10.8325|INFO|performanceLog|Performance time: 00:00:00.0000725
+2017-07-20 17:21:12.3642|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:22:53.6426|INFO|performanceLog|Performance time: 00:00:00.0000278
+2017-07-20 17:22:53.7634|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:26:08.4586|INFO|performanceLog|Performance time: 00:00:00.0000358
+2017-07-20 17:26:11.4484|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:26:15.7525|INFO|performanceLog|Performance time: 00:00:00.0000304
+2017-07-20 17:26:15.8881|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:27:22.9066|INFO|performanceLog|Performance time: 00:00:00.0000808
+2017-07-20 17:27:25.7665|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:27:25.9265|INFO|performanceLog|Performance time: 00:00:00.0000159
+2017-07-20 17:27:26.0764|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:27:29.1957|INFO|performanceLog|Performance time: 00:00:00.0000119
+2017-07-20 17:27:29.2228|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 17:27:29.2434|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-07-20 17:27:29.2719|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:30:57.2495|INFO|performanceLog|Performance time: 00:00:00.0000136
+2017-07-20 20:30:58.6813|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:31:17.1962|INFO|performanceLog|Performance time: 00:00:00.0000514
+2017-07-20 20:31:17.3080|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:31:23.9200|INFO|performanceLog|Performance time: 00:00:00.0000612
+2017-07-20 20:31:23.9506|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:31:23.9711|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-07-20 20:31:24.0002|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:32:02.1970|INFO|performanceLog|Performance time: 00:00:00.0000196
+2017-07-20 20:32:02.2256|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:32:02.2452|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-07-20 20:32:02.3008|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:32:06.7351|INFO|performanceLog|Performance time: 00:00:00.0000434
+2017-07-20 20:32:06.7732|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:32:19.5430|INFO|performanceLog|Performance time: 00:00:00.0000769
+2017-07-20 20:32:19.5997|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:32:21.1814|INFO|performanceLog|Performance time: 00:00:00.0000581
+2017-07-20 20:32:21.2079|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:32:21.2278|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-20 20:32:21.2563|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:33:15.1877|INFO|performanceLog|Performance time: 00:00:00.0000081
+2017-07-20 20:33:16.5493|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:33:27.5177|INFO|performanceLog|Performance time: 00:00:00.0000968
+2017-07-20 20:33:27.6258|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:33:30.4790|INFO|performanceLog|Performance time: 00:00:00.0000853
+2017-07-20 20:35:53.1175|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:35:53.1506|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance.
+2017-07-20 20:37:16.7807|INFO|performanceLog|Performance time: 00:00:00.0000660
+2017-07-20 20:37:18.6522|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:37:33.0285|INFO|performanceLog|Performance time: 00:00:00.0000377
+2017-07-20 20:37:33.1438|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:37:38.6408|INFO|performanceLog|Performance time: 00:00:00.0000496
+2017-07-20 20:40:06.8276|INFO|performanceLog|Performance time: 00:00:00.0000721
+2017-07-20 20:40:08.2228|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:40:10.2085|INFO|performanceLog|Performance time: 00:00:00.0000986
+2017-07-20 20:40:10.3369|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:40:12.6117|INFO|performanceLog|Performance time: 00:00:00.0000274
+2017-07-20 20:41:24.5066|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:41:24.5397|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|A referential integrity constraint violation occurred: The property value(s) of 'GameEntity.Id' on one end of a relationship do not match the property value(s) of 'CommentEntity.GameId' on the other end.
+2017-07-20 20:42:30.2853|INFO|performanceLog|Performance time: 00:00:00.0000154
+2017-07-20 20:42:31.6971|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:42:39.9354|INFO|performanceLog|Performance time: 00:00:00.0000239
+2017-07-20 20:42:40.0552|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:42:41.8235|INFO|performanceLog|Performance time: 00:00:00.0000768
+2017-07-20 20:48:21.4893|INFO|performanceLog|Performance time: 00:00:00.0000390
+2017-07-20 20:48:22.8827|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:48:49.4525|INFO|performanceLog|Performance time: 00:00:00.0000345
+2017-07-20 20:48:50.7486|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:48:51.3009|INFO|performanceLog|Performance time: 00:00:00.0000553
+2017-07-20 20:48:51.4287|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:48:54.6677|INFO|performanceLog|Performance time: 00:00:00.0000239
+2017-07-20 20:49:13.5022|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:49:13.5287|INFO|performanceLog|Performance time: 00:00:00.0000026
+2017-07-20 20:49:13.5658|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:49:47.8637|INFO|performanceLog|Performance time: 00:00:00.0000297
+2017-07-20 20:49:47.9283|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:49:49.5869|INFO|performanceLog|Performance time: 00:00:00.0000658
+2017-07-20 20:51:38.4701|INFO|performanceLog|Performance time: 00:00:00.0000361
+2017-07-20 20:51:39.5194|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:51:51.8898|INFO|performanceLog|Performance time: 00:00:00.0000370
+2017-07-20 20:51:51.9931|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:51:56.6658|INFO|performanceLog|Performance time: 00:00:00.0000672
+2017-07-20 20:51:56.8459|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:51:56.8639|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-20 20:51:56.8940|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:52:01.7690|INFO|performanceLog|Performance time: 00:00:00.0000875
+2017-07-20 20:52:01.8031|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:52:11.9144|INFO|performanceLog|Performance time: 00:00:00.0000111
+2017-07-20 20:52:11.9490|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:52:13.8420|INFO|performanceLog|Performance time: 00:00:00.0000893
+2017-07-20 20:52:13.8852|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:52:13.9017|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-20 20:52:13.9378|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:52:17.4473|INFO|performanceLog|Performance time: 00:00:00.0000509
+2017-07-20 20:52:17.4804|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:52:45.2615|INFO|performanceLog|Performance time: 00:00:00.0000781
+2017-07-20 20:52:45.3276|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:53:29.5508|INFO|performanceLog|Performance time: 00:00:00.0000223
+2017-07-20 20:53:29.6546|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:04.7910|INFO|performanceLog|Performance time: 00:00:00.0000136
+2017-07-20 20:54:04.8773|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:04.8963|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-20 20:54:04.9645|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:25.4057|INFO|performanceLog|Performance time: 00:00:00.0000441
+2017-07-20 20:54:25.4498|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:32.2122|INFO|performanceLog|Performance time: 00:00:00.0000762
+2017-07-20 20:54:32.3169|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:32.3345|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-20 20:54:32.3696|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:43.0590|INFO|performanceLog|Performance time: 00:00:00.0000689
+2017-07-20 20:54:43.1036|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:54:43.1222|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-20 20:54:43.1613|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:57:07.4383|INFO|performanceLog|Performance time: 00:00:00.0000335
+2017-07-20 20:57:08.8113|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:58:02.9068|INFO|performanceLog|Performance time: 00:00:00.0000792
+2017-07-20 20:58:04.1611|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:58:19.8943|INFO|performanceLog|Performance time: 00:00:00.0000734
+2017-07-20 20:58:19.9830|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:59:32.1353|INFO|performanceLog|Performance time: 00:00:00.0000152
+2017-07-20 20:59:32.3469|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 20:59:32.3745|INFO|performanceLog|Performance time: 00:00:00.0000027
+2017-07-20 20:59:32.4055|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:01:05.9710|INFO|performanceLog|Performance time: 00:00:00.0000837
+2017-07-20 21:01:08.9529|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:01:18.9584|INFO|performanceLog|Performance time: 00:00:00.0000005
+2017-07-20 21:01:18.9970|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:02:39.0173|INFO|performanceLog|Performance time: 00:00:00.0000916
+2017-07-20 21:02:41.8000|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:06:19.2514|INFO|performanceLog|Performance time: 00:00:00.0000156
+2017-07-20 21:06:20.1378|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:06:59.2041|INFO|performanceLog|Performance time: 00:00:00.0000077
+2017-07-20 21:10:25.2671|INFO|performanceLog|Performance time: 00:00:00.0000150
+2017-07-20 21:11:30.9264|INFO|performanceLog|Performance time: 00:00:00.0000828
+2017-07-20 21:11:31.9332|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:11:31.9443|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-20 21:11:55.6474|INFO|performanceLog|Performance time: 00:00:00.0000715
+2017-07-20 21:11:55.7442|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:02.4810|INFO|performanceLog|Performance time: 00:00:00.0000737
+2017-07-20 21:12:02.5928|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:02.6109|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-20 21:12:02.6470|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:25.5396|INFO|performanceLog|Performance time: 00:00:00.0000892
+2017-07-20 21:12:25.6158|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:25.6354|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-20 21:12:25.6634|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:33.1078|INFO|performanceLog|Performance time: 00:00:00.0000444
+2017-07-20 21:12:33.1434|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:35.7867|INFO|performanceLog|Performance time: 00:00:00.0000643
+2017-07-20 21:12:35.8138|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:35.8304|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-20 21:12:35.8569|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:53.4949|INFO|performanceLog|Performance time: 00:00:00.0000637
+2017-07-20 21:12:53.5270|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:55.0101|INFO|performanceLog|Performance time: 00:00:00.0000483
+2017-07-20 21:12:55.0362|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:12:55.0522|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-20 21:12:55.0778|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:13:17.8902|INFO|performanceLog|Performance time: 00:00:00.0000772
+2017-07-20 21:13:25.4171|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:13:40.0211|INFO|performanceLog|Performance time: 00:00:00.0000604
+2017-07-20 21:13:40.1169|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:13:45.0601|INFO|performanceLog|Performance time: 00:00:00.0000943
+2017-07-20 21:14:53.7559|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:14:53.8020|INFO|performanceLog|Performance time: 00:00:00.0000046
+2017-07-20 21:16:09.8633|INFO|performanceLog|Performance time: 00:00:00.0000758
+2017-07-20 21:16:10.9583|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:16:26.5026|INFO|performanceLog|Performance time: 00:00:00.0000544
+2017-07-20 21:16:26.5843|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:16:31.5905|INFO|performanceLog|Performance time: 00:00:00.0000006
+2017-07-20 21:16:31.6968|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:16:31.7163|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-07-20 21:16:31.7409|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:16:56.2048|INFO|performanceLog|Performance time: 00:00:00.0000103
+2017-07-20 21:16:59.0462|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:17:01.3028|INFO|performanceLog|Performance time: 00:00:00.0000257
+2017-07-20 21:17:01.4232|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:17:05.9475|INFO|performanceLog|Performance time: 00:00:00.0000524
+2017-07-20 21:17:06.0718|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:17:06.0899|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-20 21:17:06.1119|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:17:15.8222|INFO|performanceLog|Performance time: 00:00:00.0000710
+2017-07-20 21:17:15.8839|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:17:15.8995|INFO|performanceLog|Performance time: 00:00:00.0000015
+2017-07-20 21:17:15.9265|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:18:33.4289|INFO|performanceLog|Performance time: 00:00:00.0000502
+2017-07-20 21:18:33.4831|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:18:35.0380|INFO|performanceLog|Performance time: 00:00:00.0000554
+2017-07-20 21:18:35.1283|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:18:35.1443|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-20 21:18:35.1694|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:18:42.8687|INFO|performanceLog|Performance time: 00:00:00.0000699
+2017-07-20 21:18:42.9083|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:18:42.9239|INFO|performanceLog|Performance time: 00:00:00.0000015
+2017-07-20 21:18:42.9519|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:18:48.4895|INFO|performanceLog|Performance time: 00:00:00.0000537
+2017-07-20 21:18:48.5361|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:46:53.9083|INFO|performanceLog|Performance time: 00:00:00.0000789
+2017-07-20 21:46:57.4821|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:47:05.5565|INFO|performanceLog|Performance time: 00:00:00.0000074
+2017-07-20 21:47:05.7320|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 21:47:50.0123|INFO|performanceLog|Performance time: 00:00:00.0000280
+2017-07-20 22:08:26.8281|INFO|performanceLog|Performance time: 00:00:00.0000719
+2017-07-20 22:08:27.8843|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:08:30.6875|INFO|performanceLog|Performance time: 00:00:00.0000804
+2017-07-20 22:08:30.8449|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:08:50.9344|INFO|performanceLog|Performance time: 00:00:00.0000089
+2017-07-20 22:08:51.0222|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:09:51.5092|INFO|performanceLog|Performance time: 00:00:00.0000487
+2017-07-20 22:09:51.5894|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:12:13.1575|INFO|performanceLog|Performance time: 00:00:00.0000035
+2017-07-20 22:12:13.1575|INFO|performanceLog|Performance time: 00:00:00.0000035
+2017-07-20 22:12:16.8294|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:12:16.8835|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-20 22:12:16.9687|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:12:25.1717|INFO|performanceLog|Performance time: 00:00:00.0000202
+2017-07-20 22:12:25.2058|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:12:26.0359|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|DataBinding: 'GameStore.Web.ViewModels.PublisherViewModel' does not contain a property with the name 'Game_Publisher_CompanyName'.
+2017-07-20 22:14:25.0179|INFO|performanceLog|Performance time: 00:00:00.0000882
+2017-07-20 22:14:31.2820|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:14:37.9143|INFO|performanceLog|Performance time: 00:00:00.0000632
+2017-07-20 22:14:38.0817|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:14:44.9375|INFO|performanceLog|Performance time: 00:00:00.0000855
+2017-07-20 22:20:28.2495|INFO|performanceLog|Performance time: 00:00:00.0000136
+2017-07-20 22:20:33.3322|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:20:36.9763|INFO|performanceLog|Performance time: 00:00:00.0000644
+2017-07-20 22:20:37.2044|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:20:39.7033|INFO|performanceLog|Performance time: 00:00:00.0000498
+2017-07-20 22:20:54.2651|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:20:54.3123|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: items
+2017-07-20 22:35:37.2846|INFO|performanceLog|Performance time: 00:00:00.0000186
+2017-07-20 22:35:38.3718|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:35:45.3200|INFO|performanceLog|Performance time: 00:00:00.0000948
+2017-07-20 22:35:45.5085|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:35:52.7861|INFO|performanceLog|Performance time: 00:00:00.0000277
+2017-07-20 22:35:52.8091|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:35:52.8242|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: items
+2017-07-20 22:36:25.0317|INFO|performanceLog|Performance time: 00:00:00.0000909
+2017-07-20 22:36:26.4380|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:36:36.1384|INFO|performanceLog|Performance time: 00:00:00.0000700
+2017-07-20 22:36:36.3112|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:36:43.7789|INFO|performanceLog|Performance time: 00:00:00.0000467
+2017-07-20 22:39:48.7044|INFO|performanceLog|Performance time: 00:00:00.0000578
+2017-07-20 22:39:50.1174|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:39:53.7563|INFO|performanceLog|Performance time: 00:00:00.0000638
+2017-07-20 22:39:53.9228|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:44:43.5192|INFO|performanceLog|Performance time: 00:00:00.0000368
+2017-07-20 22:44:45.1215|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:44:57.0150|INFO|performanceLog|Performance time: 00:00:00.0000870
+2017-07-20 22:44:58.4299|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:45:01.4037|INFO|performanceLog|Performance time: 00:00:00.0000974
+2017-07-20 22:45:01.5785|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:45:09.8766|INFO|performanceLog|Performance time: 00:00:00.0000298
+2017-07-20 22:46:06.2357|INFO|performanceLog|Performance time: 00:00:00.0000070
+2017-07-20 22:46:07.8644|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:46:12.3076|INFO|performanceLog|Performance time: 00:00:00.0000444
+2017-07-20 22:46:12.5136|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:46:42.1905|INFO|performanceLog|Performance time: 00:00:00.0000676
+2017-07-20 22:50:32.2615|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-20 22:50:51.0290|INFO|performanceLog|Performance time: 00:00:00.0000767
+2017-07-21 10:21:24.3901|INFO|performanceLog|Performance time: 00:00:00.0000274
+2017-07-21 10:21:25.6050|INFO|performanceLog|Performance time: 00:00:00.0000604
+2017-07-21 10:21:26.2937|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:21:26.3328|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:21:26.3488|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Unexpected connection state. When using a wrapping provider ensure that the StateChange event is implemented on the wrapped DbConnection.
+2017-07-21 10:21:26.3699|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Calling 'Read' when the data reader is closed is not a valid operation.
+2017-07-21 10:22:13.0443|INFO|performanceLog|Performance time: 00:00:00.0000722
+2017-07-21 10:22:13.1476|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:22:13.1746|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 10:22:18.4382|INFO|performanceLog|Performance time: 00:00:00.0000297
+2017-07-21 10:22:18.4944|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:22:18.5300|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 10:22:27.8775|INFO|performanceLog|Performance time: 00:00:00.0000390
+2017-07-21 10:22:27.9868|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:22:28.0179|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 10:22:31.2206|INFO|performanceLog|Performance time: 00:00:00.0000240
+2017-07-21 10:22:31.2918|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:22:31.3159|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 10:22:52.3593|INFO|performanceLog|Performance time: 00:00:00.0000214
+2017-07-21 10:22:54.0749|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:23:07.8434|INFO|performanceLog|Performance time: 00:00:00.0000768
+2017-07-21 10:23:08.0594|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:23:09.0810|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Views\Shared\EditorTemplates\GameViewModel.cshtml(60): error CS1061: 'GameViewModel' does not contain a definition for 'Publisher' and no extension method 'Publisher' accepting a first argument of type 'GameViewModel' could be found (are you missing a using directive or an assembly reference?)
+2017-07-21 10:24:38.2103|INFO|performanceLog|Performance time: 00:00:00.0000990
+2017-07-21 10:24:40.0610|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:25:03.4539|INFO|performanceLog|Performance time: 00:00:00.0000303
+2017-07-21 10:25:05.1200|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:25:09.3053|INFO|performanceLog|Performance time: 00:00:00.0000186
+2017-07-21 10:25:09.4964|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:26:15.3771|INFO|performanceLog|Performance time: 00:00:00.0000880
+2017-07-21 10:27:50.8277|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:27:50.9170|INFO|performanceLog|Performance time: 00:00:00.0000089
+2017-07-21 10:27:51.0042|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:28:05.2937|INFO|performanceLog|Performance time: 00:00:00.0000289
+2017-07-21 10:28:05.4080|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:28:08.5961|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|D:\Repositories\Game\gamestore_shutka\GameStore\GameStore.Web\Views\Game\GetGameDetails.cshtml(36): error CS1061: 'GameViewModel' does not contain a definition for 'Publisher' and no extension method 'Publisher' accepting a first argument of type 'GameViewModel' could be found (are you missing a using directive or an assembly reference?)
+2017-07-21 10:29:25.5796|INFO|performanceLog|Performance time: 00:00:00.0000463
+2017-07-21 10:29:26.7321|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:29:33.7853|INFO|performanceLog|Performance time: 00:00:00.0000053
+2017-07-21 10:29:33.8701|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:29:45.0657|INFO|performanceLog|Performance time: 00:00:00.0000195
+2017-07-21 10:29:45.0958|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:29:49.3931|INFO|performanceLog|Performance time: 00:00:00.0000297
+2017-07-21 10:29:49.4608|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:06.4132|INFO|performanceLog|Performance time: 00:00:00.0000952
+2017-07-21 10:30:06.4743|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:06.4874|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:18.9800|INFO|performanceLog|Performance time: 00:00:00.0000505
+2017-07-21 10:30:19.0326|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:19.0326|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:22.4373|INFO|performanceLog|Performance time: 00:00:00.0000404
+2017-07-21 10:30:22.4904|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:22.5069|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:25.5659|INFO|performanceLog|Performance time: 00:00:00.0000075
+2017-07-21 10:30:25.6130|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:25.6241|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:26.4710|INFO|performanceLog|Performance time: 00:00:00.0000858
+2017-07-21 10:30:26.5503|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:26.5724|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:27.3103|INFO|performanceLog|Performance time: 00:00:00.0000760
+2017-07-21 10:30:27.3490|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:27.3601|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:28.1704|INFO|performanceLog|Performance time: 00:00:00.0000820
+2017-07-21 10:30:28.2114|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:28.2235|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:38.3841|INFO|performanceLog|Performance time: 00:00:00.0000172
+2017-07-21 10:30:38.4708|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:47.6882|INFO|performanceLog|Performance time: 00:00:00.0000217
+2017-07-21 10:30:47.7189|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:47.7189|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:51.1525|INFO|performanceLog|Performance time: 00:00:00.0000433
+2017-07-21 10:30:51.1896|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:51.2046|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:52.2020|INFO|performanceLog|Performance time: 00:00:00.0000012
+2017-07-21 10:30:52.2373|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:52.2373|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:53.2782|INFO|performanceLog|Performance time: 00:00:00.0000040
+2017-07-21 10:30:53.3022|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:30:53.3133|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:30:58.1085|INFO|performanceLog|Performance time: 00:00:00.0000806
+2017-07-21 10:30:58.1576|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:31:12.3724|INFO|performanceLog|Performance time: 00:00:00.0000214
+2017-07-21 10:31:12.4215|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:31:20.5231|INFO|performanceLog|Performance time: 00:00:00.0000101
+2017-07-21 10:31:20.7081|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:31:20.7271|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-21 10:31:20.7522|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:31:37.7151|INFO|performanceLog|Performance time: 00:00:00.0000962
+2017-07-21 10:31:37.7684|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:31:41.3097|INFO|performanceLog|Performance time: 00:00:00.0000541
+2017-07-21 10:31:41.4210|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:31:41.4390|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-21 10:31:41.4671|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:33:16.7652|INFO|performanceLog|Performance time: 00:00:00.0000644
+2017-07-21 10:33:19.7500|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:33:19.7500|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 10:33:39.8232|INFO|performanceLog|Performance time: 00:00:00.0000074
+2017-07-21 10:33:39.8934|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:33:56.8610|INFO|performanceLog|Performance time: 00:00:00.0000967
+2017-07-21 10:33:56.9889|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:03.2388|INFO|performanceLog|Performance time: 00:00:00.0000249
+2017-07-21 10:34:03.2909|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:08.1221|INFO|performanceLog|Performance time: 00:00:00.0000831
+2017-07-21 10:34:08.2224|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:08.2655|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:34:09.2094|INFO|performanceLog|Performance time: 00:00:00.0000988
+2017-07-21 10:34:09.2440|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:10.7128|INFO|performanceLog|Performance time: 00:00:00.0000468
+2017-07-21 10:34:10.7414|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:15.2388|INFO|performanceLog|Performance time: 00:00:00.0000497
+2017-07-21 10:34:15.2678|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:15.2678|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 10:34:49.4379|INFO|performanceLog|Performance time: 00:00:00.0000299
+2017-07-21 10:34:50.9701|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:34:51.0022|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 10:35:02.4994|INFO|performanceLog|Performance time: 00:00:00.0000536
+2017-07-21 10:35:08.1477|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:35:35.2722|INFO|performanceLog|Performance time: 00:00:00.0000124
+2017-07-21 10:38:06.6268|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 10:38:06.6544|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-07-21 11:01:59.7810|INFO|performanceLog|Performance time: 00:00:00.0000662
+2017-07-21 11:02:01.5979|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:02:01.6214|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:02:09.5427|INFO|performanceLog|Performance time: 00:00:00.0000950
+2017-07-21 11:02:09.6711|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:02:19.1170|INFO|performanceLog|Performance time: 00:00:00.0000445
+2017-07-21 11:02:26.2431|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:02:48.0208|INFO|performanceLog|Performance time: 00:00:00.0000777
+2017-07-21 11:05:28.1119|INFO|performanceLog|Performance time: 00:00:00.0000973
+2017-07-21 11:05:29.7088|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:05:29.7400|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:05:39.7761|INFO|performanceLog|Performance time: 00:00:00.0000079
+2017-07-21 11:05:43.1714|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:06:00.2932|INFO|performanceLog|Performance time: 00:00:00.0000121
+2017-07-21 11:07:13.7507|INFO|performanceLog|Performance time: 00:00:00.0000655
+2017-07-21 11:07:13.7507|INFO|performanceLog|Performance time: 00:00:00.0000631
+2017-07-21 11:07:16.5110|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:07:16.5481|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:07:16.5481|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:07:24.7534|INFO|performanceLog|Performance time: 00:00:00.0000203
+2017-07-21 11:08:02.8075|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:08:02.8416|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:10:12.5147|INFO|performanceLog|Performance time: 00:00:00.0000386
+2017-07-21 11:10:13.9455|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:10:13.9706|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:10:19.3015|INFO|performanceLog|Performance time: 00:00:00.0000361
+2017-07-21 11:10:20.7682|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:10:32.7161|INFO|performanceLog|Performance time: 00:00:00.0000947
+2017-07-21 11:12:20.7367|INFO|performanceLog|Performance time: 00:00:00.0000627
+2017-07-21 11:12:22.2033|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:12:22.2294|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:12:24.4784|INFO|performanceLog|Performance time: 00:00:00.0000282
+2017-07-21 11:12:32.6860|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:12:47.3961|INFO|performanceLog|Performance time: 00:00:00.0000710
+2017-07-21 11:13:07.4271|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:13:07.4551|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:13:32.8919|INFO|performanceLog|Performance time: 00:00:00.0000749
+2017-07-21 11:13:34.3654|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:13:34.3891|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:13:36.1346|INFO|performanceLog|Performance time: 00:00:00.0000776
+2017-07-21 11:13:36.2734|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:13:44.8205|INFO|performanceLog|Performance time: 00:00:00.0000547
+2017-07-21 11:15:20.3898|INFO|performanceLog|Performance time: 00:00:00.0000237
+2017-07-21 11:15:20.3898|INFO|performanceLog|Performance time: 00:00:00.0000303
+2017-07-21 11:15:40.2110|INFO|performanceLog|Performance time: 00:00:00.0000211
+2017-07-21 11:18:02.5473|INFO|performanceLog|Performance time: 00:00:00.0000442
+2017-07-21 11:18:03.5480|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:18:03.5480|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:18:04.3191|INFO|performanceLog|Performance time: 00:00:00.0000772
+2017-07-21 11:18:04.4286|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:18:17.8322|INFO|performanceLog|Performance time: 00:00:00.0000403
+2017-07-21 11:18:17.9024|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:18:28.8449|INFO|performanceLog|Performance time: 00:00:00.0000943
+2017-07-21 11:18:28.9031|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:21:53.1293|INFO|performanceLog|Performance time: 00:00:00.0000037
+2017-07-21 11:21:56.0594|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:21:56.0714|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:21:57.0539|INFO|performanceLog|Performance time: 00:00:00.0000995
+2017-07-21 11:21:57.2103|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:06.6520|INFO|performanceLog|Performance time: 00:00:00.0000441
+2017-07-21 11:22:06.7635|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:15.1671|INFO|performanceLog|Performance time: 00:00:00.0000403
+2017-07-21 11:22:15.2100|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:15.2230|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:16.5602|INFO|performanceLog|Performance time: 00:00:00.0000350
+2017-07-21 11:22:16.5868|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:16.5969|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:17.3604|INFO|performanceLog|Performance time: 00:00:00.0000773
+2017-07-21 11:22:17.3859|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:17.3956|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:17.9450|INFO|performanceLog|Performance time: 00:00:00.0000559
+2017-07-21 11:22:17.9735|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:17.9855|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:18.2482|INFO|performanceLog|Performance time: 00:00:00.0000274
+2017-07-21 11:22:18.2723|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:18.2858|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:18.4860|INFO|performanceLog|Performance time: 00:00:00.0000213
+2017-07-21 11:22:18.5181|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:18.5181|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:18.6696|INFO|performanceLog|Performance time: 00:00:00.0000151
+2017-07-21 11:22:18.6920|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:18.7031|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:18.8634|INFO|performanceLog|Performance time: 00:00:00.0000171
+2017-07-21 11:22:18.8905|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:18.8905|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:19.0073|INFO|performanceLog|Performance time: 00:00:00.0000116
+2017-07-21 11:22:19.0283|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:19.0385|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:19.1713|INFO|performanceLog|Performance time: 00:00:00.0000142
+2017-07-21 11:22:19.1943|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:19.2046|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:19.3483|INFO|performanceLog|Performance time: 00:00:00.0000154
+2017-07-21 11:22:19.3704|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:19.3819|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:19.5077|INFO|performanceLog|Performance time: 00:00:00.0000137
+2017-07-21 11:22:19.5287|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:19.5387|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:19.6670|INFO|performanceLog|Performance time: 00:00:00.0000138
+2017-07-21 11:22:19.6905|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:19.7046|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:19.8239|INFO|performanceLog|Performance time: 00:00:00.0000133
+2017-07-21 11:22:19.8500|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:19.8650|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:20.0322|INFO|performanceLog|Performance time: 00:00:00.0000182
+2017-07-21 11:22:20.0583|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:20.0703|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:21.7092|INFO|performanceLog|Performance time: 00:00:00.0000651
+2017-07-21 11:22:21.7353|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:21.7353|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:22.3460|INFO|performanceLog|Performance time: 00:00:00.0000611
+2017-07-21 11:22:22.3691|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:22.3791|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:22.9065|INFO|performanceLog|Performance time: 00:00:00.0000537
+2017-07-21 11:22:22.9312|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:22.9413|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:23.3089|INFO|performanceLog|Performance time: 00:00:00.0000377
+2017-07-21 11:22:23.3335|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:23.3435|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:23.8011|INFO|performanceLog|Performance time: 00:00:00.0000467
+2017-07-21 11:22:23.8252|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:23.8362|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:24.2691|INFO|performanceLog|Performance time: 00:00:00.0000443
+2017-07-21 11:22:24.2922|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:24.3067|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:24.6915|INFO|performanceLog|Performance time: 00:00:00.0000399
+2017-07-21 11:22:24.7712|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:24.7832|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:25.1003|INFO|performanceLog|Performance time: 00:00:00.0000329
+2017-07-21 11:22:25.1224|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:25.1327|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:54.8978|INFO|performanceLog|Performance time: 00:00:00.0000775
+2017-07-21 11:22:54.9449|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:54.9605|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:57.9750|INFO|performanceLog|Performance time: 00:00:00.0000030
+2017-07-21 11:22:58.0086|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:58.0186|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:58.8894|INFO|performanceLog|Performance time: 00:00:00.0000880
+2017-07-21 11:22:58.9204|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:58.9302|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:59.4787|INFO|performanceLog|Performance time: 00:00:00.0000558
+2017-07-21 11:22:59.5081|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:59.5191|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:22:59.8759|INFO|performanceLog|Performance time: 00:00:00.0000367
+2017-07-21 11:22:59.9075|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:22:59.9075|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:00.1325|INFO|performanceLog|Performance time: 00:00:00.0000224
+2017-07-21 11:23:00.1595|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:00.1595|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:00.3449|INFO|performanceLog|Performance time: 00:00:00.0000185
+2017-07-21 11:23:00.3785|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:00.3900|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:00.5364|INFO|performanceLog|Performance time: 00:00:00.0000157
+2017-07-21 11:23:00.5645|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:00.5645|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:00.7170|INFO|performanceLog|Performance time: 00:00:00.0000152
+2017-07-21 11:23:00.7441|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:00.7548|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:04.0156|INFO|performanceLog|Performance time: 00:00:00.0000271
+2017-07-21 11:23:04.0507|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:04.0617|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:04.3054|INFO|performanceLog|Performance time: 00:00:00.0000254
+2017-07-21 11:23:04.3417|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:04.3528|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:04.6477|INFO|performanceLog|Performance time: 00:00:00.0000305
+2017-07-21 11:23:04.6793|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:04.6893|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:04.8639|INFO|performanceLog|Performance time: 00:00:00.0000185
+2017-07-21 11:23:04.8990|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:04.9095|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:23:06.1877|INFO|performanceLog|Performance time: 00:00:00.0000288
+2017-07-21 11:23:06.2439|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:15.3544|INFO|performanceLog|Performance time: 00:00:00.0000110
+2017-07-21 11:23:15.3995|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:20.8329|INFO|performanceLog|Performance time: 00:00:00.0000433
+2017-07-21 11:23:20.8654|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:23:20.8744|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Game with the key  wasn't found!
+2017-07-21 11:24:03.1288|INFO|performanceLog|Performance time: 00:00:00.0000005
+2017-07-21 11:24:04.5824|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:24:04.6105|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:24:06.0533|INFO|performanceLog|Performance time: 00:00:00.0000480
+2017-07-21 11:24:06.2226|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:24:12.7691|INFO|performanceLog|Performance time: 00:00:00.0000546
+2017-07-21 11:25:52.2977|INFO|performanceLog|Performance time: 00:00:00.0000166
+2017-07-21 11:25:53.7411|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:25:53.7622|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:25:56.5325|INFO|performanceLog|Performance time: 00:00:00.0000798
+2017-07-21 11:25:56.6923|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:26:04.8626|INFO|performanceLog|Performance time: 00:00:00.0000170
+2017-07-21 11:26:19.5340|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:26:29.7778|INFO|performanceLog|Performance time: 00:00:00.0000247
+2017-07-21 11:26:42.5940|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:26:53.0520|INFO|performanceLog|Performance time: 00:00:00.0000460
+2017-07-21 11:27:26.5380|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:27:35.5405|INFO|performanceLog|Performance time: 00:00:00.0000005
+2017-07-21 11:27:37.4326|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:28:05.9836|INFO|performanceLog|Performance time: 00:00:00.0000550
+2017-07-21 11:28:16.3070|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:28:29.9852|INFO|performanceLog|Performance time: 00:00:00.0000678
+2017-07-21 11:28:34.0066|INFO|performanceLog|Performance time: 00:00:00.0000699
+2017-07-21 11:28:34.3204|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:28:34.3274|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:28:46.7328|INFO|performanceLog|Performance time: 00:00:00.0000405
+2017-07-21 11:28:47.8857|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:29:19.6692|INFO|performanceLog|Performance time: 00:00:00.0000783
+2017-07-21 11:29:19.7544|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:29:19.7780|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-21 11:29:59.0099|INFO|performanceLog|Performance time: 00:00:00.0000260
+2017-07-21 11:29:59.1253|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:30:04.4775|INFO|performanceLog|Performance time: 00:00:00.0000351
+2017-07-21 11:30:04.5111|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:30:08.3454|INFO|performanceLog|Performance time: 00:00:00.0000834
+2017-07-21 11:30:08.4873|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:30:12.6862|INFO|performanceLog|Performance time: 00:00:00.0000199
+2017-07-21 11:30:15.0626|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:30:15.0846|INFO|performanceLog|Performance time: 00:00:00.0000022
+2017-07-21 11:30:15.1383|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:30:38.9246|INFO|performanceLog|Performance time: 00:00:00.0000815
+2017-07-21 11:30:40.0468|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:00.9611|INFO|performanceLog|Performance time: 00:00:00.0000913
+2017-07-21 11:31:01.0774|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:01.1004|INFO|performanceLog|Performance time: 00:00:00.0000024
+2017-07-21 11:31:01.1285|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:21.5496|INFO|performanceLog|Performance time: 00:00:00.0000421
+2017-07-21 11:31:21.6394|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:26.7996|INFO|performanceLog|Performance time: 00:00:00.0000160
+2017-07-21 11:31:26.8493|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:26.8668|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-21 11:31:26.8989|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:42.3675|INFO|performanceLog|Performance time: 00:00:00.0000468
+2017-07-21 11:31:42.4417|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:42.4577|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-21 11:31:42.4918|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:31:58.0642|INFO|performanceLog|Performance time: 00:00:00.0000572
+2017-07-21 11:31:58.1079|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:00.8060|INFO|performanceLog|Performance time: 00:00:00.0000698
+2017-07-21 11:32:00.8512|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:00.8682|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-21 11:32:00.8993|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:09.6491|INFO|performanceLog|Performance time: 00:00:00.0000749
+2017-07-21 11:32:09.6973|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:09.7133|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-21 11:32:09.7444|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:21.2156|INFO|performanceLog|Performance time: 00:00:00.0000471
+2017-07-21 11:32:21.2588|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:21.2768|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-21 11:32:21.3115|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:46.7085|INFO|performanceLog|Performance time: 00:00:00.0000396
+2017-07-21 11:32:46.7852|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:32:46.8053|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-07-21 11:32:46.8414|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:33:03.1794|INFO|performanceLog|Performance time: 00:00:00.0000339
+2017-07-21 11:33:03.2406|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:33:05.0412|INFO|performanceLog|Performance time: 00:00:00.0000800
+2017-07-21 11:33:05.0840|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:33:05.1000|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-21 11:33:05.1302|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:33:19.6904|INFO|performanceLog|Performance time: 00:00:00.0000548
+2017-07-21 11:33:21.1309|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:33:37.4090|INFO|performanceLog|Performance time: 00:00:00.0000278
+2017-07-21 11:50:30.5931|INFO|performanceLog|Performance time: 00:00:00.0000489
+2017-07-21 11:50:31.6433|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:50:36.3815|INFO|performanceLog|Performance time: 00:00:00.0000739
+2017-07-21 11:50:36.4166|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:51:26.4860|INFO|performanceLog|Performance time: 00:00:00.0000069
+2017-07-21 11:51:26.5672|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:51:35.1468|INFO|performanceLog|Performance time: 00:00:00.0000026
+2017-07-21 11:51:38.1461|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:51:44.4935|INFO|performanceLog|Performance time: 00:00:00.0000346
+2017-07-21 11:51:44.5316|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:52:59.3628|INFO|performanceLog|Performance time: 00:00:00.0000280
+2017-07-21 11:53:01.1702|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:53:30.0617|INFO|performanceLog|Performance time: 00:00:00.0000891
+2017-07-21 11:53:30.1509|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:53:37.4759|INFO|performanceLog|Performance time: 00:00:00.0000325
+2017-07-21 11:53:37.6427|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:53:46.4293|INFO|performanceLog|Performance time: 00:00:00.0000786
+2017-07-21 11:53:46.4921|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:01.5260|INFO|performanceLog|Performance time: 00:00:00.0000033
+2017-07-21 11:54:01.5797|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:06.9268|INFO|performanceLog|Performance time: 00:00:00.0000347
+2017-07-21 11:54:07.0551|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:07.0762|INFO|performanceLog|Performance time: 00:00:00.0000021
+2017-07-21 11:54:07.1028|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:15.3536|INFO|performanceLog|Performance time: 00:00:00.0000250
+2017-07-21 11:54:15.4177|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:15.4343|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-21 11:54:15.4659|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:28.4263|INFO|performanceLog|Performance time: 00:00:00.0000960
+2017-07-21 11:54:28.4744|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 11:54:28.4925|INFO|performanceLog|Performance time: 00:00:00.0000018
+2017-07-21 11:54:28.5321|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:32:20.6262|INFO|performanceLog|Performance time: 00:00:00.0000499
+2017-07-21 12:32:22.3511|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:32:57.1567|INFO|performanceLog|Performance time: 00:00:00.0000806
+2017-07-21 12:32:57.1892|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:33:01.1019|INFO|performanceLog|Performance time: 00:00:00.0000912
+2017-07-21 12:33:01.1390|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:33:01.8725|INFO|performanceLog|Performance time: 00:00:00.0000733
+2017-07-21 12:33:01.9958|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:33:02.4898|INFO|performanceLog|Performance time: 00:00:00.0000493
+2017-07-21 12:33:02.5289|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:33:03.0597|INFO|performanceLog|Performance time: 00:00:00.0000530
+2017-07-21 12:33:03.1896|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:33:22.2417|INFO|performanceLog|Performance time: 00:00:00.0000052
+2017-07-21 12:33:22.4377|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:33:27.6308|INFO|performanceLog|Performance time: 00:00:00.0000193
+2017-07-21 12:34:53.7353|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:34:53.7623|INFO|performanceLog|Performance time: 00:00:00.0000027
+2017-07-21 12:34:53.8004|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:35:30.8058|INFO|performanceLog|Performance time: 00:00:00.0000005
+2017-07-21 12:35:36.8411|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:35:36.8666|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Sequence contains no matching element
+2017-07-21 12:35:47.2146|INFO|performanceLog|Performance time: 00:00:00.0000379
+2017-07-21 12:35:47.2788|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 12:36:24.5687|INFO|performanceLog|Performance time: 00:00:00.0000289
+2017-07-21 13:01:43.5004|INFO|performanceLog|Performance time: 00:00:00.0000393
+2017-07-21 13:01:44.6327|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:01:47.0121|INFO|performanceLog|Performance time: 00:00:00.0000380
+2017-07-21 13:01:47.1400|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:01:50.1206|INFO|performanceLog|Performance time: 00:00:00.0000980
+2017-07-21 13:01:50.1743|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:01:59.8406|INFO|performanceLog|Performance time: 00:00:00.0000666
+2017-07-21 13:01:59.9489|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:01:59.9720|INFO|performanceLog|Performance time: 00:00:00.0000023
+2017-07-21 13:02:00.0106|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:02:12.8149|INFO|performanceLog|Performance time: 00:00:00.0000803
+2017-07-21 13:02:12.8550|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:02:12.8681|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Sequence contains no matching element
+2017-07-21 13:02:58.0007|INFO|performanceLog|Performance time: 00:00:00.0000879
+2017-07-21 13:02:59.5719|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:03:03.9040|INFO|performanceLog|Performance time: 00:00:00.0000333
+2017-07-21 13:08:12.1430|INFO|performanceLog|Performance time: 00:00:00.0000064
+2017-07-21 13:08:12.1430|INFO|performanceLog|Performance time: 00:00:00.0000036
+2017-07-21 13:08:14.7050|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:14.7050|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:08:16.1581|INFO|performanceLog|Performance time: 00:00:00.0000453
+2017-07-21 13:08:16.2659|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:32.0943|INFO|performanceLog|Performance time: 00:00:00.0000828
+2017-07-21 13:08:32.1801|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:32.1966|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-21 13:08:32.2317|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:39.6113|INFO|performanceLog|Performance time: 00:00:00.0000379
+2017-07-21 13:08:39.6551|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:39.6721|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-21 13:08:39.7127|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:42.5113|INFO|performanceLog|Performance time: 00:00:00.0000798
+2017-07-21 13:08:42.5565|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:42.5735|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-21 13:08:42.6066|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:08:49.5987|INFO|performanceLog|Performance time: 00:00:00.0000993
+2017-07-21 13:08:49.7028|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:09:15.3635|INFO|performanceLog|Performance time: 00:00:00.0000660
+2017-07-21 13:09:15.4633|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:09:15.4823|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-21 13:09:15.5655|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:10:45.8609|INFO|performanceLog|Performance time: 00:00:00.0000296
+2017-07-21 13:10:45.9813|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:10:46.0010|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-21 13:10:46.0421|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 13:17:32.6419|INFO|performanceLog|Performance time: 00:00:00.0000543
+2017-07-21 13:17:33.1002|INFO|performanceLog|Performance time: 00:00:00.0000099
+2017-07-21 13:17:35.5444|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:17:35.6186|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:17:54.8894|INFO|performanceLog|Performance time: 00:00:00.0000270
+2017-07-21 13:17:55.0077|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:22:44.3424|INFO|performanceLog|Performance time: 00:00:00.0000334
+2017-07-21 13:22:44.4462|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:23:17.8299|INFO|performanceLog|Performance time: 00:00:00.0000383
+2017-07-21 13:23:17.9136|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:24:25.2286|INFO|performanceLog|Performance time: 00:00:00.0000315
+2017-07-21 13:24:25.3359|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:25:06.8363|INFO|performanceLog|Performance time: 00:00:00.0000500
+2017-07-21 13:25:06.9360|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:30:51.7183|INFO|performanceLog|Performance time: 00:00:00.0000600
+2017-07-21 13:30:53.1730|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:31:41.6451|INFO|performanceLog|Performance time: 00:00:00.0000472
+2017-07-21 13:31:41.7445|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:36:35.2811|INFO|performanceLog|Performance time: 00:00:00.0000141
+2017-07-21 13:36:38.5516|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:50:24.8842|INFO|performanceLog|Performance time: 00:00:00.0000786
+2017-07-21 13:50:26.6900|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:50:32.9156|INFO|performanceLog|Performance time: 00:00:00.0000225
+2017-07-21 13:50:33.0645|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:51:45.5992|INFO|performanceLog|Performance time: 00:00:00.0000505
+2017-07-21 13:51:47.4682|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:53:53.8539|INFO|performanceLog|Performance time: 00:00:00.0000384
+2017-07-21 13:53:53.9978|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:54:01.1565|INFO|performanceLog|Performance time: 00:00:00.0000158
+2017-07-21 13:54:01.2026|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:54:03.3696|INFO|performanceLog|Performance time: 00:00:00.0000166
+2017-07-21 13:54:03.4190|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:54:03.7489|INFO|performanceLog|Performance time: 00:00:00.0000329
+2017-07-21 13:54:03.7910|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:54:03.9705|INFO|performanceLog|Performance time: 00:00:00.0000179
+2017-07-21 13:54:04.0344|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:55:30.7493|INFO|performanceLog|Performance time: 00:00:00.0000662
+2017-07-21 13:55:32.9073|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:55:37.4149|INFO|performanceLog|Performance time: 00:00:00.0000507
+2017-07-21 13:55:37.5142|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:56:03.8252|INFO|performanceLog|Performance time: 00:00:00.0000310
+2017-07-21 13:56:03.8703|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:56:05.3031|INFO|performanceLog|Performance time: 00:00:00.0000432
+2017-07-21 13:56:05.3558|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:56:10.7211|INFO|performanceLog|Performance time: 00:00:00.0000365
+2017-07-21 13:56:10.8449|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:56:10.8670|INFO|performanceLog|Performance time: 00:00:00.0000023
+2017-07-21 13:56:10.8921|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:56:28.6332|INFO|performanceLog|Performance time: 00:00:00.0000741
+2017-07-21 13:56:28.7369|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:56:28.7560|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-21 13:56:28.8171|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:58:01.4749|INFO|performanceLog|Performance time: 00:00:00.0000657
+2017-07-21 13:58:01.5190|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:58:09.7492|INFO|performanceLog|Performance time: 00:00:00.0000230
+2017-07-21 13:58:09.7778|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:58:11.2620|INFO|performanceLog|Performance time: 00:00:00.0000484
+2017-07-21 13:58:11.3301|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:58:11.3462|INFO|performanceLog|Performance time: 00:00:00.0000016
+2017-07-21 13:58:11.3708|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:58:54.0294|INFO|performanceLog|Performance time: 00:00:00.0000931
+2017-07-21 13:58:54.8561|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:59:12.3633|INFO|performanceLog|Performance time: 00:00:00.0000508
+2017-07-21 13:59:12.3944|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:59:15.9965|INFO|performanceLog|Performance time: 00:00:00.0000602
+2017-07-21 13:59:16.0275|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:59:34.5971|INFO|performanceLog|Performance time: 00:00:00.0000569
+2017-07-21 13:59:34.6387|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 13:59:47.1556|INFO|performanceLog|Performance time: 00:00:00.0000037
+2017-07-21 13:59:50.0672|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:29.2221|INFO|performanceLog|Performance time: 00:00:00.0000131
+2017-07-21 14:03:32.0755|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:40.3849|INFO|performanceLog|Performance time: 00:00:00.0000310
+2017-07-21 14:03:40.5242|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:46.2417|INFO|performanceLog|Performance time: 00:00:00.0000717
+2017-07-21 14:03:46.3520|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:46.3720|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-07-21 14:03:46.3996|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:55.2009|INFO|performanceLog|Performance time: 00:00:00.0000801
+2017-07-21 14:03:55.2540|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:57.0794|INFO|performanceLog|Performance time: 00:00:00.0000826
+2017-07-21 14:03:57.1149|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:03:57.1305|INFO|performanceLog|Performance time: 00:00:00.0000015
+2017-07-21 14:03:57.1565|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:05:07.5087|INFO|performanceLog|Performance time: 00:00:00.0000352
+2017-07-21 14:05:07.5713|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:05:25.0515|INFO|performanceLog|Performance time: 00:00:00.0000480
+2017-07-21 14:05:25.0916|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:05:26.7991|INFO|performanceLog|Performance time: 00:00:00.0000707
+2017-07-21 14:05:26.8822|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:05:26.8998|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-07-21 14:05:26.9259|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:05:55.8299|INFO|performanceLog|Performance time: 00:00:00.0000724
+2017-07-21 14:05:57.1651|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:29:17.2958|INFO|performanceLog|Performance time: 00:00:00.0000151
+2017-07-21 14:29:18.5521|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:31:33.8279|INFO|performanceLog|Performance time: 00:00:00.0000708
+2017-07-21 14:31:36.7999|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:31:38.9291|INFO|performanceLog|Performance time: 00:00:00.0000130
+2017-07-21 14:31:38.9919|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:32:45.7671|INFO|performanceLog|Performance time: 00:00:00.0000664
+2017-07-21 14:32:48.3945|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:32:50.7971|INFO|performanceLog|Performance time: 00:00:00.0000403
+2017-07-21 14:32:50.9650|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:32:51.5180|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-21 14:35:10.2799|INFO|performanceLog|Performance time: 00:00:00.0000160
+2017-07-21 14:35:11.6341|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 14:35:22.0742|INFO|performanceLog|Performance time: 00:00:00.0000440
+2017-07-21 14:35:22.2567|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 15:50:40.1703|INFO|performanceLog|Performance time: 00:00:00.0000043
+2017-07-21 15:50:47.8557|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 15:51:08.9339|INFO|performanceLog|Performance time: 00:00:00.0000079
+2017-07-21 15:51:09.1118|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 15:51:28.9794|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-21 15:53:09.5318|INFO|performanceLog|Performance time: 00:00:00.0000392
+2017-07-21 15:53:12.1627|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 15:53:15.5786|INFO|performanceLog|Performance time: 00:00:00.0000415
+2017-07-21 15:54:32.0518|INFO|performanceLog|Performance time: 00:00:00.0000937
+2017-07-21 15:54:32.0614|INFO|performanceLog|Performance time: 00:00:00.0000966
+2017-07-21 15:54:32.0614|INFO|performanceLog|Performance time: 00:00:00.0000966
+2017-07-21 15:55:49.7763|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 15:55:49.8464|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+2017-07-21 15:56:36.9936|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 15:56:39.1313|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: 127.0.0.1
+2017-07-21 15:56:39.1549|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 15:56:39.1764|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 15:56:45.2277|INFO|performanceLog|Performance time: 00:00:00.0000112
+2017-07-21 16:08:45.8269|INFO|performanceLog|Performance time: 00:00:00.0000735
+2017-07-21 16:08:45.8269|INFO|performanceLog|Performance time: 00:00:00.0000707
+2017-07-21 16:13:50.7360|INFO|performanceLog|Performance time: 00:00:00.0000639
+2017-07-21 16:13:50.7360|INFO|performanceLog|Performance time: 00:00:00.0000662
+2017-07-21 16:13:51.5709|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:13:51.5709|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:13:51.5800|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+2017-07-21 16:13:51.5800|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+2017-07-21 16:14:53.2019|INFO|performanceLog|Performance time: 00:00:00.0000079
+2017-07-21 16:18:07.1722|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-21 16:19:35.8309|INFO|performanceLog|Performance time: 00:00:00.0000683
+2017-07-21 16:19:50.2374|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:19:50.2665|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+2017-07-21 16:20:15.6567|INFO|performanceLog|Performance time: 00:00:00.0000515
+2017-07-21 16:20:45.3338|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:21:02.2079|INFO|performanceLog|Performance time: 00:00:00.0000875
+2017-07-21 16:23:01.1081|INFO|performanceLog|Performance time: 00:00:00.0000987
+2017-07-21 16:23:01.1081|INFO|performanceLog|Performance time: 00:00:00.0000011
+2017-07-21 16:24:41.1078|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-21 16:24:41.1078|INFO|performanceLog|Performance time: 00:00:00.0000991
+2017-07-21 16:29:12.9514|INFO|performanceLog|Performance time: 00:00:00.0000822
+2017-07-21 16:29:12.9514|INFO|performanceLog|Performance time: 00:00:00.0000852
+2017-07-21 16:32:09.6738|INFO|performanceLog|Performance time: 00:00:00.0000569
+2017-07-21 16:32:09.6738|INFO|performanceLog|Performance time: 00:00:00.0000543
+2017-07-21 16:32:50.5348|INFO|performanceLog|Performance time: 00:00:00.0000333
+2017-07-21 16:32:50.5348|INFO|performanceLog|Performance time: 00:00:00.0000404
+2017-07-21 16:33:00.9910|INFO|performanceLog|Performance time: 00:00:00.0000991
+2017-07-21 16:53:12.1872|INFO|performanceLog|Performance time: 00:00:00.0000070
+2017-07-21 16:53:13.2771|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:58:35.2344|INFO|performanceLog|Performance time: 00:00:00.0000103
+2017-07-21 16:58:36.3673|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:58:43.3675|INFO|performanceLog|Performance time: 00:00:00.0000999
+2017-07-21 16:58:46.1901|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:59:03.0328|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-21 16:59:22.5976|INFO|performanceLog|Performance time: 00:00:00.0000475
+2017-07-21 16:59:23.7387|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 16:59:24.5216|INFO|performanceLog|Performance time: 00:00:00.0000783
+2017-07-21 17:05:27.8731|INFO|performanceLog|Performance time: 00:00:00.0000757
+2017-07-21 17:05:27.8731|INFO|performanceLog|Performance time: 00:00:00.0000788
+2017-07-21 17:07:52.9226|INFO|performanceLog|Performance time: 00:00:00.0000798
+2017-07-21 17:07:54.1201|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:07:54.3818|INFO|performanceLog|Performance time: 00:00:00.0000261
+2017-07-21 17:07:56.4727|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:07:56.4978|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The type 'GameStore.Domain.BusinessObjects.Comment' appears in two structurally incompatible initializations within a single LINQ to Entities query. A type can be initialized in two places in the same query, but only if the same properties are set in both places and those properties are set in the same order.
+2017-07-21 17:09:39.8286|INFO|performanceLog|Performance time: 00:00:00.0000699
+2017-07-21 17:09:39.8286|INFO|performanceLog|Performance time: 00:00:00.0000725
+2017-07-21 17:29:39.3164|INFO|performanceLog|Performance time: 00:00:00.0000239
+2017-07-21 17:29:39.3164|INFO|performanceLog|Performance time: 00:00:00.0000206
+2017-07-21 17:29:42.9175|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:29:42.9727|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+2017-07-21 17:29:43.0920|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:29:43.1151|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+2017-07-21 17:37:50.4867|INFO|performanceLog|Performance time: 00:00:00.0000361
+2017-07-21 17:37:51.5221|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:37:59.8748|INFO|performanceLog|Performance time: 00:00:00.0000353
+2017-07-21 17:38:26.2273|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:38:32.4841|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-21 17:38:47.7976|INFO|performanceLog|Performance time: 00:00:00.0000698
+2017-07-21 17:38:47.7976|INFO|performanceLog|Performance time: 00:00:00.0000629
+2017-07-21 17:39:51.7608|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:40:10.9965|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The operation cannot be completed because the DbContext has been disposed.
+2017-07-21 17:42:33.4716|INFO|performanceLog|Performance time: 00:00:00.0000315
+2017-07-21 17:42:34.2301|INFO|performanceLog|Performance time: 00:00:00.0000230
+2017-07-21 17:43:10.1756|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:49:03.2827|INFO|performanceLog|Performance time: 00:00:00.0000124
+2017-07-21 17:49:04.4424|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:49:10.8452|INFO|performanceLog|Performance time: 00:00:00.0000403
+2017-07-21 17:56:29.2505|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:58:06.4852|INFO|performanceLog|Performance time: 00:00:00.0000363
+2017-07-21 17:58:06.4852|INFO|performanceLog|Performance time: 00:00:00.0000417
+2017-07-21 17:58:07.2290|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:58:07.3473|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:58:08.6347|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-07-21 17:58:50.8123|INFO|performanceLog|Performance time: 00:00:00.0000699
+2017-07-21 17:58:53.5702|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:59:00.3365|INFO|performanceLog|Performance time: 00:00:00.0000767
+2017-07-21 17:59:00.5944|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:59:57.8275|INFO|performanceLog|Performance time: 00:00:00.0000233
+2017-07-21 17:59:57.8831|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 17:59:59.9788|INFO|performanceLog|Performance time: 00:00:00.0000095
+2017-07-21 18:00:00.0690|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-21 18:00:30.7011|INFO|performanceLog|Performance time: 00:00:00.0000632
+2017-07-21 18:00:30.8757|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1

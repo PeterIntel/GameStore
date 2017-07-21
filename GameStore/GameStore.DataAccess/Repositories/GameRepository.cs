@@ -17,10 +17,12 @@ namespace GameStore.DataAccess.Repositories
     {
         private readonly IGenreRepository _genreRepository;
         private readonly IPlatformTypeRepository _platformRepository;
-        public GameRepository(GamesContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository) : base(context, mapper)
+        private readonly IPublisherRepository _publisherRepository;
+        public GameRepository(GamesContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository, IPublisherRepository publisherRepository) : base(context, mapper)
         {
             _genreRepository = genreRepository;
             _platformRepository = platformRepository;
+            _publisherRepository = publisherRepository;
         }
 
         public override void Add(Game game)
@@ -32,6 +34,7 @@ namespace GameStore.DataAccess.Repositories
                 var platforms = _mapper.Map<IEnumerable<PlatformType>, List<string>>(game.PlatformTypes);
                 gameEntity.Genres = _genreRepository.GetGenres(genres).ToList();
                 gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes(platforms).ToList();
+                gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == gameEntity.Publisher.CompanyName);
                 _dbSet.Add(gameEntity);
             }
         }

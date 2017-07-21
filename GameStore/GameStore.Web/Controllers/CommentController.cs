@@ -15,10 +15,12 @@ namespace GameStore.Web.Controllers
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;
+        private readonly IGameService _gameService;
         private readonly IMapper _mapper;
-        public CommentController(ICommentService commentService, IMapper mapper)
+        public CommentController(ICommentService commentService, IGameService gameService, IMapper mapper)
         {
             _commentService = commentService;
+            _gameService = gameService;
             _mapper = mapper;
         }
         // GET: Comment
@@ -27,17 +29,21 @@ namespace GameStore.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddComment(CommentsViewModel commentsViewModel)
         {
+            string gamekey = commentsViewModel.Comment.GameKey;
+
             if (ModelState.IsValid)
             {
                 var comment = _mapper.Map<CommentViewModel, Comment>(commentsViewModel.Comment);
                 _commentService.Add(comment);
-                ModelState.Clear();
                 commentsViewModel.Comment = new CommentViewModel()
                 {
-                    GameKey = commentsViewModel.Comment.GameKey
+                    GameId = commentsViewModel.Comment.GameId,
+                    GameKey = gamekey
                 };
+                ModelState.Clear();
             }
-            commentsViewModel.Comments = InitComments(commentsViewModel.Comment.GameKey).Comments;
+
+            commentsViewModel.Comments = InitComments(gamekey).Comments;
             return PartialView("_CommentsPartialView", commentsViewModel);
         }
 
@@ -60,7 +66,11 @@ namespace GameStore.Web.Controllers
             var commentsViewModel = new CommentsViewModel()
             {
                 Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments),
-                Comment = new CommentViewModel() { GameKey = gameKey}
+                Comment = new CommentViewModel()
+                {
+                    GameId = _gameService.GetItemByKey(gameKey).Id,
+                    GameKey = gameKey
+                }
             };
             return commentsViewModel;
         }

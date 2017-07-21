@@ -1,9 +1,6 @@
-﻿using GameStore.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
@@ -34,10 +31,6 @@ namespace GameStore.Services.ServicesImplementation
         public IEnumerable<Game> GetAll(params Expression<Func<Game, object>>[] includeProperties)
         {
             var games = _unitOfWork.GameRepository.GetAll(includeProperties);
-            foreach (var game in games)
-            {
-                game.Comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(game.Key).ToList());
-            }
             return games;
         }
 

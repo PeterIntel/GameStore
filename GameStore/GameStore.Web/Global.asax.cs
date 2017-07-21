@@ -15,7 +15,6 @@ namespace GameStore.Web
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesContext, Configuration>("GamesContext"));
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);

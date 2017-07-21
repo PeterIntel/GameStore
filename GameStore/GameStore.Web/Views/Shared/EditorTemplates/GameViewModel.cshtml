@@ -55,3 +55,8 @@
     @Html.DisplayFor(m => m.PlatformTypes[i].TypeName)
     @Html.CheckBoxFor(m => m.PlatformTypes[i].IsChecked)
 }
+
+<br>
+@Html.LabelFor(m => m.SelectedPublisher)
+<br>
+@Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "CompanyName", "CompanyName"))

@@ -17,6 +17,7 @@
     @Html.AntiForgeryToken()
 
     @Html.HiddenFor(m => m.Comment.ParentCommentId)
+    @Html.HiddenFor(m => m.Comment.GameId)
     @Html.HiddenFor(m => m.Comment.GameKey)
     @Html.EditorFor(m => m.Comment.Name)
     @Html.ValidationMessageFor(m => m.Comment.Name)
@@ -36,11 +37,11 @@
 
                 @if (comments[i].ParentCommentId != null)
                 {
-                    <span><a href="#Id_@comments[i].ParentCommentId">@comments[i].Name</a>,</span>
+                    <span>@comments[i].Name, <a href="#Id_@comments[i].ParentCommentId">@comments[i].ParentComment.Name</a>,</span>
                 }
                 else
                 {
-                    <span><a href="#">@Html.Raw(comments[i].Name),</a></span>
+                    <span>@comments[i].Name,</span>
                 }
 
                 <span>@Html.Raw(comments[i].Body)</span>

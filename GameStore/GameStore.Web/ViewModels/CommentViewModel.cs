@@ -15,8 +15,10 @@ namespace GameStore.Web.ViewModels
         [Required]
         public string Body { set; get; }
         public int? ParentCommentId { set; get; }
+        public int GameId { set; get; }
         public string GameKey { set; get; }
         public GameViewModel Game { set; get; }
+        public CommentViewModel ParentComment { set; get; }
         public IList<CommentViewModel> Comments { set; get; }
     }
 }
