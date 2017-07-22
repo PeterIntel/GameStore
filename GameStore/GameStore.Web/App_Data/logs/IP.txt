@@ -6607,3 +6607,5 @@ Parameter name: index
 2017-07-21 18:00:00.0690|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-21 18:00:30.7011|INFO|performanceLog|Performance time: 00:00:00.0000632
 2017-07-21 18:00:30.8757|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-22 21:33:36.1593|INFO|performanceLog|Performance time: 00:00:00.0000040
+2017-07-22 21:33:48.2772|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
