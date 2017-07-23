@@ -133,6 +133,44 @@ namespace GameStore.DataAccess.Migrations
                 }
                 );
 
+            context.GamesInfo.AddOrUpdate(
+                new GameInfoEntity()
+                {
+                    Id = 1,
+                    IsDeleted = false,
+                    CountOfViews = 2,
+                    UploadDate = DateTime.UtcNow.AddDays(-23)
+                },
+                new GameInfoEntity()
+                {
+                    Id = 2,
+                    IsDeleted = false,
+                    CountOfViews = 2,
+                    UploadDate = DateTime.UtcNow.AddDays(-23)
+                },
+                new GameInfoEntity()
+                {
+                    Id = 3,
+                    IsDeleted = false,
+                    CountOfViews = 2,
+                    UploadDate = DateTime.UtcNow.AddDays(-23)
+                },
+                new GameInfoEntity()
+                {
+                    Id = 4,
+                    IsDeleted = false,
+                    CountOfViews = 2,
+                    UploadDate = DateTime.UtcNow.AddDays(-23),
+                },
+                new GameInfoEntity()
+                {
+                    Id = 5,
+                    IsDeleted = false,
+                    CountOfViews = 2,
+                    UploadDate = DateTime.UtcNow.AddDays(-23)
+                });
+            context.SaveChanges();
+
             context.Orders.AddOrUpdate(
                 new OrderEntity()
                 {

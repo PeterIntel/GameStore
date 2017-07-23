@@ -88,11 +88,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\GamesContext.cs" />
+    <Compile Include="EntitiesConfigurations\GameConfiguration.cs" />
     <Compile Include="EntitiesConfigurations\OrderDetailsConfiguration.cs" />
     <Compile Include="EntitiesConfigurations\PublisherConfiguration.cs" />
     <Compile Include="Entities\BasicEntity.cs" />
     <Compile Include="Entities\CommentEntity.cs" />
     <Compile Include="Entities\GameEntity.cs" />
+    <Compile Include="Entities\GameInfoEntity.cs" />
     <Compile Include="Entities\GenreEntity.cs" />
     <Compile Include="Entities\OrderDetailsEntity.cs" />
     <Compile Include="Entities\OrderEntity.cs" />
@@ -109,6 +111,14 @@
     <Compile Include="Migrations\201707211436293_deleteComments.cs" />
     <Compile Include="Migrations\201707211436293_deleteComments.Designer.cs">
       <DependentUpon>201707211436293_deleteComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707221908341_Add_GameInfo.cs" />
+    <Compile Include="Migrations\201707221908341_Add_GameInfo.Designer.cs">
+      <DependentUpon>201707221908341_Add_GameInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707230716479_delete_GameId.cs" />
+    <Compile Include="Migrations\201707230716479_delete_GameId.Designer.cs">
+      <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707211436293_deleteComments.resx">
       <DependentUpon>201707211436293_deleteComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707221908341_Add_GameInfo.resx">
+      <DependentUpon>201707221908341_Add_GameInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707230716479_delete_GameId.resx">
+      <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
