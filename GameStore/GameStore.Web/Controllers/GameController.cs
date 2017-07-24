@@ -44,11 +44,11 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
-                game.Genres = _mapper.Map<IEnumerable<GenreViewModel>, IEnumerable<Genre>>(gameViewModel.Genres.Where(x => x.IsChecked));
-                game.PlatformTypes = _mapper.Map<IEnumerable<PlatformTypeViewModel>, IEnumerable<PlatformType>>(gameViewModel.PlatformTypes.Where(x => x.IsChecked));
                 _gameService.Add(game);
                 return RedirectToAction("GetGames");
             }
+            gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.NameGenres));
+            gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.NamePlatformtypes));
             gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAll());
             return View(gameViewModel);
         }
@@ -74,7 +74,22 @@ namespace GameStore.Web.Controllers
 
         public ActionResult GetGames()
         {
-            return Json(_gameService.GetAll().ToList(), JsonRequestBehavior.AllowGet);
+            FilterCriteria filter = new FilterCriteria()
+            {
+                Genres = _genreService.GetAll(),
+                Platformtypes = _platformTypeService.GetAll(),
+                Publishers = _publisherService.GetAll()
+            };
+
+            var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
+
+            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.GetAll())});
+        }
+        
+        [ActionName("filter")]
+        public ActionResult FilterGames(FilterCriteriaViewModel filter)
+        {
+            return View();
         }
 
         public ActionResult GetGameDetails(string key)

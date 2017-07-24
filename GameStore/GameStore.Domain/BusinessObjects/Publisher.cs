@@ -12,6 +12,7 @@ namespace GameStore.Domain.BusinessObjects
         public string CompanyName { set; get; }
         public string Description { set; get; }
         public string HomePage { set; get; }
+        public bool IsChecked { set; get; }
         public virtual IEnumerable<Game> Games { set; get; }
     }
 }

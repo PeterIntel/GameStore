@@ -9,6 +9,7 @@ using Moq;
 using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
 
 namespace GameStore.Services.Tests.Services_implementation
 {
@@ -17,13 +18,14 @@ namespace GameStore.Services.Tests.Services_implementation
     {
         private GameService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
+        private Mock<ICommentService> _commentService;
         private Game _gameStub = new Game();
 
         [SetUp]
         public void Setup()
         {
             _unitOfWork = new Mock<IUnitOfWork>();
-            _sut = new GameService(_unitOfWork.Object);
+            _sut = new GameService(_unitOfWork.Object, _commentService.Object);
         }
 
         [Test]

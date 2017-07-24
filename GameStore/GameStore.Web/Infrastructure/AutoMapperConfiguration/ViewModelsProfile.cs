@@ -24,6 +24,7 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<Publisher, PublisherViewModel>().ReverseMap();
             CreateMap<Order, OrderViewModel>().ReverseMap();
             CreateMap<OrderDetails, OrderDetailsViewModel>().ReverseMap();
+            CreateMap<FilterCriteria, FilterCriteriaViewModel>().ReverseMap();
         }
     }
 }

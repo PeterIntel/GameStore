@@ -1,0 +1,13 @@
+﻿@using GameStore.Domain.BusinessObjects;
+
+@model SortCriteria
+
+<select id="sortCriteria" , name="sortCriteria">
+    @foreach (SortCriteria item in Enum.GetValues(typeof(SortCriteria)))
+    {
+        <option value="@item" @(Model == item ? "selected=\"selected\"" : "")>
+            @item
+        </option>
+    }
+</select>
+

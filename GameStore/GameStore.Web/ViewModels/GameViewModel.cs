@@ -22,6 +22,8 @@ namespace GameStore.Web.ViewModels
         public IList<PublisherViewModel> Publishers { set; get; }
         public IList<CommentViewModel> Comments { set; get; }
         public IList<GenreViewModel> Genres { set; get; }
+        public IEnumerable<string> NameGenres { set; get; }
         public IList<PlatformTypeViewModel> PlatformTypes { set; get; }
+        public IList<string> NamePlatformtypes { set; get; }
     }
 }

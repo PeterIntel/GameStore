@@ -12,6 +12,7 @@ namespace GameStore.Domain.BusinessObjects
     {
         public int Id { set; get; }
         public string TypeName { set; get; }
+        public bool IsChecked { set; get; }
         public IEnumerable<Game> Games { set; get; }
     }
 }

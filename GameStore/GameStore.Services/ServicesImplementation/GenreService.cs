@@ -46,5 +46,21 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.GenreRepository.Update(item);
             _unitOfWork.Save();
         }
+
+        public IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres)
+        {
+            IEnumerable<Genre> genres = _unitOfWork.GenreRepository.GetAll();
+            if (selecredGenres != null)
+            {
+                foreach (var item in genres)
+                {
+                    if (selecredGenres.Contains(item.Name))
+                    {
+                        item.IsChecked = true;
+                    }
+                }
+            }
+            return genres;
+        }
     }
 }

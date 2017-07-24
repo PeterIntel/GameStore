@@ -30,10 +30,8 @@ namespace GameStore.DataAccess.Repositories
             if (game != null)
             {
                 var gameEntity = _mapper.Map<Game, GameEntity>(game);
-                var genres = _mapper.Map<IEnumerable<Genre>, List<string>>(game.Genres);
-                var platforms = _mapper.Map<IEnumerable<PlatformType>, List<string>>(game.PlatformTypes);
-                gameEntity.Genres = _genreRepository.GetGenres(genres).ToList();
-                gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes(platforms).ToList();
+                gameEntity.Genres = _genreRepository.GetGenres((IList<string>)game.NameGenres).ToList();
+                gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes((IList<string>)game.NamePlatformTypes).ToList();
                 gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == gameEntity.Publisher.CompanyName);
                 _dbSet.Add(gameEntity);
             }

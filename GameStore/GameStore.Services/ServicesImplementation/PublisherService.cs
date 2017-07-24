@@ -51,5 +51,20 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.PublisherRepository.Update(item);
             _unitOfWork.Save();
         }
+        public IEnumerable<Publisher> GetAllPublishersAndMarkSelected(IEnumerable<string> selecredPublishers)
+        {
+            IEnumerable<Publisher> publishers = _unitOfWork.PublisherRepository.GetAll();
+            if (selecredPublishers != null)
+            {
+                foreach (var item in publishers)
+                {
+                    if (selecredPublishers.Contains(item.CompanyName))
+                    {
+                        item.IsChecked = true;
+                    }
+                }
+            }
+            return publishers;
+        }
     }
 }

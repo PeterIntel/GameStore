@@ -1,59 +1,57 @@
 ﻿@model GameViewModel
-    
+
 @Html.LabelFor(m => m.Key)
-</br>
+<br>
 @Html.EditorFor(m => m.Key)
 @Html.ValidationMessageFor(m => m.Key)
-  
-</br>
+
+<br>
 
 @Html.LabelFor(m => m.Description)
-</br>
-@Html.TextAreaFor(m => m.Description, 5, 20, new { resize = "none"})
+<br>
+@Html.TextAreaFor(m => m.Description, 5, 20, new { resize = "none" })
 @Html.ValidationMessageFor(m => m.Description)
 
 <br>
 
 @Html.LabelFor(m => m.Price)
-</br>
+<br>
 @Html.EditorFor(m => m.Price)
 @Html.ValidationMessageFor(m => m.Price)
 
-</br>
+<br>
 
 @Html.LabelFor(m => m.Discontinued)
-</br>
+<br>
 @Html.EditorFor(m => m.Discontinued)
 @Html.ValidationMessageFor(m => m.Discontinued)
 
-</br>
+<br>
 
 @Html.LabelFor(m => m.UnitsInStock)
-</br>
+<br>
 @Html.EditorFor(m => m.UnitsInStock)
 @Html.ValidationMessageFor(m => m.UnitsInStock)
 
 <br>
 
 @Html.LabelFor(m => m.Genres)
-</br>
+<br>
 
 @for (int i = 0; i < Model.Genres.Count; i++)
 {
-    @Html.HiddenFor(m => m.Genres[i].Name)
-    @Html.DisplayFor(m => m.Genres[i].Name)
-    @Html.CheckBoxFor(m => m.Genres[i].IsChecked)
+    @Html.CustomCheckBox("Genre" + i, "NameGenres", Model.Genres[i].Name, Model.Genres[i].IsChecked)
+    @Html.Label("Genre" + i, Model.Genres[i].Name)
 }
 
-</br>
+<br>
 
 @Html.LabelFor(m => m.PlatformTypes)
-</br>
+<br>
 @for (int i = 0; i < Model.PlatformTypes.Count; i++)
 {
-    @Html.HiddenFor(m => m.PlatformTypes[i].TypeName)
-    @Html.DisplayFor(m => m.PlatformTypes[i].TypeName)
-    @Html.CheckBoxFor(m => m.PlatformTypes[i].IsChecked)
+    @Html.CustomCheckBox("PlatformType" + i, "NamePlatformTypes", Model.PlatformTypes[i].TypeName, Model.PlatformTypes[i].IsChecked)
+    @Html.Label("PlatformType" + i, Model.PlatformTypes[i].TypeName)
 }
 
 <br>

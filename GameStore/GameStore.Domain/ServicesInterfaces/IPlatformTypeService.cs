@@ -10,5 +10,6 @@ namespace GameStore.Domain.ServicesInterfaces
 {
     public interface IPlatformTypeService : ICrudService<PlatformType>
     {
+        IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms);
     }
 }

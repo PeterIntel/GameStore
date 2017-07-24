@@ -46,5 +46,21 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.PlatformTypeRepository.Update(item);
             _unitOfWork.Save();
         }
+
+        public IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms)
+        {
+            IEnumerable<PlatformType> platforms = _unitOfWork.PlatformTypeRepository.GetAll();
+            if (selecredPlatforms != null)
+            {
+                foreach (var item in platforms)
+                {
+                    if (selecredPlatforms.Contains(item.TypeName))
+                    {
+                        item.IsChecked = true;
+                    }
+                }
+            }
+            return platforms;
+        }
     }
 }

@@ -52,3 +52,9 @@ label {
 .form {
     display: inline;
 }
+
+.game{
+    border: 1px dashed black;
+    margin-bottom:5px;
+    display: inline-block;
+}

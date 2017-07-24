@@ -19,7 +19,9 @@ namespace GameStore.Domain.BusinessObjects
         public IEnumerable<Comment> Comments { set; get; }
         [ScriptIgnore(ApplyToOverrides = true)]
         public IEnumerable<Genre> Genres { set; get; }
+        public IEnumerable<string> NameGenres { set; get; }
         [ScriptIgnore(ApplyToOverrides = true)]
         public IEnumerable<PlatformType> PlatformTypes { set; get; }
+        public IEnumerable<string> NamePlatformTypes { set; get; }
     }
 }

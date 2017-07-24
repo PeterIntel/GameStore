@@ -9,7 +9,6 @@
 @using (Html.BeginForm())
 {
     @Html.EditorForModel()
-    @Html.RouteLink("downloads", "gameKeyAction", new { gamekey = Model.Key, action = "download" })
     <br>
     <input type="submit" value="Add game"/>
 }

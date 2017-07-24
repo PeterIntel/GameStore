@@ -11,5 +11,6 @@ namespace GameStore.Domain.ServicesInterfaces
 {
     public interface IGenreService: ICrudService<Genre>
     {
+        IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres);
     }
 }
