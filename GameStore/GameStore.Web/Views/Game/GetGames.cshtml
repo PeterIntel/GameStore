@@ -5,79 +5,47 @@
 }
 
 <h2>GetGames</h2>
-@using (Html.BeginForm("filter", "game", FormMethod.Get, new { id = "filterForm"}))
+@using (Html.BeginForm("filter", "game", FormMethod.Get, new { id = "filterForm" }))
 {
-    @Html.LabelFor(m => m.Filter.Genres)
+    @Html.Partial("_Filters", Model.Filter)
     <br>
-    for (int i = 0; i < Model.Filter.Genres.Count; i++)
-    {
-        @Html.CustomCheckBox("Genre" + i, "NameGenres", Model.Filter.Genres[i].Name, Model.Filter.Genres[i].IsChecked)
-        @Html.Label("Genre" + i, Model.Filter.Genres[i].Name)
-    }
-
+    <input type="hidden" id="page" name="page"/>
+    @Html.DropDownList("size", new SelectList(Model.PagingInfo.QuantityItems, "Key", "Value"), "All")
     <br>
-
-    @Html.LabelFor(m => m.Filter.PlatformTypes)
-    <br>
-    for (int i = 0; i < Model.Filter.PlatformTypes.Count; i++)
-    {
-        @Html.CustomCheckBox("PlatformType" + i, "NamePlatformTypes", Model.Filter.PlatformTypes[i].TypeName, Model.Filter.PlatformTypes[i].IsChecked)
-        @Html.Label("PlatformType" + i, Model.Filter.PlatformTypes[i].TypeName)
-    }
-
-    <br>
-
-    @Html.LabelFor(m => m.Filter.Publishers)
-    <br>
-    for (int i = 0; i < Model.Filter.Publishers.Count; i++)
-    {
-        @Html.CustomCheckBox("Publisher" + i, "NamePublishers", Model.Filter.Publishers[i].CompanyName, Model.Filter.PlatformTypes[i].IsChecked)
-        @Html.Label("Publisher" + i, Model.Filter.Publishers[i].CompanyName)
-    }
-
-    <br>
-
-    @Html.LabelFor(m => m.Filter.SortCriteria)
-    <br>
-    @Html.EditorFor(m => m.Filter.SortCriteria)
-
-    <br>
-
-    @Html.LabelFor(m => m.Filter.PriceFrom)
-    <br>
-    @Html.EditorFor(m => m.Filter.PriceFrom)
-    @Html.EditorFor(m => m.Filter.PriceTo)
-
-    <br>
-
-    @Html.LabelFor(m => m.Filter.PublishedDateCriteria)
-    <br>
-    @Html.EditorFor(m => m.Filter.PublishedDateCriteria)
-
-    <br>
-
-    @Html.LabelFor(m => m.Filter.GameName)
-    <br>
-    @Html.EditorFor(m => m.Filter.GameName)
-
     <input id="filterButton" type="button" value="Apply Filters">
 }
+<div class="games">
+    @foreach (var game in Model.Games)
+    {
+        @Html.Partial("_GameDetails", game)
+    }
+</div>
 
-@foreach (var game in Model.Games)
-{
-    @Html.Partial("_GameDetails", game)
-}
+<div id="pageLinks" class="links">
+    @Html.PageLinks(Model.PagingInfo)
+</div>
 
 @section Scripts{
     <script>
         $(document).ready(function () {
             var formOriginalData = $("#filterForm").serialize();
 
-            $("#filterButton").on("click", function () {
-                if (formOriginalData !== $("#filterForm").serialize()) {
+            $("#filterButton").on("click",
+                function () {
+                    if (formOriginalData !== $("#filterForm").serialize()) {
+                        $("#filterForm").submit();
+                    }
+                });
+            var pageLinks = document.getElementById("pageLinks").getElementsByTagName("button");
+
+            for (var i = 0; i < pageLinks.length; i++) {
+                pageLinks[i].value = i + 1;
+                pageLinks[i].addEventListener("click", function () {
+                    $("#page").val(this.value);
                     $("#filterForm").submit();
-                }
-            })
+                });
+            }
+
         })
     </script>
 }

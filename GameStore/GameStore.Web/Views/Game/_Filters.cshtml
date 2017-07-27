@@ -1,0 +1,58 @@
+﻿@model FilterCriteriaViewModel
+
+
+@Html.LabelFor(m => m.Genres)
+<br>
+@for (int i = 0; i < Model.Genres.Count; i++)
+{
+    @Html.CustomCheckBox("Genre" + i, "NameGenres", Model.Genres[i].Name, Model.Genres[i].IsChecked)
+    @Html.Label("Genre" + i, Model.Genres[i].Name)
+}
+
+<br>
+
+@Html.LabelFor(m => m.PlatformTypes)
+<br>
+@for (int i = 0; i < Model.PlatformTypes.Count; i++)
+{
+    @Html.CustomCheckBox("PlatformType" + i, "NamePlatformTypes", Model.PlatformTypes[i].TypeName, Model.PlatformTypes[i].IsChecked)
+    @Html.Label("PlatformType" + i, Model.PlatformTypes[i].TypeName)
+}
+
+<br>
+
+@Html.LabelFor(m => m.Publishers)
+<br>
+@for (int i = 0; i < Model.Publishers.Count; i++)
+{
+    @Html.CustomCheckBox("Publisher" + i, "NamePublishers", Model.Publishers[i].CompanyName, Model.Publishers[i].IsChecked)
+    @Html.Label("Publisher" + i, Model.Publishers[i].CompanyName)
+}
+
+<br>
+
+@Html.LabelFor(m => m.SortCriteria)
+<br>
+@Html.EditorFor(m => m.SortCriteria)
+
+<br>
+
+@Html.LabelFor(m => m.PriceFrom)
+<br>
+@Html.TextBoxFor(m => m.PriceFrom, new { type = "number" })
+@Html.EditorFor(m => m.PriceTo)
+
+<br>
+
+@Html.LabelFor(m => m.DateTimeIntervals)
+<br>
+@Html.EditorFor(m => m.DateTimeIntervals)
+
+<br>
+
+@Html.LabelFor(m => m.GameName)
+<br>
+@Html.EditorFor(m => m.GameName)
+
+
+

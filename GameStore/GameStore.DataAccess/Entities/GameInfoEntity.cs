@@ -8,7 +8,6 @@ namespace GameStore.DataAccess.Entities
 {
     public class GameInfoEntity : BasicEntity
     {
-        public int Id { set; get; }
         public int? CountOfViews { set; get; }
         public DateTime UploadDate { set; get; }
 

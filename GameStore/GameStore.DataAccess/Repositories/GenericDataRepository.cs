@@ -36,7 +36,7 @@ namespace GameStore.DataAccess.Repositories
             }
         }
 
-        public IEnumerable<TDomain> GetAll(Expression<Func<TDomain, bool>> filterDomain,params Expression<Func<TDomain, object>>[] includeProperties)
+        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterDomain, params Expression<Func<TDomain, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
@@ -54,13 +54,11 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
-            //var res = _mapper.Map<IQueryable<TEntity>, IEnumerable<TDomain >> (queryToEntity);
-            //var com = (result[1] as CommentEntity).ParentComment;
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
             return result;
         }
 
-        public IEnumerable<TDomain> GetAll(params Expression<Func<TDomain, object>>[] includeProperties)
+        public IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
@@ -114,9 +112,25 @@ namespace GameStore.DataAccess.Repositories
             if (item != null)
             {
                 TEntity entity = _mapper.Map<TDomain, TEntity>(item);
-                _dbSet.Attach(entity);
+                _context.Entry(_context.GamesInfo.Find(entity.Id)).State = EntityState.Detached;
                 _context.Entry(entity).State = EntityState.Modified;
             }
+        }
+
+        public int GetCountObject(Expression<Func<TDomain, bool>> filter)
+        {
+            var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
+
+            IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
+
+            if (filter != null)
+            {
+                queryToEntity = queryToEntity.Where(filterEntity);
+            }
+
+            var result = queryToEntity.Count();
+
+            return result;
         }
     }
 }

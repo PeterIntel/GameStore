@@ -2,7 +2,7 @@
 
 @model SortCriteria
 
-<select id="sortCriteria" , name="sortCriteria">
+<select id="SortCriteria" , name="SortCriteria">
     @foreach (SortCriteria item in Enum.GetValues(typeof(SortCriteria)))
     {
         <option value="@item" @(Model == item ? "selected=\"selected\"" : "")>

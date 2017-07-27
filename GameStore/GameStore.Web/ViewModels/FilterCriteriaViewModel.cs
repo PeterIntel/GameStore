@@ -10,7 +10,7 @@ namespace GameStore.Web.ViewModels
     public class FilterCriteriaViewModel
     {
         public IList<GenreViewModel> Genres { set; get; }
-        public string[] NameGenres { set; get; }
+        public IList<string> NameGenres { set; get; }
         public IList<PlatformTypeViewModel> PlatformTypes { set; get; }
         public IList<string> NamePlatformTypes { set; get; }
         public IList<PublisherViewModel> Publishers { set; get; }
@@ -18,10 +18,11 @@ namespace GameStore.Web.ViewModels
         [Display(Name = "Sort by")]
         public SortCriteria SortCriteria { set; get; }
         [Display(Name = "Price Range")]
-        public decimal PriceFrom { set; get; }
-        public decimal PriceTo { set; get; }
+        public decimal? PriceFrom { set; get; }
+        public decimal? PriceTo { set; get; }
         [Display(Name = "Filter by published date")]
-        public PublishedDateCriteria PublishedDateCriteria { set; get; }
+        public DateTimeIntervals DateTimeIntervals { set; get; }
+        [StringLength(100,MinimumLength = 3)]
         public string GameName { set; get; }
     }
 }

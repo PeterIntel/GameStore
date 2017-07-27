@@ -9,7 +9,6 @@ namespace GameStore.DataAccess.Entities
 {
     public class OrderEntity : BasicEntity
     {
-        public int Id { set; get; }
         public int CustomerId { set; get; }
         public DateTime OrderDate { set; get; }
         public CompletionStatus Status { set; get; }

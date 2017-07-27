@@ -24,9 +24,9 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<PlatformType> GetAll(params Expression<Func<PlatformType, object>>[] includeProperties)
+        public IEnumerable<PlatformType> Get(params Expression<Func<PlatformType, object>>[] includeProperties)
         {
-            return _unitOfWork.PlatformTypeRepository.GetAll(includeProperties);
+            return _unitOfWork.PlatformTypeRepository.Get(includeProperties);
         }
 
         public void Remove(int id)
@@ -49,7 +49,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms)
         {
-            IEnumerable<PlatformType> platforms = _unitOfWork.PlatformTypeRepository.GetAll();
+            IEnumerable<PlatformType> platforms = _unitOfWork.PlatformTypeRepository.Get().ToList();
             if (selecredPlatforms != null)
             {
                 foreach (var item in platforms)

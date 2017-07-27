@@ -49,6 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ServicesImplementation\CommentService.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\BaseFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameNameFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GamePipeline.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GenreFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\Pipeline.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\PlatformTypeFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\PriceFromFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\PriceToFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\PublishedDateFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\PublisherFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\SwapVisitor.cs" />
     <Compile Include="ServicesImplementation\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesImplementation\GenreService.cs" />

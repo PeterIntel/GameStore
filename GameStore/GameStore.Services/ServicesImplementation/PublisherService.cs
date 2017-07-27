@@ -24,9 +24,9 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Publisher> GetAll(params Expression<Func<Publisher, object>>[] includeProperties)
+        public IEnumerable<Publisher> Get(params Expression<Func<Publisher, object>>[] includeProperties)
         {
-            return _unitOfWork.PublisherRepository.GetAll(includeProperties);
+            return _unitOfWork.PublisherRepository.Get(includeProperties);
         }
 
         public Publisher GetPublisherByCompanyName(string companyName)
@@ -53,7 +53,7 @@ namespace GameStore.Services.ServicesImplementation
         }
         public IEnumerable<Publisher> GetAllPublishersAndMarkSelected(IEnumerable<string> selecredPublishers)
         {
-            IEnumerable<Publisher> publishers = _unitOfWork.PublisherRepository.GetAll();
+            IEnumerable<Publisher> publishers = _unitOfWork.PublisherRepository.Get().ToList();
             if (selecredPublishers != null)
             {
                 foreach (var item in publishers)

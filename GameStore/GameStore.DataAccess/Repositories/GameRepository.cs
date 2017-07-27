@@ -10,6 +10,7 @@ using GameStore.DataAccess.Context;
 using System.Linq.Expressions;
 using System.Data.Entity;
 using System.Security.Cryptography.X509Certificates;
+using AutoMapper.QueryableExtensions;
 
 namespace GameStore.DataAccess.Repositories
 {
@@ -35,6 +36,45 @@ namespace GameStore.DataAccess.Repositories
                 gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == gameEntity.Publisher.CompanyName);
                 _dbSet.Add(gameEntity);
             }
+        }
+
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, int? page, int? size, params Expression<Func<Game, object>>[] includeProperties)
+        {
+            IQueryable<GameEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
+
+            var filterEntity = _mapper.Map<Expression<Func<Game, bool>>, Expression<Func<GameEntity, bool>>>(filterDomain);
+
+            var sortEntity = _mapper.Map<Expression<Func<Game, TKey>>, Expression<Func<GameEntity, TKey>>>(sortDomain);
+
+            var includePropertiesForEntities = _mapper.Map<Expression<Func<Game, object>>[], Expression<Func<GameEntity, object>>[]>(includeProperties);
+
+            foreach (var item in includePropertiesForEntities)
+            {
+                queryToEntity.Include(item);
+            }
+
+            if (filterEntity != null)
+            {
+                queryToEntity = queryToEntity.Where(filterEntity);
+            }
+
+            if (sortEntity != null)
+            {
+                queryToEntity = queryToEntity.OrderBy(sortEntity);
+            }
+            else
+            {
+                queryToEntity = queryToEntity.OrderBy(x => x.Id);
+            }
+
+            if (size != null && page != null)
+            {
+                queryToEntity = queryToEntity.Skip(((int) page - 1) * (int) size).Take((int) size);
+            }
+
+            var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
+
+            return result;
         }
 
         public Game GetGameByKey(string key)

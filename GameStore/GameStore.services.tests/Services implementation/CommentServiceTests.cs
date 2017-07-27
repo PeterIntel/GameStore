@@ -39,12 +39,12 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetAllCommentsByGameKey_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()))
+            _unitOfWork.Setup(g => g.CommentRepository.Get(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()))
                 .Returns(() => It.IsAny<IList<Comment>>());
 
             _sut.GetAllCommentsByGameKey("game");
 
-            _unitOfWork.Verify(u => u.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()), Times.Once);
+            _unitOfWork.Verify(u => u.CommentRepository.Get(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()), Times.Once);
         }
 
         [Test]

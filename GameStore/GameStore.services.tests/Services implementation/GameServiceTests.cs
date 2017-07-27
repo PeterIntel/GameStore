@@ -18,14 +18,13 @@ namespace GameStore.Services.Tests.Services_implementation
     {
         private GameService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
-        private Mock<ICommentService> _commentService;
         private Game _gameStub = new Game();
 
         [SetUp]
         public void Setup()
         {
             _unitOfWork = new Mock<IUnitOfWork>();
-            _sut = new GameService(_unitOfWork.Object, _commentService.Object);
+            _sut = new GameService(_unitOfWork.Object);
         }
 
         [Test]
@@ -41,12 +40,12 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetAll_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.GetAll(It.IsAny<Expression<Func<Game, object>>[]>()))
+            _unitOfWork.Setup(g => g.GameRepository.Get(It.IsAny<Expression<Func<Game, object>>[]>()))
                 .Returns(() => It.IsAny<IEnumerable<Game>>());
 
-            _sut.GetAll(x => x.Comments, x => x.Genres);
+            _sut.Get(x => x.Comments, x => x.Genres);
 
-            _unitOfWork.Verify(u => u.GameRepository.GetAll(It.IsAny<Expression<Func<Game, object>>[]>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.Get(It.IsAny<Expression<Func<Game, object>>[]>()), Times.Once);
         }
 
         [Test]
@@ -63,7 +62,7 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetItemByKey_GameNotFoundWithKey_ReturnNull()
         {
-            _unitOfWork.Setup(g => g.GameRepository.GetAll(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, object>>>()))
+            _unitOfWork.Setup(g => g.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, object>>>()))
                 .Returns(() => It.IsAny<IList<Game>>());
 
             var result = _sut.GetItemByKey("game");

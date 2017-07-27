@@ -24,9 +24,9 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Genre> GetAll(params Expression<Func<Genre, object>>[] includeProperties)
+        public IEnumerable<Genre> Get(params Expression<Func<Genre, object>>[] includeProperties)
         {
-            return _unitOfWork.GenreRepository.GetAll(includeProperties);
+            return _unitOfWork.GenreRepository.Get(includeProperties);
         }
 
         public void Remove(int id)
@@ -49,7 +49,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres)
         {
-            IEnumerable<Genre> genres = _unitOfWork.GenreRepository.GetAll();
+            IEnumerable<Genre> genres = _unitOfWork.GenreRepository.Get().ToList();
             if (selecredGenres != null)
             {
                 foreach (var item in genres)

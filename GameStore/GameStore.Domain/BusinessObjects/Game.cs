@@ -14,7 +14,9 @@ namespace GameStore.Domain.BusinessObjects
         public decimal Price { set; get; }
         public short UnitsInStock { set; get; }
         public bool Discontinued { set; get; }
-        public virtual Publisher Publisher { set; get; }
+        public DateTime? PublishedDate { set; get; }
+        public GameInfo GameInfo { set; get; }
+        public Publisher Publisher { set; get; }
         [ScriptIgnore(ApplyToOverrides = true)]
         public IEnumerable<Comment> Comments { set; get; }
         [ScriptIgnore(ApplyToOverrides = true)]

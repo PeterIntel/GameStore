@@ -37,6 +37,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Publisher, PublisherEntity>().ReverseMap();
             CreateMap<OrderEntity, Order>().ReverseMap();
             CreateMap<OrderDetailsEntity, OrderDetails>().ReverseMap();
+            CreateMap<GameInfo, GameInfoEntity>().ReverseMap();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace GameStore.Web.Filters
             var cache = filterContext.HttpContext.Cache;
             if (cache["GamesQuantity"] == null)
             {
-                cache["GamesQuantity"] = _gameService.GetAll().Count();
+                cache["GamesQuantity"] = _gameService.Get().Count();
                 cache.Add("GamesQuantity", cache["GamesQuantity"], null, DateTime.UtcNow.AddMinutes(1), Cache.NoSlidingExpiration, CacheItemPriority.High, null);
             }
             base.OnActionExecuted(filterContext);

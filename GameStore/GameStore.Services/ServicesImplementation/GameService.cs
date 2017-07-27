@@ -5,17 +5,18 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
+using GameStore.Services.ServicesImplementation.FilterImplementation;
 
 namespace GameStore.Services.ServicesImplementation
 {
     public class GameService : IGameService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICommentService _commentService;
-        public GameService(IUnitOfWork unitOfWork, ICommentService commentService)
+        private GamePipeline _gamePipeline;
+        public GameService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _commentService = commentService;
         }
         public void Add(Game item)
         {
@@ -23,21 +24,33 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Game> GetAll(Expression<Func<Game, bool>> filter, params Expression<Func<Game, object>>[] includeProperties)
-        {
-            return _unitOfWork.GameRepository.GetAll(filter, includeProperties);
-        }
-
-        public IEnumerable<Game> GetAll(params Expression<Func<Game, object>>[] includeProperties)
-        {
-            var games = _unitOfWork.GameRepository.GetAll(includeProperties);
-            return games;
-        }
-
         public Game GetItemByKey(string key)
         {
             var result = _unitOfWork.GameRepository.GetGameByKey(key);
             return result;
+        }
+
+        public IEnumerable<Game> FilterGames(FilterCriteria filters, int? page, int? size, out int count)
+        {
+            _gamePipeline = new GamePipeline();
+            _gamePipeline.ApplyFilters(filters);
+            var filterExpression = _gamePipeline.Process(x => true);
+            count = _unitOfWork.GameRepository.GetCountObject(_gamePipeline.Process(x => true));
+
+            switch (filters.SortCriteria)
+            {
+                case SortCriteria.ByPriceAsc:
+                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Price, page, size);
+                case SortCriteria.ByPriceDesc:
+                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Price * (-1), page, size);
+                case SortCriteria.MostCommented:
+                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Comments.Count() * (-1), page, size);
+                case SortCriteria.New:
+                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.GameInfo.UploadDate, page, size);
+                case SortCriteria.MostPopular:
+                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.GameInfo.CountOfViews * (-1), page, size);
+            }
+            return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Id, page, size);
         }
 
         public void Remove(int id)
@@ -55,6 +68,22 @@ namespace GameStore.Services.ServicesImplementation
         public void Update(Game item)
         {
             _unitOfWork.GameRepository.Update(item);
+            _unitOfWork.Save();
+        }
+
+        public IEnumerable<Game> Get(params Expression<Func<Game, object>>[] includeProperties)
+        {
+            var games = _unitOfWork.GameRepository.Get(includeProperties);
+            return games;
+        }
+
+        public void AddViewToGame(string key)
+        {
+            var game = _unitOfWork.GameRepository.GetGameByKey(key);
+            var gameInfo = _unitOfWork.GameInfoRepository.GetItemById(game.GameInfo.Id);
+            gameInfo.CountOfViews++;
+            gameInfo.Game = null;
+            _unitOfWork.GameInfoRepository.Update(gameInfo);
             _unitOfWork.Save();
         }
     }

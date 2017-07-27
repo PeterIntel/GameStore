@@ -10,8 +10,6 @@ namespace GameStore.DataAccess.Entities
 {
     public class PlatformTypeEntity : BasicEntity
     {
-        public int Id { set; get; }
-
         [Index(IsUnique = true)]
         [StringLength(450)]
         public string TypeName { set; get; }

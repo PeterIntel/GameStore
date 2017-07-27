@@ -8,6 +8,7 @@ namespace GameStore.Domain.BusinessObjects
 {
     public enum SortCriteria
     {
+        None,
         MostPopular,
         MostCommented,
         ByPriceAsc,

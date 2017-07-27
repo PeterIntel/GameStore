@@ -1,9 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 
 namespace GameStore.Web.Controllers
@@ -30,9 +32,9 @@ namespace GameStore.Web.Controllers
         {
             var game = new GameViewModel()
             {
-                Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAll()),
-                PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAll()),
-                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAll())
+                Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.Get()),
+                PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.Get()),
+                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
             };
             return View(game);
         }
@@ -49,7 +51,7 @@ namespace GameStore.Web.Controllers
             }
             gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.NameGenres));
             gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.NamePlatformtypes));
-            gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAll());
+            gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
             return View(gameViewModel);
         }
 
@@ -76,24 +78,45 @@ namespace GameStore.Web.Controllers
         {
             FilterCriteria filter = new FilterCriteria()
             {
-                Genres = _genreService.GetAll(),
-                Platformtypes = _platformTypeService.GetAll(),
-                Publishers = _publisherService.GetAll()
+                Genres = _genreService.Get(),
+                Platformtypes = _platformTypeService.Get(),
+                Publishers = _publisherService.Get()
             };
 
             var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
+            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get());
 
-            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.GetAll())});
+            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games, PagingInfo = new PagingInfoViewModel()});
         }
         
         [ActionName("filter")]
-        public ActionResult FilterGames(FilterCriteriaViewModel filter)
+        public ActionResult FilterGames(FilterCriteriaViewModel filterViewModel, int? size, int page = 1)
         {
-            return View();
+            FilterCriteria filters = null;
+
+            if (ModelState.IsValid)
+            {
+               filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
+            }
+            filterViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(filterViewModel.NameGenres));
+            filterViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(filterViewModel.NamePlatformTypes));
+            filterViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAllPublishersAndMarkSelected(filterViewModel.NamePublishers));
+            int countFilterGames;
+            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.FilterGames(filters, page, size, out countFilterGames));
+
+            var pageInfo = new PagingInfoViewModel()
+            {
+                CurrentPage = page,
+                ItemsPerPage = size,
+                TotalItems = countFilterGames
+            };
+
+            return View("GetGames", new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games,PagingInfo = pageInfo});
         }
 
         public ActionResult GetGameDetails(string key)
         {
+            _gameService.AddViewToGame(key);
             var gameViewModel = _mapper.Map<Game, GameViewModel>(_gameService.GetItemByKey(key));
             return View(gameViewModel);
         }

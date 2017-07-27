@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public enum PublishedDateCriteria
+    public enum DateTimeIntervals
     {
+        AllTime,
         LastWeek,
         LastMonth,
         LastYear,

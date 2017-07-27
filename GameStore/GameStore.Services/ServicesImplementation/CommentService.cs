@@ -23,7 +23,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey)
         {
-            return _unitOfWork.CommentRepository.GetAll(x => x.Game.Key == gameKey);
+            return _unitOfWork.CommentRepository.Get(x => x.Game.Key == gameKey);
         }
 
         public IEnumerable<Comment> GetStructureOfComments(IEnumerable<Comment> comments)
@@ -83,10 +83,9 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.CommentRepository.Update(item);
             _unitOfWork.Save();
         }
-
-        public IEnumerable<Comment> GetAll(params Expression<Func<Comment, object>>[] includeProperties)
+        public IEnumerable<Comment> Get(params Expression<Func<Comment, object>>[] includeProperties)
         {
-            return _unitOfWork.CommentRepository.GetAll(includeProperties);
+            return _unitOfWork.CommentRepository.Get(includeProperties);
         }
     }
 }
