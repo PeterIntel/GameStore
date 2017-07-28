@@ -6609,3 +6609,62 @@ Parameter name: index
 2017-07-21 18:00:30.8757|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-22 21:33:36.1593|INFO|performanceLog|Performance time: 00:00:00.0000040
 2017-07-22 21:33:48.2772|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:43:28.7389|INFO|performanceLog|Performance time: 00:00:00.0000610
+2017-07-28 20:43:39.1467|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:43:39.1598|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot create file 'C:\Program Files\Microsoft SQL Server\MSSQL13.SQLEXPRESS\MSSQL\DATA\GameStore.mdf' because it already exists. Change the file path or the file name, and retry the operation.
+CREATE DATABASE failed. Some file names listed could not be created. Check related errors.
+2017-07-28 20:46:29.9101|INFO|performanceLog|Performance time: 00:00:00.0000817
+2017-07-28 20:46:31.8676|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:46:31.8786|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+2017-07-28 20:47:15.6751|INFO|performanceLog|Performance time: 00:00:00.0000558
+2017-07-28 20:47:17.7048|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:47:17.7158|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Unable to update database to match the current model because there are pending changes and automatic migration is disabled. Either write the pending model changes to a code-based migration or enable automatic migration. Set DbMigrationsConfiguration.AutomaticMigrationsEnabled to true to enable automatic migration.
+2017-07-28 20:49:09.3806|INFO|performanceLog|Performance time: 00:00:00.0000282
+2017-07-28 20:49:19.6154|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:49:19.6154|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot create file 'C:\Program Files\Microsoft SQL Server\MSSQL13.SQLEXPRESS\MSSQL\DATA\GameStore.mdf' because it already exists. Change the file path or the file name, and retry the operation.
+CREATE DATABASE failed. Some file names listed could not be created. Check related errors.
+2017-07-28 20:51:02.7685|INFO|performanceLog|Performance time: 00:00:00.0000648
+2017-07-28 20:51:16.3322|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:53:00.9400|INFO|performanceLog|Performance time: 00:00:00.0000800
+2017-07-28 20:53:06.0110|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:53:13.0297|INFO|performanceLog|Performance time: 00:00:00.0000019
+2017-07-28 20:53:15.3674|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:53:50.0926|INFO|performanceLog|Performance time: 00:00:00.0000725
+2017-07-28 20:54:05.6659|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:54:05.6890|INFO|performanceLog|Performance time: 00:00:00.0000023
+2017-07-28 20:54:05.7181|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:55:03.6913|INFO|performanceLog|Performance time: 00:00:00.0000573
+2017-07-28 20:55:04.5870|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:56:26.9725|INFO|performanceLog|Performance time: 00:00:00.0000386
+2017-07-28 20:56:27.0006|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:56:37.5544|INFO|performanceLog|Performance time: 00:00:00.0000553
+2017-07-28 20:56:37.6040|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:56:37.6261|INFO|performanceLog|Performance time: 00:00:00.0000022
+2017-07-28 20:56:37.6742|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:57:05.8782|INFO|performanceLog|Performance time: 00:00:00.0000203
+2017-07-28 20:57:06.0662|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:57:06.0662|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
+2017-07-28 20:57:59.5024|INFO|performanceLog|Performance time: 00:00:00.0000437
+2017-07-28 20:57:59.5942|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:06.1930|INFO|performanceLog|Performance time: 00:00:00.0000598
+2017-07-28 20:58:06.2254|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:08.7229|INFO|performanceLog|Performance time: 00:00:00.0000497
+2017-07-28 20:58:08.8733|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:08.8999|INFO|performanceLog|Performance time: 00:00:00.0000026
+2017-07-28 20:58:08.9362|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:11.5949|INFO|performanceLog|Performance time: 00:00:00.0000659
+2017-07-28 20:58:11.6225|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:13.1851|INFO|performanceLog|Performance time: 00:00:00.0000562
+2017-07-28 20:58:13.2101|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:16.0038|INFO|performanceLog|Performance time: 00:00:00.0000793
+2017-07-28 20:58:16.0379|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:17.1236|INFO|performanceLog|Performance time: 00:00:00.0000085
+2017-07-28 20:58:17.1510|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:20.7780|INFO|performanceLog|Performance time: 00:00:00.0000626
+2017-07-28 20:58:20.9153|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:27.2956|INFO|performanceLog|Performance time: 00:00:00.0000380
+2017-07-28 20:58:27.3623|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:46.8340|INFO|performanceLog|Performance time: 00:00:00.0000471
+2017-07-28 20:58:46.8936|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 20:58:56.8718|INFO|performanceLog|Performance time: 00:00:00.0000978
+2017-07-28 20:58:56.9245|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
