@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Moq;
-using GameStore.Services.ServicesImplementation;
+using System.Linq.Expressions;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
-using System.Linq.Expressions;
+using GameStore.Services.ServicesImplementation;
+using Moq;
+using NUnit.Framework;
 
-namespace GameStore.Services.Tests.Services_implementation
+namespace GameStore.Services.Tests.ServicesImplementation
 {
     [TestFixture]
     class CommentServiceTests

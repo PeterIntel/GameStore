@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Moq;
-using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
-using GameStore.Domain.ServicesInterfaces;
+using GameStore.Services.ServicesImplementation;
+using Moq;
+using NUnit.Framework;
 
-namespace GameStore.Services.Tests.Services_implementation
+namespace GameStore.Services.Tests.ServicesImplementation
 {
     [TestFixture]
     class GameServiceTests
@@ -98,6 +94,16 @@ namespace GameStore.Services.Tests.Services_implementation
             _sut.Update(_gameStub);
 
             _unitOfWork.Verify(u => u.GameRepository.Update(It.IsAny<Game>()), Times.Once);
+        }
+
+        [Test]
+        public void AddViewToGame_ViewGame_AddQuantityOfViews()
+        {
+
+
+            _sut.AddViewToGame("ageofempires");
+
+
         }
 
     }
