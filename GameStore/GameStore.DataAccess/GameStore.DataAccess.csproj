@@ -118,7 +118,6 @@
     <Compile Include="Repositories\IGameRepository.cs" />
     <Compile Include="Repositories\IGenericDataRepository.cs" />
     <Compile Include="Repositories\IGenreRepository.cs" />
-    <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IPlatformTypeRepository.cs" />
     <Compile Include="Repositories\IPublisherRepository.cs" />
     <Compile Include="Repositories\PlatformTypeRepository.cs" />

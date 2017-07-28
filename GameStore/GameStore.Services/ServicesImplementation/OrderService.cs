@@ -19,9 +19,13 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork = unitOfWork;
         }
 
-        public void AddGameToOrder(string gamekey, int customerId)
+        public void AddGameToOrder(string gamekey, int? customerId)
         {
-            var game = _unitOfWork.GameRepository.GetAll(x => x.Key == gamekey).First();
+            if (customerId == null)
+            {
+                throw new ArgumentNullException(nameof(customerId) + " references to NULL");
+            }
+            var game = _unitOfWork.GameRepository.GetGameByKey(gamekey);
             var order = _unitOfWork.OrderRepository.GetAll(x => x.CustomerId == customerId && x.Status == CompletionStatus.InComplete).FirstOrDefault();
             if (order != null)
             {
@@ -39,7 +43,7 @@ namespace GameStore.Services.ServicesImplementation
                 {
                     _unitOfWork.OrderDetailsRepository.Add(new OrderDetails()
                     {
-                        OrderId = GetOrderByCustomerId(customerId).Id,
+                        OrderId = GetOrderByCustomerId((int)customerId).Id,
                         GameId = game.Id,
                         Quantity = 1,
                         Price = game.Price
@@ -50,7 +54,7 @@ namespace GameStore.Services.ServicesImplementation
             {
                 _unitOfWork.OrderRepository.Add(new Order()
                 {
-                    CustomerId = customerId,
+                    CustomerId = (int)customerId,
                     OrderDate = DateTime.UtcNow,
                     Status = CompletionStatus.InComplete
                 });
@@ -58,7 +62,7 @@ namespace GameStore.Services.ServicesImplementation
 
                 _unitOfWork.OrderDetailsRepository.Add(new OrderDetails()
                 {
-                    OrderId = GetOrderByCustomerId(customerId).Id,
+                    OrderId = GetOrderByCustomerId((int)customerId).Id,
                     GameId = game.Id,
                     Quantity = 1,
                     Price = game.Price
@@ -87,15 +91,13 @@ namespace GameStore.Services.ServicesImplementation
 
         public Order GetOrderByCustomerId(int id)
         {
-            Order order;
-            try
+            Order order = _unitOfWork.OrderRepository.GetAll(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+
+            if (order == null)
             {
-                order = _unitOfWork.OrderRepository.GetAll(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).First();
+                throw new ArgumentException($"There is not open order for {id}");
             }
-            catch (Exception ex)
-            {
-                throw new ArgumentException($"There is not open order for {id}", ex);
-            }
+
             return order;
         }
 

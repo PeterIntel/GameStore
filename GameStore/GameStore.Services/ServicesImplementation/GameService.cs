@@ -11,11 +11,9 @@ namespace GameStore.Services.ServicesImplementation
     public class GameService : IGameService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICommentService _commentService;
-        public GameService(IUnitOfWork unitOfWork, ICommentService commentService)
+        public GameService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _commentService = commentService;
         }
         public void Add(Game item)
         {

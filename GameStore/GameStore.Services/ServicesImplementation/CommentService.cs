@@ -29,7 +29,7 @@ namespace GameStore.Services.ServicesImplementation
         public IEnumerable<Comment> GetStructureOfComments(IEnumerable<Comment> comments)
         {
             IList<Comment> roots = null;
-            if (comments.Any())
+            if (comments != null && comments.Any())
             {
                 var groups = comments.GroupBy(x => x.ParentCommentId).ToList();
 
