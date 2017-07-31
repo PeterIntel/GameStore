@@ -8628,3 +8628,17 @@ System.Collections.Generic.IEnumerable`1[[GameStore.Domain.BusinessObjects.Game,
 2017-07-28 22:17:08.6403|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-28 22:17:19.0246|INFO|performanceLog|Performance time: 00:00:00.0000384
 2017-07-28 22:17:19.2181|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:05:20.5344|INFO|performanceLog|Performance time: 00:00:00.0000426
+2017-07-31 12:05:22.8582|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:05:29.3318|INFO|performanceLog|Performance time: 00:00:00.0000474
+2017-07-31 12:05:29.5407|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:05:34.0805|INFO|performanceLog|Performance time: 00:00:00.0000539
+2017-07-31 12:05:34.2018|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:05:38.7423|INFO|performanceLog|Performance time: 00:00:00.0000540
+2017-07-31 12:05:38.8762|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:05:46.4587|INFO|performanceLog|Performance time: 00:00:00.0000582
+2017-07-31 12:05:46.6216|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:05:49.9638|INFO|performanceLog|Performance time: 00:00:00.0000342
+2017-07-31 12:05:50.1047|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:06:01.4074|INFO|performanceLog|Performance time: 00:00:00.0000302
+2017-07-31 12:06:01.5548|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
