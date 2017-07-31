@@ -22,17 +22,17 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
 
         public void ApplyFilters(FilterCriteria filters)
         {
-            if (filters.NameGenres.Count != 0)
+            if (filters.NameGenres != null && filters.NameGenres.Count != 0)
             {
                 Register(new GenreFilter(filters.NameGenres));
             }
 
-            if (filters.NamePlatformTypes.Count != 0)
+            if ( filters.NamePlatformTypes != null && filters.NamePlatformTypes.Count != 0)
             {
                 Register(new PlatformTypeFilter(filters.NamePlatformTypes));
             }
 
-            if (filters.NamePublishers.Count != 0)
+            if (filters.NamePublishers != null && filters.NamePublishers.Count != 0)
             {
                 Register(new PublisherFilter(filters.NamePublishers));
             }

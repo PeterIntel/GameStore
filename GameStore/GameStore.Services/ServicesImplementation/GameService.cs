@@ -80,7 +80,7 @@ namespace GameStore.Services.ServicesImplementation
         public void AddViewToGame(string key)
         {
             var game = _unitOfWork.GameRepository.GetGameByKey(key);
-            var gameInfo = _unitOfWork.GameInfoRepository.GetItemById(game.GameInfo.Id);
+            var gameInfo = _unitOfWork.GameInfoRepository.GetItemById(game.Id);
             gameInfo.CountOfViews++;
             gameInfo.Game = null;
             _unitOfWork.GameInfoRepository.Update(gameInfo);

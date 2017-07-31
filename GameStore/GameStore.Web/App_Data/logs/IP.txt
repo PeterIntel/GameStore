@@ -8622,3 +8622,9 @@ System.Collections.Generic.IEnumerable`1[[GameStore.Domain.BusinessObjects.Game,
 2017-07-28 21:07:13.3088|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-28 21:07:29.2663|INFO|performanceLog|Performance time: 00:00:00.0000957
 2017-07-28 21:07:42.1928|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 21:56:12.8961|INFO|performanceLog|Performance time: 00:00:00.0000794
+2017-07-28 21:56:15.1104|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 22:17:04.9145|INFO|performanceLog|Performance time: 00:00:00.0000824
+2017-07-28 22:17:08.6403|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-28 22:17:19.0246|INFO|performanceLog|Performance time: 00:00:00.0000384
+2017-07-28 22:17:19.2181|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1

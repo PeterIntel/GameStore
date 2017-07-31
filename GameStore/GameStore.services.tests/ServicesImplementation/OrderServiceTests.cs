@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.DataAccess.Entities;
 using GameStore.DataAccess.Repositories;
 using GameStore.DataAccess.UnitOfWork;
@@ -11,9 +8,8 @@ using GameStore.Domain.BusinessObjects;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
-using NUnit.Framework.Internal.Execution;
 
-namespace GameStore.Services.Tests.Services_implementation
+namespace GameStore.Services.Tests.ServicesImplementation
 {
     [TestFixture]
     class OrderServiceTests
@@ -27,7 +23,7 @@ namespace GameStore.Services.Tests.Services_implementation
         private static int _customerId = 1;
         private static Game _game = new Game() { Id = 1, Key = "game" , Price = 120};
         private static OrderDetails _orderDetails = new OrderDetails() {Id = 1, Quantity = 2, OrderId = 1, Game = _game, Price = _game.Price * 2};
-        private static Order _order = new Order() {Id = 1, OrderDetails = new List<OrderDetails>() {_orderDetails}};
+        private  Order _order = new Order() {Id = 1, OrderDetails = new List<OrderDetails>() {_orderDetails}};
 
         [SetUp]
         public void Setup()
@@ -51,7 +47,7 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void AddGameToOrders_AddGameToExitingGameDetailsInOrder_IncreaseQuantity()
         {
-            _unitOfWork.Setup(m => m.OrderRepository.GetAll(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order });
+            _unitOfWork.Setup(m => m.OrderRepository.Get(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order });
             
             _sut.AddGameToOrder("game", _customerId);
 
@@ -61,7 +57,7 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void AddGameToOrder_AddGameToExitingGameDetailsInOrder_IncreaseCost()
         {
-            _unitOfWork.Setup(m => m.OrderRepository.GetAll(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order });
+            _unitOfWork.Setup(m => m.OrderRepository.Get(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order });
 
             _sut.AddGameToOrder("game", _customerId);
 
@@ -71,7 +67,7 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void AddGameToOrder_AddNewGameToExitingOrder_QuantityOfDistinctGames()
         {
-            _unitOfWork.Setup(m => m.OrderRepository.GetAll(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order});
+            _unitOfWork.Setup(m => m.OrderRepository.Get(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order});
             _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(new Game());
             _unitOfWork.Setup(m => m.OrderDetailsRepository.Add(It.IsAny<OrderDetails>())).Callback(() => _order.OrderDetails.Add(It.IsAny<OrderDetails>()));
 
@@ -83,7 +79,7 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetOrderByCustomerId_GiveInvalidId_ThrowException()
         {
-            _unitOfWork.Setup(m => m.OrderRepository.GetAll(It.IsAny<Expression<Func<Order, bool>>>())).Throws(new ArgumentException());
+            _unitOfWork.Setup(m => m.OrderRepository.Get(It.IsAny<Expression<Func<Order, bool>>>())).Throws(new ArgumentException());
 
             Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<int>()));
         }
