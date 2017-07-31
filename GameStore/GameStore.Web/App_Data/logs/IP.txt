@@ -6668,3 +6668,5 @@ CREATE DATABASE failed. Some file names listed could not be created. Check relat
 2017-07-28 20:58:46.8936|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-28 20:58:56.8718|INFO|performanceLog|Performance time: 00:00:00.0000978
 2017-07-28 20:58:56.9245|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 12:08:41.2721|INFO|performanceLog|Performance time: 00:00:00.0000172
+2017-07-31 12:08:42.0903|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
