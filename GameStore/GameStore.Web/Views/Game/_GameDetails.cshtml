@@ -2,7 +2,7 @@
 <div class="game">
     @Html.LabelFor(m => m.Key)
     <br>
-    @Html.DisplayFor(m => m.Key)
+    @Html.ActionLink(Model.Key, "GetGameDetails", new { key = Model.Key })
 
     <br>
 
