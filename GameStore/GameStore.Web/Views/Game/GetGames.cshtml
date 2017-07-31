@@ -1,0 +1,13 @@
+﻿@model IList<GameViewModel>
+@{
+    ViewBag.Title = "GetGames";
+}
+
+<h2>GetGames</h2>
+
+<div class="games">
+    @foreach (var game in Model)
+    {
+        @Html.Partial("_GameDetails", game)
+    }
+</div>

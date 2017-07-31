@@ -233,6 +233,8 @@
     <Content Include="Views\Publisher\GetPublisherDetails.cshtml" />
     <Content Include="Views\Publisher\New.cshtml" />
     <Content Include="Views\Order\busket.cshtml" />
+    <Content Include="Views\Game\_GameDetails.cshtml" />
+    <Content Include="Views\Game\GetGames.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

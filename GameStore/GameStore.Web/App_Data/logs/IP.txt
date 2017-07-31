@@ -6670,3 +6670,26 @@ CREATE DATABASE failed. Some file names listed could not be created. Check relat
 2017-07-28 20:58:56.9245|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-31 12:08:41.2721|INFO|performanceLog|Performance time: 00:00:00.0000172
 2017-07-31 12:08:42.0903|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 18:45:22.5026|INFO|performanceLog|Performance time: 00:00:00.0000382
+2017-07-31 18:45:23.3651|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 18:59:35.8943|INFO|performanceLog|Performance time: 00:00:00.0000793
+2017-07-31 18:59:38.4085|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 18:59:39.4221|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[GameStore.Domain.BusinessObjects.Game]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[GameStore.Web.ViewModels.GameViewModel]'.
+2017-07-31 19:00:11.8929|INFO|performanceLog|Performance time: 00:00:00.0000760
+2017-07-31 19:00:14.6409|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:00:18.7795|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[GameStore.Domain.BusinessObjects.Game]', but this dictionary requires a model item of type 'System.Collections.Generic.IList`1[GameStore.Web.ViewModels.GameViewModel]'.
+2017-07-31 19:00:45.3826|INFO|performanceLog|Performance time: 00:00:00.0000262
+2017-07-31 19:00:46.1523|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:00:50.2172|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[GameStore.Domain.BusinessObjects.Game]', but this dictionary requires a model item of type 'System.Collections.Generic.List`1[GameStore.Web.ViewModels.GameViewModel]'.
+2017-07-31 19:02:16.7516|INFO|performanceLog|Performance time: 00:00:00.0000653
+2017-07-31 19:02:19.2874|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:03:25.6805|INFO|performanceLog|Performance time: 00:00:00.0000393
+2017-07-31 19:03:25.8098|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:03:32.5277|INFO|performanceLog|Performance time: 00:00:00.0000717
+2017-07-31 19:03:32.5653|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:03:35.6421|INFO|performanceLog|Performance time: 00:00:00.0000076
+2017-07-31 19:03:35.6912|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:03:37.1298|INFO|performanceLog|Performance time: 00:00:00.0000438
+2017-07-31 19:03:37.1694|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-07-31 19:03:39.6221|INFO|performanceLog|Performance time: 00:00:00.0000453
+2017-07-31 19:03:39.6732|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1

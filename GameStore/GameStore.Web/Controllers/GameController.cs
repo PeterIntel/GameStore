@@ -74,7 +74,9 @@ namespace GameStore.Web.Controllers
 
         public ActionResult GetGames()
         {
-            return Json(_gameService.GetAll().ToList(), JsonRequestBehavior.AllowGet);
+            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.GetAll().ToList());
+
+            return View(games);
         }
 
         public ActionResult GetGameDetails(string key)
