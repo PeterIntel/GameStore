@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
-using GameStore.DataAccess.Context;
 using System.Linq.Expressions;
 using System.Data.Entity;
 using System.Security.Cryptography.X509Certificates;
 using AutoMapper.QueryableExtensions;
+using GameStore.DataAccess.Contextes;
 
 namespace GameStore.DataAccess.Repositories
 {
@@ -19,7 +19,7 @@ namespace GameStore.DataAccess.Repositories
         private readonly IGenreRepository _genreRepository;
         private readonly IPlatformTypeRepository _platformRepository;
         private readonly IPublisherRepository _publisherRepository;
-        public GameRepository(GamesContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository, IPublisherRepository publisherRepository) : base(context, mapper)
+        public GameRepository(GamesSqlContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository, IPublisherRepository publisherRepository) : base(context, mapper)
         {
             _genreRepository = genreRepository;
             _platformRepository = platformRepository;

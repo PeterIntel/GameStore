@@ -3,13 +3,13 @@ using GameStore.DataAccess.Entities;
 using GameStore.DataAccess.EntitiesConfigurations;
 using GameStore.DataAccess.Migrations;
 
-namespace GameStore.DataAccess.Context
+namespace GameStore.DataAccess.Contextes
 {
-    public class GamesContext : DbContext
+    public class GamesSqlContext : DbContext
     {
-        public GamesContext() : base("GamesContext")
+        public GamesSqlContext() : base("GamesContext")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesContext, Configuration>("GamesContext"));
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesSqlContext, Configuration>("GamesContext"));
             this.Configuration.LazyLoadingEnabled = true;
         }
 

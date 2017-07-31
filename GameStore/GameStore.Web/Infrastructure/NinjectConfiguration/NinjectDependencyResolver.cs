@@ -7,7 +7,7 @@ using Ninject;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess;
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 using Ninject.Web.Common;
 
 namespace GameStore.Web.Infrastructure.NinjectConfiguration
@@ -32,7 +32,7 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
 
         private void AddBindings()
         {
-            _kernel.Bind<GamesContext>().ToSelf().InRequestScope();
+            _kernel.Bind<GamesSqlContext>().ToSelf().InRequestScope();
             _kernel.Bind<IGameService>().To<GameService>();
             _kernel.Bind<ICommentService>().To<CommentService>();
             _kernel.Bind<IGenreService>().To<GenreService>();

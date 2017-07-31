@@ -1,4 +1,4 @@
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 
 namespace GameStore.DataAccess.Migrations
 {
@@ -9,13 +9,13 @@ namespace GameStore.DataAccess.Migrations
     using GameStore.DataAccess.Entities;
     using System.Collections.Generic;
 
-    public sealed class Configuration : DbMigrationsConfiguration<GamesContext>
+    public sealed class Configuration : DbMigrationsConfiguration<GamesSqlContext>
     {
         public Configuration()
         {
         }
 
-        protected override void Seed(GamesContext context)
+        protected override void Seed(GamesSqlContext context)
         {
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('GameEntities', RESEED, 0)");
             //  This method will be called after migrating to the latest version.

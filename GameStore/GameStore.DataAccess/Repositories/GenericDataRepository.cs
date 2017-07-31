@@ -10,17 +10,17 @@ using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 
 namespace GameStore.DataAccess.Repositories
 {
     public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : class
     {
-        protected GamesContext _context;
+        protected GamesSqlContext _context;
         protected DbSet<TEntity> _dbSet;
         protected IMapper _mapper;
 
-        public GenericDataRepository(GamesContext context, IMapper mapper)
+        public GenericDataRepository(GamesSqlContext context, IMapper mapper)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();

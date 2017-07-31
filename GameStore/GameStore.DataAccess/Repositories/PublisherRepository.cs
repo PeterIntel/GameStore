@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 
@@ -12,7 +12,7 @@ namespace GameStore.DataAccess.Repositories
 {
     public class PublisherRepository : GenericDataRepository<PublisherEntity, Publisher>, IPublisherRepository
     {
-        public PublisherRepository(GamesContext context, IMapper mapper) : base(context, mapper)
+        public PublisherRepository(GamesSqlContext context, IMapper mapper) : base(context, mapper)
         {
         }
 

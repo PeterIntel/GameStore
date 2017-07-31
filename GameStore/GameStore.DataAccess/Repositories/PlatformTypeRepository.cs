@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess.Entities;
 
@@ -12,7 +12,7 @@ namespace GameStore.DataAccess.Repositories
 {
     public class PlatformTypeRepository : GenericDataRepository<PlatformTypeEntity, PlatformType>, IPlatformTypeRepository
     {
-        public PlatformTypeRepository(GamesContext context, IMapper mapper) : base(context, mapper)
+        public PlatformTypeRepository(GamesSqlContext context, IMapper mapper) : base(context, mapper)
         {
         }
 

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 
@@ -13,7 +13,7 @@ namespace GameStore.DataAccess.Repositories
 {
     public class GenreRepository : GenericDataRepository<GenreEntity, Genre>, IGenreRepository
     {
-        public GenreRepository(GamesContext context, IMapper mapper) : base(context, mapper)
+        public GenreRepository(GamesSqlContext context, IMapper mapper) : base(context, mapper)
         {
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameStore.DataAccess.Context;
+using GameStore.DataAccess.Contextes;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess.Repositories;
@@ -13,9 +13,9 @@ namespace GameStore.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly GamesContext _context;
+        private readonly GamesSqlContext _context;
 
-         public UnitOfWork(GamesContext context)
+         public UnitOfWork(GamesSqlContext context)
         {
             _context = context;
         }
