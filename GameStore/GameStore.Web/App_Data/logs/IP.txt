@@ -6729,3 +6729,15 @@ CREATE DATABASE failed. Some file names listed could not be created. Check relat
 2017-08-01 12:23:03.6801|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-08-01 12:23:06.2762|INFO|performanceLog|Performance time: 00:00:00.0000596
 2017-08-01 12:23:06.4173|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:33:02.7064|INFO|performanceLog|Performance time: 00:00:00.0000590
+2017-08-01 12:33:03.3837|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:34:05.4461|INFO|performanceLog|Performance time: 00:00:00.0000304
+2017-08-01 12:34:08.0983|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:34:51.4682|INFO|performanceLog|Performance time: 00:00:00.0000369
+2017-08-01 12:34:51.5986|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:34:53.4156|INFO|performanceLog|Performance time: 00:00:00.0000817
+2017-08-01 12:34:53.5339|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:36:46.4096|INFO|performanceLog|Performance time: 00:00:00.0000319
+2017-08-01 12:36:48.0370|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:42:13.8078|INFO|performanceLog|Performance time: 00:00:00.0000709
+2017-08-01 12:42:15.4778|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
