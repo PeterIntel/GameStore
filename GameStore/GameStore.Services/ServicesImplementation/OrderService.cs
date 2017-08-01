@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.DataAccess.UnitOfWork;
-
 namespace GameStore.Services.ServicesImplementation
 {
     public class OrderService : IOrderService
