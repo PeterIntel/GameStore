@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.DataAccess.Entities;
-using GameStore.Domain.Services_interfaces;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Domain.BusinessObjects;
 using System.Web.UI;
 using AutoMapper;
@@ -14,36 +14,65 @@ namespace GameStore.Web.Controllers
 {
     public class CommentController : Controller
     {
-        private ICommentService _commentService;
-        private IMapper _mapper;
-        public CommentController(ICommentService commentService, IMapper mapper)
+        private readonly ICommentService _commentService;
+        private readonly IGameService _gameService;
+        private readonly IMapper _mapper;
+        public CommentController(ICommentService commentService, IGameService gameService, IMapper mapper)
         {
             _commentService = commentService;
+            _gameService = gameService;
             _mapper = mapper;
         }
         // GET: Comment
         [HttpPost]
         [ActionName("newcomment")]
-        public ActionResult AddComment(string gamekey, CommentViewModel commentViewModel)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddComment(CommentsViewModel commentsViewModel)
         {
-            var comment = _mapper.Map<CommentViewModel, Comment>(commentViewModel);
-            comment.Game.Key = gamekey;
-            _commentService.Add(comment);
-            return new HttpStatusCodeResult(200);
+            string gamekey = commentsViewModel.Comment.GameKey;
+
+            if (ModelState.IsValid)
+            {
+                var comment = _mapper.Map<CommentViewModel, Comment>(commentsViewModel.Comment);
+                _commentService.Add(comment);
+                commentsViewModel.Comment = new CommentViewModel()
+                {
+                    GameId = commentsViewModel.Comment.GameId,
+                    GameKey = gamekey
+                };
+                ModelState.Clear();
+            }
+
+            commentsViewModel.Comments = InitComments(gamekey).Comments;
+            return PartialView("_CommentsPartialView", commentsViewModel);
         }
 
-        [OutputCache(Duration = 60, Location = OutputCacheLocation.Downstream)]
         [ActionName("comments")]
+        [HttpGet]
         public ActionResult GetCommentsForGame(string gameKey)
         {
             if (gameKey != null)
             {
-                return Json(_commentService.GetAllCommentsByGameKey(gameKey), JsonRequestBehavior.AllowGet);
+                return View(InitComments(gameKey));
             }
-            else
+
+            throw new ArgumentException("The game was not specified!!!");
+        }
+
+        private CommentsViewModel InitComments(string gameKey)
+        {
+            var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
+
+            var commentsViewModel = new CommentsViewModel()
             {
-                throw new NullReferenceException("The game was not specified!!!");
-            }
+                Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments),
+                Comment = new CommentViewModel()
+                {
+                    GameId = _gameService.GetItemByKey(gameKey).Id,
+                    GameKey = gameKey
+                }
+            };
+            return commentsViewModel;
         }
     }
 }

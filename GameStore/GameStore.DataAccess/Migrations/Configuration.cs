@@ -1,3 +1,5 @@
+using GameStore.DataAccess.Context;
+
 namespace GameStore.DataAccess.Migrations
 {
     using System;
@@ -7,14 +9,13 @@ namespace GameStore.DataAccess.Migrations
     using GameStore.DataAccess.Entities;
     using System.Collections.Generic;
 
-    public sealed class Configuration : DbMigrationsConfiguration<GameStore.DataAccess.GamesContext>
+    public sealed class Configuration : DbMigrationsConfiguration<GamesContext>
     {
         public Configuration()
         {
-
         }
 
-        protected override void Seed(GameStore.DataAccess.GamesContext context)
+        protected override void Seed(GamesContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -36,63 +37,123 @@ namespace GameStore.DataAccess.Migrations
 
             context.SaveChanges();
 
+            context.Publishers.AddOrUpdate(
+                new PublisherEntity()
+                {
+                    Id = 1,
+                    CompanyName = "Nale",
+                    Description = "info",
+                    HomePage = "http://www.vk.com"
+                },
+
+                new PublisherEntity()
+                {
+                    Id = 2,
+                    CompanyName = "MicrosoftStudio",
+                    Description = "info",
+                    HomePage = "https://www.microsoftstudios.com/"
+                });
+
+            context.SaveChanges();
+
             context.Games.AddOrUpdate(
                 new GameEntity()
                 {
                     Id = 1,
-                    Key = "Age of Empires",
+                    Key = "AgeofEmpires",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 7).First() }
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.Id == 1), context.PlatformTypes.First(x => x.Id == 2) },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) },
+                    Publisher = context.Publishers.First(x => x.Id == 2),
+                    Price = 100
                 },
 
                 new GameEntity()
                 {
                     Id = 2,
-                    Key = "Company of Heros",
+                    Key = "CompanyofHeros",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 7).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 7).First() },
+                    Price = 120
                 },
 
                 new GameEntity()
                 {
                     Id = 3,
-                    Key = "Total War",
+                    Key = "TotalWar",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 6).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 6).First() },
+                    Price = 400
                 },
 
                 new GameEntity()
                 {
                     Id = 4,
-                    Key = "FIFA 17",
+                    Key = "FIFA17",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 2).First(), context.Genres.Where(x => x.Id == 3).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 2).First(), context.Genres.Where(x => x.Id == 3).First() },
+                    Price = 330
                 },
 
                 new GameEntity()
                 {
                     Id = 5,
-                    Key = "Super racing",
+                    Key = "Superracing",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
                     PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 8).First() }
+                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 8).First() },
+                    Price = 110
+
+                }
+                );
+            context.SaveChanges();
+            context.Comments.AddOrUpdate(
+                new CommentEntity()
+                {
+                    Id = 1, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = null, IsDeleted = false,
+                    Game = context.Games.First(x => x.Key == "AgeofEmpires")
+                },
+                new CommentEntity()
+                {
+                    Id = 2, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 1, IsDeleted = false,
+                    Game = context.Games.First(x => x.Key == "AgeofEmpires")
+                },
+                new CommentEntity()
+                {
+                    Id = 3, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 2, IsDeleted = false,
+                    Game = context.Games.First(x => x.Key == "AgeofEmpires")
                 }
                 );
 
-            context.Comments.AddOrUpdate(
-                new CommentEntity() { Id = 1, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = null, IsDeleted = true },
-                new CommentEntity() { Id = 2, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 1, IsDeleted = true },
-                new CommentEntity() { Id = 3, GameId = 1, Name = "Peter", Body = "bla-bla-bla", ParentCommentId = 2, IsDeleted = true }
-                );
+            context.Orders.AddOrUpdate(
+                new OrderEntity()
+                {
+                    Id = 1,
+                    CustomerId = 1,
+                    IsDeleted = false,
+                    OrderDate = DateTime.UtcNow,
+                    Status = GameStore.Domain.BusinessObjects.CompletionStatus.Complete
+                });
+
+            context.OrderDetails.AddOrUpdate(
+                new OrderDetailsEntity()
+                {
+                    Id = 1,
+                    Discount = 10,
+                    Price = 120,
+                    Quantity = 2,
+                    IsDeleted = false,
+                    GameId = 1,
+                    OrderId = 1
+                });
         }
     }
 }

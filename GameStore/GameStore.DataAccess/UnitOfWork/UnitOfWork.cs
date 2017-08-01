@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameStore.DataAccess.Context;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess.Repositories;
@@ -12,7 +13,7 @@ namespace GameStore.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private GamesContext _context;
+        private readonly GamesContext _context;
 
          public UnitOfWork(GamesContext context)
         {
@@ -27,6 +28,12 @@ namespace GameStore.DataAccess.UnitOfWork
         public IGenericDataRepository<GenreEntity, Genre> GenreRepository { set; get; }
         [Inject]
         public IGenericDataRepository<PlatformTypeEntity, PlatformType> PlatformTypeRepository { set; get; }
+        [Inject]
+        public IPublisherRepository PublisherRepository { set; get; }
+        [Inject]
+        public IGenericDataRepository<OrderEntity, Order> OrderRepository { set; get; }
+        [Inject]
+        public IGenericDataRepository<OrderDetailsEntity, OrderDetails> OrderDetailsRepository { set; get; }
 
         public void Save()
         {

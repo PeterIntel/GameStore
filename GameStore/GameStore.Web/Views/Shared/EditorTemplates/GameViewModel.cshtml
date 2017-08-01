@@ -1,0 +1,62 @@
+﻿@model GameViewModel
+    
+@Html.LabelFor(m => m.Key)
+</br>
+@Html.EditorFor(m => m.Key)
+@Html.ValidationMessageFor(m => m.Key)
+  
+</br>
+
+@Html.LabelFor(m => m.Description)
+</br>
+@Html.TextAreaFor(m => m.Description, 5, 20, new { resize = "none"})
+@Html.ValidationMessageFor(m => m.Description)
+
+<br>
+
+@Html.LabelFor(m => m.Price)
+</br>
+@Html.EditorFor(m => m.Price)
+@Html.ValidationMessageFor(m => m.Price)
+
+</br>
+
+@Html.LabelFor(m => m.Discontinued)
+</br>
+@Html.EditorFor(m => m.Discontinued)
+@Html.ValidationMessageFor(m => m.Discontinued)
+
+</br>
+
+@Html.LabelFor(m => m.UnitsInStock)
+</br>
+@Html.EditorFor(m => m.UnitsInStock)
+@Html.ValidationMessageFor(m => m.UnitsInStock)
+
+<br>
+
+@Html.LabelFor(m => m.Genres)
+</br>
+
+@for (int i = 0; i < Model.Genres.Count; i++)
+{
+    @Html.HiddenFor(m => m.Genres[i].Name)
+    @Html.DisplayFor(m => m.Genres[i].Name)
+    @Html.CheckBoxFor(m => m.Genres[i].IsChecked)
+}
+
+</br>
+
+@Html.LabelFor(m => m.PlatformTypes)
+</br>
+@for (int i = 0; i < Model.PlatformTypes.Count; i++)
+{
+    @Html.HiddenFor(m => m.PlatformTypes[i].TypeName)
+    @Html.DisplayFor(m => m.PlatformTypes[i].TypeName)
+    @Html.CheckBoxFor(m => m.PlatformTypes[i].IsChecked)
+}
+
+<br>
+@Html.LabelFor(m => m.SelectedPublisher)
+<br>
+@Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "CompanyName", "CompanyName"))

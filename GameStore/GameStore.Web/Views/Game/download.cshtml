@@ -1,0 +1,8 @@
+﻿@model string
+@{
+    ViewBag.Title = "DownloadPage";
+}
+
+<h2>DownloadPage</h2>
+
+@Html.ActionLink("download", "DownloadGame", new { gamekey = Model })

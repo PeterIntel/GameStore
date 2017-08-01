@@ -12,7 +12,7 @@ namespace GameStore.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Modules;
-    using GameStore.Infrastructure.Ninject_configuration;
+    using GameStore.Infrastructure.NinjectConfiguration;
     using GameStore.Web.Infrastructure.NinjectConfiguration;
 
     public static class NinjectWebCommon 

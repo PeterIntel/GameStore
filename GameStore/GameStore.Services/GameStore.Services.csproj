@@ -48,9 +48,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services implementation\CommentService.cs" />
-    <Compile Include="Services implementation\GameService.cs" />
+    <Compile Include="ServicesImplementation\CommentService.cs" />
+    <Compile Include="ServicesImplementation\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesImplementation\GenreService.cs" />
+    <Compile Include="ServicesImplementation\OrderService.cs" />
+    <Compile Include="ServicesImplementation\PlatformTypeService.cs" />
+    <Compile Include="ServicesImplementation\PublisherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">

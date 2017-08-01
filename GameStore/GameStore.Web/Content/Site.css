@@ -1,0 +1,60 @@
+﻿body {
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.comment {
+    margin-left: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+textarea {
+    margin-top: 5px;
+}
+
+.table {
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+.table tr,.table td, .table th {
+    border: 1px black solid;
+}
+
+label {
+    font-weight: bold;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.main {
+    clear: both;
+}
+
+.header {
+    width: 55%;
+    margin: 0 auto;
+}
+
+.form {
+    display: inline;
+}
+
+.game{
+    border: 1px dashed black;
+    margin-bottom:5px;
+    display: inline-block;
+}

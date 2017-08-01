@@ -15,8 +15,8 @@ namespace GameStore.Web.Filters
         {
             
             _logger.Write(null, filterContext.Exception, filterContext.Exception.Message, LogLevels.Error);
-            filterContext.Result = new HttpStatusCodeResult(400);
-            filterContext.ExceptionHandled = true;
+            //filterContext.Result = new HttpStatusCodeResult(400);
+            //filterContext.ExceptionHandled = true;
         }
     }
 }

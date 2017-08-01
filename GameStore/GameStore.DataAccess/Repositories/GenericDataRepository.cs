@@ -5,13 +5,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using GameStore.DataAccess.Context;
 
 namespace GameStore.DataAccess.Repositories
 {
-    public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : BasicDomainEntity
+    public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : class
     {
         protected GamesContext _context;
         protected DbSet<TEntity> _dbSet;
@@ -24,11 +27,11 @@ namespace GameStore.DataAccess.Repositories
             _mapper = mapper;
         }
 
-        public void Add(TDomain domainItem)
+        public virtual void Add(TDomain domainItem)
         {
             if (domainItem != null)
             {
-                var item = Mapper.Map<TDomain, TEntity>(domainItem);
+                var item = _mapper.Map<TDomain, TEntity>(domainItem);
                 _dbSet.Add(item);
             }
         }
@@ -51,9 +54,9 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var resultOfQuery = queryToEntity.ToList();
-            var result = _mapper.Map<IList<TEntity>, IList<TDomain>>(resultOfQuery);
-
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
+            //var res = _mapper.Map<IQueryable<TEntity>, IEnumerable<TDomain >> (queryToEntity);
+            //var com = (result[1] as CommentEntity).ParentComment;
             return result;
         }
 
@@ -68,8 +71,7 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity.Include(item);
             }
 
-            var resultOfQuery = queryToEntity.ToList();
-            var result = _mapper.Map<IList<TEntity>, IList<TDomain>>(resultOfQuery);
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
 
             return result;
         }
@@ -80,7 +82,7 @@ namespace GameStore.DataAccess.Repositories
 
             if (entity != null && entity.IsDeleted == false)
             {
-                TDomain domain = Mapper.Map<TEntity, TDomain>(entity);
+                TDomain domain = _mapper.Map<TEntity, TDomain>(entity);
                 return domain;
             }
 
@@ -91,7 +93,7 @@ namespace GameStore.DataAccess.Repositories
         {
             if (item != null)
             {
-                TEntity entity = Mapper.Map<TDomain, TEntity>(item);
+                TEntity entity = _mapper.Map<TDomain, TEntity>(item);
                 entity.IsDeleted = true;
             }
         }
@@ -111,8 +113,7 @@ namespace GameStore.DataAccess.Repositories
         {
             if (item != null)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<TDomain, TEntity>());
-                TEntity entity = Mapper.Map<TDomain, TEntity>(item);
+                TEntity entity = _mapper.Map<TDomain, TEntity>(item);
                 _dbSet.Attach(entity);
                 _context.Entry(entity).State = EntityState.Modified;
             }

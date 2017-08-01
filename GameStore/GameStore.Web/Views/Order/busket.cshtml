@@ -1,0 +1,31 @@
+﻿@model OrderViewModel
+
+@{
+    ViewBag.Title = "busket";
+}
+
+<h2>busket</h2>
+
+@Html.LabelFor(m => m.OrderDate)
+<br>
+@Html.DisplayFor(m => m.OrderDate)
+<br>
+
+<table class="table">
+    <tr>
+        <th>Game</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Discount</th>
+    </tr>
+    @foreach (var game in Model.OrderDetails)
+    {
+        <tr>
+            <td>@game.Game.Key</td>
+            <td>@game.Price</td>
+            <td>@game.Quantity</td>
+            <td>@game.Discount</td>
+        </tr>
+    }
+</table>
+

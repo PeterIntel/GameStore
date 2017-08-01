@@ -1,0 +1,29 @@
+﻿@model PublisherViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.CompanyName)
+    <br>
+    @Html.EditorFor(m => m.CompanyName)
+
+    <br>
+
+    @Html.LabelFor(m => m.Description)
+    <br>
+    @Html.EditorFor(m => m.Description)
+
+    <br>
+
+    @Html.LabelFor(m => m.HomePage)
+    <br>
+    @Html.EditorFor(m => m.HomePage)
+    <br>
+    <input type="submit" value="Add publisher"/>
+}
+

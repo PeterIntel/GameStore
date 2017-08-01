@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Data.Entity;
 using GameStore.DataAccess;
+using GameStore.DataAccess.Context;
 using GameStore.DataAccess.Migrations;
 
 namespace GameStore.Web
@@ -14,7 +15,6 @@ namespace GameStore.Web
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesContext, Configuration>("GamesContext"));
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);

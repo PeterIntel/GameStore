@@ -14,6 +14,7 @@ namespace GameStore.Web
             filters.Add(new LogErrorFilter());
             filters.Add(new LogIPFilter());
             filters.Add(new ActionPerformanceFilter());
+            filters.Add(new GetNumberOfGamesFilter());
         }
     }
 }
