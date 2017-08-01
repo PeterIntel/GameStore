@@ -6695,3 +6695,27 @@ CREATE DATABASE failed. Some file names listed could not be created. Check relat
 2017-07-31 19:03:39.6732|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-31 20:23:42.0129|INFO|performanceLog|Performance time: 00:00:00.0000339
 2017-07-31 20:23:42.1352|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 11:57:55.4120|INFO|performanceLog|Performance time: 00:00:00.0000298
+2017-08-01 11:57:56.3251|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 11:58:12.4643|INFO|performanceLog|Performance time: 00:00:00.0000140
+2017-08-01 11:58:12.6228|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:11.9093|INFO|performanceLog|Performance time: 00:00:00.0000800
+2017-08-01 12:00:14.3583|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:17.2639|INFO|performanceLog|Performance time: 00:00:00.0000905
+2017-08-01 12:00:17.4941|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:27.1653|INFO|performanceLog|Performance time: 00:00:00.0000671
+2017-08-01 12:00:27.2746|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:29.7999|INFO|performanceLog|Performance time: 00:00:00.0000525
+2017-08-01 12:00:29.8747|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:29.8947|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-08-01 12:00:29.9227|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:34.6359|INFO|performanceLog|Performance time: 00:00:00.0000713
+2017-08-01 12:00:34.6808|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:34.6978|INFO|performanceLog|Performance time: 00:00:00.0000017
+2017-08-01 12:00:34.7244|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:41.3884|INFO|performanceLog|Performance time: 00:00:00.0000664
+2017-08-01 12:00:41.4814|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:50.0818|INFO|performanceLog|Performance time: 00:00:00.0000600
+2017-08-01 12:00:50.1640|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 12:00:57.6355|INFO|performanceLog|Performance time: 00:00:00.0000471
+2017-08-01 12:00:57.6846|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1

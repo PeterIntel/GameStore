@@ -1,6 +1,6 @@
 #Developer-defined
 GameStore/GameStore.Web/bin/*
-#GameStore/GameStore.Web/App_Data/logs/*
+GameStore/GameStore.Web/App_Data/logs/*
 
 # User-specific files
 *.suo
