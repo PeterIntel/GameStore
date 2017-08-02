@@ -30,10 +30,13 @@ namespace GameStore.Services.ServicesImplementation
             return result;
         }
 
+        // TODO: Why do you need out count? count == returnedCollection.Count
         public IEnumerable<Game> FilterGames(FilterCriteria filters, out int count, int page, int size)
         {
             _gamePipeline = new GamePipeline();
+            // TODO: Why methods Apply and Process are seoarated? Use one method that receives parameters and returns expression.
             _gamePipeline.ApplyFilters(filters);
+            // TODO: x => true is default condition, use it inside pipeline, not outside.
             var filterExpression = _gamePipeline.Process(x => true);
             count = _unitOfWork.GameRepository.GetCountObject(_gamePipeline.Process(x => true));
 
@@ -50,6 +53,8 @@ namespace GameStore.Services.ServicesImplementation
                 case SortCriteria.MostPopular:
                     return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.GameInfo.CountOfViews * (-1), page, size);
             }
+
+            // TODO: You should call pipeline process 
             return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Id, page, size);
         }
 

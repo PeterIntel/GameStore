@@ -22,6 +22,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
 
         public void ApplyFilters(FilterCriteria filters)
         {
+            // TODO: You should register all filters regardless which parameters were obtained. 
             if (filters.NameGenres != null && filters.NameGenres.Count != 0)
             {
                 Register(new GenreFilter(filters.NameGenres));
