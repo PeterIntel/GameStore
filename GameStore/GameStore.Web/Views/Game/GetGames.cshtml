@@ -33,6 +33,13 @@
             $("#filterButton").on("click",
                 function () {
                     if (formOriginalData !== $("#filterForm").serialize()) {
+
+                        $('.isEmptyValue').each(function() {
+                            if (!$(this).val()) {
+                                $(this).prop('disabled', true);
+                            }
+                        });
+
                         $("#filterForm").submit();
                     }
                 });

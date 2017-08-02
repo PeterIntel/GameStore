@@ -39,10 +39,11 @@
 
 @Html.LabelFor(m => m.PriceFrom)
 <br>
-@Html.TextBoxFor(m => m.PriceFrom, new { type = "number" })
+@Html.TextBoxFor(m => m.PriceFrom, new { @class = "isEmptyValue", type = "number" })
 @Html.ValidationMessageFor(m => m.PriceFrom)
-@Html.TextBoxFor(m => m.PriceTo, new { type = "number"})
+@Html.TextBoxFor(m => m.PriceTo, new { @class = "isEmptyValue", type = "number"})
 @Html.ValidationMessageFor(m => m.PriceTo)
+<input type="number" name="as"/>
 
 <br>
 
@@ -54,7 +55,5 @@
 
 @Html.LabelFor(m => m.GameName)
 <br>
-@Html.EditorFor(m => m.GameName)
-
-
+@Html.TextBoxFor(m => m.GameName, new { @class = "isEmptyValue" })
 
