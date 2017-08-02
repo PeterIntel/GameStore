@@ -18,8 +18,14 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
         }
         public override Expression<Func<Game, bool>> Execute(Expression<Func<Game, bool>> input)
         {
-            Expression<Func<Game, bool>> filter = x => x.Price >= _priceFrom;
-            return AggregateExpression(input, filter);
+
+            if (_priceFrom != null)
+            {
+                Expression<Func<Game, bool>> filter = x => x.Price >= _priceFrom;
+                return AggregateExpression(input, filter);
+            }
+
+            return input;
         }
     }
 }

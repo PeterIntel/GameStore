@@ -11,16 +11,21 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
 {
     public class PublishedDateFilter : BaseFilter<Game>
     {
-        private readonly DateTime _dateFilter;
+        private readonly DateTimeIntervals _dateTimeIntervalsFilter;
 
         public PublishedDateFilter(DateTimeIntervals dateTimeIntervals)
         {
-            _dateFilter = GetDateTimeFilter(dateTimeIntervals);
+            _dateTimeIntervalsFilter = dateTimeIntervals;
         }
         public override Expression<Func<Game, bool>> Execute(Expression<Func<Game, bool>> input)
         {
-            Expression<Func<Game, bool>> filter = x => x.PublishedDate > _dateFilter;
-            return AggregateExpression(input, filter);
+            if (_dateTimeIntervalsFilter != DateTimeIntervals.AllTime)
+            {
+                Expression<Func<Game, bool>> filter = x => x.PublishedDate > GetDateTimeFilter(_dateTimeIntervalsFilter);
+                return AggregateExpression(input, filter);
+            }
+
+            return input;
         }
 
         private DateTime GetDateTimeFilter(DateTimeIntervals dateFilter)
