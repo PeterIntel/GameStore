@@ -27,6 +27,7 @@ namespace GameStore.Web.Controllers
         public ActionResult GetOrderDetails()
         {
             var order = _orderService.GetOrderByCustomerId(CustomId);
+            
             return View(_mapper.Map<Order, OrderViewModel>(order));
         }
 
