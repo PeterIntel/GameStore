@@ -50,7 +50,7 @@ namespace GameStore.DataAccess.Repositories
             }
         }
 
-        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, int page = 1, int size = 10, params Expression<Func<Game, object>>[] includeProperties)
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties)
         {
             IQueryable<GameEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
@@ -79,7 +79,12 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity = queryToEntity.OrderBy(x => x.Id);
             }
 
-            queryToEntity = queryToEntity.Skip((page - 1) * size).Take(size);
+            if (size == null)
+            {
+                size = 10;
+            }
+
+            queryToEntity = queryToEntity.Skip((page - 1) * (int)size).Take((int)size);
 
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
 

@@ -20,9 +20,9 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
             return input;
         }
 
-        public void ApplyFilters(FilterCriteria filters)
+        public Expression<Func<Game, bool>> ApplyFilters(FilterCriteria filters)
         {
-            // TODO: You should register all filters regardless which parameters were obtained. 
+            /// TODO: You should register all filters regardless which parameters were obtained. 
             if (filters.NameGenres != null && filters.NameGenres.Count != 0)
             {
                 Register(new GenreFilter(filters.NameGenres));
@@ -57,6 +57,8 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
             {
                 Register(new GameNameFilter(filters.GameName));
             }
+
+            return Process(x => true);
         }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\CompletionStatus.cs" />
     <Compile Include="BusinessObjects\FilterCriteria.cs" />
+    <Compile Include="BusinessObjects\PaginationGames.cs" />
     <Compile Include="BusinessObjects\Game.cs" />
     <Compile Include="BusinessObjects\GameInfo.cs" />
     <Compile Include="BusinessObjects\Genre.cs" />

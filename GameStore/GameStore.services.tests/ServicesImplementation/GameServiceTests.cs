@@ -162,7 +162,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _unitOfWork.Setup(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(),
                 y => y.Price, It.IsAny<int>(), It.IsAny<int>()));
 
-            _sut.FilterGames(_filters, out count, 1, 10);
+            _sut.FilterGames(_filters, 1, "10");
 
             _unitOfWork.Verify(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(), y => y.Price, It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }
@@ -176,7 +176,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _unitOfWork.Setup(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(),
                 y => y.Price, It.IsAny<int>(), It.IsAny<int>()));
 
-            _sut.FilterGames(_filters, out count, 1, 10);
+            _sut.FilterGames(_filters, 1, "10");
 
             _unitOfWork.Verify(x => x.GameRepository.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(1));
         }
@@ -184,13 +184,12 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void FilterGames_IsCalledGetWithoutSortCriterion_OneTime()
         {
-            int count;
             _unitOfWork.Setup(x => x.GameRepository.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<int>());
             _unitOfWork.Setup(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(),
                 y => y.Id, It.IsAny<int>(), It.IsAny<int>()));
 
-            _sut.FilterGames(new FilterCriteria(), out count, 1, 10);
+            _sut.FilterGames(new FilterCriteria(), 1, "10");
 
             _unitOfWork.Verify(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(), y => y.Id, It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }

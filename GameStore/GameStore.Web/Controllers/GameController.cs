@@ -56,7 +56,7 @@ namespace GameStore.Web.Controllers
             return View(gameViewModel);
         }
 
-       
+
         [ActionName("update")]
         [HttpPost]
         public ActionResult UpdateGame(GameViewModel gameViewModel)
@@ -77,7 +77,7 @@ namespace GameStore.Web.Controllers
 
         public ActionResult GetGames()
         {
-            int countFilterGames;
+            PaginationGames games = _gameService.Get();
 
             FilterCriteria filter = new FilterCriteria()
             {
@@ -86,43 +86,32 @@ namespace GameStore.Web.Controllers
                 Publishers = _publisherService.Get()
             };
 
-            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get(out countFilterGames));
-
             var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
 
             var pageInfo = new PagingInfoViewModel()
             {
                 CurrentPage = 1,
-                ItemsPerPage = 10,
-                TotalItems = countFilterGames
+                ItemsPerPage = "10",
+                TotalItems = games.Count
             };
 
-            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games, PagingInfo = pageInfo });
+            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo });
         }
-        
+
         [ActionName("filter")]
         public ActionResult FilterGames(FilterCriteriaViewModel filterViewModel, string size, int page = 1)
         {
-            int countFilterGames;
-            IList<GameViewModel> games;
-            int? maxSize = size != "ALL" ? (int?)int.Parse(size) : null;
+            PaginationGames games;
 
             if (ModelState.IsValid)
             {
                 // TODO: This is BLL responsability. Method FilterGames should be Get overload method with filter paramenters.
                 FilterCriteria filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
-                if (maxSize != null)
-                {
-                    games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.FilterGames(filters, out countFilterGames, page, (int) maxSize));
-                }
-                else
-                {
-                    games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get(out countFilterGames));
-                }
+                games = _gameService.FilterGames(filters, page, size);
             }
             else
             {
-                games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get(out countFilterGames));
+                games = _gameService.FilterGames(_mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel), page, size);
             }
 
             filterViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(filterViewModel.NameGenres));
@@ -132,11 +121,11 @@ namespace GameStore.Web.Controllers
             var pageInfo = new PagingInfoViewModel()
             {
                 CurrentPage = page,
-                ItemsPerPage = maxSize,
-                TotalItems = countFilterGames
+                ItemsPerPage = size,
+                TotalItems = games.Count
             };
 
-            return View("GetGames", new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games,PagingInfo = pageInfo});
+            return View("GetGames", new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo });
         }
 
         public ActionResult GetGameDetails(string key)

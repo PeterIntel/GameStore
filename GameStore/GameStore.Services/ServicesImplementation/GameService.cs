@@ -31,31 +31,45 @@ namespace GameStore.Services.ServicesImplementation
         }
 
         // TODO: Why do you need out count? count == returnedCollection.Count
-        public IEnumerable<Game> FilterGames(FilterCriteria filters, out int count, int page, int size)
+        public PaginationGames FilterGames(FilterCriteria filters, int page, string size)
         {
             _gamePipeline = new GamePipeline();
             // TODO: Why methods Apply and Process are seoarated? Use one method that receives parameters and returns expression.
-            _gamePipeline.ApplyFilters(filters);
+            var filterExpression = _gamePipeline.ApplyFilters(filters);
             // TODO: x => true is default condition, use it inside pipeline, not outside.
-            var filterExpression = _gamePipeline.Process(x => true);
-            count = _unitOfWork.GameRepository.GetCountObject(_gamePipeline.Process(x => true));
+            IEnumerable<Game> games;
+            int? maxSize = size != "ALL" ? (int?)int.Parse(size) : null;
 
             switch (filters.SortCriteria)
             {
                 case SortCriteria.ByPriceAsc:
-                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Price, page, size);
+                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Price, page, maxSize);
+                    break;
                 case SortCriteria.ByPriceDesc:
-                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Price * (-1), page, size);
+                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Price * (-1), page, maxSize);
+                    break;
                 case SortCriteria.MostCommented:
-                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Comments.Count() * (-1), page, size);
+                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Comments.Count() * (-1), page, maxSize);
+                    break;
                 case SortCriteria.New:
-                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.GameInfo.UploadDate, page, size);
+                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.GameInfo.UploadDate, page, maxSize);
+                    break;
                 case SortCriteria.MostPopular:
-                    return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.GameInfo.CountOfViews * (-1), page, size);
+                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.GameInfo.CountOfViews * (-1), page, maxSize);
+                    break;
+                default:
+                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Id, page, maxSize);
+                    break;
             }
 
             // TODO: You should call pipeline process 
-            return _unitOfWork.GameRepository.Get(_gamePipeline.Process(x => true), x => x.Id, page, size);
+            var filteredGames = new PaginationGames()
+            {
+                Count = _unitOfWork.GameRepository.GetCountObject(filterExpression),
+                Games = games
+            };
+
+            return filteredGames;
         }
 
         public void Remove(int id)
@@ -86,16 +100,19 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Game> Get(params Expression<Func<Game, object>>[] includeProperties)
+        public PaginationGames Get(params Expression<Func<Game, object>>[] includeProperties)
         {
-            var games = _unitOfWork.GameRepository.Get();
+            var games = new PaginationGames()
+            {
+                Count = _unitOfWork.GameRepository.GetCountObject(x => true),
+                Games = _unitOfWork.GameRepository.Get(x => true, x => x.Id)
+            };
             return games;
         }
 
-        public IEnumerable<Game> Get(out int count, params Expression<Func<Game, object>>[] includeProperties)
+        IEnumerable<Game> ICrudService<Game>.Get(params Expression<Func<Game, object>>[] includeProperties)
         {
-            count = _unitOfWork.GameRepository.GetCountObject(x => true);
-            var games = _unitOfWork.GameRepository.Get(x => true,  x => x.Id);
+            var games = _unitOfWork.GameRepository.Get(x => true, x => x.Id);
             return games;
         }
     }
