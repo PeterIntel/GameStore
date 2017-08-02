@@ -9232,3 +9232,18 @@ CREATE DATABASE failed. Some file names listed could not be created. Check relat
 2017-08-02 08:48:48.7341|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-08-02 08:49:02.4222|INFO|performanceLog|Performance time: 00:00:00.0000688
 2017-08-02 08:49:02.6138|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:57:18.1123|INFO|performanceLog|Performance time: 00:00:00.0000978
+2017-08-02 08:57:20.3545|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:58:33.5439|INFO|performanceLog|Performance time: 00:00:00.0000190
+2017-08-02 08:58:33.6873|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:58:45.8356|INFO|performanceLog|Performance time: 00:00:00.0000148
+2017-08-02 08:58:45.9279|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:58:55.2972|INFO|performanceLog|Performance time: 00:00:00.0000369
+2017-08-02 08:58:55.4085|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:59:07.6153|INFO|performanceLog|Performance time: 00:00:00.0000206
+2017-08-02 08:59:07.7006|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:59:12.7791|INFO|performanceLog|Performance time: 00:00:00.0000078
+2017-08-02 08:59:12.9937|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:59:18.3219|INFO|performanceLog|Performance time: 00:00:00.0000328
+2017-08-02 08:59:18.6176|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:59:18.6306|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|There is not open order for 1
