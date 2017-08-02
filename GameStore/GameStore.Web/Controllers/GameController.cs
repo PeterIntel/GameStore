@@ -5,8 +5,8 @@ using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Linq;
+using System.Data.SqlClient;
+using GameStore.Web.Filters;
 
 namespace GameStore.Web.Controllers
 {
@@ -41,6 +41,7 @@ namespace GameStore.Web.Controllers
 
         [HttpPost]
         [ActionName("new")]
+        [AddGameErrorFilter(ExceptionType = typeof(SqlException))]
         public ActionResult AddGame(GameViewModel gameViewModel)
         {
             if (ModelState.IsValid)
@@ -76,6 +77,8 @@ namespace GameStore.Web.Controllers
 
         public ActionResult GetGames()
         {
+            int countFilterGames;
+
             FilterCriteria filter = new FilterCriteria()
             {
                 Genres = _genreService.Get(),
@@ -83,31 +86,52 @@ namespace GameStore.Web.Controllers
                 Publishers = _publisherService.Get()
             };
 
-            var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
-            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get());
+            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get(out countFilterGames));
 
-            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games, PagingInfo = new PagingInfoViewModel()});
+            var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
+
+            var pageInfo = new PagingInfoViewModel()
+            {
+                CurrentPage = 1,
+                ItemsPerPage = 10,
+                TotalItems = countFilterGames
+            };
+
+            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games, PagingInfo = pageInfo });
         }
         
         [ActionName("filter")]
-        public ActionResult FilterGames(FilterCriteriaViewModel filterViewModel, int? size, int page = 1)
+        public ActionResult FilterGames(FilterCriteriaViewModel filterViewModel, string size, int page = 1)
         {
-            FilterCriteria filters = null;
+            int countFilterGames;
+            IList<GameViewModel> games;
+            int? maxSize = size != "ALL" ? (int?)int.Parse(size) : null;
 
             if (ModelState.IsValid)
             {
-               filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
+                FilterCriteria filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
+                if (maxSize != null)
+                {
+                    games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.FilterGames(filters, out countFilterGames, page, (int) maxSize));
+                }
+                else
+                {
+                    games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get(out countFilterGames));
+                }
             }
+            else
+            {
+                games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get(out countFilterGames));
+            }
+
             filterViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(filterViewModel.NameGenres));
             filterViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(filterViewModel.NamePlatformTypes));
             filterViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAllPublishersAndMarkSelected(filterViewModel.NamePublishers));
-            int countFilterGames;
-            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.FilterGames(filters, page, size, out countFilterGames));
 
             var pageInfo = new PagingInfoViewModel()
             {
                 CurrentPage = page,
-                ItemsPerPage = size,
+                ItemsPerPage = maxSize,
                 TotalItems = countFilterGames
             };
 

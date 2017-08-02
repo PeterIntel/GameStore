@@ -31,14 +31,26 @@ namespace GameStore.DataAccess.Repositories
             if (game != null)
             {
                 var gameEntity = _mapper.Map<Game, GameEntity>(game);
-                gameEntity.Genres = _genreRepository.GetGenres((IList<string>)game.NameGenres).ToList();
-                gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes((IList<string>)game.NamePlatformTypes).ToList();
-                gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == gameEntity.Publisher.CompanyName);
+                if (game.NameGenres != null)
+                {
+                    gameEntity.Genres = _genreRepository.GetGenres((IList<string>)game.NameGenres).ToList();
+                }
+                if (game.NamePlatformTypes != null)
+                {
+                    gameEntity.PlatformTypes = _platformRepository
+                        .GetPlatformTypes((IList<string>)game.NamePlatformTypes).ToList();
+                }
+                if (game.Publisher.CompanyName != null)
+                {
+                    gameEntity.Publisher =
+                        _context.Publishers.FirstOrDefault(x => x.CompanyName == game.Publisher.CompanyName);
+                }
+
                 _dbSet.Add(gameEntity);
             }
         }
 
-        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, int? page, int? size, params Expression<Func<Game, object>>[] includeProperties)
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, int page = 1, int size = 10, params Expression<Func<Game, object>>[] includeProperties)
         {
             IQueryable<GameEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
@@ -67,10 +79,7 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity = queryToEntity.OrderBy(x => x.Id);
             }
 
-            if (size != null && page != null)
-            {
-                queryToEntity = queryToEntity.Skip(((int) page - 1) * (int) size).Take((int) size);
-            }
+            queryToEntity = queryToEntity.Skip((page - 1) * size).Take(size);
 
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
 
@@ -86,11 +95,11 @@ namespace GameStore.DataAccess.Repositories
                 var listGameEntities = _dbSet.Where(x => x.Key == key && x.IsDeleted == false);
                 entity = listGameEntities.First();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception($"Game with the key {key} wasn't found!", ex);
             }
-            
+
             Game domain = _mapper.Map<GameEntity, Game>(entity);
             return domain;
         }

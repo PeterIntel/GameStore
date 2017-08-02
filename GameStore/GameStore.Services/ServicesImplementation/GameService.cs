@@ -30,7 +30,7 @@ namespace GameStore.Services.ServicesImplementation
             return result;
         }
 
-        public IEnumerable<Game> FilterGames(FilterCriteria filters, int? page, int? size, out int count)
+        public IEnumerable<Game> FilterGames(FilterCriteria filters, out int count, int page, int size)
         {
             _gamePipeline = new GamePipeline();
             _gamePipeline.ApplyFilters(filters);
@@ -71,12 +71,6 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Game> Get(params Expression<Func<Game, object>>[] includeProperties)
-        {
-            var games = _unitOfWork.GameRepository.Get(includeProperties);
-            return games;
-        }
-
         public void AddViewToGame(string key)
         {
             var game = _unitOfWork.GameRepository.GetGameByKey(key);
@@ -85,6 +79,19 @@ namespace GameStore.Services.ServicesImplementation
             gameInfo.Game = null;
             _unitOfWork.GameInfoRepository.Update(gameInfo);
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<Game> Get(params Expression<Func<Game, object>>[] includeProperties)
+        {
+            var games = _unitOfWork.GameRepository.Get();
+            return games;
+        }
+
+        public IEnumerable<Game> Get(out int count, params Expression<Func<Game, object>>[] includeProperties)
+        {
+            count = _unitOfWork.GameRepository.GetCountObject(x => true);
+            var games = _unitOfWork.GameRepository.Get(x => true,  x => x.Id);
+            return games;
         }
     }
 }

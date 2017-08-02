@@ -12,6 +12,7 @@ namespace GameStore.Domain.ServicesInterfaces
     {
         Game GetItemByKey(string key);
         void AddViewToGame(string key);
-        IEnumerable<Game> FilterGames(FilterCriteria filter, int? page, int? size, out int count);
+        IEnumerable<Game> FilterGames(FilterCriteria filters, out int count, int page, int size);
+        IEnumerable<Game> Get(out int count, params Expression<Func<Game, object>>[] includeProperties);
     }
 }

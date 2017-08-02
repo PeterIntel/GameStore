@@ -9,9 +9,9 @@ namespace GameStore.Web.ViewModels
         public int? ItemsPerPage { set; get; }
         public int CurrentPage { set; get; }
 
-        public IDictionary<int, string> QuantityItems => new Dictionary<int, string>
+        public IList<string> QuantityItems => new List<string>
         {
-            { 10, "10"}, { 20, "20"}, { 50, "50"}, { 100, "100"}
+            "10", "20", "50", "100", "ALL"
         };
 
         public int? TotalPages

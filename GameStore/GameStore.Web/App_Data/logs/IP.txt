@@ -8652,3 +8652,583 @@ System.Collections.Generic.IEnumerable`1[[GameStore.Domain.BusinessObjects.Game,
 2017-07-31 20:37:41.8431|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
 2017-07-31 20:40:12.2514|INFO|performanceLog|Performance time: 00:00:00.0000408
 2017-07-31 20:40:12.3201|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:22:03.2888|INFO|performanceLog|Performance time: 00:00:00.0000188
+2017-08-01 14:22:05.4018|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:22:17.9529|INFO|performanceLog|Performance time: 00:00:00.0000551
+2017-08-01 14:22:18.0301|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:22:24.7071|INFO|performanceLog|Performance time: 00:00:00.0000676
+2017-08-01 14:22:24.7542|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:22:24.7662|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:22:42.0279|INFO|performanceLog|Performance time: 00:00:00.0000273
+2017-08-01 14:22:46.5798|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:22:59.4503|INFO|performanceLog|Performance time: 00:00:00.0000870
+2017-08-01 14:22:59.4789|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:22:59.4909|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:23:04.5494|INFO|performanceLog|Performance time: 00:00:00.0000070
+2017-08-01 14:23:04.6091|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:24:00.1164|INFO|performanceLog|Performance time: 00:00:00.0000983
+2017-08-01 14:24:04.2499|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:24:14.0235|INFO|performanceLog|Performance time: 00:00:00.0000774
+2017-08-01 14:24:14.0942|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:24:26.4098|INFO|performanceLog|Performance time: 00:00:00.0000315
+2017-08-01 14:24:26.4634|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:24:26.4634|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:25:04.8843|INFO|performanceLog|Performance time: 00:00:00.0000792
+2017-08-01 14:25:07.6769|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:25:18.2383|INFO|performanceLog|Performance time: 00:00:00.0000561
+2017-08-01 14:25:18.3120|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:25:25.5318|INFO|performanceLog|Performance time: 00:00:00.0000219
+2017-08-01 14:25:25.5794|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:25:25.5924|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:27:40.3351|INFO|performanceLog|Performance time: 00:00:00.0000219
+2017-08-01 14:27:42.3351|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:27:50.7186|INFO|performanceLog|Performance time: 00:00:00.0000384
+2017-08-01 14:27:50.7903|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:27:56.7967|INFO|performanceLog|Performance time: 00:00:00.0000006
+2017-08-01 14:27:56.8491|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:27:56.8602|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:30:13.8993|INFO|performanceLog|Performance time: 00:00:00.0000766
+2017-08-01 14:30:18.0979|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:30:21.3619|INFO|performanceLog|Performance time: 00:00:00.0000264
+2017-08-01 14:30:26.6832|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:30:29.7573|INFO|performanceLog|Performance time: 00:00:00.0000074
+2017-08-01 14:30:29.8030|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:30:29.8030|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:30:41.3268|INFO|performanceLog|Performance time: 00:00:00.0000523
+2017-08-01 14:30:41.3528|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:30:41.3528|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:31:08.3096|INFO|performanceLog|Performance time: 00:00:00.0000221
+2017-08-01 14:31:11.1114|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:31:19.2429|INFO|performanceLog|Performance time: 00:00:00.0000130
+2017-08-01 14:31:19.3191|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:31:24.5254|INFO|performanceLog|Performance time: 00:00:00.0000206
+2017-08-01 14:31:24.5765|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:31:24.5880|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:36:37.6341|INFO|performanceLog|Performance time: 00:00:00.0000512
+2017-08-01 14:36:39.6939|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:05.1000|INFO|performanceLog|Performance time: 00:00:00.0000998
+2017-08-01 14:41:08.2674|INFO|performanceLog|Performance time: 00:00:00.0000267
+2017-08-01 14:41:09.1892|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:09.1957|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:15.8682|INFO|performanceLog|Performance time: 00:00:00.0000672
+2017-08-01 14:41:15.9169|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:15.9299|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:41:21.9772|INFO|performanceLog|Performance time: 00:00:00.0000060
+2017-08-01 14:41:22.0760|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:42.8507|INFO|performanceLog|Performance time: 00:00:00.0000750
+2017-08-01 14:41:43.3530|INFO|performanceLog|Performance time: 00:00:00.0000353
+2017-08-01 14:41:46.8176|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:46.8241|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:54.1993|INFO|performanceLog|Performance time: 00:00:00.0000375
+2017-08-01 14:41:54.2510|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:41:54.2665|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:41:57.5455|INFO|performanceLog|Performance time: 00:00:00.0000294
+2017-08-01 14:41:57.6097|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:42:33.4162|INFO|performanceLog|Performance time: 00:00:00.0000321
+2017-08-01 14:42:35.3897|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:42:41.3679|INFO|performanceLog|Performance time: 00:00:00.0000978
+2017-08-01 14:42:41.4657|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:42:45.6475|INFO|performanceLog|Performance time: 00:00:00.0000181
+2017-08-01 14:42:45.6936|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:42:45.6936|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:43:01.0752|INFO|performanceLog|Performance time: 00:00:00.0000381
+2017-08-01 14:43:01.1008|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:43:01.1008|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Value cannot be null.
+Parameter name: source
+2017-08-01 14:43:14.9429|INFO|performanceLog|Performance time: 00:00:00.0000842
+2017-08-01 14:43:14.9815|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:43:14.9916|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 14:43:30.1624|INFO|performanceLog|Performance time: 00:00:00.0000180
+2017-08-01 14:43:30.1985|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:43:30.2095|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 14:43:50.6586|INFO|performanceLog|Performance time: 00:00:00.0000460
+2017-08-01 14:43:50.6927|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:43:50.7042|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 14:45:10.6794|INFO|performanceLog|Performance time: 00:00:00.0000534
+2017-08-01 14:45:13.9335|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:45:23.9975|INFO|performanceLog|Performance time: 00:00:00.0000064
+2017-08-01 14:45:24.0827|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:45:31.9158|INFO|performanceLog|Performance time: 00:00:00.0000833
+2017-08-01 14:47:08.1421|INFO|performanceLog|Performance time: 00:00:00.0000991
+2017-08-01 14:47:11.3115|INFO|performanceLog|Performance time: 00:00:00.0000311
+2017-08-01 14:47:11.5868|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:47:11.5868|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:47:11.6184|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|The underlying provider failed on Open.
+2017-08-01 14:47:32.1346|INFO|performanceLog|Performance time: 00:00:00.0000536
+2017-08-01 14:57:35.6475|INFO|performanceLog|Performance time: 00:00:00.0000517
+2017-08-01 14:57:47.1257|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:57:52.7917|INFO|performanceLog|Performance time: 00:00:00.0000665
+2017-08-01 14:57:52.8834|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 14:58:01.2029|INFO|performanceLog|Performance time: 00:00:00.0000320
+2017-08-01 15:01:46.3841|INFO|performanceLog|Performance time: 00:00:00.0000272
+2017-08-01 15:01:49.5703|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:03:20.6411|INFO|performanceLog|Performance time: 00:00:00.0000071
+2017-08-01 15:03:20.7625|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:03:25.9621|INFO|performanceLog|Performance time: 00:00:00.0000199
+2017-08-01 15:03:47.4866|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:03:47.5518|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:05:06.7073|INFO|performanceLog|Performance time: 00:00:00.0000229
+2017-08-01 15:05:10.3352|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:05:10.3618|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:14:59.5088|INFO|performanceLog|Performance time: 00:00:00.0000363
+2017-08-01 15:15:03.2649|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:15:30.4306|INFO|performanceLog|Performance time: 00:00:00.0000165
+2017-08-01 15:15:30.5540|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:16:15.6404|INFO|performanceLog|Performance time: 00:00:00.0000086
+2017-08-01 15:16:18.9742|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:16:19.0113|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:27:07.1958|INFO|performanceLog|Performance time: 00:00:00.0000096
+2017-08-01 15:27:09.2054|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:27:16.3461|INFO|performanceLog|Performance time: 00:00:00.0000141
+2017-08-01 15:27:16.4499|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:27:38.5646|INFO|performanceLog|Performance time: 00:00:00.0000114
+2017-08-01 15:27:38.6197|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:27:38.6318|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:27:47.8037|INFO|performanceLog|Performance time: 00:00:00.0000183
+2017-08-01 15:27:47.8358|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:27:47.8358|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:28:17.6180|INFO|performanceLog|Performance time: 00:00:00.0000515
+2017-08-01 15:28:21.6159|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:28:23.0419|INFO|performanceLog|Performance time: 00:00:00.0000426
+2017-08-01 15:28:23.1251|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:28:29.1571|INFO|performanceLog|Performance time: 00:00:00.0000032
+2017-08-01 15:28:29.2283|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:28:29.2283|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:29:03.3394|INFO|performanceLog|Performance time: 00:00:00.0000246
+2017-08-01 15:29:03.7323|INFO|performanceLog|Performance time: 00:00:00.0000732
+2017-08-01 15:29:05.0992|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:29:05.1042|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:29:10.7933|INFO|performanceLog|Performance time: 00:00:00.0000689
+2017-08-01 15:29:10.8465|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:29:10.8605|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:34:17.7890|INFO|performanceLog|Performance time: 00:00:00.0000694
+2017-08-01 15:34:21.4632|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:34:22.0288|INFO|performanceLog|Performance time: 00:00:00.0000566
+2017-08-01 15:34:22.1306|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:34:26.7091|INFO|performanceLog|Performance time: 00:00:00.0000578
+2017-08-01 15:34:26.7952|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:34:26.8072|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:36:46.3347|INFO|performanceLog|Performance time: 00:00:00.0000235
+2017-08-01 15:36:48.1520|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:36:57.3549|INFO|performanceLog|Performance time: 00:00:00.0000203
+2017-08-01 15:36:57.4341|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:37:00.1072|INFO|performanceLog|Performance time: 00:00:00.0000673
+2017-08-01 15:37:00.1644|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:37:00.1809|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:38:16.2100|INFO|performanceLog|Performance time: 00:00:00.0000112
+2017-08-01 15:38:18.5086|INFO|performanceLog|Performance time: 00:00:00.0000508
+2017-08-01 15:38:20.0129|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:38:20.0129|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:38:28.0530|INFO|performanceLog|Performance time: 00:00:00.0000034
+2017-08-01 15:38:28.1322|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:38:28.1472|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:38:30.4251|INFO|performanceLog|Performance time: 00:00:00.0000293
+2017-08-01 15:38:30.4788|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:38:34.2981|INFO|performanceLog|Performance time: 00:00:00.0000819
+2017-08-01 15:38:34.3262|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:38:34.3347|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:51:17.7102|INFO|performanceLog|Performance time: 00:00:00.0000586
+2017-08-01 15:51:18.0145|INFO|performanceLog|Performance time: 00:00:00.0000014
+2017-08-01 15:51:21.7717|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:51:21.7717|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:51:32.0387|INFO|performanceLog|Performance time: 00:00:00.0000259
+2017-08-01 15:51:32.1092|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:51:32.1208|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:53:00.0697|INFO|performanceLog|Performance time: 00:00:00.0000969
+2017-08-01 15:53:01.4493|INFO|performanceLog|Performance time: 00:00:00.0000449
+2017-08-01 15:53:03.9048|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:53:03.9048|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:53:13.9078|INFO|performanceLog|Performance time: 00:00:00.0000996
+2017-08-01 15:53:13.9754|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:53:13.9754|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:55:35.6308|INFO|performanceLog|Performance time: 00:00:00.0000524
+2017-08-01 15:55:37.5208|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:55:38.2816|INFO|performanceLog|Performance time: 00:00:00.0000760
+2017-08-01 15:55:38.5463|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:55:45.2951|INFO|performanceLog|Performance time: 00:00:00.0000749
+2017-08-01 15:55:45.3589|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:55:45.3724|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:56:08.6952|INFO|performanceLog|Performance time: 00:00:00.0000584
+2017-08-01 15:56:11.8749|INFO|performanceLog|Performance time: 00:00:00.0000874
+2017-08-01 15:56:12.5587|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:56:12.5587|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:56:18.7909|INFO|performanceLog|Performance time: 00:00:00.0000225
+2017-08-01 15:56:18.8600|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:56:18.8741|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:56:57.0714|INFO|performanceLog|Performance time: 00:00:00.0000925
+2017-08-01 15:56:59.3002|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:57:04.1539|INFO|performanceLog|Performance time: 00:00:00.0000854
+2017-08-01 15:57:04.3840|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:57:08.6983|INFO|performanceLog|Performance time: 00:00:00.0000314
+2017-08-01 15:57:08.7605|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:57:08.7730|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:57:15.6697|INFO|performanceLog|Performance time: 00:00:00.0000909
+2017-08-01 15:57:15.7354|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:57:19.9897|INFO|performanceLog|Performance time: 00:00:00.0000254
+2017-08-01 15:57:20.0178|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:57:20.0283|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 15:58:51.5851|INFO|performanceLog|Performance time: 00:00:00.0000486
+2017-08-01 15:58:55.4375|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:58:57.3920|INFO|performanceLog|Performance time: 00:00:00.0000955
+2017-08-01 15:58:57.5153|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:59:03.0085|INFO|performanceLog|Performance time: 00:00:00.0000493
+2017-08-01 15:59:03.0822|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 15:59:03.0953|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:06:03.1783|INFO|performanceLog|Performance time: 00:00:00.0000053
+2017-08-01 16:06:07.4305|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:06:19.2118|INFO|performanceLog|Performance time: 00:00:00.0000112
+2017-08-01 16:06:22.9080|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:06:30.3829|INFO|performanceLog|Performance time: 00:00:00.0000475
+2017-08-01 16:06:30.4549|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:06:37.2183|INFO|performanceLog|Performance time: 00:00:00.0000763
+2017-08-01 16:06:37.2930|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:06:37.3071|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:07:02.7398|INFO|performanceLog|Performance time: 00:00:00.0000446
+2017-08-01 16:07:02.8366|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:07:05.8013|INFO|performanceLog|Performance time: 00:00:00.0000964
+2017-08-01 16:07:05.8313|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:07:05.8414|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:07:53.8833|INFO|performanceLog|Performance time: 00:00:00.0000051
+2017-08-01 16:07:54.1781|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:08:30.6452|INFO|performanceLog|Performance time: 00:00:00.0000467
+2017-08-01 16:08:30.7600|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:08:41.0485|INFO|performanceLog|Performance time: 00:00:00.0000288
+2017-08-01 16:08:41.1142|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:08:46.7341|INFO|performanceLog|Performance time: 00:00:00.0000620
+2017-08-01 16:08:46.7662|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:08:46.7777|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:09:48.9644|INFO|performanceLog|Performance time: 00:00:00.0000198
+2017-08-01 16:09:49.0792|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:09:50.5687|INFO|performanceLog|Performance time: 00:00:00.0000489
+2017-08-01 16:09:50.5953|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:09:50.6045|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:09:52.8994|INFO|performanceLog|Performance time: 00:00:00.0000304
+2017-08-01 16:09:53.0017|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:09:54.4058|INFO|performanceLog|Performance time: 00:00:00.0000404
+2017-08-01 16:09:54.4323|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:09:54.4323|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:10:36.8378|INFO|performanceLog|Performance time: 00:00:00.0000405
+2017-08-01 16:10:36.9401|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:10:39.9828|INFO|performanceLog|Performance time: 00:00:00.0000042
+2017-08-01 16:10:40.0133|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:10:40.0224|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:10:48.0062|INFO|performanceLog|Performance time: 00:00:00.0000888
+2017-08-01 16:10:49.6372|INFO|performanceLog|Performance time: 00:00:00.0000636
+2017-08-01 16:10:49.8859|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:10:49.8859|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:10:53.3503|INFO|performanceLog|Performance time: 00:00:00.0000463
+2017-08-01 16:10:53.3999|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:10:53.4145|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:13:04.0881|INFO|performanceLog|Performance time: 00:00:00.0000957
+2017-08-01 16:13:08.1714|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:13:13.4797|INFO|performanceLog|Performance time: 00:00:00.0000308
+2017-08-01 16:13:13.6035|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:13:16.5649|INFO|performanceLog|Performance time: 00:00:00.0000961
+2017-08-01 16:13:16.6331|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:13:16.6331|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:15:55.3228|INFO|performanceLog|Performance time: 00:00:00.0000214
+2017-08-01 16:15:55.5740|INFO|performanceLog|Performance time: 00:00:00.0000573
+2017-08-01 16:15:57.3056|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:15:57.3056|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:16:02.5830|INFO|performanceLog|Performance time: 00:00:00.0000277
+2017-08-01 16:16:02.6396|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:16:02.6506|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:17:28.5696|INFO|performanceLog|Performance time: 00:00:00.0000468
+2017-08-01 16:17:29.9353|INFO|performanceLog|Performance time: 00:00:00.0000935
+2017-08-01 16:17:32.4324|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:17:32.4324|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:17:38.8722|INFO|performanceLog|Performance time: 00:00:00.0000437
+2017-08-01 16:17:38.9428|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:17:38.9558|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:24:39.9681|INFO|performanceLog|Performance time: 00:00:00.0000025
+2017-08-01 16:24:40.0779|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:24:43.7640|INFO|performanceLog|Performance time: 00:00:00.0000686
+2017-08-01 16:24:43.8382|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:24:45.7058|INFO|performanceLog|Performance time: 00:00:00.0000867
+2017-08-01 16:24:45.7339|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:24:45.7436|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:24:55.0542|INFO|performanceLog|Performance time: 00:00:00.0000320
+2017-08-01 16:24:55.0793|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:24:55.0883|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+2017-08-01 16:33:20.5257|INFO|performanceLog|Performance time: 00:00:00.0000426
+2017-08-01 16:33:33.4138|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:33:33.4138|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An exception occurred while initializing the database. See the InnerException for details.
+2017-08-01 16:36:21.8678|INFO|performanceLog|Performance time: 00:00:00.0000742
+2017-08-01 16:36:34.8298|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:36:34.8424|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An exception occurred while initializing the database. See the InnerException for details.
+2017-08-01 16:40:07.0371|INFO|performanceLog|Performance time: 00:00:00.0000936
+2017-08-01 16:40:13.6027|INFO|performanceLog|Performance time: 00:00:00.0000492
+2017-08-01 16:40:17.8762|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:40:17.8873|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot create file 'C:\Program Files\Microsoft SQL Server\MSSQL13.SQLEXPRESS\MSSQL\DATA\GameStore.mdf' because it already exists. Change the file path or the file name, and retry the operation.
+CREATE DATABASE failed. Some file names listed could not be created. Check related errors.
+2017-08-01 16:40:24.5224|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:40:24.5224|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Cannot create file 'C:\Program Files\Microsoft SQL Server\MSSQL13.SQLEXPRESS\MSSQL\DATA\GameStore.mdf' because it already exists. Change the file path or the file name, and retry the operation.
+CREATE DATABASE failed. Some file names listed could not be created. Check related errors.
+2017-08-01 16:41:09.4020|INFO|performanceLog|Performance time: 00:00:00.0000311
+2017-08-01 16:41:24.7667|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:41:24.7787|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An exception occurred while initializing the database. See the InnerException for details.
+2017-08-01 16:47:00.2716|INFO|performanceLog|Performance time: 00:00:00.0000157
+2017-08-01 16:47:03.3473|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:47:03.3593|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An exception occurred while initializing the database. See the InnerException for details.
+2017-08-01 16:48:17.9288|INFO|performanceLog|Performance time: 00:00:00.0000785
+2017-08-01 16:48:30.8941|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:48:40.2070|INFO|performanceLog|Performance time: 00:00:00.0000313
+2017-08-01 16:48:40.2943|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:48:43.1971|INFO|performanceLog|Performance time: 00:00:00.0000902
+2017-08-01 16:48:43.2532|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:48:43.2753|INFO|performanceLog|Performance time: 00:00:00.0000022
+2017-08-01 16:48:43.3425|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:48:48.5804|INFO|performanceLog|Performance time: 00:00:00.0000238
+2017-08-01 16:48:48.6376|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:48:54.9178|INFO|performanceLog|Performance time: 00:00:00.0000280
+2017-08-01 16:48:54.9438|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:48:54.9438|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 16:50:07.1361|INFO|performanceLog|Performance time: 00:00:00.0000192
+2017-08-01 16:50:07.1983|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:50:14.7053|INFO|performanceLog|Performance time: 00:00:00.0000506
+2017-08-01 16:50:14.7329|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:50:14.7439|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 16:50:25.6362|INFO|performanceLog|Performance time: 00:00:00.0000903
+2017-08-01 16:50:25.6918|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:50:27.5162|INFO|performanceLog|Performance time: 00:00:00.0000824
+2017-08-01 16:50:27.5402|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:50:27.5402|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 16:50:30.2783|INFO|performanceLog|Performance time: 00:00:00.0000738
+2017-08-01 16:50:30.3495|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:50:37.7042|INFO|performanceLog|Performance time: 00:00:00.0000354
+2017-08-01 16:50:37.7323|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:50:37.7428|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 16:51:51.5703|INFO|performanceLog|Performance time: 00:00:00.0000448
+2017-08-01 16:51:54.7219|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:51:57.8867|INFO|performanceLog|Performance time: 00:00:00.0000164
+2017-08-01 16:51:57.9719|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:52:01.7796|INFO|performanceLog|Performance time: 00:00:00.0000807
+2017-08-01 16:52:10.6108|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:52:10.6369|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 16:52:35.2332|INFO|performanceLog|Performance time: 00:00:00.0000627
+2017-08-01 16:52:35.3095|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:52:41.7412|INFO|performanceLog|Performance time: 00:00:00.0000432
+2017-08-01 16:59:35.0088|INFO|performanceLog|Performance time: 00:00:00.0000887
+2017-08-01 16:59:38.0610|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:59:43.3157|INFO|performanceLog|Performance time: 00:00:00.0000255
+2017-08-01 16:59:43.3899|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 16:59:49.0639|INFO|performanceLog|Performance time: 00:00:00.0000673
+2017-08-01 17:01:05.6453|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:01:05.6834|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 17:01:55.4297|INFO|performanceLog|Performance time: 00:00:00.0000297
+2017-08-01 17:01:58.5180|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:02:26.5680|INFO|performanceLog|Performance time: 00:00:00.0000051
+2017-08-01 17:02:26.6502|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:02:31.5792|INFO|performanceLog|Performance time: 00:00:00.0000928
+2017-08-01 17:08:47.3509|INFO|performanceLog|Performance time: 00:00:00.0000234
+2017-08-01 17:08:47.3509|INFO|performanceLog|Performance time: 00:00:00.0000234
+2017-08-01 17:08:50.6667|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:08:50.6667|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:08:55.9130|INFO|performanceLog|Performance time: 00:00:00.0000240
+2017-08-01 17:14:27.6486|INFO|performanceLog|Performance time: 00:00:00.0000501
+2017-08-01 17:14:30.8084|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:14:37.3341|INFO|performanceLog|Performance time: 00:00:00.0000525
+2017-08-01 17:14:37.4138|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:14:40.4155|INFO|performanceLog|Performance time: 00:00:00.0000002
+2017-08-01 17:17:18.9691|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:17:19.5913|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|An error occurred while updating the entries. See the inner exception for details.
+2017-08-01 17:17:39.7912|INFO|performanceLog|Performance time: 00:00:00.0000662
+2017-08-01 17:17:39.7912|INFO|performanceLog|Performance time: 00:00:00.0000663
+2017-08-01 17:17:42.9621|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:17:42.9621|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:17:56.2379|INFO|performanceLog|Performance time: 00:00:00.0000265
+2017-08-01 17:18:09.3140|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:18:09.3381|INFO|performanceLog|Performance time: 00:00:00.0000024
+2017-08-01 17:18:09.4453|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:20:56.2652|INFO|performanceLog|Performance time: 00:00:00.0000819
+2017-08-01 17:20:56.3921|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:21:00.5661|INFO|performanceLog|Performance time: 00:00:00.0000174
+2017-08-01 17:21:07.7600|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:21:07.7840|INFO|performanceLog|Performance time: 00:00:00.0000024
+2017-08-01 17:21:07.9104|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:21:17.8405|INFO|performanceLog|Performance time: 00:00:00.0000930
+2017-08-01 17:21:17.9072|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:21:35.0881|INFO|performanceLog|Performance time: 00:00:00.0000180
+2017-08-01 17:21:38.8579|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:21:38.8788|INFO|performanceLog|Performance time: 00:00:00.0000020
+2017-08-01 17:21:38.9665|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:22:06.4940|INFO|performanceLog|Performance time: 00:00:00.0000527
+2017-08-01 17:22:06.7116|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:22:16.4434|INFO|performanceLog|Performance time: 00:00:00.0000731
+2017-08-01 17:22:16.6419|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:22:19.6004|INFO|performanceLog|Performance time: 00:00:00.0000958
+2017-08-01 17:22:24.7594|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:22:34.3475|INFO|performanceLog|Performance time: 00:00:00.0000588
+2017-08-01 17:22:38.3592|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:02.5637|INFO|performanceLog|Performance time: 00:00:00.0000204
+2017-08-01 17:23:02.6600|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:12.1415|INFO|performanceLog|Performance time: 00:00:00.0000481
+2017-08-01 17:23:12.3044|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:29.3828|INFO|performanceLog|Performance time: 00:00:00.0000078
+2017-08-01 17:23:29.5930|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:33.0245|INFO|performanceLog|Performance time: 00:00:00.0000431
+2017-08-01 17:23:33.1343|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:36.0071|INFO|performanceLog|Performance time: 00:00:00.0000872
+2017-08-01 17:23:36.1585|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:43.3618|INFO|performanceLog|Performance time: 00:00:00.0000203
+2017-08-01 17:23:43.5254|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:46.1123|INFO|performanceLog|Performance time: 00:00:00.0000586
+2017-08-01 17:23:46.2808|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:54.2077|INFO|performanceLog|Performance time: 00:00:00.0000926
+2017-08-01 17:23:54.3702|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:23:57.5480|INFO|performanceLog|Performance time: 00:00:00.0000177
+2017-08-01 17:23:57.7365|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:07.9104|INFO|performanceLog|Performance time: 00:00:00.0000173
+2017-08-01 17:24:08.1009|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:15.2894|INFO|performanceLog|Performance time: 00:00:00.0000188
+2017-08-01 17:24:15.4478|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:20.5493|INFO|performanceLog|Performance time: 00:00:00.0000101
+2017-08-01 17:24:20.7825|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:27.1215|INFO|performanceLog|Performance time: 00:00:00.0000339
+2017-08-01 17:24:27.3441|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:35.7809|INFO|performanceLog|Performance time: 00:00:00.0000436
+2017-08-01 17:24:36.0210|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:41.8746|INFO|performanceLog|Performance time: 00:00:00.0000853
+2017-08-01 17:24:42.1052|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:46.1431|INFO|performanceLog|Performance time: 00:00:00.0000037
+2017-08-01 17:24:46.3751|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:24:54.2453|INFO|performanceLog|Performance time: 00:00:00.0000870
+2017-08-01 17:24:54.3676|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:25:00.1844|INFO|performanceLog|Performance time: 00:00:00.0000816
+2017-08-01 17:25:00.3103|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:25:26.3031|INFO|performanceLog|Performance time: 00:00:00.0000992
+2017-08-01 17:25:26.4500|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:25:37.0698|INFO|performanceLog|Performance time: 00:00:00.0000619
+2017-08-01 17:25:37.4267|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:25:59.1109|INFO|performanceLog|Performance time: 00:00:00.0000684
+2017-08-01 17:25:59.2353|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:04.2793|INFO|performanceLog|Performance time: 00:00:00.0000044
+2017-08-01 17:26:04.4092|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:15.3600|INFO|performanceLog|Performance time: 00:00:00.0000950
+2017-08-01 17:26:15.4713|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:21.4092|INFO|performanceLog|Performance time: 00:00:00.0000937
+2017-08-01 17:26:21.4850|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:24.4204|INFO|performanceLog|Performance time: 00:00:00.0000935
+2017-08-01 17:26:24.4545|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:32.5979|INFO|performanceLog|Performance time: 00:00:00.0000144
+2017-08-01 17:26:32.7478|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:55.2918|INFO|performanceLog|Performance time: 00:00:00.0000544
+2017-08-01 17:26:55.3991|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:26:59.9706|INFO|performanceLog|Performance time: 00:00:00.0000571
+2017-08-01 17:27:00.0809|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:27:08.1099|INFO|performanceLog|Performance time: 00:00:00.0000029
+2017-08-01 17:27:08.2182|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:27:30.2677|INFO|performanceLog|Performance time: 00:00:00.0000049
+2017-08-01 17:27:30.3559|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:44:32.2260|INFO|performanceLog|Performance time: 00:00:00.0000119
+2017-08-01 17:44:34.3056|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:44:35.8851|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|DataBinding: '<>f__AnonymousType1`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' does not contain a property with the name 'Value'.
+2017-08-01 17:45:30.2740|INFO|performanceLog|Performance time: 00:00:00.0000136
+2017-08-01 17:45:34.3694|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:46:39.7593|INFO|performanceLog|Performance time: 00:00:00.0000619
+2017-08-01 17:46:41.6915|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:54:10.2768|INFO|performanceLog|Performance time: 00:00:00.0000177
+2017-08-01 17:54:14.2643|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:54:24.2926|INFO|performanceLog|Performance time: 00:00:00.0000028
+2017-08-01 17:54:24.4400|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 17:55:01.7736|INFO|performanceLog|Performance time: 00:00:00.0000667
+2017-08-01 17:55:03.7060|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-01 18:01:36.3843|INFO|performanceLog|Performance time: 00:00:00.0000275
+2017-08-01 18:01:40.4397|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 00:38:27.6900|INFO|performanceLog|Performance time: 00:00:00.0000576
+2017-08-02 00:38:30.0189|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 00:45:15.2866|INFO|performanceLog|Performance time: 00:00:00.0000173
+2017-08-02 07:53:31.9757|INFO|performanceLog|Performance time: 00:00:00.0000873
+2017-08-02 07:53:34.2209|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 07:53:41.4625|INFO|performanceLog|Performance time: 00:00:00.0000242
+2017-08-02 07:53:41.5978|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 07:53:44.9752|INFO|performanceLog|Performance time: 00:00:00.0000377
+2017-08-02 07:53:45.0655|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 07:54:35.8376|INFO|performanceLog|Performance time: 00:00:00.0000772
+2017-08-02 07:54:35.9739|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:06:43.5824|INFO|performanceLog|Performance time: 00:00:00.0000484
+2017-08-02 08:06:47.3332|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:06:56.7242|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Object reference not set to an instance of an object.
+2017-08-02 08:08:50.4901|INFO|performanceLog|Performance time: 00:00:00.0000390
+2017-08-02 08:08:54.3606|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:18:40.5654|INFO|performanceLog|Performance time: 00:00:00.0000469
+2017-08-02 08:18:42.4812|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:18:57.1752|INFO|performanceLog|Performance time: 00:00:00.0000695
+2017-08-02 08:18:57.3723|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:19:07.7446|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Specified cast is not valid.
+2017-08-02 08:19:45.9406|INFO|performanceLog|Performance time: 00:00:00.0000823
+2017-08-02 08:19:52.3692|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:20:25.1263|ERROR|GameStore.Logging.Loggers.WrapNLogLogger|Specified cast is not valid.
+2017-08-02 08:21:08.7837|INFO|performanceLog|Performance time: 00:00:00.0000658
+2017-08-02 08:21:15.3651|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:21:31.0954|INFO|performanceLog|Performance time: 00:00:00.0000731
+2017-08-02 08:21:31.2227|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:22:32.4119|INFO|performanceLog|Performance time: 00:00:00.0000315
+2017-08-02 08:22:34.4795|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:22:42.0256|INFO|performanceLog|Performance time: 00:00:00.0000546
+2017-08-02 08:22:42.1574|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:22:49.6166|INFO|performanceLog|Performance time: 00:00:00.0000459
+2017-08-02 08:22:49.6798|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:26:36.3480|INFO|performanceLog|Performance time: 00:00:00.0000255
+2017-08-02 08:26:40.2752|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:26:48.9221|INFO|performanceLog|Performance time: 00:00:00.0000646
+2017-08-02 08:26:49.0480|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:27:02.1873|INFO|performanceLog|Performance time: 00:00:00.0000139
+2017-08-02 08:27:02.2455|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:27:16.4998|INFO|performanceLog|Performance time: 00:00:00.0000254
+2017-08-02 08:27:16.5600|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:27:26.6625|INFO|performanceLog|Performance time: 00:00:00.0000102
+2017-08-02 08:27:26.7256|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:27:38.0946|INFO|performanceLog|Performance time: 00:00:00.0000368
+2017-08-02 08:27:38.2425|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:28:50.0028|INFO|performanceLog|Performance time: 00:00:00.0000760
+2017-08-02 08:28:50.1156|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:28:55.5138|INFO|performanceLog|Performance time: 00:00:00.0000398
+2017-08-02 08:28:55.6341|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:29:06.6023|INFO|performanceLog|Performance time: 00:00:00.0000968
+2017-08-02 08:29:06.6660|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:29:54.2084|INFO|performanceLog|Performance time: 00:00:00.0000093
+2017-08-02 08:29:59.7484|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:30:51.8685|INFO|performanceLog|Performance time: 00:00:00.0000121
+2017-08-02 08:30:52.0440|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:31:29.4358|INFO|performanceLog|Performance time: 00:00:00.0000391
+2017-08-02 08:31:29.5900|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:32:57.8936|INFO|performanceLog|Performance time: 00:00:00.0000303
+2017-08-02 08:32:58.0356|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:33:13.8711|INFO|performanceLog|Performance time: 00:00:00.0000835
+2017-08-02 08:33:13.9844|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:39:21.0854|INFO|performanceLog|Performance time: 00:00:00.0000101
+2017-08-02 08:39:21.2706|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:40:36.7446|INFO|performanceLog|Performance time: 00:00:00.0000470
+2017-08-02 08:40:38.2347|INFO|performanceLog|Performance time: 00:00:00.0000964
+2017-08-02 08:40:38.4024|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:40:38.4024|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:41:00.7144|INFO|performanceLog|Performance time: 00:00:00.0000308
+2017-08-02 08:41:00.8603|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:46:27.7879|INFO|performanceLog|Performance time: 00:00:00.0000654
+2017-08-02 08:46:32.7964|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:47:26.8724|INFO|performanceLog|Performance time: 00:00:00.0000077
+2017-08-02 08:47:27.0441|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:47:49.1345|INFO|performanceLog|Performance time: 00:00:00.0000090
+2017-08-02 08:47:49.2749|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:48:03.4459|INFO|performanceLog|Performance time: 00:00:00.0000171
+2017-08-02 08:48:03.5896|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:48:24.4251|INFO|performanceLog|Performance time: 00:00:00.0000836
+2017-08-02 08:48:24.5985|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:48:36.6380|INFO|performanceLog|Performance time: 00:00:00.0000039
+2017-08-02 08:48:36.8841|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:48:48.5917|INFO|performanceLog|Performance time: 00:00:00.0000708
+2017-08-02 08:48:48.7341|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1
+2017-08-02 08:49:02.4222|INFO|performanceLog|Performance time: 00:00:00.0000688
+2017-08-02 08:49:02.6138|INFO|GameStore.Logging.Loggers.WrapNLogLogger|User IP Address: ::1

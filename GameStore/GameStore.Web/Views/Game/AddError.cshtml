@@ -1,0 +1,29 @@
+﻿@model Exception
+@{
+    ViewBag.Title = "Error";
+}
+
+
+<h2>Error</h2>
+
+@ShowExceptionMessage(Model)
+
+
+<a href="javascript:void(0);" id="backLink">Back</a>
+
+@helper ShowExceptionMessage(Exception ex)
+{
+    <h5 class="text-danger">@ex.Message</h5>
+
+    if (ex.InnerException != null)
+    {
+        @ShowExceptionMessage(ex.InnerException)
+    }
+}
+
+<script type="text/javascript">
+    $(document).on('click', '#backLink', function () {
+        history.go(-1);
+    });
+</script>
+

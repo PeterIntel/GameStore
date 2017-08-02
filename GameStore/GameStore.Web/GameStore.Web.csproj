@@ -198,9 +198,11 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Filters\ActionPerformanceFilter.cs" />
+    <Compile Include="Filters\AddGameErrorFilter.cs" />
     <Compile Include="Filters\GetNumberOfGamesFilter.cs" />
     <Compile Include="Filters\LogErrorFilter.cs" />
     <Compile Include="Filters\LogIPFilter.cs" />
+    <Compile Include="Filters\MinValueAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +259,7 @@
     <Content Include="Views\Shared\EditorTemplates\DateTimeIntervals.cshtml" />
     <Content Include="Views\Game\_GameDetails.cshtml" />
     <Content Include="Views\Game\_Filters.cshtml" />
+    <Content Include="Views\Game\AddError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

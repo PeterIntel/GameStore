@@ -40,7 +40,9 @@
 @Html.LabelFor(m => m.PriceFrom)
 <br>
 @Html.TextBoxFor(m => m.PriceFrom, new { type = "number" })
-@Html.EditorFor(m => m.PriceTo)
+@Html.ValidationMessageFor(m => m.PriceFrom)
+@Html.TextBoxFor(m => m.PriceTo, new { type = "number"})
+@Html.ValidationMessageFor(m => m.PriceTo)
 
 <br>
 

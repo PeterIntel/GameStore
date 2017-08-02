@@ -11,7 +11,7 @@ namespace GameStore.DataAccess.Repositories
 {
     public interface IGameRepository : IGenericDataRepository<GameEntity, Game>
     {
-        IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, int? page, int? size, params Expression<Func<Game, object>>[] includeProperties);
+        IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, int page = 1, int size = 10, params Expression<Func<Game, object>>[] includeProperties);
         Game GetGameByKey(string key);
     }
 }

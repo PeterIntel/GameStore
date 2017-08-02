@@ -10,7 +10,7 @@
     @Html.Partial("_Filters", Model.Filter)
     <br>
     <input type="hidden" id="page" name="page"/>
-    @Html.DropDownList("size", new SelectList(Model.PagingInfo.QuantityItems, "Key", "Value"), "All")
+    @Html.DropDownList("size", new SelectList(Model.PagingInfo.QuantityItems.Select(x => new { Value = x, Text = x}), "Value", "Text"))
     <br>
     <input id="filterButton" type="button" value="Apply Filters">
 }
