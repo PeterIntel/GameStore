@@ -5,8 +5,8 @@ using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Linq;
+using System.Data.SqlClient;
+using GameStore.Web.Filters;
 
 namespace GameStore.Web.Controllers
 {
@@ -41,6 +41,7 @@ namespace GameStore.Web.Controllers
 
         [HttpPost]
         [ActionName("new")]
+        [AddGameErrorFilter(ExceptionType = typeof(SqlException))]
         public ActionResult AddGame(GameViewModel gameViewModel)
         {
             if (ModelState.IsValid)
@@ -55,7 +56,7 @@ namespace GameStore.Web.Controllers
             return View(gameViewModel);
         }
 
-       
+
         [ActionName("update")]
         [HttpPost]
         public ActionResult UpdateGame(GameViewModel gameViewModel)
@@ -76,6 +77,8 @@ namespace GameStore.Web.Controllers
 
         public ActionResult GetGames()
         {
+            PaginationGames games = _gameService.Get();
+
             FilterCriteria filter = new FilterCriteria()
             {
                 Genres = _genreService.Get(),
@@ -84,34 +87,44 @@ namespace GameStore.Web.Controllers
             };
 
             var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
-            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.Get());
 
-            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games, PagingInfo = new PagingInfoViewModel()});
+            var pageInfo = new PagingInfoViewModel()
+            {
+                CurrentPage = 1,
+                ItemsPerPage = "10",
+                TotalItems = games.Count
+            };
+
+            return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo });
         }
-        
+
         [ActionName("filter")]
-        public ActionResult FilterGames(FilterCriteriaViewModel filterViewModel, int? size, int page = 1)
+        public ActionResult FilterGames(FilterCriteriaViewModel filterViewModel, string size, int page = 1)
         {
-            FilterCriteria filters = null;
+            PaginationGames games;
 
             if (ModelState.IsValid)
             {
-               filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
+                FilterCriteria filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
+                games = _gameService.FilterGames(filters, page, size);
             }
+            else
+            {
+                games = _gameService.FilterGames(_mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel), page, size);
+            }
+
             filterViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(filterViewModel.NameGenres));
             filterViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(filterViewModel.NamePlatformTypes));
             filterViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAllPublishersAndMarkSelected(filterViewModel.NamePublishers));
-            int countFilterGames;
-            var games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(_gameService.FilterGames(filters, page, size, out countFilterGames));
 
             var pageInfo = new PagingInfoViewModel()
             {
                 CurrentPage = page,
                 ItemsPerPage = size,
-                TotalItems = countFilterGames
+                TotalItems = games.Count
             };
 
-            return View("GetGames", new GamesAndFilterViewModel() { Filter = filterViewModel, Games = games,PagingInfo = pageInfo});
+            return View("GetGames", new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo });
         }
 
         public ActionResult GetGameDetails(string key)

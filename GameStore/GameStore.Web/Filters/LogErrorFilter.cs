@@ -13,9 +13,13 @@ namespace GameStore.Web.Filters
         ILogWrapper _logger = DependencyResolver.Current.GetService<ILogWrapper>();
         public void OnException(ExceptionContext filterContext)
         {
-            
             _logger.Write(null, filterContext.Exception, filterContext.Exception.Message, LogLevels.Error);
-            //filterContext.Result = new HttpStatusCodeResult(400);
+            //filterContext.Result = new ViewResult()
+            //{
+            //    ViewName = "~/Views/Shared/_Error.cshtml",
+            //    ViewData = new ViewDataDictionary(filterContext.Exception)
+
+            //};
             //filterContext.ExceptionHandled = true;
         }
     }

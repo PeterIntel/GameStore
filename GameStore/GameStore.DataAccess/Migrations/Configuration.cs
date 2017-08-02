@@ -17,7 +17,7 @@ namespace GameStore.DataAccess.Migrations
 
         protected override void Seed(GamesSqlContext context)
         {
-            context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('GameEntities', RESEED, 0)");
+            //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('GameEntities', RESEED, 0)");
             //  This method will be called after migrating to the latest version.
             Random r = new Random();
 

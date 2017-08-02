@@ -18,8 +18,13 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
         }
         public override Expression<Func<Game, bool>> Execute(Expression<Func<Game, bool>> input)
         {
-            Expression<Func<Game, bool>> filter = x => _publishers.Contains(x.Publisher.CompanyName);
-            return AggregateExpression(input, filter);
+            if (_publishers != null && _publishers.Count() != 0)
+            {
+                Expression<Func<Game, bool>> filter = x => _publishers.Contains(x.Publisher.CompanyName);
+                return AggregateExpression(input, filter);
+            }
+
+            return input;
         }
     }
 }

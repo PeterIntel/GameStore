@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.DataAccess.UnitOfWork;
-
 namespace GameStore.Services.ServicesImplementation
 {
     public class OrderService : IOrderService
@@ -21,49 +18,35 @@ namespace GameStore.Services.ServicesImplementation
 
         public void AddGameToOrder(string gamekey, int? customerId)
         {
-            var game = _unitOfWork.GameRepository.GetGameByKey(gamekey);
-            var order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == customerId && x.Status == CompletionStatus.InComplete).FirstOrDefault();
-            if (order != null)
+            if (customerId == null)
             {
-                var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
+                throw new ArgumentNullException(nameof(customerId) + " references to NULL");
+            }
 
-                if (gameDetails != null)
-                {
-                    gameDetails.Quantity++;
-                    gameDetails.Price = gameDetails.Quantity * gameDetails.Game.Price;
-                    gameDetails.Order = null;
-                    gameDetails.Game = null;
-                    _unitOfWork.OrderDetailsRepository.Update(gameDetails);
-                }
-                else
-                {
-                    _unitOfWork.OrderDetailsRepository.Add(new OrderDetails()
-                    {
-                        OrderId = order.Id,
-                        GameId = game.Id,
-                        Quantity = 1,
-                        Price = game.Price
-                    });
-                }
+            var game = _unitOfWork.GameRepository.GetGameByKey(gamekey);
+            var order = GetOrderByCustomerId((int)customerId);
+
+            var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
+
+            if (gameDetails != null)
+            {
+                gameDetails.Quantity++;
+                gameDetails.Price = gameDetails.Quantity * gameDetails.Game.Price;
+                gameDetails.Order = null;
+                gameDetails.Game = null;
+                _unitOfWork.OrderDetailsRepository.Update(gameDetails);
             }
             else
             {
-                _unitOfWork.OrderRepository.Add(new Order()
-                {
-                    CustomerId = (int)customerId,
-                    OrderDate = DateTime.UtcNow,
-                    Status = CompletionStatus.InComplete
-                });
-                _unitOfWork.Save();
-
                 _unitOfWork.OrderDetailsRepository.Add(new OrderDetails()
                 {
-                    OrderId = GetOrderByCustomerId((int)customerId).Id,
+                    OrderId = order.Id,
                     GameId = game.Id,
                     Quantity = 1,
                     Price = game.Price
                 });
             }
+
             _unitOfWork.Save();
         }
 
@@ -73,17 +56,35 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
+        public IEnumerable<Order> GetAll(params Expression<Func<Order, object>>[] includeProperties)
+        {
+            var result = _unitOfWork.OrderRepository.Get(includeProperties);
+            return result;
+        }
+
+        public IEnumerable<Order> GetAll(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
+        {
+            var result = _unitOfWork.OrderRepository.Get(filter, includeProperties);
+            return result;
+        }
+
         public Order GetOrderByCustomerId(int id)
         {
-            Order order;
-            try
+            Order order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+
+            if (order == null)
             {
-                order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).First();
+                _unitOfWork.OrderRepository.Add(new Order()
+                {
+                    Status = CompletionStatus.InComplete,
+                    CustomerId = id,
+                    OrderDate = DateTime.UtcNow,
+                });
+                _unitOfWork.Save();
+
+                order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
             }
-            catch (Exception ex)
-            {
-                throw new ArgumentException($"There is not open order for {id}", ex);
-            }
+
             return order;
         }
 
@@ -111,16 +112,17 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork.Save();
         }
 
-        public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
+        public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties) 
+             
         {
-            var result = _unitOfWork.OrderRepository.Get(filter, includeProperties);
-            return result;
+            var games = _unitOfWork.OrderRepository.Get(filter, includeProperties);
+            return games;
         }
 
         public IEnumerable<Order> Get(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var result = _unitOfWork.OrderRepository.Get(includeProperties);
-            return result;
+            var games = _unitOfWork.OrderRepository.Get(includeProperties);
+            return games;
         }
     }
 }
