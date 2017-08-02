@@ -79,12 +79,10 @@ namespace GameStore.DataAccess.Repositories
                 queryToEntity = queryToEntity.OrderBy(x => x.Id);
             }
 
-            if (size == null)
+            if (size != null)
             {
-                size = 10;
+                queryToEntity = queryToEntity.Skip((page - 1) * (int)size).Take((int)size);
             }
-
-            queryToEntity = queryToEntity.Skip((page - 1) * (int)size).Take((int)size);
 
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
 

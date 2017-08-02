@@ -105,7 +105,6 @@ namespace GameStore.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                // TODO: This is BLL responsability. Method FilterGames should be Get overload method with filter paramenters.
                 FilterCriteria filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
                 games = _gameService.FilterGames(filters, page, size);
             }

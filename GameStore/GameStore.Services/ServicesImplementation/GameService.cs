@@ -30,13 +30,11 @@ namespace GameStore.Services.ServicesImplementation
             return result;
         }
 
-        // TODO: Why do you need out count? count == returnedCollection.Count
         public PaginationGames FilterGames(FilterCriteria filters, int page, string size)
         {
             _gamePipeline = new GamePipeline();
-            // TODO: Why methods Apply and Process are seoarated? Use one method that receives parameters and returns expression.
             var filterExpression = _gamePipeline.ApplyFilters(filters);
-            // TODO: x => true is default condition, use it inside pipeline, not outside.
+
             IEnumerable<Game> games;
             int? maxSize = size != "ALL" ? (int?)int.Parse(size) : null;
 
@@ -62,7 +60,6 @@ namespace GameStore.Services.ServicesImplementation
                     break;
             }
 
-            // TODO: You should call pipeline process 
             var filteredGames = new PaginationGames()
             {
                 Count = _unitOfWork.GameRepository.GetCountObject(filterExpression),
