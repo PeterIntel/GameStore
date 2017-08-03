@@ -14,10 +14,12 @@ namespace GameStore.DataAccess.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly GamesSqlContext _context;
+        private readonly GamesMongoContext _mongoContext;
 
          public UnitOfWork(GamesSqlContext context)
         {
             _context = context;
+            _mongoContext = new GamesMongoContext();
         }
         
         [Inject]

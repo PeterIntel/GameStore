@@ -139,6 +139,12 @@
       <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MongoEntities\MongoCategory.cs" />
+    <Compile Include="MongoEntities\MongoOrder.cs" />
+    <Compile Include="MongoEntities\MongoOrderDetails.cs" />
+    <Compile Include="MongoEntities\MongoProduct.cs" />
+    <Compile Include="MongoEntities\MongoShipper.cs" />
+    <Compile Include="MongoEntities\MongoSupplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
     <Compile Include="Repositories\GenericDataRepository.cs" />
@@ -181,6 +187,7 @@
       <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

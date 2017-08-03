@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using System.Configuration;
+using MongoDB.Bson;
 
 namespace GameStore.DataAccess.Contextes
 {
@@ -16,7 +17,8 @@ namespace GameStore.DataAccess.Contextes
         {
             var connectionString = ConfigurationManager.ConnectionStrings["GameStoreMongoContext"].ConnectionString;
             _client = new MongoClient(connectionString);
-            _database = _client.GetDatabase()
+            _database = _client.GetDatabase(MongoUrl.Create(connectionString).DatabaseName);
+            var collection = _database.GetCollection<BsonDocument>("Products");
         }
     }
 }
