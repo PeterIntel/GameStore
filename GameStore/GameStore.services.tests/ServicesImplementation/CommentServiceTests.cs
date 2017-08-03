@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Moq;
-using GameStore.Services.ServicesImplementation;
-using GameStore.DataAccess.UnitOfWork;
-using GameStore.Domain.BusinessObjects;
 using System.Linq.Expressions;
 using GameStore.DataAccess.Entities;
 using GameStore.DataAccess.Repositories;
+using GameStore.DataAccess.UnitOfWork;
+using GameStore.Domain.BusinessObjects;
+using GameStore.Services.ServicesImplementation;
+using Moq;
+using NUnit.Framework;
 
-namespace GameStore.Services.Tests.Services_implementation
+namespace GameStore.Services.Tests.ServicesImplementation
 {
     [TestFixture]
     class CommentServiceTests
     {
         private CommentService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
+        private Mock<IGenericDataRepository<CommentEntity, Comment>> _rep;
         private Comment _commentStub = new Comment();
         private static int CommentId = 1;
         private IList<Comment> _comments = new List<Comment>()
@@ -74,7 +73,6 @@ namespace GameStore.Services.Tests.Services_implementation
 
         };
 
-        private Mock<IGenericDataRepository<CommentEntity, Comment>> _rep;
         [SetUp]
         public void Setup()
         {
@@ -98,12 +96,12 @@ namespace GameStore.Services.Tests.Services_implementation
         [Test]
         public void GetAllCommentsByGameKey_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()))
+            _unitOfWork.Setup(g => g.CommentRepository.Get(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()))
                 .Returns(() => It.IsAny<IList<Comment>>());
 
             _sut.GetAllCommentsByGameKey("game");
 
-            _unitOfWork.Verify(u => u.CommentRepository.GetAll(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()), Times.Once);
+            _unitOfWork.Verify(u => u.CommentRepository.Get(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()), Times.Once);
         }
 
         [Test]

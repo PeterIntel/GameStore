@@ -58,19 +58,19 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Order> GetAll(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var result = _unitOfWork.OrderRepository.GetAll(includeProperties);
+            var result = _unitOfWork.OrderRepository.Get(includeProperties);
             return result;
         }
 
         public IEnumerable<Order> GetAll(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
         {
-            var result = _unitOfWork.OrderRepository.GetAll(filter, includeProperties);
+            var result = _unitOfWork.OrderRepository.Get(filter, includeProperties);
             return result;
         }
 
         public Order GetOrderByCustomerId(int id)
         {
-            Order order = _unitOfWork.OrderRepository.GetAll(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+            Order order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
 
             if (order == null)
             {
@@ -82,7 +82,7 @@ namespace GameStore.Services.ServicesImplementation
                 });
                 _unitOfWork.Save();
 
-                order = _unitOfWork.OrderRepository.GetAll(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+                order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
             }
 
             return order;
@@ -110,6 +110,19 @@ namespace GameStore.Services.ServicesImplementation
         {
             _unitOfWork.OrderRepository.Update(item);
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties) 
+             
+        {
+            var games = _unitOfWork.OrderRepository.Get(filter, includeProperties);
+            return games;
+        }
+
+        public IEnumerable<Order> Get(params Expression<Func<Order, object>>[] includeProperties)
+        {
+            var games = _unitOfWork.OrderRepository.Get(includeProperties);
+            return games;
         }
     }
 }

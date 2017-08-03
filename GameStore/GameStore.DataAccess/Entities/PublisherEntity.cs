@@ -9,7 +9,6 @@ namespace GameStore.DataAccess.Entities
 {
     public class PublisherEntity : BasicEntity
     {
-        public int Id { set; get; }
         [Index(IsUnique = true)]
         public string CompanyName { set; get; }
         public string Description { set; get; }

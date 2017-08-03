@@ -8,6 +8,7 @@ namespace GameStore.DataAccess.Entities
 {
     public abstract class BasicEntity
     {
+        public int Id { set; get; }
         public bool IsDeleted { set; get; }
     }
 }

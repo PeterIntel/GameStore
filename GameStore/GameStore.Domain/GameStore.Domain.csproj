@@ -54,12 +54,17 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\CompletionStatus.cs" />
+    <Compile Include="BusinessObjects\FilterCriteria.cs" />
+    <Compile Include="BusinessObjects\PaginationGames.cs" />
     <Compile Include="BusinessObjects\Game.cs" />
+    <Compile Include="BusinessObjects\GameInfo.cs" />
     <Compile Include="BusinessObjects\Genre.cs" />
     <Compile Include="BusinessObjects\Order.cs" />
     <Compile Include="BusinessObjects\OrderDetails.cs" />
     <Compile Include="BusinessObjects\PlatformType.cs" />
+    <Compile Include="BusinessObjects\DateTimeIntervals.cs" />
     <Compile Include="BusinessObjects\Publisher.cs" />
+    <Compile Include="BusinessObjects\SortCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesInterfaces\ICommentService.cs" />
     <Compile Include="ServicesInterfaces\IGameService.cs" />

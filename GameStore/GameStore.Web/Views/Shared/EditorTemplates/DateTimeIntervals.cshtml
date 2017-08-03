@@ -1,0 +1,13 @@
+﻿@using GameStore.Domain.BusinessObjects;
+
+@model DateTimeIntervals
+
+<select id="DateTimeIntervals" , name="DateTimeIntervals">
+    @foreach (DateTimeIntervals item in Enum.GetValues(typeof(DateTimeIntervals)))
+    {
+        <option value="@item" @(Model == item ? "selected=\"selected\"" : "")>
+            @item
+        </option>
+    }
+</select>
+

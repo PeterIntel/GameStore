@@ -27,8 +27,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformTypeEntity, PlatformType>()
                 .MaxDepth(1);
 
-            CreateMap<Game, GameEntity>();
-            CreateMap<Game, GameEntity>();
+            CreateMap<Game, GameEntity>().ForMember(dst => dst.Publisher, opt => opt.Ignore());
             CreateMap<Comment, CommentEntity>();
             CreateMap<Genre, GenreEntity>();
             CreateMap<PlatformType, PlatformTypeEntity>();
@@ -37,6 +36,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Publisher, PublisherEntity>().ReverseMap();
             CreateMap<OrderEntity, Order>().ReverseMap();
             CreateMap<OrderDetailsEntity, OrderDetails>().ReverseMap();
+            CreateMap<GameInfo, GameInfoEntity>().ReverseMap();
         }
     }
 }

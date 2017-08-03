@@ -15,6 +15,7 @@ namespace GameStore.Web.ViewModels
         public string Description { set; get; }
         [Required]
         public string HomePage { set; get; }
+        public bool IsChecked { set; get; }
         public IList<GameViewModel> Games { set; get; }
     }
 }

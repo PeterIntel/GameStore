@@ -1,10 +1,11 @@
-﻿﻿@model GameViewModel
+﻿@model GameViewModel
 <div class="game">
     @Html.LabelFor(m => m.Key)
     <br>
-    @Html.ActionLink(Model.Key, "GetGameDetails", new { key = Model.Key})
+    @Html.ActionLink(Model.Key, "GetGameDetails", new { key = Model.Key })
+
     <br>
-    
+
     @Html.LabelFor(m => m.Description)
     <br>
     @Html.DisplayFor(m => m.Description)
@@ -24,7 +25,11 @@
     @Html.LabelFor(m => m.Discontinued)
     <br>
     @Html.DisplayFor(m => m.Discontinued)
-
+    
+    <br>
+    @Html.LabelFor(m => m.PublishedDate)
+    <br>
+    @Html.DisplayFor(m => m.PublishedDate)
 
     @if (Model.SelectedPublisher != null)
     {

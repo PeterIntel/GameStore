@@ -34,6 +34,8 @@ namespace GameStore.DataAccess.UnitOfWork
         public IGenericDataRepository<OrderEntity, Order> OrderRepository { set; get; }
         [Inject]
         public IGenericDataRepository<OrderDetailsEntity, OrderDetails> OrderDetailsRepository { set; get; }
+        [Inject]
+        public IGenericDataRepository<GameInfoEntity, GameInfo> GameInfoRepository { set; get; }
 
         public void Save()
         {

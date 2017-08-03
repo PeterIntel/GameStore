@@ -10,6 +10,7 @@ using GameStore.DataAccess.Context;
 using System.Linq.Expressions;
 using System.Data.Entity;
 using System.Security.Cryptography.X509Certificates;
+using AutoMapper.QueryableExtensions;
 
 namespace GameStore.DataAccess.Repositories
 {
@@ -30,13 +31,62 @@ namespace GameStore.DataAccess.Repositories
             if (game != null)
             {
                 var gameEntity = _mapper.Map<Game, GameEntity>(game);
-                var genres = _mapper.Map<IEnumerable<Genre>, List<string>>(game.Genres);
-                var platforms = _mapper.Map<IEnumerable<PlatformType>, List<string>>(game.PlatformTypes);
-                gameEntity.Genres = _genreRepository.GetGenres(genres).ToList();
-                gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes(platforms).ToList();
-                gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == gameEntity.Publisher.CompanyName);
+                if (game.NameGenres != null)
+                {
+                    gameEntity.Genres = _genreRepository.GetGenres((IList<string>)game.NameGenres).ToList();
+                }
+                if (game.NamePlatformTypes != null)
+                {
+                    gameEntity.PlatformTypes = _platformRepository
+                        .GetPlatformTypes((IList<string>)game.NamePlatformTypes).ToList();
+                }
+                if (game.Publisher.CompanyName != null)
+                {
+                    gameEntity.Publisher =
+                        _context.Publishers.FirstOrDefault(x => x.CompanyName == game.Publisher.CompanyName);
+                }
+
                 _dbSet.Add(gameEntity);
             }
+        }
+
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties)
+        {
+            IQueryable<GameEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
+
+            var filterEntity = _mapper.Map<Expression<Func<Game, bool>>, Expression<Func<GameEntity, bool>>>(filterDomain);
+
+            var sortEntity = _mapper.Map<Expression<Func<Game, TKey>>, Expression<Func<GameEntity, TKey>>>(sortDomain);
+
+            var includePropertiesForEntities = _mapper.Map<Expression<Func<Game, object>>[], Expression<Func<GameEntity, object>>[]>(includeProperties);
+
+            foreach (var item in includePropertiesForEntities)
+            {
+                queryToEntity.Include(item);
+            }
+
+            if (filterEntity != null)
+            {
+                queryToEntity = queryToEntity.Where(filterEntity);
+            }
+
+            if (sortEntity != null)
+            {
+                queryToEntity = queryToEntity.OrderBy(sortEntity);
+            }
+            else
+            {
+                queryToEntity = queryToEntity.OrderBy(x => x.Id);
+            }
+
+            if (size != null)
+            {
+                queryToEntity = queryToEntity.Skip((page - 1) * (int)size).Take((int)size);
+            }
+
+            var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
+
+            return result;
         }
 
         public Game GetGameByKey(string key)
@@ -48,11 +98,11 @@ namespace GameStore.DataAccess.Repositories
                 var listGameEntities = _dbSet.Where(x => x.Key == key && x.IsDeleted == false);
                 entity = listGameEntities.First();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception($"Game with the key {key} wasn't found!", ex);
             }
-            
+
             Game domain = _mapper.Map<GameEntity, Game>(entity);
             return domain;
         }
