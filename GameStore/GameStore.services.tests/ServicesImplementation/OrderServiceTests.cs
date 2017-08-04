@@ -20,10 +20,10 @@ namespace GameStore.Services.Tests.ServicesImplementation
         private Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>> _orderDetalsRep;
         private static string _gameKeyFirst = "game";
         private static string _gameKeySecond = "game2";
-        private static int _customerId = 1;
-        private static Game _game = new Game() { Id = 1, Key = "game" , Price = 120};
-        private static OrderDetails _orderDetails = new OrderDetails() {Id = 1, Quantity = 2, OrderId = 1, Game = _game, Price = _game.Price * 2};
-        private  Order _order = new Order() {Id = 1, OrderDetails = new List<OrderDetails>() {_orderDetails}};
+        private static string _customerId = "1";
+        private static Game _game = new Game() { Id = "1", Key = "game" , Price = 120};
+        private static OrderDetails _orderDetails = new OrderDetails() {Id = "1", Quantity = 2, OrderId = "1", Game = _game, Price = _game.Price * 2};
+        private  Order _order = new Order() {Id = "1", OrderDetails = new List<OrderDetails>() {_orderDetails}};
 
         [SetUp]
         public void Setup()
@@ -81,7 +81,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _unitOfWork.Setup(m => m.OrderRepository.Get(It.IsAny<Expression<Func<Order, bool>>>())).Throws(new ArgumentException());
 
-            Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<int>()));
+            Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<string>()));
         }
     }
 }

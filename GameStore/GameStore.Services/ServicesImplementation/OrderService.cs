@@ -16,7 +16,7 @@ namespace GameStore.Services.ServicesImplementation
             _unitOfWork = unitOfWork;
         }
 
-        public void AddGameToOrder(string gamekey, int? customerId)
+        public void AddGameToOrder(string gamekey, string customerId)
         {
             if (customerId == null)
             {
@@ -24,7 +24,7 @@ namespace GameStore.Services.ServicesImplementation
             }
 
             var game = _unitOfWork.GameRepository.GetGameByKey(gamekey);
-            var order = GetOrderByCustomerId((int)customerId);
+            var order = GetOrderByCustomerId(customerId);
 
             var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
 
@@ -68,7 +68,7 @@ namespace GameStore.Services.ServicesImplementation
             return result;
         }
 
-        public Order GetOrderByCustomerId(int id)
+        public Order GetOrderByCustomerId(string id)
         {
             Order order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
 
@@ -88,13 +88,13 @@ namespace GameStore.Services.ServicesImplementation
             return order;
         }
 
-        public Order GetItemById(int id)
+        public Order GetItemById(string id)
         {
             var result = _unitOfWork.OrderRepository.GetItemById(id);
             return result;
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
             _unitOfWork.OrderRepository.Remove(id);
             _unitOfWork.Save();

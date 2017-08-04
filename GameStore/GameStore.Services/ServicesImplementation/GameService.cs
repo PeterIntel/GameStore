@@ -69,7 +69,7 @@ namespace GameStore.Services.ServicesImplementation
             return filteredGames;
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
             _unitOfWork.GameRepository.Remove(id);
             _unitOfWork.Save();

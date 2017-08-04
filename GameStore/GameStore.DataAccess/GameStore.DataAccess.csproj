@@ -106,6 +106,7 @@
   <ItemGroup>
     <Compile Include="Contextes\GamesMongoContext.cs" />
     <Compile Include="Contextes\GamesSqlContext.cs" />
+    <Compile Include="CustomMongoSerializers\DateTimeCustomSerializer.cs" />
     <Compile Include="EntitiesConfigurations\GameConfiguration.cs" />
     <Compile Include="EntitiesConfigurations\OrderDetailsConfiguration.cs" />
     <Compile Include="EntitiesConfigurations\PublisherConfiguration.cs" />
@@ -137,6 +138,14 @@
     <Compile Include="Migrations\201707230716479_delete_GameId.cs" />
     <Compile Include="Migrations\201707230716479_delete_GameId.Designer.cs">
       <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs" />
+    <Compile Include="Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.Designer.cs">
+      <DependentUpon>201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708040847285_Rename_Primary_Key.cs" />
+    <Compile Include="Migrations\201708040847285_Rename_Primary_Key.Designer.cs">
+      <DependentUpon>201708040847285_Rename_Primary_Key.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MongoEntities\MongoCategory.cs" />
@@ -185,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707230716479_delete_GameId.resx">
       <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.resx">
+      <DependentUpon>201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708040847285_Rename_Primary_Key.resx">
+      <DependentUpon>201708040847285_Rename_Primary_Key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -13,6 +13,6 @@ namespace GameStore.Domain.ServicesInterfaces
         void Add(T item);
         void Update(T item);
         void Remove(T item);
-        void Remove(int id);
+        void Remove(string id);
     }
 }

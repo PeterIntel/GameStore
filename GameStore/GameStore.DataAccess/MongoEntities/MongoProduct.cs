@@ -12,15 +12,15 @@ namespace GameStore.DataAccess.MongoEntities
     {
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { set; get; }
-        public int ProductId { set; get; }
         public string ProductName { set; get; }
-        public int SupplierId { set; get; }
-        public int CategoryId { set; get; }
+        public int SupplierID { set; get; }
+        public int CategoryID { set; get; }
         public int UnitPrice { set; get; }
         public short UnitsInStock { set; get; }
         public bool Discontinued { set; get; }
-        //[BsonIgnore]
+        [BsonIgnore]
         public IEnumerable<MongoCategory> Categories { set; get; }
+        [BsonIgnore]
         public MongoSupplier Supplier { set; get; }
     }
 }

@@ -10,9 +10,9 @@ namespace GameStore.Domain.BusinessObjects
 {
     public class Genre
     {
-        public int Id { set; get; }
+        public string Id { set; get; }
         public string Name { set; get; }
-        public int? ParentGenreId { set; get; }
+        public string ParentGenreId { set; get; }
         public bool IsChecked { set; get; }
         public IEnumerable<Genre> Genres { set; get; }
     }

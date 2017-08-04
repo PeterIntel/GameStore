@@ -74,7 +74,7 @@ namespace GameStore.DataAccess.Repositories
             return result;
         }
 
-        public TDomain GetItemById(int id)
+        public TDomain GetItemById(string id)
         {
             TEntity entity = _dbSet.Find(id);
 
@@ -96,7 +96,7 @@ namespace GameStore.DataAccess.Repositories
             }
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
             TEntity entity = _dbSet.Find(id);
 

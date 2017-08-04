@@ -16,7 +16,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         private GameService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private static readonly string _gameKey = "game";
-        private readonly Game _gameStub = new Game() { Id = 1, Key = _gameKey };
+        private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
         private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
 
         private readonly FilterCriteria _filters = new FilterCriteria()
@@ -78,11 +78,11 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void RemoteGameId_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<int>()));
+            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<string>()));
 
-            _sut.Remove(133);
+            _sut.Remove("133");
 
-            _unitOfWork.Verify(u => u.GameRepository.Remove(It.IsAny<int>()), Times.Once);
+            _unitOfWork.Verify(u => u.GameRepository.Remove(It.IsAny<string>()), Times.Once);
         }
 
         [Test]
@@ -109,7 +109,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void AddViewToGame_IsCalledGetGameByKey_OneCall()
         {
             _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<int>())).Returns(_gameInfoStub);
+            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _unitOfWork.Setup(m => m.GameInfoRepository.Update(It.IsAny<GameInfo>()));
 
             _sut.AddViewToGame(_gameKey);
@@ -133,7 +133,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void AddViewToGame_IsCalledUpdate_OneCall()
         {
             _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<int>())).Returns(_gameInfoStub);
+            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _unitOfWork.Setup(m => m.GameInfoRepository.Update(_gameInfoStub));
 
             _sut.AddViewToGame(It.IsAny<string>());
@@ -145,7 +145,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void AddViewToGame_ChangeCountOfView_ExpectCountOfViewEqual1()
         {
             _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<int>())).Returns(_gameInfoStub);
+            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _unitOfWork.Setup(m => m.GameInfoRepository.Update(It.IsAny<GameInfo>()));
 
             _sut.AddViewToGame(It.IsAny<string>());

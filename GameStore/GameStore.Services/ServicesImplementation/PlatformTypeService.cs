@@ -29,7 +29,7 @@ namespace GameStore.Services.ServicesImplementation
             return _unitOfWork.PlatformTypeRepository.Get(includeProperties);
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
             _unitOfWork.PlatformTypeRepository.Remove(id);
             _unitOfWork.Save();

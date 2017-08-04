@@ -13,8 +13,10 @@ namespace GameStore.DataAccess.MongoEntities
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { set; get; }
         public string CompanyName { set; get; }
-        [BsonIgnoreIfNull]
+        [BsonIgnore]
         public string Description { set; get; }
         public string HomePage { set; get; }
+        [BsonIgnore]
+        public IEnumerable<MongoProduct> Products { set; get; }
     }
 }

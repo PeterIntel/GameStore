@@ -5,7 +5,7 @@ namespace GameStore.Domain.BusinessObjects
 {
     public class Game
     {
-        public int Id { set; get; }
+        public string Id { set; get; }
         public string Key { set; get; }
         public string Description { set; get; }
         public decimal Price { set; get; }

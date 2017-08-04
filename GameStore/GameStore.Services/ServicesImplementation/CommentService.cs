@@ -32,11 +32,13 @@ namespace GameStore.Services.ServicesImplementation
             if (comments != null && comments.Any())
             {
                 var groups = comments.GroupBy(x => x.ParentCommentId).ToList();
+                IList<Dictionary<int, Comment>> a; Dictionary<string, Comment > b;
 
-                roots = groups.FirstOrDefault(x => x.Key.HasValue == false).ToList();
+                    roots = groups.FirstOrDefault(x => String.IsNullOrEmpty(x.Key) == false).ToList();
+
                 if (roots.Count > 0)
                 {
-                    var dict = groups.Where(x => x.Key.HasValue).ToDictionary(x => x.Key.Value, x => x.ToList());
+                    var dict = groups.Where(x => String.IsNullOrEmpty(x.Key)).ToDictionary(x => x.Key, x => x.ToList());
                     foreach (var x in roots)
                     {
                         AddChildren(x, dict);
@@ -46,11 +48,11 @@ namespace GameStore.Services.ServicesImplementation
             return roots;
         }
 
-        private void AddChildren(Comment node, IDictionary<int,  List<Comment>> source)
+        private void AddChildren(Comment node, IDictionary<string,  List<Comment>> source)
         {
             if (node.ParentCommentId != null)
             {
-                node.ParentComment = _unitOfWork.CommentRepository.GetItemById((int)node.ParentCommentId);
+                node.ParentComment = _unitOfWork.CommentRepository.GetItemById(node.ParentCommentId);
             }
             if (source.ContainsKey(node.Id))
             {
@@ -66,7 +68,7 @@ namespace GameStore.Services.ServicesImplementation
             }
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
             _unitOfWork.CommentRepository.Remove(id);
             _unitOfWork.Save();

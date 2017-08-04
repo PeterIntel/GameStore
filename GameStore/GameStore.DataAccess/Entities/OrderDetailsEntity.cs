@@ -10,8 +10,8 @@ namespace GameStore.DataAccess.Entities
 {
     public class OrderDetailsEntity : BasicEntity
     {
-        public int GameId { set; get; }
-        public int OrderId { set; get; }
+        public string GameId { set; get; }
+        public string OrderId { set; get; }
         public decimal Price { set; get; }
         public short Quantity { set; get; }
         public double Discount { set; get; }

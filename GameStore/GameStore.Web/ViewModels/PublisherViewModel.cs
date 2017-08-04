@@ -8,7 +8,7 @@ namespace GameStore.Web.ViewModels
 {
     public class PublisherViewModel
     {
-        public int Id { set; get; }
+        public string Id { set; get; }
         [Required]
         public string CompanyName { set; get; }
         [Required]

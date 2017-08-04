@@ -34,7 +34,7 @@ namespace GameStore.Services.ServicesImplementation
             return _unitOfWork.PublisherRepository.GetPublisherByCompanyName(companyName);
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
             _unitOfWork.PublisherRepository.Remove(id);
             _unitOfWork.Save();

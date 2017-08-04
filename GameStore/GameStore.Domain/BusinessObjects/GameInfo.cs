@@ -8,7 +8,7 @@ namespace GameStore.Domain.BusinessObjects
 {
     public class GameInfo
     {
-        public int Id { set; get; }
+        public string Id { set; get; }
         public int? CountOfViews { set; get; }
         public DateTime UploadDate { set; get; }
 

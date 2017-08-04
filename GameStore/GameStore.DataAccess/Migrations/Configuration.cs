@@ -18,23 +18,27 @@ namespace GameStore.DataAccess.Migrations
         protected override void Seed(GamesSqlContext context)
         {
             //context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('GameEntities', RESEED, 0)");
-            //  This method will be called after migrating to the latest version.
+            //This method will be called after migrating to the latest version.
             Random r = new Random();
 
             context.PlatformTypes.AddOrUpdate(
-                    new PlatformTypeEntity() { Id = 1, TypeName = "Android", IsDeleted = false },
-                    new PlatformTypeEntity() { Id = 2, TypeName = "iOS", IsDeleted = false }
+                    new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(), TypeName = "Android", IsDeleted = false },
+                    new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(), TypeName = "iOS", IsDeleted = false }
                 );
 
+            context.SaveChanges();
+
             context.Genres.AddOrUpdate(
-                new GenreEntity() { Id = 1, ParentGenreId = null, Name = "Strategy", IsDeleted = false },
-                new GenreEntity() { Id = 2, ParentGenreId = null, Name = "RPG", IsDeleted = false },
-                new GenreEntity() { Id = 3, ParentGenreId = null, Name = "Sports", IsDeleted = false },
-                new GenreEntity() { Id = 4, ParentGenreId = null, Name = "Races", IsDeleted = false },
-                new GenreEntity() { Id = 5, ParentGenreId = 1, Name = "RTS", IsDeleted = false },
-                new GenreEntity() { Id = 6, ParentGenreId = 1, Name = "TBS", IsDeleted = false },
-                new GenreEntity() { Id = 7, ParentGenreId = 4, Name = "rally", IsDeleted = false },
-                new GenreEntity() { Id = 8, ParentGenreId = 4, Name = "arcade", IsDeleted = false }
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(), ParentGenreId = null, Name = "Strategy", IsDeleted = false },
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(), ParentGenreId = null, Name = "RPG", IsDeleted = false },
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9943").ToString(), ParentGenreId = null, Name = "Sports", IsDeleted = false },
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9944").ToString(), ParentGenreId = null, Name = "Races", IsDeleted = false });
+            context.SaveChanges();
+            context.Genres.AddOrUpdate(
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9945").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id, Name = "RTS", IsDeleted = false },
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9946").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "Sports").Id, Name = "TBS", IsDeleted = false },
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9947").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id, Name = "rally", IsDeleted = false },
+                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9948").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "Races").Id, Name = "arcade", IsDeleted = false }
                 );
 
             context.SaveChanges();
@@ -42,7 +46,7 @@ namespace GameStore.DataAccess.Migrations
             context.Publishers.AddOrUpdate(
                 new PublisherEntity()
                 {
-                    Id = 1,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(),
                     CompanyName = "Nale",
                     Description = "info",
                     HomePage = "http://www.vk.com"
@@ -50,167 +54,171 @@ namespace GameStore.DataAccess.Migrations
 
                 new PublisherEntity()
                 {
-                    Id = 2,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(),
                     CompanyName = "MicrosoftStudio",
                     Description = "info",
                     HomePage = "https://www.microsoftstudios.com/"
                 });
 
             context.SaveChanges();
-
+            var d = context.PlatformTypes.First(x => x.TypeName == "iOS");
+            var dd = context.Genres.First(x => x.Name == "RTS");
+            var df = context.Genres.First(x => x.Name == "Sports");
+            var ccd = context.Publishers.First(x => x.CompanyName == "MicrosoftStudio");
             context.Games.AddOrUpdate(
                 new GameEntity()
                 {
-                    Id = 1,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9901").ToString(),
                     Key = "AgeofEmpires",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.Id == 1), context.PlatformTypes.First(x => x.Id == 2) },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) },
-                    Publisher = context.Publishers.First(x => x.Id == 2),
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "RTS"), context.Genres.First(x => x.Name == "Sports") },
+                    Publisher = context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
                     Price = 100
                 },
 
                 new GameEntity()
                 {
-                    Id = 2,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9902").ToString(),
                     Key = "CompanyofHeros",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.Id == 1), context.PlatformTypes.First(x => x.Id == 2) },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Id == 5), context.Genres.First(x => x.Id == 7) },
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "RTS"), context.Genres.First(x => x.Name == "Races") },
                     Price = 120,
-                    Publisher = context.Publishers.First(x => x.Id == 2),
+                    Publisher = context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
                     PublishedDate = new DateTime(2017, 07, 22)
                 },
 
                 new GameEntity()
                 {
-                    Id = 3,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9903").ToString(),
                     Key = "TotalWar",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 5).First(), context.Genres.Where(x => x.Id == 6).First() },
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "Strategy"), context.Genres.First(x => x.Name == "RTS") },
                     Price = 400,
-                    Publisher = context.Publishers.First(x => x.Id == 2),
+                    Publisher = context.Publishers.First(x => x.CompanyName == "Nale"),
                     PublishedDate = new DateTime(2016, 07, 22)
                 },
 
                 new GameEntity()
                 {
-                    Id = 4,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9904").ToString(),
                     Key = "FIFA17",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First(), context.PlatformTypes.Where(x => x.Id == 2).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 2).First(), context.Genres.Where(x => x.Id == 3).First() },
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android") },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "Strategy"), context.Genres.First(x => x.Name == "RTS") },
                     Price = 330,
-                    Publisher = context.Publishers.First(x => x.Id == 1),
+                    Publisher = context.Publishers.First(x => x.CompanyName == "Nale"),
                     PublishedDate = new DateTime(2017, 06, 28)
                 },
 
                 new GameEntity()
                 {
-                    Id = 5,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9905").ToString(),
                     Key = "Superracing",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.Where(x => x.Id == 1).First() },
-                    Genres = new List<GenreEntity> { context.Genres.Where(x => x.Id == 8).First() },
+                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
+                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "Strategy") },
                     Price = 110,
-                    Publisher = context.Publishers.First(x => x.Id == 1),
+                    Publisher = context.Publishers.First(x => x.CompanyName == "Nale"),
                     PublishedDate = new DateTime(2017, 07, 21)
 
                 }
                 );
+            context.SaveChanges();
+            var fds = context.Games.AsEnumerable().First(x => x.Key == "AgeofEmpires").Id;
 
             for (int i = 6; i < 100; i++)
             {
-
+                var dsvf = new Guid("d6224e00-2078-4243-aed5-7e31b76a99" + i.ToString("D2")).ToString();
                 context.Games.AddOrUpdate(
                     new GameEntity()
                     {
-                        Id = i,
+                        Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a99" + i.ToString("D2")).ToString(),
                         Key = "Game" + i,
                         Description = "Game description",
                         IsDeleted = false,
-                        PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.AsEnumerable().First(x => x.Id == 1), context.PlatformTypes.AsEnumerable().First(x => x.Id == 2) },
-                        Genres = new List<GenreEntity> { context.Genres.AsEnumerable().First(x => x.Id == 4), context.Genres.AsEnumerable().First(x => x.Id == 6) },
+                        PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.AsEnumerable().First(x => x.TypeName == "Android"), context.PlatformTypes.AsEnumerable().First(x => x.TypeName == "iOS") },
+                        Genres = new List<GenreEntity> { context.Genres.AsEnumerable().First(x => x.Name == "Strategy"), context.Genres.AsEnumerable().First(x => x.Name == "rally") },
                         Price = 110 + i,
-                        Publisher = r.Next(1, 3) == 1 ? context.Publishers.First(x => x.Id == 1) : context.Publishers.First(x => x.Id == 2),
+                        Publisher = r.Next(1, 3) == 1 ? context.Publishers.First(x => x.CompanyName == "Nale") : context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
                         PublishedDate = new DateTime(2017, r.Next(1, 12), 21),
                         UnitsInStock = (short)r.Next(1, 15)
                     }
                     );
             }
-
             context.SaveChanges();
+            var fd = context.Games.AsEnumerable().First(x => x.Key == "AgeofEmpires").Id;
             context.Comments.AddOrUpdate(
                 new CommentEntity()
                 {
-                    Id = 1,
-                    GameId = 1,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9901").ToString(),
+                    GameId = context.Games.AsEnumerable().First(x => x.Key == "AgeofEmpires").Id,
                     Name = "Peter",
                     Body = "bla-bla-bla",
                     ParentCommentId = null,
                     IsDeleted = false,
-                    Game = context.Games.First(x => x.Key == "AgeofEmpires")
+                });
+            context.SaveChanges();
+            context.Comments.AddOrUpdate(
+                new CommentEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9902").ToString(),
+                    GameId = context.Games.AsEnumerable().First(x => x.Key == "AgeofEmpires").Id,
+                    Name = "Peter",
+                    Body = "bla-bla-bla",
+                    ParentCommentId = context.Comments.First().Id,
+                    IsDeleted = false,
                 },
                 new CommentEntity()
                 {
-                    Id = 2,
-                    GameId = 1,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9903").ToString(),
+                    GameId = context.Games.AsEnumerable().First(x => x.Key == "AgeofEmpires").Id,
                     Name = "Peter",
                     Body = "bla-bla-bla",
-                    ParentCommentId = 1,
+                    ParentCommentId = context.Comments.First().Id,
                     IsDeleted = false,
-                    Game = context.Games.First(x => x.Key == "AgeofEmpires")
-                },
-                new CommentEntity()
-                {
-                    Id = 3,
-                    GameId = 1,
-                    Name = "Peter",
-                    Body = "bla-bla-bla",
-                    ParentCommentId = 2,
-                    IsDeleted = false,
-                    Game = context.Games.First(x => x.Key == "AgeofEmpires")
                 }
                 );
 
             context.GamesInfo.AddOrUpdate(
                 new GameInfoEntity()
                 {
-                    Id = 1,
+                    Id = context.Games.ToList()[0].Id,
                     IsDeleted = false,
                     CountOfViews = 2,
                     UploadDate = DateTime.UtcNow.AddDays(-23)
                 },
                 new GameInfoEntity()
                 {
-                    Id = 2,
+                    Id = context.Games.ToList()[1].Id,
                     IsDeleted = false,
                     CountOfViews = 2,
                     UploadDate = DateTime.UtcNow.AddDays(-23)
                 },
                 new GameInfoEntity()
                 {
-                    Id = 3,
+                    Id = context.Games.ToList()[2].Id,
                     IsDeleted = false,
                     CountOfViews = 2,
                     UploadDate = DateTime.UtcNow.AddDays(-23)
                 },
                 new GameInfoEntity()
                 {
-                    Id = 4,
+                    Id = context.Games.ToList()[3].Id,
                     IsDeleted = false,
                     CountOfViews = 2,
                     UploadDate = DateTime.UtcNow.AddDays(-23),
                 },
                 new GameInfoEntity()
                 {
-                    Id = 5,
+                    Id = context.Games.ToList()[4].Id,
                     IsDeleted = false,
                     CountOfViews = 2,
                     UploadDate = DateTime.UtcNow.AddDays(-23)
@@ -221,10 +229,10 @@ namespace GameStore.DataAccess.Migrations
                 context.GamesInfo.AddOrUpdate(
                     new GameInfoEntity()
                     {
-                        Id = i,
+                        Id = context.Games.ToList()[i - 1].Id,
                         IsDeleted = false,
                         CountOfViews = i + r.Next(15),
-                        UploadDate = new DateTime(2017, r.Next(1,12), 21)
+                        UploadDate = new DateTime(2017, r.Next(1, 12), 21)
                     }
                 );
             }
@@ -233,23 +241,23 @@ namespace GameStore.DataAccess.Migrations
             context.Orders.AddOrUpdate(
                 new OrderEntity()
                 {
-                    Id = 1,
-                    CustomerId = 1,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(),
+                    CustomerId = "1",
                     IsDeleted = false,
                     OrderDate = DateTime.UtcNow,
                     Status = GameStore.Domain.BusinessObjects.CompletionStatus.Complete
                 });
-
+            context.SaveChanges();
             context.OrderDetails.AddOrUpdate(
                 new OrderDetailsEntity()
                 {
-                    Id = 1,
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(),
                     Discount = 10,
                     Price = 120,
                     Quantity = 2,
                     IsDeleted = false,
-                    GameId = 1,
-                    OrderId = 1
+                    GameId = context.Games.First(x => x.Key == "AgeofEmpires").Id,
+                    OrderId = context.Orders.First().Id
                 });
         }
     }

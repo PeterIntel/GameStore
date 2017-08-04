@@ -24,51 +24,51 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             new Comment()
             {
-                Id = 1,
+                Id = "1",
                 Name = "Author1",
                 Body = "comment from Author1",
-                GameId = 1,
+                GameId = "1",
                 ParentCommentId = null
             },
             new Comment()
             {
-                Id = 2,
+                Id = "2",
                 Name = "Author2",
                 Body = "comment from Author2",
-                GameId = 1,
+                GameId = "1",
                 ParentCommentId = null
             },
             new Comment()
             {
-                Id = 3,
+                Id = "3",
                 Name = "Author3",
                 Body = "comment from Author3",
-                GameId = 1,
-                ParentCommentId = 2
+                GameId = "1",
+                ParentCommentId = "2"
             },
             new Comment()
             {
-                Id = 4,
+                Id = "4",
                 Name = "Author4",
                 Body = "comment from Author4",
-                GameId = 1,
-                ParentCommentId = 2
+                GameId = "1",
+                ParentCommentId = "2"
             },
             new Comment()
             {
-                Id = 5,
+                Id = "5",
                 Name = "Author5",
                 Body = "comment from Author5",
-                GameId = 1,
-                ParentCommentId = 3
+                GameId = "1",
+                ParentCommentId = "3"
             },
             new Comment()
             {
-                Id = 6,
+                Id = "6",
                 Name = "Author6",
                 Body = "comment from Author6",
-                GameId = 1,
-                ParentCommentId = 5
+                GameId = "1",
+                ParentCommentId = "5"
             }
 
         };
@@ -107,11 +107,11 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void RemoteCommentId_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<int>()));
+            _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<string>()));
 
-            _sut.Remove(133);
+            _sut.Remove("133");
 
-            _unitOfWork.Verify(u => u.CommentRepository.Remove(It.IsAny<int>()), Times.Once);
+            _unitOfWork.Verify(u => u.CommentRepository.Remove(It.IsAny<string>()), Times.Once);
         }
 
         [Test]
@@ -137,7 +137,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void GetStructureOfComments_StructureListOfComment_StructuredListOfComments()
         {
-            _unitOfWork.Setup(x => x.CommentRepository.GetItemById(It.IsAny<int>())).Returns<int>(x => It.IsAny<Comment>());
+            _unitOfWork.Setup(x => x.CommentRepository.GetItemById(It.IsAny<string>())).Returns<int>(x => It.IsAny<Comment>());
 
             var result = _sut.GetStructureOfComments(_comments);
 
@@ -147,7 +147,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void GetStructureOfComments_SendNullToMethod_GetNull()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.GetItemById(It.IsAny<int>())).Returns<Comment>(x => It.IsAny<Comment>());
+            _unitOfWork.Setup(g => g.CommentRepository.GetItemById(It.IsAny<string>())).Returns<Comment>(x => It.IsAny<Comment>());
 
             var result = _sut.GetStructureOfComments(null);
 

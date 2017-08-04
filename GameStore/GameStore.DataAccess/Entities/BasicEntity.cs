@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameStore.DataAccess.Entities
 {
     public abstract class BasicEntity
     {
-        public int Id { set; get; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public string Id { set; get; }
         public bool IsDeleted { set; get; }
+        public bool IsSqlEntity { set; get; }
     }
 }

@@ -21,7 +21,8 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
         {
             if (_dateTimeIntervalsFilter != DateTimeIntervals.AllTime)
             {
-                Expression<Func<Game, bool>> filter = x => x.PublishedDate > GetDateTimeFilter(_dateTimeIntervalsFilter);
+                DateTime dateTimeInterval = GetDateTimeFilter(_dateTimeIntervalsFilter);
+                Expression<Func<Game, bool>> filter = x => x.PublishedDate > dateTimeInterval;
                 return AggregateExpression(input, filter);
             }
 

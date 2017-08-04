@@ -12,7 +12,7 @@ namespace GameStore.Web.Controllers
 {
     public class OrderController : Controller
     {
-        private static int CustomId = 1;
+        private static string CustomId = "1";
         private IOrderService _orderService;
         private IMapper _mapper;
 
