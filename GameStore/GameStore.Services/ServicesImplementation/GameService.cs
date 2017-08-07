@@ -17,6 +17,7 @@ namespace GameStore.Services.ServicesImplementation
         public GameService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            _unitOfWork.ProductRepository.Get(x => true);
         }
         public void Add(Game item)
         {

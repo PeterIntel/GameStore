@@ -15,5 +15,6 @@ namespace GameStore.Domain.BusinessObjects
         public string ParentGenreId { set; get; }
         public bool IsChecked { set; get; }
         public IEnumerable<Genre> Genres { set; get; }
+        public IEnumerable<Game> Games { set; get; }
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
-using GameStore.DataAccess.Repositories;
-using GameStore.DataAccess.Entities;
+using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess;
+using GameStore.DataAccess.Mongo.MongoRepositories;
 
 namespace GameStore.Infrastructure.NinjectConfiguration
 {
@@ -20,6 +20,8 @@ namespace GameStore.Infrastructure.NinjectConfiguration
             Bind<IGenreRepository>().To<GenreRepository>();
             Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
             Bind<IPublisherRepository>().To<PublisherRepository>();
+
+            Bind(typeof(IReadOnlyGenericRepository<,>)).To(typeof(ReadOnlyGenericRepository<,>));
         }
     }
 }

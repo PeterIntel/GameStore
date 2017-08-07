@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using GameStore.DataAccess.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 

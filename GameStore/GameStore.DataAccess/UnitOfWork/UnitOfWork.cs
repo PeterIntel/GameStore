@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameStore.DataAccess.Contextes;
-using GameStore.DataAccess.Entities;
+using GameStore.DataAccess.Mongo;
+using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.DataAccess.Mongo.MongoRepositories;
+using GameStore.DataAccess.MSSQL;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess.Repositories;
+using GameStore.DataAccess.MSSQL.Repositories;
 using Ninject;
 
 namespace GameStore.DataAccess.UnitOfWork
@@ -14,12 +17,10 @@ namespace GameStore.DataAccess.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly GamesSqlContext _context;
-        private readonly GamesMongoContext _mongoContext;
 
          public UnitOfWork(GamesSqlContext context)
         {
             _context = context;
-            _mongoContext = new GamesMongoContext();
         }
         
         [Inject]
@@ -38,6 +39,8 @@ namespace GameStore.DataAccess.UnitOfWork
         public IGenericDataRepository<OrderDetailsEntity, OrderDetails> OrderDetailsRepository { set; get; }
         [Inject]
         public IGenericDataRepository<GameInfoEntity, GameInfo> GameInfoRepository { set; get; }
+        [Inject]
+        public IReadOnlyGenericRepository<MongoProduct, Game> ProductRepository { set; get; }
 
         public void Save()
         {

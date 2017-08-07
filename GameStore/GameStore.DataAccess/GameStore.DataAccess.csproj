@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -104,67 +105,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contextes\GamesMongoContext.cs" />
-    <Compile Include="Contextes\GamesSqlContext.cs" />
-    <Compile Include="CustomMongoSerializers\DateTimeCustomSerializer.cs" />
-    <Compile Include="EntitiesConfigurations\GameConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\OrderDetailsConfiguration.cs" />
-    <Compile Include="EntitiesConfigurations\PublisherConfiguration.cs" />
-    <Compile Include="Entities\BasicEntity.cs" />
-    <Compile Include="Entities\CommentEntity.cs" />
-    <Compile Include="Entities\GameEntity.cs" />
-    <Compile Include="Entities\GameInfoEntity.cs" />
-    <Compile Include="Entities\GenreEntity.cs" />
-    <Compile Include="Entities\OrderDetailsEntity.cs" />
-    <Compile Include="Entities\OrderEntity.cs" />
-    <Compile Include="Entities\PlatformTypeEntity.cs" />
-    <Compile Include="Entities\PublisherEntity.cs" />
-    <Compile Include="Migrations\201707191200526_Init.cs" />
-    <Compile Include="Migrations\201707191200526_Init.Designer.cs">
+    <Compile Include="Mongo\DataProviders\DataProvider.cs" />
+    <Compile Include="Mongo\GamesMongoContext.cs" />
+    <Compile Include="Mongo\CollectionName.cs" />
+    <Compile Include="MSSQL\GamesSqlContext.cs" />
+    <Compile Include="Mongo\CustomMongoSerializers\DateTimeCustomSerializer.cs" />
+    <Compile Include="MSSQL\EntitiesConfigurations\GameConfiguration.cs" />
+    <Compile Include="MSSQL\EntitiesConfigurations\OrderDetailsConfiguration.cs" />
+    <Compile Include="MSSQL\EntitiesConfigurations\PublisherConfiguration.cs" />
+    <Compile Include="MSSQL\Entities\BasicEntity.cs" />
+    <Compile Include="MSSQL\Entities\CommentEntity.cs" />
+    <Compile Include="MSSQL\Entities\GameEntity.cs" />
+    <Compile Include="MSSQL\Entities\GameInfoEntity.cs" />
+    <Compile Include="MSSQL\Entities\GenreEntity.cs" />
+    <Compile Include="MSSQL\Entities\OrderDetailsEntity.cs" />
+    <Compile Include="MSSQL\Entities\OrderEntity.cs" />
+    <Compile Include="MSSQL\Entities\PlatformTypeEntity.cs" />
+    <Compile Include="MSSQL\Entities\PublisherEntity.cs" />
+    <Compile Include="MSSQL\Migrations\201707191200526_Init.cs" />
+    <Compile Include="MSSQL\Migrations\201707191200526_Init.Designer.cs">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707200805385_CompletionStatus.cs" />
-    <Compile Include="Migrations\201707200805385_CompletionStatus.Designer.cs">
+    <Compile Include="MSSQL\Migrations\201707200805385_CompletionStatus.cs" />
+    <Compile Include="MSSQL\Migrations\201707200805385_CompletionStatus.Designer.cs">
       <DependentUpon>201707200805385_CompletionStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707211436293_deleteComments.cs" />
-    <Compile Include="Migrations\201707211436293_deleteComments.Designer.cs">
+    <Compile Include="MSSQL\Migrations\201707211436293_deleteComments.cs" />
+    <Compile Include="MSSQL\Migrations\201707211436293_deleteComments.Designer.cs">
       <DependentUpon>201707211436293_deleteComments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707221908341_Add_GameInfo.cs" />
-    <Compile Include="Migrations\201707221908341_Add_GameInfo.Designer.cs">
+    <Compile Include="MSSQL\Migrations\201707221908341_Add_GameInfo.cs" />
+    <Compile Include="MSSQL\Migrations\201707221908341_Add_GameInfo.Designer.cs">
       <DependentUpon>201707221908341_Add_GameInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707230716479_delete_GameId.cs" />
-    <Compile Include="Migrations\201707230716479_delete_GameId.Designer.cs">
+    <Compile Include="MSSQL\Migrations\201707230716479_delete_GameId.cs" />
+    <Compile Include="MSSQL\Migrations\201707230716479_delete_GameId.Designer.cs">
       <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs" />
-    <Compile Include="Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.Designer.cs">
+    <Compile Include="MSSQL\Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs" />
+    <Compile Include="MSSQL\Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.Designer.cs">
       <DependentUpon>201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708040847285_Rename_Primary_Key.cs" />
-    <Compile Include="Migrations\201708040847285_Rename_Primary_Key.Designer.cs">
+    <Compile Include="MSSQL\Migrations\201708040847285_Rename_Primary_Key.cs" />
+    <Compile Include="MSSQL\Migrations\201708040847285_Rename_Primary_Key.Designer.cs">
       <DependentUpon>201708040847285_Rename_Primary_Key.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MongoEntities\MongoCategory.cs" />
-    <Compile Include="MongoEntities\MongoOrder.cs" />
-    <Compile Include="MongoEntities\MongoOrderDetails.cs" />
-    <Compile Include="MongoEntities\MongoProduct.cs" />
-    <Compile Include="MongoEntities\MongoShipper.cs" />
-    <Compile Include="MongoEntities\MongoSupplier.cs" />
+    <Compile Include="MSSQL\Migrations\Configuration.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoCategory.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoOrder.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoOrderDetails.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoProduct.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoShipper.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoSupplier.cs" />
+    <Compile Include="Interfaces\IReadOnlyRepository.cs" />
+    <Compile Include="Mongo\MongoRepositories\ReadOnlyGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\GameRepository.cs" />
-    <Compile Include="Repositories\GenericDataRepository.cs" />
-    <Compile Include="Repositories\GenreRepository.cs" />
-    <Compile Include="Repositories\IGameRepository.cs" />
-    <Compile Include="Repositories\IGenericDataRepository.cs" />
-    <Compile Include="Repositories\IGenreRepository.cs" />
-    <Compile Include="Repositories\IPlatformTypeRepository.cs" />
-    <Compile Include="Repositories\IPublisherRepository.cs" />
-    <Compile Include="Repositories\PlatformTypeRepository.cs" />
-    <Compile Include="Repositories\PublisherRepository.cs" />
+    <Compile Include="MSSQL\Repositories\GameRepository.cs" />
+    <Compile Include="MSSQL\Repositories\GenericDataRepository.cs" />
+    <Compile Include="MSSQL\Repositories\GenreRepository.cs" />
+    <Compile Include="Interfaces\IGameRepository.cs" />
+    <Compile Include="Interfaces\IGenericDataRepository.cs" />
+    <Compile Include="Interfaces\IGenreRepository.cs" />
+    <Compile Include="Interfaces\IPlatformTypeRepository.cs" />
+    <Compile Include="Interfaces\IPublisherRepository.cs" />
+    <Compile Include="MSSQL\Repositories\PlatformTypeRepository.cs" />
+    <Compile Include="MSSQL\Repositories\PublisherRepository.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
@@ -180,25 +185,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707191200526_Init.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707200805385_CompletionStatus.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201707200805385_CompletionStatus.resx">
       <DependentUpon>201707200805385_CompletionStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707211436293_deleteComments.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201707211436293_deleteComments.resx">
       <DependentUpon>201707211436293_deleteComments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707221908341_Add_GameInfo.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201707221908341_Add_GameInfo.resx">
       <DependentUpon>201707221908341_Add_GameInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707230716479_delete_GameId.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201707230716479_delete_GameId.resx">
       <DependentUpon>201707230716479_delete_GameId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.resx">
       <DependentUpon>201708040844571_Adding_New _Field_To_BaseEntity_All_Id_Is_Guid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708040847285_Rename_Primary_Key.resx">
+    <EmbeddedResource Include="MSSQL\Migrations\201708040847285_Rename_Primary_Key.resx">
       <DependentUpon>201708040847285_Rename_Primary_Key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

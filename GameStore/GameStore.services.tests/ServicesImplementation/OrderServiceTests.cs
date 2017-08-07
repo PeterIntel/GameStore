@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using GameStore.DataAccess.Entities;
-using GameStore.DataAccess.Repositories;
+using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Services.ServicesImplementation;

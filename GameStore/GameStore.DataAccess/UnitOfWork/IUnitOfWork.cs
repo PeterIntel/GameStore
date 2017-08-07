@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameStore.DataAccess.Entities;
+using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.DataAccess.Mongo.MongoRepositories;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess.Repositories;
+using GameStore.DataAccess.MSSQL.Repositories;
 
 namespace GameStore.DataAccess.UnitOfWork
 {
@@ -19,6 +21,7 @@ namespace GameStore.DataAccess.UnitOfWork
         IGenericDataRepository<OrderEntity, Order> OrderRepository { get; }
         IGenericDataRepository<OrderDetailsEntity, OrderDetails> OrderDetailsRepository { get; }
         IGenericDataRepository<GameInfoEntity, GameInfo> GameInfoRepository { get; }
+        IReadOnlyGenericRepository<MongoProduct, Game> ProductRepository { get; }
         void Save();
     }
 }

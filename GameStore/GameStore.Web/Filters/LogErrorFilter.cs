@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.Logging.Loggers;
-using GameStore.DataAccess.Entities;
 
 namespace GameStore.Web.Filters
 {
