@@ -8,9 +8,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class Genre
+    public class Genre : BasicDomain
     {
-        public string Id { set; get; }
         public string Name { set; get; }
         public string ParentGenreId { set; get; }
         public bool IsChecked { set; get; }

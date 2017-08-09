@@ -6,6 +6,9 @@ using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
+using GameStore.DataAccess.Decorators;
+using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Services.ServicesImplementation.FilterImplementation;
 
 namespace GameStore.Services.ServicesImplementation
@@ -13,21 +16,24 @@ namespace GameStore.Services.ServicesImplementation
     public class GameService : IGameService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IGameDecoratorRepositoryRepository _gameRepository;
+        private readonly IGenericDecoratorRepository<GameInfoEntity, MongoProductEntity, GameInfo> _gameInfoRepository;
         private GamePipeline _gamePipeline;
-        public GameService(IUnitOfWork unitOfWork)
+        public GameService(IUnitOfWork unitOfWork, IGameDecoratorRepositoryRepository gameRepository, IGenericDecoratorRepository<GameInfoEntity, MongoProductEntity, GameInfo> gameInfoRepository)
         {
             _unitOfWork = unitOfWork;
-            _unitOfWork.ProductRepository.Get(x => true);
+            _gameRepository = gameRepository;
+            _gameInfoRepository = gameInfoRepository;
         }
         public void Add(Game item)
         {
-            _unitOfWork.GameRepository.Add(item);
+            _gameRepository.Add(item);
             _unitOfWork.Save();
         }
 
         public Game GetItemByKey(string key)
         {
-            var result = _unitOfWork.GameRepository.GetGameByKey(key);
+            var result = _gameRepository.GetFirst(x => x.Key == key);
             return result;
         }
 
@@ -42,29 +48,29 @@ namespace GameStore.Services.ServicesImplementation
             switch (filters.SortCriteria)
             {
                 case SortCriteria.ByPriceAsc:
-                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Price, page, maxSize);
+                    games = _gameRepository.Get(filterExpression, x => x.Price, page, maxSize);
                     break;
                 case SortCriteria.ByPriceDesc:
-                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Price * (-1), page, maxSize);
+                    games = _gameRepository.Get(filterExpression, x => x.Price * (-1), page, maxSize);
                     break;
                 case SortCriteria.MostCommented:
-                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Comments.Count() * (-1), page, maxSize);
+                    games = _gameRepository.Get(filterExpression, x => x.Comments.Count() * (-1), page, maxSize);
                     break;
                 case SortCriteria.New:
-                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.GameInfo.UploadDate, page, maxSize);
+                    games = _gameRepository.Get(filterExpression, x => x.GameInfo.UploadDate, page, maxSize);
                     break;
                 case SortCriteria.MostPopular:
-                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.GameInfo.CountOfViews * (-1), page, maxSize);
+                    games = _gameRepository.Get(filterExpression, x => x.GameInfo.CountOfViews * (-1), page, maxSize);
                     break;
                 default:
-                    games = _unitOfWork.GameRepository.Get(filterExpression, x => x.Id, page, maxSize);
+                    games = _gameRepository.Get(filterExpression, x => x.Id, page, maxSize);
                     break;
             }
 
             var filteredGames = new PaginationGames()
             {
-                Count = _unitOfWork.GameRepository.GetCountObject(filterExpression),
-                Games = games
+                Count = _gameRepository.GetCountObject(filterExpression),
+                Games = games.ToList()
             };
 
             return filteredGames;
@@ -72,29 +78,29 @@ namespace GameStore.Services.ServicesImplementation
 
         public void Remove(string id)
         {
-            _unitOfWork.GameRepository.Remove(id);
+            _gameRepository.Remove(id);
             _unitOfWork.Save();
         }
 
         public void Remove(Game item)
         {
-            _unitOfWork.GameRepository.Remove(item);
+            _gameRepository.Remove(item);
             _unitOfWork.Save();
         }
 
         public void Update(Game item)
         {
-            _unitOfWork.GameRepository.Update(item);
+            _gameRepository.Update(item);
             _unitOfWork.Save();
         }
 
         public void AddViewToGame(string key)
         {
-            var game = _unitOfWork.GameRepository.GetGameByKey(key);
-            var gameInfo = _unitOfWork.GameInfoRepository.GetItemById(game.Id);
+            var game = _gameRepository.GetFirst(x => x.Key == key);
+            var gameInfo = _gameInfoRepository.GetItemById(game.Id);
             gameInfo.CountOfViews++;
             gameInfo.Game = null;
-            _unitOfWork.GameInfoRepository.Update(gameInfo);
+            _gameInfoRepository.Update(gameInfo);
             _unitOfWork.Save();
         }
 
@@ -102,15 +108,15 @@ namespace GameStore.Services.ServicesImplementation
         {
             var games = new PaginationGames()
             {
-                Count = _unitOfWork.GameRepository.GetCountObject(x => true),
-                Games = _unitOfWork.GameRepository.Get(x => true, x => x.Id)
+                Count = _gameRepository.GetCountObject(x => true),
+                Games = _gameRepository.Get(x => true, x => x.Id).ToList()
             };
             return games;
         }
 
         IEnumerable<Game> ICrudService<Game>.Get(params Expression<Func<Game, object>>[] includeProperties)
         {
-            var games = _unitOfWork.GameRepository.Get(x => true, x => x.Id);
+            var games = _gameRepository.Get(x => true, x => x.Id).ToList();
             return games;
         }
     }

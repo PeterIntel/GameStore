@@ -1,17 +1,17 @@
-﻿using System;
+﻿using GameStore.Domain.BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.DataAccess.MSSQL.Repositories
+namespace GameStore.DataAccess.Decorators
 {
-    public interface IGameRepository : IGenericDataRepository<GameEntity, Game>
+    public interface IGameDecoratorRepositoryRepository : IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game>
     {
         IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties);
-        Game GetGameByKey(string key);
     }
 }

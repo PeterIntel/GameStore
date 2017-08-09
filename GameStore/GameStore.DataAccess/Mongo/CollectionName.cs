@@ -12,12 +12,12 @@ namespace GameStore.DataAccess.Mongo
             {
                 var _collectionNames = new Dictionary<Type, string>()
                 {
-                    {typeof(MongoCategory), "categories"},
-                    {typeof(MongoOrder), "orders"},
-                    {typeof(MongoOrderDetails), "order-details"},
-                    {typeof(MongoProduct), "products"},
-                    {typeof(MongoShipper), "shippers"},
-                    {typeof(MongoSupplier), "suppliers"}
+                    {typeof(MongoCategoryEntity), "categories"},
+                    {typeof(MongoOrderEntity), "orders"},
+                    {typeof(MongoOrderDetailsEntity), "order-details"},
+                    {typeof(MongoProductEntity), "products"},
+                    {typeof(MongoShipperEntity), "shippers"},
+                    {typeof(MongoSupplierEntity), "suppliers"}
                 };
                 return _collectionNames;
             }

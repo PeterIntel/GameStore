@@ -9,10 +9,8 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace GameStore.DataAccess.Mongo.MongoEntities
 {
     [BsonIgnoreExtraElements]
-    public class MongoCategory
+    public class MongoCategoryEntity : BasicMongoEntity
     {
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { set; get; }
         public int CategoryID { set; get; }
         public string CategoryName { set; get; }
 

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using GameStore.DataAccess.Decorators;
+using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.DataAccess.UnitOfWork;
@@ -9,11 +12,17 @@ namespace GameStore.Services.ServicesImplementation
 {
     public class OrderService : IOrderService
     {
+        private readonly IGenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order> _orderRepository;
+        private readonly IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> _orderDetailsRepository;
+        private readonly IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> _gameRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public OrderService(IUnitOfWork unitOfWork)
+        public OrderService(IUnitOfWork unitOfWork, IGenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order> orderRepository, IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> gameRepository, IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> orderDetailsRepository)
         {
             _unitOfWork = unitOfWork;
+            _orderRepository = orderRepository;
+            _gameRepository = gameRepository;
+            _orderDetailsRepository = orderDetailsRepository;
         }
 
         public void AddGameToOrder(string gamekey, string customerId)
@@ -23,7 +32,7 @@ namespace GameStore.Services.ServicesImplementation
                 throw new ArgumentNullException(nameof(customerId) + " references to NULL");
             }
 
-            var game = _unitOfWork.GameRepository.GetGameByKey(gamekey);
+            var game = _gameRepository.GetFirst(x => x.Key == gamekey);
             var order = GetOrderByCustomerId(customerId);
 
             var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
@@ -34,11 +43,11 @@ namespace GameStore.Services.ServicesImplementation
                 gameDetails.Price = gameDetails.Quantity * gameDetails.Game.Price;
                 gameDetails.Order = null;
                 gameDetails.Game = null;
-                _unitOfWork.OrderDetailsRepository.Update(gameDetails);
+                _orderDetailsRepository.Update(gameDetails);
             }
             else
             {
-                _unitOfWork.OrderDetailsRepository.Add(new OrderDetails()
+                _orderDetailsRepository.Add(new OrderDetails()
                 {
                     OrderId = order.Id,
                     GameId = game.Id,
@@ -52,29 +61,29 @@ namespace GameStore.Services.ServicesImplementation
 
         public void Add(Order item)
         {
-            _unitOfWork.OrderRepository.Add(item);
+            _orderRepository.Add(item);
             _unitOfWork.Save();
         }
 
         public IEnumerable<Order> GetAll(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var result = _unitOfWork.OrderRepository.Get(includeProperties);
+            var result = _orderRepository.Get(includeProperties).ToList();
             return result;
         }
 
         public IEnumerable<Order> GetAll(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
         {
-            var result = _unitOfWork.OrderRepository.Get(filter, includeProperties);
+            var result = _orderRepository.Get(filter, includeProperties).ToList();
             return result;
         }
 
         public Order GetOrderByCustomerId(string id)
         {
-            Order order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+            Order order = _orderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
 
             if (order == null)
             {
-                _unitOfWork.OrderRepository.Add(new Order()
+                _orderRepository.Add(new Order()
                 {
                     Status = CompletionStatus.InComplete,
                     CustomerId = id,
@@ -82,7 +91,7 @@ namespace GameStore.Services.ServicesImplementation
                 });
                 _unitOfWork.Save();
 
-                order = _unitOfWork.OrderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+                order = _orderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
             }
 
             return order;
@@ -90,38 +99,38 @@ namespace GameStore.Services.ServicesImplementation
 
         public Order GetItemById(string id)
         {
-            var result = _unitOfWork.OrderRepository.GetItemById(id);
+            var result = _orderRepository.GetItemById(id);
             return result;
         }
 
         public void Remove(string id)
         {
-            _unitOfWork.OrderRepository.Remove(id);
+            _orderRepository.Remove(id);
             _unitOfWork.Save();
         }
 
         public void Remove(Order item)
         {
-            _unitOfWork.OrderRepository.Remove(item);
+            _orderRepository.Remove(item);
             _unitOfWork.Save();
         }
 
         public void Update(Order item)
         {
-            _unitOfWork.OrderRepository.Update(item);
+            _orderRepository.Update(item);
             _unitOfWork.Save();
         }
 
         public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties) 
              
         {
-            var games = _unitOfWork.OrderRepository.Get(filter, includeProperties);
+            var games = _orderRepository.Get(filter, includeProperties).ToList();
             return games;
         }
 
         public IEnumerable<Order> Get(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var games = _unitOfWork.OrderRepository.Get(includeProperties);
+            var games = _orderRepository.Get(includeProperties).ToList();
             return games;
         }
     }

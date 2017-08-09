@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.DataAccess.UnitOfWork;
@@ -33,7 +34,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _orderDetalsRep = new Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>>();
             _unitOfWork.Setup(m => m.OrderRepository).Returns(_orderRep.Object);
             _unitOfWork.Setup(m => m.OrderDetailsRepository).Returns(_orderDetalsRep.Object);
-            _unitOfWork.Setup(m => m.GameRepository.GetGameByKey("game")).Returns<string>(m =>  _game );
+            _unitOfWork.Setup(m => m.GameRepository.GetFirst(x => "game" == x.Key)).Returns<string>(m =>  _game );
             _sut = new OrderService(_unitOfWork.Object);
 
         }
@@ -68,7 +69,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void AddGameToOrder_AddNewGameToExitingOrder_QuantityOfDistinctGames()
         {
             _unitOfWork.Setup(m => m.OrderRepository.Get(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order});
-            _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(new Game());
+            _unitOfWork.Setup(m => m.GameRepository.GetFirst(It.IsAny<Expression<Func<Game, bool>>>())).Returns(new Game());
             _unitOfWork.Setup(m => m.OrderDetailsRepository.Add(It.IsAny<OrderDetails>())).Callback(() => _order.OrderDetails.Add(It.IsAny<OrderDetails>()));
 
             _sut.AddGameToOrder(It.IsAny<string>(), _customerId);

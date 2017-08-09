@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class Game
+    public class Game : BasicDomain
     {
-        public string Id { set; get; }
         public string Key { set; get; }
         public string Description { set; get; }
         public decimal Price { set; get; }

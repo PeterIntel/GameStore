@@ -105,9 +105,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\GameDecoratorRepository.cs" />
+    <Compile Include="Decorators\GenericDecoratorRepository.cs" />
+    <Compile Include="Decorators\IGenericDecoratorRepository.cs" />
+    <Compile Include="Decorators\IGameDecoratorRepository.cs" />
+    <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.cs" />
+    <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.Designer.cs">
+      <DependentUpon>201708081325289_rename_IsSqlEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
     <Compile Include="Mongo\GamesMongoContext.cs" />
     <Compile Include="Mongo\CollectionName.cs" />
+    <Compile Include="Mongo\MongoEntities\BaseMongoEntity.cs" />
     <Compile Include="MSSQL\GamesSqlContext.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\DateTimeCustomSerializer.cs" />
     <Compile Include="MSSQL\EntitiesConfigurations\GameConfiguration.cs" />
@@ -151,25 +160,22 @@
       <DependentUpon>201708040847285_Rename_Primary_Key.cs</DependentUpon>
     </Compile>
     <Compile Include="MSSQL\Migrations\Configuration.cs" />
-    <Compile Include="Mongo\MongoEntities\MongoCategory.cs" />
-    <Compile Include="Mongo\MongoEntities\MongoOrder.cs" />
-    <Compile Include="Mongo\MongoEntities\MongoOrderDetails.cs" />
-    <Compile Include="Mongo\MongoEntities\MongoProduct.cs" />
-    <Compile Include="Mongo\MongoEntities\MongoShipper.cs" />
-    <Compile Include="Mongo\MongoEntities\MongoSupplier.cs" />
-    <Compile Include="Interfaces\IReadOnlyRepository.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoCategoryEntity.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoOrderEntity.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoOrderDetailsEntity.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoProductEntity.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoShipperEntity.cs" />
+    <Compile Include="Mongo\MongoEntities\MongoSupplierEntity.cs" />
+    <Compile Include="Interfaces\IReadOnlyGenericRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MSSQL\Repositories\GameRepository.cs" />
     <Compile Include="MSSQL\Repositories\GenericDataRepository.cs" />
     <Compile Include="MSSQL\Repositories\GenreRepository.cs" />
-    <Compile Include="Interfaces\IGameRepository.cs" />
     <Compile Include="Interfaces\IGenericDataRepository.cs" />
     <Compile Include="Interfaces\IGenreRepository.cs" />
     <Compile Include="Interfaces\IPlatformTypeRepository.cs" />
-    <Compile Include="Interfaces\IPublisherRepository.cs" />
     <Compile Include="MSSQL\Repositories\PlatformTypeRepository.cs" />
-    <Compile Include="MSSQL\Repositories\PublisherRepository.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
@@ -185,6 +191,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708081325289_rename_IsSqlEntity.resx">
+      <DependentUpon>201708081325289_rename_IsSqlEntity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>
     </EmbeddedResource>

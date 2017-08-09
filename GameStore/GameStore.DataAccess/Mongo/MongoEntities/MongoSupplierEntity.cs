@@ -9,13 +9,10 @@ using System.Threading.Tasks;
 namespace GameStore.DataAccess.Mongo.MongoEntities
 {
     [BsonIgnoreExtraElements]
-    public class MongoSupplier
+    public class MongoSupplierEntity : BasicMongoEntity
     {
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { set; get; }
         public int SupplierID { set; get; }
         public string CompanyName { set; get; }
-        [BsonIgnore]
         public string HomePage { set; get; }
     }
 }

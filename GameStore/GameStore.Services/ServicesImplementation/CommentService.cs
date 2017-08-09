@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using GameStore.DataAccess.Decorators;
+using GameStore.DataAccess.Interfaces;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
@@ -11,19 +14,21 @@ namespace GameStore.Services.ServicesImplementation
     public class CommentService : ICommentService
     {
         private IUnitOfWork _unitOfWork;
-        public CommentService(IUnitOfWork unitOfWork)
+        private IGenericDataRepository<CommentEntity, Comment> _commentRepository;
+        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository)
         {
             _unitOfWork = unitOfWork;
+            _commentRepository = commentRepository;
         }
         public void Add(Comment item)
         {
-            _unitOfWork.CommentRepository.Add(item);
+            _commentRepository.Add(item);
             _unitOfWork.Save();
         }
 
         public IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey)
         {
-            return _unitOfWork.CommentRepository.Get(x => x.Game.Key == gameKey);
+            return _commentRepository.Get(x => x.Game.Key == gameKey).ToList();
         }
 
         public IEnumerable<Comment> GetStructureOfComments(IEnumerable<Comment> comments)
@@ -45,14 +50,14 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
-            return roots;
+            return roots.ToList();
         }
 
         private void AddChildren(Comment node, IDictionary<string,  List<Comment>> source)
         {
             if (node.ParentCommentId != null)
             {
-                node.ParentComment = _unitOfWork.CommentRepository.GetItemById(node.ParentCommentId);
+                node.ParentComment = _commentRepository.GetItemById(node.ParentCommentId);
             }
             if (source.ContainsKey(node.Id))
             {
@@ -70,24 +75,24 @@ namespace GameStore.Services.ServicesImplementation
 
         public void Remove(string id)
         {
-            _unitOfWork.CommentRepository.Remove(id);
+            _commentRepository.Remove(id);
             _unitOfWork.Save();
         }
 
         public void Remove(Comment item)
         {
-            _unitOfWork.CommentRepository.Remove(item);
+            _commentRepository.Remove(item);
             _unitOfWork.Save();
         }
 
         public void Update(Comment item)
         {
-            _unitOfWork.CommentRepository.Update(item);
+            _commentRepository.Update(item);
             _unitOfWork.Save();
         }
         public IEnumerable<Comment> Get(params Expression<Func<Comment, object>>[] includeProperties)
         {
-            return _unitOfWork.CommentRepository.Get(includeProperties);
+            return _commentRepository.Get(includeProperties);
         }
     }
 }

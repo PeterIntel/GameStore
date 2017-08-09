@@ -5,11 +5,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Repositories
 {
-    public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : class
+    public class GenericDataRepository<TEntity, TDomain> : IGenericDataRepository<TEntity, TDomain> where TEntity : BasicEntity where TDomain : BasicDomain
     {
         protected GamesSqlContext _context;
         protected DbSet<TEntity> _dbSet;
@@ -126,6 +128,18 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             var result = queryToEntity.Count();
 
             return result;
+        }
+
+        public TDomain GetFirst(Expression<Func<TDomain, bool>> filter)
+        {
+            var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
+            if (filter != null)
+            {
+                IQueryable<TEntity> queryToEntities = _dbSet.Where(x => x.IsDeleted == false).Where(filterEntity);
+                return queryToEntities.ProjectTo<TDomain>(_mapper.ConfigurationProvider).First();
+            }
+
+            return null;
         }
     }
 }

@@ -9,10 +9,8 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace GameStore.DataAccess.Mongo.MongoEntities
 {
     [BsonIgnoreExtraElements]
-    public class MongoProduct
+    public class MongoProductEntity : BasicMongoEntity
     {
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { set; get; }
         public int ProductID { set; get; }
         public string ProductName { set; get; }
         public int SupplierID { set; get; }
@@ -21,8 +19,8 @@ namespace GameStore.DataAccess.Mongo.MongoEntities
         public int UnitsInStock { set; get; }
         public bool Discontinued { set; get; }
         [BsonIgnore]
-        public MongoCategory Category { set; get; }
+        public IEnumerable<MongoCategoryEntity> Categories { set; get; }
         [BsonIgnore]
-        public MongoSupplier Supplier { set; get; }
+        public MongoSupplierEntity Supplier { set; get; }
     }
 }

@@ -7,7 +7,9 @@ using Ninject.Modules;
 using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess;
+using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoRepositories;
+using GameStore.DataAccess.MSSQL.Entities;
 
 namespace GameStore.Infrastructure.NinjectConfiguration
 {
@@ -16,10 +18,9 @@ namespace GameStore.Infrastructure.NinjectConfiguration
         public override void Load()
         {
             Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
-            Bind<IGameRepository>().To<GameRepository>();
+            Bind(typeof(IGenericDataRepository<GameEntity, Game>)).To<GameRepository>();
             Bind<IGenreRepository>().To<GenreRepository>();
             Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
-            Bind<IPublisherRepository>().To<PublisherRepository>();
 
             Bind(typeof(IReadOnlyGenericRepository<,>)).To(typeof(ReadOnlyGenericRepository<,>));
         }

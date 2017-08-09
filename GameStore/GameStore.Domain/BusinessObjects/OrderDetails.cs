@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class OrderDetails
+    public class OrderDetails : BasicDomain
     {
-        public string Id { set; get; }
         public string GameId { set; get; }
         public string OrderId { set; get; }
         public decimal Price { set; get; }

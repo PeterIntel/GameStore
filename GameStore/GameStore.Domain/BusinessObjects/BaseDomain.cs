@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class GameInfo : BasicDomain
+    public class BasicDomain
     {
-        public int? CountOfViews { set; get; }
-        public DateTime UploadDate { set; get; }
-
-        public Game Game { set; get; }
+        public string Id { set; get; }
+        public bool IsMongoEntity { set; get; }
     }
 }

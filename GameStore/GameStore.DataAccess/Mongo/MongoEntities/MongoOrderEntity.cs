@@ -10,15 +10,13 @@ using GameStore.DataAccess.Mongo.CustomMongoSerializers;
 namespace GameStore.DataAccess.Mongo.MongoEntities
 {
     [BsonIgnoreExtraElements]
-    public class MongoOrder
+    public class MongoOrderEntity : BasicMongoEntity
     {
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { set; get; }
         public int CustomerID { set; get; }
         public int OrderID { set; get; }
         [BsonSerializer(typeof(DateTimeCustomSerializer))]
         public DateTime OrderDate { set; get; }
         [BsonIgnore]
-        public IEnumerable<MongoOrderDetails> OrderDetails { set; get; }
+        public IEnumerable<MongoOrderDetailsEntity> OrderDetails { set; get; }
     }
 }

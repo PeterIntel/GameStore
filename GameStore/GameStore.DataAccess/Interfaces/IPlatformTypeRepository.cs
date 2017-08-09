@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.DataAccess.MSSQL.Repositories
+namespace GameStore.DataAccess.Interfaces
 {
     public interface IPlatformTypeRepository : IGenericDataRepository<PlatformTypeEntity, PlatformType>
     {

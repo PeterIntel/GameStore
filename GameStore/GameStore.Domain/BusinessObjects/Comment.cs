@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class Comment
+    public class Comment : BasicDomain
     {
-        public string Id { set; get; }
         public string Name { set; get; }
         public string Body { set; get; }
         public string ParentCommentId { set; get; }

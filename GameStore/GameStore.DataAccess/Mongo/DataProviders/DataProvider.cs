@@ -13,17 +13,17 @@ namespace GameStore.DataAccess.Mongo.DataProviders
     public static class DataProvider
     {
         private static GamesMongoContext _context = new GamesMongoContext();
-        private static IMongoCollection<MongoCategory> _categories = _context.GetCollection<MongoCategory>();
-        private static IMongoCollection<MongoSupplier> _suppliers = _context.GetCollection<MongoSupplier>();
+        private static IMongoCollection<MongoCategoryEntity> _categories = _context.GetCollection<MongoCategoryEntity>();
+        private static IMongoCollection<MongoSupplierEntity> _suppliers = _context.GetCollection<MongoSupplierEntity>();
         public static IQueryable<T> GetChildren<T>(this IQueryable<T> products)
         {
-            if (typeof(T).Name == "MongoProduct")
+            if (typeof(T).Name == "MongoProductEntity")
             {
-                var prod = (IEnumerable<MongoProduct>)products;
+                var prod = (IEnumerable<MongoProductEntity>)products;
                 prod = from a in prod
-                    join b in _categories.AsQueryable() on a.CategoryID equals b.CategoryID
+                    join b in _categories.AsQueryable() on a.CategoryID equals b.CategoryID into categories
                     join c in _suppliers.AsQueryable() on a.SupplierID equals c.SupplierID
-                    select new MongoProduct()
+                    select new MongoProductEntity()
                     {
                         Id = a.Id,
                         CategoryID = a.CategoryID,
@@ -33,13 +33,8 @@ namespace GameStore.DataAccess.Mongo.DataProviders
                         UnitsInStock = a.UnitsInStock,
                         ProductName = a.ProductName,
                         UnitPrice = a.UnitPrice,
-                        Category = new MongoCategory()
-                        {
-                            Id = b.Id,
-                            CategoryID = b.CategoryID,
-                            CategoryName = b.CategoryName
-                        },
-                        Supplier = new MongoSupplier()
+                        Categories = categories,
+                        Supplier = new MongoSupplierEntity()
                         {
                             Id = c.Id,
                             SupplierID = c.SupplierID,

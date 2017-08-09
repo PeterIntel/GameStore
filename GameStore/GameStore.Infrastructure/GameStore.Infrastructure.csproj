@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AutomapperConfiguration\DomainProfile.cs" />
     <Compile Include="MapperConfiguration\GameMapper.cs" />
+    <Compile Include="NinjectConfiguration\DecoratorsNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\LogNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\RepositoryNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\ServiceNinjectModule.cs" />
