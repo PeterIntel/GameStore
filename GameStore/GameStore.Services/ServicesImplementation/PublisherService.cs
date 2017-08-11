@@ -28,6 +28,7 @@ namespace GameStore.Services.ServicesImplementation
         }
         public void Add(Publisher item)
         {
+            AssignIdIfEmpty(item);
             _publisherRepository.Add(item);
             _unitOfWork.Save();
             _logger.Write(Operation.Insert, item);

@@ -45,12 +45,12 @@ label {
 }
 
 .header {
-    width: 65%;
+    width: 70%;
     margin: 0 auto;
-}
+}   
 
 .header div {
-    width: 33.333%
+    width: 20%
 }
 
 .form {

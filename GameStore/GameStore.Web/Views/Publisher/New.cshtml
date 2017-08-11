@@ -11,18 +11,19 @@
     @Html.LabelFor(m => m.CompanyName)
     <br>
     @Html.EditorFor(m => m.CompanyName)
-
+    @Html.ValidationMessageFor(m => m.CompanyName)
     <br>
 
     @Html.LabelFor(m => m.Description)
     <br>
     @Html.EditorFor(m => m.Description)
-
+    @Html.ValidationMessageFor(m => m.Description)
     <br>
 
     @Html.LabelFor(m => m.HomePage)
     <br>
     @Html.EditorFor(m => m.HomePage)
+    @Html.ValidationMessageFor(m => m.HomePage)
     <br>
     <input type="submit" value="Add publisher"/>
 }
