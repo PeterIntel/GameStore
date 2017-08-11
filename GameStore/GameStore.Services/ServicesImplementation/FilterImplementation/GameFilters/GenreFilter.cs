@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.Services.ServicesImplementation.FilterImplementation
+namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFilters
 {
     public class GenreFilter : BaseFilter<Game>
     {
@@ -20,7 +18,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation
         {
             if (_genres != null && _genres.Count() != 0)
             {
-                Expression<Func<Game, bool>> filter = x => x.Genres.Any(y => _genres.Contains(y.Name));
+                Expression<Func<Game, bool>> filter = x => x.Genres.Any(y => _genres.Contains(y.Id));
                 return AggregateExpression(input, filter);
             }
 

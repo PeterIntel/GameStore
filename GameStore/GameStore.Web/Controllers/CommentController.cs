@@ -52,6 +52,11 @@ namespace GameStore.Web.Controllers
         {
             if (gameKey != null)
             {
+                var game = _gameService.GetItemByKey(gameKey);
+                if (game.IsSqlEntity == false)
+                {
+                    _gameService.Add(game);
+                }
                 return View(InitComments(gameKey));
             }
 

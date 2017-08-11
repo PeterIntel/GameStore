@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using GameStore.DataAccess.Interfaces;
 using GameStore.Domain.BusinessObjects;
 using System.Text.RegularExpressions;
+using GameStore.DataAccess.Infrastructure;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
@@ -16,82 +17,101 @@ namespace GameStore.DataAccess.Decorators
 {
     public class GenericDecoratorRepositoryRepository<TSqlEntity, TMongoEntity, TDomain> : IGenericDecoratorRepository<TSqlEntity, TMongoEntity, TDomain> where TSqlEntity : class where TMongoEntity : class where TDomain : BasicDomain
     {
-        private readonly IGenericDataRepository<TSqlEntity, TDomain> _sqlDataRepository;
-        private readonly IReadOnlyGenericRepository<TMongoEntity, TDomain> _mongoDataRepository;
+        protected readonly IGenericDataRepository<TSqlEntity, TDomain> SqlDataRepository;
+        protected readonly IReadOnlyGenericRepository<TMongoEntity, TDomain> MongoDataRepository;
 
         public GenericDecoratorRepositoryRepository(IGenericDataRepository<TSqlEntity, TDomain> sqlDataRepository, IReadOnlyGenericRepository<TMongoEntity, TDomain> mongoDataRepository)
         {
-            _sqlDataRepository = sqlDataRepository;
-            _mongoDataRepository = mongoDataRepository;
+            SqlDataRepository = sqlDataRepository;
+            MongoDataRepository = mongoDataRepository;
         }
+
         public void Add(TDomain item)
         {
-            _sqlDataRepository.Add(item);
+            SqlDataRepository.Add(item);
         }
 
-        public IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties)
+        public virtual IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties)
         {
-            var result = _sqlDataRepository.Get(includeProperties).Union(GetRequiredMongoCollection());
+            var result = SqlDataRepository.Get(includeProperties).Union(GetRequiredMongoCollection());
             return result;
         }
 
-        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties)
+        public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties)
         {
-            var result = _sqlDataRepository.Get(filter, includeProperties).Union(GetRequiredMongoCollection(filter));
-            //var d = result.ToList();
+            var result = SqlDataRepository.Get(filter, includeProperties).Union(GetRequiredMongoCollection(filter));
             return result;
         }
 
-        public int GetCountObject(Expression<Func<TDomain, bool>> filter)
+        public virtual int GetCountObject(Expression<Func<TDomain, bool>> filter)
         {
-            return _sqlDataRepository.GetCountObject(filter) + GetRequiredMongoCollection(filter).Count();
+            return SqlDataRepository.GetCountObject(filter) + GetRequiredMongoCollection(filter).Count();
         }
 
-        public TDomain GetFirst(Expression<Func<TDomain, bool>> filter)
+        public virtual TDomain GetFirst(Expression<Func<TDomain, bool>> filter)
         {
-            var domain = _sqlDataRepository.GetFirst(filter) ?? _mongoDataRepository.GetFirst(filter);
+            var domain = SqlDataRepository.GetFirst(filter) ?? MongoDataRepository.GetFirst(filter);
 
             return domain;
         }
 
-        public TDomain GetItemById(string id)
+        public virtual TDomain GetItemById(string id)
         {
-            var domain = _sqlDataRepository.GetItemById(id) ?? _mongoDataRepository.GetItemById(id);
+            var domain = SqlDataRepository.GetItemById(id) ?? MongoDataRepository.GetItemById(id);
 
             return domain;
         }
 
         public void Remove(string id)
         {
-            _sqlDataRepository.Remove(id);
+            SqlDataRepository.Remove(id);
         }
 
         public void Remove(TDomain item)
         {
-            _sqlDataRepository.Remove(item);
+            SqlDataRepository.Remove(item);
         }
 
         public void Update(TDomain item)
         {
-            _sqlDataRepository.Remove(item);
+            SqlDataRepository.Update(item);
         }
 
         public IEnumerable<TDomain> GetRequiredMongoCollection()
         {
-            var sqlIds = _sqlDataRepository.Get(x => x.IsMongoEntity).Select(sql => sql.Id);
-            var requiredMongoCollection = _mongoDataRepository.Get().Except(from i in sqlIds
-                                                                            join j in _mongoDataRepository.Get() on i equals j.Id
-                                                                            select j);
+            var sqlIds = SqlDataRepository.Get().Select(sql => sql.Id);
+            var requiredMongoCollection = MongoDataRepository.Get().Except((from i in sqlIds
+                                                                            join j in MongoDataRepository.Get() on i equals j.Id
+                                                                            select j), new IdComparer<TDomain>()).ToList();
             return requiredMongoCollection;
         }
 
-        public IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter) 
+        public IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter)
         {
-            var sqlIds = _sqlDataRepository.Get(filter).Where(x => x.IsMongoEntity).Select(sql => sql.Id);
-            var requiredMongoCollection = _mongoDataRepository.Get().Except(from i in sqlIds
-                                                                            join j in _mongoDataRepository.Get() on i equals j.Id
-                                                                            select j).AsQueryable().Where(filter);
+            if (filter.Body.ToString().Contains("PlatformTypes"))
+            {
+                filter = x => false;
+            }
+
+            var sqlIds = SqlDataRepository.Get(filter).Select(sql => sql.Id);
+            var requiredMongoCollection = MongoDataRepository.Get().Except((from i in sqlIds
+                                                                            join j in MongoDataRepository.Get() on i equals j.Id
+                                                                            select j), new IdComparer<TDomain>()).AsQueryable().Where(filter).ToList();
             return requiredMongoCollection;
+        }
+
+        public IEnumerable<TDomain> GetItems(IEnumerable<string> ids)
+        {
+            IList<TDomain> items = new List<TDomain>();
+            foreach (var id in ids)
+            {
+                var item = GetItemById(id);
+                if (item != null)
+                {
+                    items.Add(item);
+                }
+            }
+            return items;
         }
     }
 }

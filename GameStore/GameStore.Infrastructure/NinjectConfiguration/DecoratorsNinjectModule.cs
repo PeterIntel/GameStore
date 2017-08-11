@@ -14,6 +14,7 @@ namespace GameStore.Infrastructure.NinjectConfiguration
         {
             Bind(typeof(IGenericDecoratorRepository<,,>)).To(typeof(GenericDecoratorRepositoryRepository<,,>));
             Bind<IGameDecoratorRepositoryRepository>().To<GameDecoratorRepositoryRepository>();
+            Bind<IOrderDecoratorRepository>().To<OrderDecoratorRepository>();
         }
     }
 }

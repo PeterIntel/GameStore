@@ -95,6 +95,7 @@ namespace GameStore.Web.Controllers
                 TotalItems = games.Count
             };
 
+            TempData["games"] = games;
             return View(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo });
         }
 
@@ -107,10 +108,12 @@ namespace GameStore.Web.Controllers
             {
                 FilterCriteria filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
                 games = _gameService.FilterGames(filters, page, size);
+                TempData["games"] = games;
             }
             else
             {
-                games = _gameService.FilterGames(_mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel), page, size);
+                games = TempData["games"] as PaginationGames;
+                TempData["games"] = games;
             }
 
             filterViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(filterViewModel.NameGenres));

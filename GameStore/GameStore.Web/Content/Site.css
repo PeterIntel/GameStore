@@ -45,8 +45,12 @@ label {
 }
 
 .header {
-    width: 55%;
+    width: 65%;
     margin: 0 auto;
+}
+
+.header div {
+    width: 33.333%
 }
 
 .form {
@@ -57,4 +61,10 @@ label {
     border: 1px dashed black;
     margin-bottom:5px;
     display: inline-block;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }

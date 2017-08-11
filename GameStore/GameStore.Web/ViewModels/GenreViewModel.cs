@@ -10,6 +10,7 @@ namespace GameStore.Web.ViewModels
 {
     public class GenreViewModel
     {
+        public string Id { set; get; }
         public string Name { set; get; }
         public string ParentGenreId { set; get; }
         public bool IsChecked { set; get; }

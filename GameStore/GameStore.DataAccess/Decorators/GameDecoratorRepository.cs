@@ -13,18 +13,15 @@ namespace GameStore.DataAccess.Decorators
 {
     public class GameDecoratorRepositoryRepository : GenericDecoratorRepositoryRepository<GameEntity, MongoProductEntity, Game>, IGameDecoratorRepositoryRepository
     {
-        private readonly IGenericDataRepository<GameEntity, Game> _sqlGameRepository;
-        private readonly IReadOnlyGenericRepository<MongoProductEntity, Game> _mongoGameRepository;
         public GameDecoratorRepositoryRepository(IGenericDataRepository<GameEntity, Game> sqlDataRepository, IReadOnlyGenericRepository<MongoProductEntity, Game> mongoDataRepository) : base(sqlDataRepository, mongoDataRepository)
         {
-            _sqlGameRepository = sqlDataRepository;
-            _mongoGameRepository = mongoDataRepository;
+
         }
 
-        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties)
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, bool ascending = true, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties)
         {
             var filteredGames = Get(filter, includeProperties);
-            filteredGames = filteredGames.AsQueryable().OrderBy(sort);
+            filteredGames = ascending ? filteredGames.AsQueryable().OrderBy(sort) : filteredGames.AsQueryable().OrderByDescending(sort);
             if (size != null)
             {
                 filteredGames = filteredGames.Skip((page - 1) * (int)size).Take((int)size);

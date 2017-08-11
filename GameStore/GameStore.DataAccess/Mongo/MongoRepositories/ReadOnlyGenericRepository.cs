@@ -30,27 +30,27 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             Mapper = mapper;
             Collection = Context.GetCollection<TEntity>();
         }
-        public IEnumerable<TDomain> Get(params string[] ids)
+        public IEnumerable<TDomain> Get()
         {
-            IQueryable<TEntity> queryToEntity;
-            //if (ids != null)
-            //{
-            //    var filter = Builders<TEntity>.Filter.Where(x => ids.Contains(x.Id));
-            //    queryToEntity =  Collection.Find(filter).
-            //}
-            queryToEntity = Collection.AsQueryable();
+            IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
+            var d = queryToEntity.ToList();
             queryToEntity = queryToEntity.GetChildren<TEntity>();
-            var result = queryToEntity.AsQueryable().ProjectTo<TDomain>(Mapper.ConfigurationProvider);
+            var dd = queryToEntity.ToList();
+            var result = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).ToList();
+            
             return result;
         }
 
-        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterDomain, params string[] ids)
+        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterToDomain)
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
+            if (filterToDomain != null)
+            {
+                var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterToDomain);
+                queryToEntity = queryToEntity.Where(filterToEntity);
+            }
             queryToEntity = queryToEntity.GetChildren<TEntity>();
-            var queryToDomain = queryToEntity.AsQueryable().ProjectTo<TDomain>(Mapper.ConfigurationProvider);
-            queryToDomain = queryToDomain.Where(filterDomain);
-            var f = queryToDomain.ToList();
+            var queryToDomain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).ToList();
             return queryToDomain;
         }
 
@@ -69,7 +69,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
 
         public TDomain GetItemById(string id)
         {
-            var filter = Builders<TEntity>.Filter.Eq("_id", id);
+            var filter = Builders<TEntity>.Filter.Eq("Id", id);
             TEntity entity = Collection.Find(filter).FirstOrDefault();
 
             if (entity != null)
@@ -83,15 +83,16 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
 
         public TDomain GetFirst(Expression<Func<TDomain, bool>> filter)
         {
-            var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
+            IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
 
             if (filter != null)
             {
-                TDomain domain = Collection.AsQueryable().Where(filterToEntity).ProjectTo<TDomain>(Mapper.ConfigurationProvider).FirstOrDefault();
-                return domain;
+                var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
+                queryToEntity = queryToEntity.Where(filterToEntity);
             }
-
-            return null;
+            queryToEntity = queryToEntity.GetChildren();
+            TDomain domain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).FirstOrDefault();
+            return domain;
         }
     }
 }

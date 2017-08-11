@@ -34,11 +34,7 @@
                 function () {
                     if (formOriginalData !== $("#filterForm").serialize()) {
 
-                        $('.isEmptyValue').each(function() {
-                            if (!$(this).val()) {
-                                $(this).prop('disabled', true);
-                            }
-                        });
+                        disableInputsWithoutValue();
 
                         $("#filterForm").submit();
                     }
@@ -49,7 +45,16 @@
                 pageLinks[i].value = i + 1;
                 pageLinks[i].addEventListener("click", function () {
                     $("#page").val(this.value);
+                    disableInputsWithoutValue();
                     $("#filterForm").submit();
+                });
+            }
+
+            function disableInputsWithoutValue() {
+                $('.isEmptyValue').each(function () {
+                    if (!$(this).val()) {
+                        $(this).prop('disabled', true);
+                    }
                 });
             }
 

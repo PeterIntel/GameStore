@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -48,17 +52,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServicesImplementation\BasicService.cs" />
     <Compile Include="ServicesImplementation\CommentService.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\BaseFilter.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\GameNameFilter.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\GamePipeline.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\GenreFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\GameNameFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\GamePipeline.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\GenreFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\DateFromFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\DateToFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\OrderPipeLine.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\Pipeline.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\PlatformTypeFilter.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\PriceFromFilter.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\PriceToFilter.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\PublishedDateFilter.cs" />
-    <Compile Include="ServicesImplementation\FilterImplementation\PublisherFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PlatformTypeFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PriceFromFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PriceToFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PublishedDateFilter.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PublisherFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\SwapVisitor.cs" />
     <Compile Include="ServicesImplementation\GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +83,10 @@
     <ProjectReference Include="..\GameStore.Domain\GameStore.Domain.csproj">
       <Project>{16b24edc-e21a-43f7-8721-5d51af4cd0ba}</Project>
       <Name>GameStore.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameStore.Logging\GameStore.Logging.csproj">
+      <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
+      <Name>GameStore.Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

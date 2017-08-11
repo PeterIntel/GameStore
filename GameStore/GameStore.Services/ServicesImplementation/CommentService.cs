@@ -8,22 +8,27 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
+using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class CommentService : ICommentService
+    public class CommentService : BasicService<Comment>, ICommentService
     {
         private IUnitOfWork _unitOfWork;
         private IGenericDataRepository<CommentEntity, Comment> _commentRepository;
-        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository)
+        private IMongoLogger<Comment> _logger;
+        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger)
         {
             _unitOfWork = unitOfWork;
             _commentRepository = commentRepository;
+            _logger = logger;
         }
         public void Add(Comment item)
         {
+            AssignIdIfEmpty(item);
             _commentRepository.Add(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Insert, item);
         }
 
         public IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey)
@@ -37,23 +42,22 @@ namespace GameStore.Services.ServicesImplementation
             if (comments != null && comments.Any())
             {
                 var groups = comments.GroupBy(x => x.ParentCommentId).ToList();
-                IList<Dictionary<int, Comment>> a; Dictionary<string, Comment > b;
 
-                    roots = groups.FirstOrDefault(x => String.IsNullOrEmpty(x.Key) == false).ToList();
+                roots = groups.FirstOrDefault(x => string.IsNullOrEmpty(x.Key)).ToList();
 
                 if (roots.Count > 0)
                 {
-                    var dict = groups.Where(x => String.IsNullOrEmpty(x.Key)).ToDictionary(x => x.Key, x => x.ToList());
+                    var dict = groups.Where(x => String.IsNullOrEmpty(x.Key) == false).ToDictionary(x => x.Key, x => x.ToList());
                     foreach (var x in roots)
                     {
                         AddChildren(x, dict);
                     }
                 }
             }
-            return roots.ToList();
+            return roots;
         }
 
-        private void AddChildren(Comment node, IDictionary<string,  List<Comment>> source)
+        private void AddChildren(Comment node, IDictionary<string, List<Comment>> source)
         {
             if (node.ParentCommentId != null)
             {
@@ -83,12 +87,15 @@ namespace GameStore.Services.ServicesImplementation
         {
             _commentRepository.Remove(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Delete, item);
         }
 
         public void Update(Comment item)
         {
             _commentRepository.Update(item);
             _unitOfWork.Save();
+            var updatedComment = _commentRepository.GetItemById(item.Id);
+            _logger.Write(Operation.Update, item, updatedComment);
         }
         public IEnumerable<Comment> Get(params Expression<Func<Comment, object>>[] includeProperties)
         {

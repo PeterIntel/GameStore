@@ -216,6 +216,8 @@
     <Compile Include="ViewModels\CommentsViewModel.cs" />
     <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\FilterCriteriaViewModel.cs" />
+    <Compile Include="ViewModels\FilterOrdersViewModel.cs" />
+    <Compile Include="ViewModels\GameInfoViewModel.cs" />
     <Compile Include="ViewModels\GamesAndFilterViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\GenreViewModel.cs" />
@@ -260,6 +262,9 @@
     <Content Include="Views\Game\_GameDetails.cshtml" />
     <Content Include="Views\Game\_Filters.cshtml" />
     <Content Include="Views\Game\AddError.cshtml" />
+    <Content Include="Views\Game\GameInfoViewModel.cshtml" />
+    <Content Include="Views\Order\history.cshtml" />
+    <Content Include="Views\Order\_Order.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

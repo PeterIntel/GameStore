@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace GameStore.Domain.BusinessObjects
 {
@@ -14,6 +15,7 @@ namespace GameStore.Domain.BusinessObjects
         public string GameId { set; get; }
         public Game Game { set; get; }
         public Comment ParentComment { set; get; }
+        [JsonIgnore]
         public IEnumerable<Comment> Comments { set; get; }
     }
 }

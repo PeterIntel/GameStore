@@ -6,6 +6,6 @@ namespace GameStore.DataAccess.Interfaces
 {
     public interface IPlatformTypeRepository : IGenericDataRepository<PlatformTypeEntity, PlatformType>
     {
-        IEnumerable<PlatformTypeEntity> GetPlatformTypes(IList<string> genres);
+        IEnumerable<PlatformTypeEntity> GetPlatformTypes(IEnumerable<PlatformType> genres);
     }
 }

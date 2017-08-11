@@ -109,10 +109,19 @@
     <Compile Include="Decorators\GenericDecoratorRepository.cs" />
     <Compile Include="Decorators\IGenericDecoratorRepository.cs" />
     <Compile Include="Decorators\IGameDecoratorRepository.cs" />
+    <Compile Include="Decorators\IOrderDecoratorRepository.cs" />
+    <Compile Include="Decorators\OrderDecoratorRepository.cs" />
+    <Compile Include="Infrastructure\IdComparer.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.Designer.cs">
       <DependentUpon>201708081325289_rename_IsSqlEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708091322243_raname_IsMongoEntity.cs" />
+    <Compile Include="Migrations\201708091322243_raname_IsMongoEntity.Designer.cs">
+      <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
+    <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
     <Compile Include="Mongo\GamesMongoContext.cs" />
     <Compile Include="Mongo\CollectionName.cs" />
@@ -193,6 +202,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708081325289_rename_IsSqlEntity.resx">
       <DependentUpon>201708081325289_rename_IsSqlEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091322243_raname_IsMongoEntity.resx">
+      <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

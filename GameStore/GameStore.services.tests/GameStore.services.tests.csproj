@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.1.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +73,10 @@
     <ProjectReference Include="..\GameStore.Domain\GameStore.Domain.csproj">
       <Project>{16B24EDC-E21A-43F7-8721-5D51AF4CD0BA}</Project>
       <Name>GameStore.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameStore.Logging\GameStore.Logging.csproj">
+      <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
+      <Name>GameStore.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameStore.services\GameStore.Services.csproj">
       <Project>{dc9f595c-917a-49aa-b108-6c29e6d1fbc4}</Project>

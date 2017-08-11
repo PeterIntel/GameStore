@@ -8,21 +8,26 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.DataAccess.UnitOfWork;
+using GameStore.Logging.Loggers;
+using GameStore.Services.ServicesImplementation.FilterImplementation.OrderFilter;
+
 namespace GameStore.Services.ServicesImplementation
 {
-    public class OrderService : IOrderService
+    public class OrderService : BasicService<Order>, IOrderService
     {
-        private readonly IGenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order> _orderRepository;
+        private readonly IOrderDecoratorRepository _orderRepository;
         private readonly IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> _orderDetailsRepository;
         private readonly IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> _gameRepository;
+        private readonly IMongoLogger<Order> _logger;
         private readonly IUnitOfWork _unitOfWork;
 
-        public OrderService(IUnitOfWork unitOfWork, IGenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order> orderRepository, IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> gameRepository, IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> orderDetailsRepository)
+        public OrderService(IUnitOfWork unitOfWork, IOrderDecoratorRepository orderRepository, IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> gameRepository, IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger)
         {
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _gameRepository = gameRepository;
             _orderDetailsRepository = orderDetailsRepository;
+            _logger = logger;
         }
 
         public void AddGameToOrder(string gamekey, string customerId)
@@ -49,6 +54,7 @@ namespace GameStore.Services.ServicesImplementation
             {
                 _orderDetailsRepository.Add(new OrderDetails()
                 {
+                    Id = Guid.NewGuid().ToString(),
                     OrderId = order.Id,
                     GameId = game.Id,
                     Quantity = 1,
@@ -57,24 +63,14 @@ namespace GameStore.Services.ServicesImplementation
             }
 
             _unitOfWork.Save();
+            _logger.Write(Operation.Insert, order);
         }
 
         public void Add(Order item)
         {
             _orderRepository.Add(item);
             _unitOfWork.Save();
-        }
-
-        public IEnumerable<Order> GetAll(params Expression<Func<Order, object>>[] includeProperties)
-        {
-            var result = _orderRepository.Get(includeProperties).ToList();
-            return result;
-        }
-
-        public IEnumerable<Order> GetAll(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
-        {
-            var result = _orderRepository.Get(filter, includeProperties).ToList();
-            return result;
+            _logger.Write(Operation.Insert, item);
         }
 
         public Order GetOrderByCustomerId(string id)
@@ -83,13 +79,13 @@ namespace GameStore.Services.ServicesImplementation
 
             if (order == null)
             {
-                _orderRepository.Add(new Order()
+                Add(new Order()
                 {
+                    Id = Guid.NewGuid().ToString(),
                     Status = CompletionStatus.InComplete,
                     CustomerId = id,
                     OrderDate = DateTime.UtcNow,
                 });
-                _unitOfWork.Save();
 
                 order = _orderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
             }
@@ -113,25 +109,42 @@ namespace GameStore.Services.ServicesImplementation
         {
             _orderRepository.Remove(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Delete, item);
         }
 
         public void Update(Order item)
         {
             _orderRepository.Update(item);
             _unitOfWork.Save();
+            var updatedOrder = _orderRepository.GetItemById(item.Id);
+            _logger.Write(Operation.Update, item, updatedOrder);
         }
 
         public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties) 
              
         {
-            var games = _orderRepository.Get(filter, includeProperties).ToList();
-            return games;
+            var orders = _orderRepository.Get(filter, includeProperties).ToList();
+            return orders;
         }
 
         public IEnumerable<Order> Get(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var games = _orderRepository.Get(includeProperties).ToList();
-            return games;
+            var orders = _orderRepository.Get(includeProperties).ToList();
+            return orders;
+        }
+
+        public IEnumerable<Order> GetOrdersHistory(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties)
+        {
+            OrderPipeLine pipeline = new OrderPipeLine();
+            var filterExpression = pipeline.ApplyFilters(filter);
+            var orders = _orderRepository.GetOrders(filterExpression, includeProperties);
+            return orders;
+        }
+
+        public IEnumerable<Order> GetOrdersHistory(params Expression<Func<Order, object>>[] includeProperties)
+        {
+            var orders = _orderRepository.GetOrders(x => true, includeProperties);
+            return orders;
         }
     }
 }

@@ -7,8 +7,8 @@ namespace GameStore.DataAccess.Interfaces
 {
     public interface IReadOnlyGenericRepository<TEntity, TDomain> where TEntity : class where TDomain : BasicDomain
     {
-        IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params string[] ids);
-        IEnumerable<TDomain> Get(params string[] ids);
+        IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter);
+        IEnumerable<TDomain> Get();
         TDomain GetItemById(string id);
         TDomain GetFirst(Expression<Func<TDomain, bool>> filter);
         int GetCountObject(Expression<Func<TDomain, bool>> filter);

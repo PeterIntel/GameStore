@@ -10,23 +10,27 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
+using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class PublisherService : IPublisherService
+    public class PublisherService : BasicService<Publisher>, IPublisherService
     {
         private readonly IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher> _publisherRepository;
+        private readonly IMongoLogger<Publisher> _logger;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PublisherService(IUnitOfWork unitOfWork, IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher> publisherRepository)
+        public PublisherService(IUnitOfWork unitOfWork, IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher> publisherRepository, IMongoLogger<Publisher> logger)
         {
             _publisherRepository = publisherRepository;
             _unitOfWork = unitOfWork;
+            _logger = logger;
         }
         public void Add(Publisher item)
         {
             _publisherRepository.Add(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Insert, item);
         }
 
         public IEnumerable<Publisher> Get(params Expression<Func<Publisher, object>>[] includeProperties)
@@ -49,12 +53,15 @@ namespace GameStore.Services.ServicesImplementation
         {
             _publisherRepository.Remove(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Delete, item);
         }
 
         public void Update(Publisher item)
         {
             _publisherRepository.Update(item);
             _unitOfWork.Save();
+            var updatedPublisher = _publisherRepository.GetItemById(item.Id);
+            _logger.Write(Operation.Update, item, updatedPublisher);
         }
         public IEnumerable<Publisher> GetAllPublishersAndMarkSelected(IEnumerable<string> selecredPublishers)
         {

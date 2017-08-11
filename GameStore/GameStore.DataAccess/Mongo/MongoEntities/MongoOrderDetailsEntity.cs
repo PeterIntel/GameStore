@@ -5,15 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameStore.DataAccess.Mongo.CustomMongoSerializers;
 
 namespace GameStore.DataAccess.Mongo.MongoEntities
 {
     [BsonIgnoreExtraElements]
     public class MongoOrderDetailsEntity : BasicMongoEntity
     {
-        public int ProductID { set; get; }
-        public int OrderID { set; get; }
-        public decimal Price { set; get; }
+        [BsonSerializer(typeof(StringSerializer))]
+        public string ProductID { set; get; }
+        [BsonSerializer(typeof(StringSerializer))]
+        public string OrderID { set; get; }
+        [BsonSerializer(typeof(DecimalSerializer))]
+        public decimal UnitPrice { set; get; }
         public short Quantity { set; get; }
         public double Discount { set; get; }
         [BsonIgnore]

@@ -12,6 +12,6 @@ namespace GameStore.DataAccess.Decorators
 {
     public interface IGameDecoratorRepositoryRepository : IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game>
     {
-        IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties);
+        IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, bool ascending = true, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties);
     }
 }

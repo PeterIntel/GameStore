@@ -9,6 +9,6 @@ namespace GameStore.DataAccess.MSSQL.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Id { set; get; }
         public bool IsDeleted { set; get; }
-        public bool IsMongoEntity { set; get; }
+        public bool IsSqlEntity { set; get; }
     }
 }

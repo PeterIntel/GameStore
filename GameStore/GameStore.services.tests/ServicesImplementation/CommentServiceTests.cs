@@ -7,6 +7,7 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Logging.Loggers;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
@@ -18,7 +19,8 @@ namespace GameStore.Services.Tests.ServicesImplementation
     {
         private CommentService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
-        private Mock<IGenericDataRepository<CommentEntity, Comment>> _rep;
+        private Mock<IGenericDataRepository<CommentEntity, Comment>> _commentRepository;
+        private Mock<IMongoLogger<Comment>> _logger;
         private Comment _commentStub = new Comment();
         private static int CommentId = 1;
         private IList<Comment> _comments = new List<Comment>()
@@ -77,68 +79,68 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [SetUp]
         public void Setup()
         {
-            _rep = new Mock<IGenericDataRepository<CommentEntity, Comment>>();
+            _commentRepository = new Mock<IGenericDataRepository<CommentEntity, Comment>>();
             _unitOfWork = new Mock<IUnitOfWork>();
-            _unitOfWork.Setup(m => m.CommentRepository).Returns(_rep.Object);
+            _logger = new Mock<IMongoLogger<Comment>>();
             
-            _sut = new CommentService(_unitOfWork.Object);
+            _sut = new CommentService(_unitOfWork.Object, _commentRepository.Object, _logger.Object);
         }
 
         [Test]
         public void Add_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(p => p.CommentRepository.Add(It.IsAny<Comment>()));
+            _commentRepository.Setup(p => p.Add(It.IsAny<Comment>()));
 
             _sut.Add(new Comment());
 
-            _unitOfWork.Verify(u => u.CommentRepository.Add(It.IsAny<Comment>()), Times.Once);
+            _commentRepository.Verify(u => u.Add(It.IsAny<Comment>()), Times.Once);
         }
 
         [Test]
         public void GetAllCommentsByGameKey_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.Get(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()))
-                .Returns(() => It.IsAny<IList<Comment>>());
+            _commentRepository.Setup(g => g.Get(It.IsAny<Expression<Func<Comment, bool>>>()))
+                .Returns(() => new List<Comment>());
 
             _sut.GetAllCommentsByGameKey("game");
 
-            _unitOfWork.Verify(u => u.CommentRepository.Get(It.IsAny<Expression<Func<Comment, bool>>>(), It.IsAny<Expression<Func<Comment, object>>[]>()), Times.Once);
+            _commentRepository.Verify(u => u.Get(It.IsAny<Expression<Func<Comment, bool>>>()), Times.Once);
         }
 
         [Test]
         public void RemoteCommentId_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<string>()));
+            _commentRepository.Setup(g => g.Remove(It.IsAny<string>()));
 
             _sut.Remove("133");
 
-            _unitOfWork.Verify(u => u.CommentRepository.Remove(It.IsAny<string>()), Times.Once);
+            _commentRepository.Verify(u => u.Remove(It.IsAny<string>()), Times.Once);
         }
 
         [Test]
         public void RemoteComment_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.Remove(It.IsAny<Comment>()));
+            _commentRepository.Setup(g => g.Remove(It.IsAny<Comment>()));
 
             _sut.Remove(_commentStub);
 
-            _unitOfWork.Verify(u => u.CommentRepository.Remove(It.IsAny<Comment>()), Times.Once);
+            _commentRepository.Verify(u => u.Remove(It.IsAny<Comment>()), Times.Once);
         }
 
         [Test]
         public void UpdateComment_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.Update(It.IsAny<Comment>()));
+            _commentRepository.Setup(g => g.Update(It.IsAny<Comment>()));
 
             _sut.Update(_commentStub);
 
-            _unitOfWork.Verify(u => u.CommentRepository.Update(It.IsAny<Comment>()), Times.Once);
+            _commentRepository.Verify(u => u.Update(It.IsAny<Comment>()), Times.Once);
         }
 
         [Test]
         public void GetStructureOfComments_StructureListOfComment_StructuredListOfComments()
         {
-            _unitOfWork.Setup(x => x.CommentRepository.GetItemById(It.IsAny<string>())).Returns<int>(x => It.IsAny<Comment>());
+            _commentRepository.Setup(x => x.GetItemById(It.IsAny<string>())).Returns<string>(x => It.IsAny<Comment>());
 
             var result = _sut.GetStructureOfComments(_comments);
 
@@ -148,7 +150,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void GetStructureOfComments_SendNullToMethod_GetNull()
         {
-            _unitOfWork.Setup(g => g.CommentRepository.GetItemById(It.IsAny<string>())).Returns<Comment>(x => It.IsAny<Comment>());
+            _commentRepository.Setup(g => g.GetItemById(It.IsAny<string>())).Returns<Comment>(x => It.IsAny<Comment>());
 
             var result = _sut.GetStructureOfComments(null);
 

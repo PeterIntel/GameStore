@@ -29,6 +29,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (domainItem != null)
             {
                 var item = _mapper.Map<TDomain, TEntity>(domainItem);
+                item.IsSqlEntity = true;
                 _dbSet.Add(item);
             }
         }
@@ -51,7 +52,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
             return result;
         }
 
@@ -66,7 +67,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
 
             return result;
         }
@@ -109,7 +110,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (item != null)
             {
                 TEntity entity = _mapper.Map<TDomain, TEntity>(item);
-                _context.Entry(_context.GamesInfo.Find(entity.Id)).State = EntityState.Detached;
+                _context.Entry(_dbSet.Find(entity.Id)).State = EntityState.Detached;
                 _context.Entry(entity).State = EntityState.Modified;
             }
         }
@@ -136,7 +137,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (filter != null)
             {
                 IQueryable<TEntity> queryToEntities = _dbSet.Where(x => x.IsDeleted == false).Where(filterEntity);
-                return queryToEntities.ProjectTo<TDomain>(_mapper.ConfigurationProvider).First();
+                return queryToEntities.ProjectTo<TDomain>(_mapper.ConfigurationProvider).FirstOrDefault();
             }
 
             return null;

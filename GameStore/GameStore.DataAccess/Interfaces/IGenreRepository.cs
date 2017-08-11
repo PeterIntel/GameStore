@@ -6,6 +6,6 @@ namespace GameStore.DataAccess.Interfaces
 {
     public interface IGenreRepository : IGenericDataRepository<GenreEntity, Genre>
     {
-        IEnumerable<GenreEntity> GetGenres(IList<string> genres);
+        IEnumerable<GenreEntity> GetGenres(IEnumerable<Genre> genres);
     }
 }

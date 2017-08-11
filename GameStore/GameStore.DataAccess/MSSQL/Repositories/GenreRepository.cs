@@ -14,12 +14,13 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         {
         }
 
-        public IEnumerable<GenreEntity> GetGenres(IList<string> genres)
+        public IEnumerable<GenreEntity> GetGenres(IEnumerable<Genre> genres)
         {
             var gen = from i in genres
                 from genre in _dbSet
-                where i == genre.Name
+                where i.Id == genre.Id
                 select genre;
+ 
             return gen;
         }
     }

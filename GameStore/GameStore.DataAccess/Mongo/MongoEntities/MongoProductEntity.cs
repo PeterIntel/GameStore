@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameStore.DataAccess.Mongo.CustomMongoSerializers;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -11,7 +12,8 @@ namespace GameStore.DataAccess.Mongo.MongoEntities
     [BsonIgnoreExtraElements]
     public class MongoProductEntity : BasicMongoEntity
     {
-        public int ProductID { set; get; }
+        [BsonSerializer(typeof(StringSerializer))]
+        public string ProductID { set; get; }
         public string ProductName { set; get; }
         public int SupplierID { set; get; }
         public int CategoryID { set; get; }

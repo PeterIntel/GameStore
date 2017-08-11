@@ -14,11 +14,11 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         {
         }
 
-        public IEnumerable<PlatformTypeEntity> GetPlatformTypes(IList<string> platformtypes)
+        public IEnumerable<PlatformTypeEntity> GetPlatformTypes(IEnumerable<PlatformType> platformtypes)
         {
             var platforms = from i in platformtypes
                 from platform in _dbSet
-                where i == platform.TypeName
+                where i.TypeName == platform.TypeName
                 select platform;
             return platforms;
         }
