@@ -7,13 +7,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class add_User_Reference_to_OrderEntity : IMigrationMetadata
+    public sealed partial class Add_UserEntity_and_RoleEntity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(add_User_Reference_to_OrderEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_UserEntity_and_RoleEntity));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708141313547_add_User_Reference_to_OrderEntity"; }
+            get { return "201708141406466_Add_UserEntity_and_RoleEntity"; }
         }
         
         string IMigrationMetadata.Source

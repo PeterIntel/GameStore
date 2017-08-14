@@ -10,6 +10,7 @@ namespace GameStore.DataAccess.MSSQL
         public GamesSqlContext() : base("GamesContext")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesSqlContext, Configuration>("GamesContext"));
+            //Database.SetInitializer(new Configuration());
             this.Configuration.LazyLoadingEnabled = false;
         }
 
@@ -31,7 +32,7 @@ namespace GameStore.DataAccess.MSSQL
             modelBuilder.Configurations.Add(new GameConfiguration());
             modelBuilder.Entity<OrderEntity>().Property(x => x.OrderDate).HasColumnType("datetime2");
             modelBuilder.Entity<GameInfoEntity>().Property(x => x.UploadDate).HasColumnType("datetime2");
-            //modelBuilder.Entity<OrderEntity>().Property(x => x.)
+            modelBuilder.Entity<OrderEntity>().HasRequired(x => x.Customer).WithMany(x => x.Orders).HasForeignKey(fk => fk.CustomerId);
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -120,13 +120,9 @@
     <Compile Include="Migrations\201708091322243_raname_IsMongoEntity.Designer.cs">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708141301240_Add_UserEntity_and_RoleEntity.cs" />
-    <Compile Include="Migrations\201708141301240_Add_UserEntity_and_RoleEntity.Designer.cs">
-      <DependentUpon>201708141301240_Add_UserEntity_and_RoleEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708141313547_add_User_Reference_to_OrderEntity.cs" />
-    <Compile Include="Migrations\201708141313547_add_User_Reference_to_OrderEntity.Designer.cs">
-      <DependentUpon>201708141313547_add_User_Reference_to_OrderEntity.cs</DependentUpon>
+    <Compile Include="Migrations\201708141406466_Add_UserEntity_and_RoleEntity.cs" />
+    <Compile Include="Migrations\201708141406466_Add_UserEntity_and_RoleEntity.Designer.cs">
+      <DependentUpon>201708141406466_Add_UserEntity_and_RoleEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
@@ -216,11 +212,8 @@
     <EmbeddedResource Include="Migrations\201708091322243_raname_IsMongoEntity.resx">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708141301240_Add_UserEntity_and_RoleEntity.resx">
-      <DependentUpon>201708141301240_Add_UserEntity_and_RoleEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708141313547_add_User_Reference_to_OrderEntity.resx">
-      <DependentUpon>201708141313547_add_User_Reference_to_OrderEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708141406466_Add_UserEntity_and_RoleEntity.resx">
+      <DependentUpon>201708141406466_Add_UserEntity_and_RoleEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>
