@@ -21,7 +21,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
             Random r = new Random();
 
             context.PlatformTypes.AddOrUpdate(
-                    new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(), TypeName = "Android", IsDeleted = false, IsSqlEntity = true},
+                    new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(), TypeName = "Android", IsDeleted = false, IsSqlEntity = true },
                     new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(), TypeName = "iOS", IsDeleted = false, IsSqlEntity = true }
                 );
 
@@ -248,6 +248,18 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                 );
             }
             context.SaveChanges();
+
+            context.Users.AddOrUpdate(new UserEntity()
+            {
+                Id = "1",
+                FirstName = "Ivan",
+                LastName = "Ivanow",
+                Login = "ivan",
+                Password = "customer1",
+                BirthDay = DateTime.UtcNow.AddYears(20),
+                IsDeleted = false,
+                IsSqlEntity = true
+            });
 
             context.Orders.AddOrUpdate(
                 new OrderEntity()

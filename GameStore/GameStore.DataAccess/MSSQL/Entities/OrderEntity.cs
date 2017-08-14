@@ -10,5 +10,6 @@ namespace GameStore.DataAccess.MSSQL.Entities
         public DateTime OrderDate { set; get; }
         public CompletionStatus Status { set; get; }
         public virtual IList<OrderDetailsEntity> OrderDetails { set; get; }
+        public virtual UserEntity Customer { set; get; }
     }
 }
