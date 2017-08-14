@@ -18,8 +18,11 @@ namespace GameStore.DataAccess.Mongo.DataProviders
         private static IMongoCollection<MongoSupplierEntity> _suppliers = _context.GetCollection<MongoSupplierEntity>();
         private static IMongoCollection<MongoOrderDetailsEntity> _orderDetails = _context.GetCollection<MongoOrderDetailsEntity>();
         private static IMongoCollection<MongoProductEntity> _products = _context.GetCollection<MongoProductEntity>();
+
+        // TODO: What's children? Rename it to something domain-known or at least write a xml comment description.
         public static IQueryable<T> GetChildren<T>(this IQueryable<T> items)
         {
+            // TODO: use nameof instead of string literal
             if (typeof(T).Name == "MongoProductEntity")
             {
                 var products = (IEnumerable<MongoProductEntity>)items;
@@ -41,6 +44,8 @@ namespace GameStore.DataAccess.Mongo.DataProviders
                            };
                 return (IQueryable<T>)products.AsQueryable();
             }
+
+            // TODO: Separate this logic into two methods
             if (typeof(T).Name == "MongoOrderEntity")
             {
                 var orders = (IEnumerable<MongoOrderEntity>)items;

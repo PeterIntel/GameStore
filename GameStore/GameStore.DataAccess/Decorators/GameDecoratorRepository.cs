@@ -18,9 +18,11 @@ namespace GameStore.DataAccess.Decorators
 
         }
 
+        // TODO: Skip and Take actions should also be executed in the database
         public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filter, Expression<Func<Game, TKey>> sort, bool ascending = true, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties)
         {
             var filteredGames = Get(filter, includeProperties);
+            // TODO: You don't need IQueriable here, connection to the db doesn't exists here anymore.
             filteredGames = ascending ? filteredGames.AsQueryable().OrderBy(sort) : filteredGames.AsQueryable().OrderByDescending(sort);
             if (size != null)
             {

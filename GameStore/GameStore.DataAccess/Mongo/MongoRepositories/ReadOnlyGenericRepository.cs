@@ -33,6 +33,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public IEnumerable<TDomain> Get()
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
+            // TODO: wtf
             var d = queryToEntity.ToList();
             queryToEntity = queryToEntity.GetChildren<TEntity>();
             var dd = queryToEntity.ToList();

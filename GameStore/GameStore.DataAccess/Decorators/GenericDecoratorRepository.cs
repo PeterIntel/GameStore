@@ -88,18 +88,21 @@ namespace GameStore.DataAccess.Decorators
 
         public IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter)
         {
+            // TODO: wft?
             if (filter.Body.ToString().Contains("PlatformTypes"))
             {
                 filter = x => false;
             }
 
             var sqlIds = SqlDataRepository.Get(filter).Select(sql => sql.Id);
+            // TODO: please make it readable (fix naming + maybe split on several parts)
             var requiredMongoCollection = MongoDataRepository.Get().Except((from i in sqlIds
                                                                             join j in MongoDataRepository.Get() on i equals j.Id
                                                                             select j), new IdComparer<TDomain>()).AsQueryable().Where(filter).ToList();
             return requiredMongoCollection;
         }
 
+        // TODO: Items is too abstract
         public IEnumerable<TDomain> GetItems(IEnumerable<string> ids)
         {
             IList<TDomain> items = new List<TDomain>();

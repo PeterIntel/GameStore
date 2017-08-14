@@ -55,6 +55,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<MongoProductEntity, Game>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Key, opt => opt.MapFrom(src => src.ProductID))
+                // TODO: It's usually being resolved like this: http://joxi.ru/nAynw0OSYe6zRr
                 .ForMember(dst => dst.Comments, opt => opt.UseValue(new List<Comment>()))
                 .ForMember(dst => dst.Description, opt => opt.Ignore())
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => (decimal)src.UnitPrice))

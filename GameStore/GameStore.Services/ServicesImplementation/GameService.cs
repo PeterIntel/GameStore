@@ -121,6 +121,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public void AddViewToGame(string key)
         {
+            // TODO: Not GetFirst, just First
             var game = _gameRepository.GetFirst(x => x.Key == key);
             if (game != null)
             {
