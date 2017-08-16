@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
@@ -17,6 +18,7 @@ namespace GameStore.DataAccess.Decorators
 
         public IEnumerable<Order> GetOrders(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
         {
+            var c = base.Get(filter, includeProperties).ToList();
             return base.Get(filter, includeProperties);
         }
 

@@ -54,13 +54,9 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<MongoProductEntity, Game>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Key, opt => opt.MapFrom(src => src.ProductID))
-                // TODO: It's usually being resolved like this: http://joxi.ru/nAynw0OSYe6zRr
-                //.ForMember(dst => dst.Comments, opt => opt.UseValue(new List<Comment>()))
                 .ForMember(dst => dst.Description, opt => opt.Ignore())
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => (decimal)src.UnitPrice))
-                //.ForMember(dst => dst.PublishedDate, opt => opt.UseValue(new DateTime()))
                 .ForMember(dst => dst.UnitsInStock, opt => opt.MapFrom(src => (short)src.UnitsInStock))
-                //.ForMember(dst => dst.GameInfo, opt => opt.UseValue(new GameInfo() { UploadDate = DateTime.UtcNow }))
                 .ForMember(dst => dst.Publisher, opt => opt.MapFrom(src => src.Supplier))
                 .ForMember(dst => dst.Genres, opt => opt.MapFrom(src => src.Categories))
                 .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
@@ -81,13 +77,14 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.OrderId, opt => opt.MapFrom(src => src.OrderID))
                 .ForMember(dst => dst.Game, opt => opt.MapFrom(src => src.Product))
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => src.UnitPrice))
-                .ForMember(dst => dst.Order, opt => opt.MapFrom(src => src.Order));
+                .ForMember(dst => dst.Order, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
 
             CreateMap<MongoOrderEntity, Order>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.CustomerId, opt => opt.MapFrom(src => src.CustomerID))
-                .ForMember(dst => dst.Status, opt => opt.UseValue(CompletionStatus.Complete))
-                .ForMember(dst => dst.OrderDetails, opt => opt.MapFrom(src => src.OrderDetails));
+                .ForMember(dst => dst.OrderDetails, opt => opt.MapFrom(src => src.OrderDetails))
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
 
 
             CreateMap<Game, MongoProductEntity>()

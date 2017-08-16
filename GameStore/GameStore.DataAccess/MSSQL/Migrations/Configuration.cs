@@ -136,7 +136,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                 );
             context.SaveChanges();
 
-            for (int i = 6; i < 6; i++)
+            for (int i = 6; i < 100; i++)
             {
                 context.Games.AddOrUpdate(
                     new GameEntity()
@@ -235,7 +235,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     IsSqlEntity = true
                 });
 
-            for (int i = 6; i < 6; i++)
+            for (int i = 6; i < 100; i++)
             {
                 context.GamesInfo.AddOrUpdate(
                     new GameInfoEntity()

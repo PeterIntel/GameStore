@@ -33,7 +33,6 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public virtual IEnumerable<TDomain> Get()
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
-            queryToEntity = queryToEntity.GetNestedEntities<TEntity>();
             var result = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
             
             return result;
@@ -47,7 +46,6 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
                 var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterToDomain);
                 queryToEntity = queryToEntity.Where(filterToEntity);
             }
-            queryToEntity = queryToEntity.GetNestedEntities();
             var queryToDomain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
             return queryToDomain;
         }

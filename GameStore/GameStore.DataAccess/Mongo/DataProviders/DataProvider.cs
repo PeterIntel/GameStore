@@ -18,11 +18,8 @@ namespace GameStore.DataAccess.Mongo.DataProviders
         /// </summary>
         /// <param name="products"></param>
         /// <returns></returns>
-        public static IQueryable<TDomain> GetNestedEntities<TDomain>(this IQueryable<TDomain> products)
+        public static IQueryable<MongoProductEntity> GetNestedEntities(this IQueryable<MongoProductEntity> products)
         {
-
-            if (typeof(TDomain).Name == nameof(MongoProductEntity))
-            {
                 var newProducts = from a in (IEnumerable<MongoProductEntity>) products
                     join b in Categories.AsQueryable() on a.CategoryID equals b.CategoryID into categories
                     join supplier in Suppliers.AsQueryable() on a.SupplierID equals supplier.SupplierID
@@ -39,9 +36,7 @@ namespace GameStore.DataAccess.Mongo.DataProviders
                         Categories = categories,
                         Supplier = supplier
                     };
-                return (IQueryable<TDomain>) newProducts.AsQueryable();
-            }
-            return products;
+                return (IQueryable<MongoProductEntity>) newProducts.AsQueryable();
         }
         
         /// <summary>
@@ -60,7 +55,8 @@ namespace GameStore.DataAccess.Mongo.DataProviders
                          CustomerID = order.CustomerID,
                          OrderID = order.OrderID,
                          OrderDate = order.OrderDate,
-                         OrderDetails = from details in ordersDetails
+                         OrderDetails = 
+                         from details in ordersDetails
                                         select new MongoOrderDetailsEntity()
                                         {
                                             Id = details.Id,
@@ -74,7 +70,7 @@ namespace GameStore.DataAccess.Mongo.DataProviders
                                                        select product).SingleOrDefault()
                                         }
                      };
-             
+            var d = newOrders.ToList();
             return (IQueryable<MongoOrderEntity>)newOrders.AsQueryable();
         }
     }

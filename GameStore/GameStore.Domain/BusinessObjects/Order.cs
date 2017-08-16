@@ -10,7 +10,7 @@ namespace GameStore.Domain.BusinessObjects
     {
         public string CustomerId { set; get; }
         public DateTime OrderDate { set; get; }
-        public CompletionStatus Status { set; get; }
-        public IList<OrderDetails> OrderDetails { set; get; }
+        public CompletionStatus Status { set; get; } = CompletionStatus.Complete;
+        public IEnumerable<OrderDetails> OrderDetails { set; get; }
     }
 }
