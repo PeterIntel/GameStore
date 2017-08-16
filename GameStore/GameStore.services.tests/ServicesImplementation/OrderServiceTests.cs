@@ -72,7 +72,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void AddGameToOrder_AddNewGameToExitingOrder_QuantityOfDistinctGames()
         {
             _orderRepository.Setup(m => m.Get(It.IsAny<Expression<Func<Order, bool>>>())).Returns(new List<Order>() { _order});
-            _gameRepository.Setup(m => m.GetFirst(It.IsAny<Expression<Func<Game, bool>>>())).Returns(new Game());
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(new Game());
             _orderDetailsRepository.Setup(m => m.Add(It.IsAny<OrderDetails>())).Callback(() => _order.OrderDetails.Add(It.IsAny<OrderDetails>()));
 
             _sut.AddGameToOrder(It.IsAny<string>(), _customerId);

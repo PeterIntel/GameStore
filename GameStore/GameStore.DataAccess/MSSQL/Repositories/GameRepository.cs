@@ -15,7 +15,7 @@ using GameStore.DataAccess.Infrastructure;
 
 namespace GameStore.DataAccess.MSSQL.Repositories
 {
-    public class GameRepository : GenericDataRepository<GameEntity, Game>
+    public class GameRepository : GenericDataRepository<GameEntity, Game>, IGameRepository
     {
         private readonly IGenreRepository _genreRepository;
         private readonly IPlatformTypeRepository _platformRepository;
@@ -58,8 +58,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
             if (game.PlatformTypes != null)
             {
-                gameEntity.PlatformTypes = _platformRepository
-                    .GetPlatformTypes(game.PlatformTypes).ToList();
+                gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes(game.PlatformTypes).ToList();
             }
             if (game.Publisher.Id != null)
             {
@@ -74,6 +73,35 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
 
             return gameEntity;
+        }
+
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, bool ascending = true, int page = 1, int? size = 10, params Expression<Func<Game, object>>[] includeProperties)
+        {
+            IQueryable<GameEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
+
+            var filterEntity = _mapper.Map<Expression<Func<Game, bool>>, Expression<Func<GameEntity, bool>>>(filterDomain);
+
+            var sortEntity = _mapper.Map<Expression<Func<Game, TKey>>, Expression<Func<GameEntity, TKey>>>(sortDomain);
+
+            var includePropertiesForEntities = _mapper
+                .Map<Expression<Func<Game, object>>[], Expression<Func<GameEntity, object>>[]>(includeProperties);
+
+            foreach (var item in includePropertiesForEntities)
+            {
+                queryToEntity.Include(item);
+            }
+
+            if (filterEntity != null)
+            {
+                queryToEntity = queryToEntity.Where(filterEntity);
+            }
+
+            queryToEntity = ascending ? queryToEntity.OrderBy(sortEntity) : queryToEntity.OrderByDescending(sortEntity);
+
+            queryToEntity = queryToEntity.Take((int)size * page);
+
+            var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
+            return result;
         }
     }
 }

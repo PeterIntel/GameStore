@@ -10,9 +10,8 @@ namespace GameStore.DataAccess.Interfaces
         IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties);
         IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties);
         TDomain GetItemById(string id);
-        TDomain GetFirst(Expression<Func<TDomain, bool>> filter);
+        TDomain First(Expression<Func<TDomain, bool>> filter);
         int GetCountObject(Expression<Func<TDomain, bool>> filter);
-        //void Clone(TDomain item);
         void Add(TDomain item);
         void Update(TDomain item);
         void Remove(TDomain item);

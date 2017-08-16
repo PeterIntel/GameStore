@@ -41,9 +41,11 @@ namespace GameStore.Services.ServicesImplementation
             AssignIdIfEmpty(item);
             if (item.Genres == null)
             {
-                item.Genres = _genreRepository.GetItems(item.NameGenres);
+                item.Genres = _genreRepository.LoadDomainEntities(item.NameGenres);
             }
-            item.PlatformTypes = _mapper.Map<IEnumerable<string>, IEnumerable<PlatformType>>(item.NamePlatformTypes);
+
+            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() {TypeName = x});
+
             if (item.Publisher != null)
             {
                 item.Publisher = _publisherRepository.GetItemById(item.Publisher.Id);
@@ -55,7 +57,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public Game GetItemByKey(string key)
         {
-            var result = _gameRepository.GetFirst(x => x.Key == key);
+            var result = _gameRepository.First(x => x.Key == key);
             return result;
         }
 
@@ -121,14 +123,13 @@ namespace GameStore.Services.ServicesImplementation
 
         public void AddViewToGame(string key)
         {
-            // TODO: Not GetFirst, just First
-            var game = _gameRepository.GetFirst(x => x.Key == key);
+            var game = _gameRepository.First(x => x.Key == key);
             if (game != null)
             {
                 if (game.IsSqlEntity == false)
                 {
                     Add(game);
-                    game = _gameRepository.GetFirst(x => x.Key == key);
+                    game = _gameRepository.First(x => x.Key == key);
                 }
                 var gameInfo = _gameInfoRepository.GetItemById(game.Id);
                 gameInfo.CountOfViews++;

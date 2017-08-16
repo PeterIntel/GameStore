@@ -9,7 +9,7 @@ namespace GameStore.DataAccess.MSSQL
     {
         public GamesSqlContext() : base("GamesContext")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesSqlContext, Configuration>("GamesContext"));
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<GamesSqlContext, Configuration>("GamesContext"));
             this.Configuration.LazyLoadingEnabled = false;
         }
 

@@ -45,8 +45,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Comment, CommentEntity>();
             CreateMap<Genre, GenreEntity>();
             CreateMap<PlatformType, PlatformTypeEntity>();
-            CreateMap<string, Genre>().ConvertUsing((x, y) => new Genre() { Id = x });
-            CreateMap<string, PlatformType>().ConvertUsing((x, y) => new PlatformType() { TypeName = x });
+           
             CreateMap<Publisher, PublisherEntity>().ReverseMap();
             CreateMap<Order, OrderEntity>();
             CreateMap<OrderDetails, OrderDetailsEntity>();
@@ -56,15 +55,16 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Key, opt => opt.MapFrom(src => src.ProductID))
                 // TODO: It's usually being resolved like this: http://joxi.ru/nAynw0OSYe6zRr
-                .ForMember(dst => dst.Comments, opt => opt.UseValue(new List<Comment>()))
+                //.ForMember(dst => dst.Comments, opt => opt.UseValue(new List<Comment>()))
                 .ForMember(dst => dst.Description, opt => opt.Ignore())
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => (decimal)src.UnitPrice))
-                .ForMember(dst => dst.PublishedDate, opt => opt.UseValue(new DateTime()))
+                //.ForMember(dst => dst.PublishedDate, opt => opt.UseValue(new DateTime()))
                 .ForMember(dst => dst.UnitsInStock, opt => opt.MapFrom(src => (short)src.UnitsInStock))
-                .ForMember(dst => dst.GameInfo, opt => opt.UseValue(new GameInfo() { UploadDate = DateTime.UtcNow }))
-                .ForMember(dst => dst.Publisher, opt => opt.MapFrom(src => src.Supplier ?? new MongoSupplierEntity()))
-                .ForMember(dst => dst.Genres, opt => opt.MapFrom(src => src.Categories ?? new List<MongoCategoryEntity>()))
-                .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore());
+                //.ForMember(dst => dst.GameInfo, opt => opt.UseValue(new GameInfo() { UploadDate = DateTime.UtcNow }))
+                .ForMember(dst => dst.Publisher, opt => opt.MapFrom(src => src.Supplier))
+                .ForMember(dst => dst.Genres, opt => opt.MapFrom(src => src.Categories))
+                .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
 
             CreateMap<MongoSupplierEntity, Publisher>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))

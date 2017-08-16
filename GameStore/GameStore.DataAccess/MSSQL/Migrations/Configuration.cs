@@ -136,12 +136,12 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                 );
             context.SaveChanges();
 
-            for (int i = 6; i < 100; i++)
+            for (int i = 6; i < 6; i++)
             {
                 context.Games.AddOrUpdate(
                     new GameEntity()
                     {
-                        Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a99" + i.ToString("D2")).ToString(),
+                        Id = i.ToString(),
                         Key = "Game" + i,
                         Description = "Game description",
                         IsDeleted = false,
@@ -154,6 +154,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                         IsSqlEntity = true
                     }
                     );
+                context.SaveChanges();
             }
             context.SaveChanges();
 
@@ -234,7 +235,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     IsSqlEntity = true
                 });
 
-            for (int i = 6; i < 100; i++)
+            for (int i = 6; i < 6; i++)
             {
                 context.GamesInfo.AddOrUpdate(
                     new GameInfoEntity()

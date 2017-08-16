@@ -30,19 +30,16 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             Mapper = mapper;
             Collection = Context.GetCollection<TEntity>();
         }
-        public IEnumerable<TDomain> Get()
+        public virtual IEnumerable<TDomain> Get()
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
-            // TODO: wtf
-            var d = queryToEntity.ToList();
-            queryToEntity = queryToEntity.GetChildren<TEntity>();
-            var dd = queryToEntity.ToList();
-            var result = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).ToList();
+            queryToEntity = queryToEntity.GetNestedEntities<TEntity>();
+            var result = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
             
             return result;
         }
 
-        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterToDomain)
+        public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterToDomain)
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
             if (filterToDomain != null)
@@ -50,8 +47,8 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
                 var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterToDomain);
                 queryToEntity = queryToEntity.Where(filterToEntity);
             }
-            queryToEntity = queryToEntity.GetChildren<TEntity>();
-            var queryToDomain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).ToList();
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
             return queryToDomain;
         }
 
@@ -82,16 +79,15 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             return null;
         }
 
-        public TDomain GetFirst(Expression<Func<TDomain, bool>> filter)
+        public virtual TDomain First(Expression<Func<TDomain, bool>> filter)
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
 
             if (filter != null)
             {
                 var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                queryToEntity = queryToEntity.Where(filterToEntity); 
             }
-            queryToEntity = queryToEntity.GetChildren();
             TDomain domain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).FirstOrDefault();
             return domain;
         }

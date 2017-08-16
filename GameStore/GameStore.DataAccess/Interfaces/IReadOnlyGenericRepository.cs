@@ -10,7 +10,7 @@ namespace GameStore.DataAccess.Interfaces
         IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter);
         IEnumerable<TDomain> Get();
         TDomain GetItemById(string id);
-        TDomain GetFirst(Expression<Func<TDomain, bool>> filter);
+        TDomain First(Expression<Func<TDomain, bool>> filter);
         int GetCountObject(Expression<Func<TDomain, bool>> filter);
     }
 }
