@@ -36,11 +36,8 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
                 var filterToEntity = Mapper.Map<Expression<Func<Game, bool>>, Expression<Func<MongoProductEntity, bool>>>(filterToDomain);
                 queryToEntity = queryToEntity.Where(filterToEntity);
             }
-            var f = queryToEntity.ToList();
             queryToEntity = queryToEntity.GetNestedEntities();
-            var fs = queryToEntity.ToList();
             var queryToDomain = queryToEntity.ProjectTo<Game>(Mapper.ConfigurationProvider);
-            var fa = queryToDomain.ToList();
 
             return queryToDomain;
         }

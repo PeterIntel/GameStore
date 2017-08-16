@@ -49,7 +49,7 @@ namespace GameStore.DataAccess.Mongo.DataProviders
             var newOrders = from order in (IEnumerable<MongoOrderEntity>)orders
                      join orderDetails in OrderDetails.AsQueryable() on order.OrderID equals orderDetails.OrderID into
                      ordersDetails
-                     select new MongoOrderEntity()
+                            select new MongoOrderEntity()
                      {
                          Id = order.Id,
                          CustomerID = order.CustomerID,
@@ -65,14 +65,14 @@ namespace GameStore.DataAccess.Mongo.DataProviders
                                             Discount = details.Discount,
                                             UnitPrice = details.UnitPrice,
                                             Quantity = details.Quantity,
-                                            Product = (from product in Products.AsQueryable()
-                                                       where product.ProductID == details.ProductID
-                                                       select product).SingleOrDefault()
+                                            Product = Products.Find(Builders<MongoProductEntity>.Filter.Eq("ProductID", details.ProductID)).FirstOrDefault()
                                         }
                      };
-            var d = newOrders.ToList();
+
             return (IQueryable<MongoOrderEntity>)newOrders.AsQueryable();
         }
+
+
     }
 }
 

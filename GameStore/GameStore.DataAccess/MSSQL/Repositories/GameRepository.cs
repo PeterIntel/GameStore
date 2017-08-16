@@ -60,7 +60,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             {
                 gameEntity.PlatformTypes = _platformRepository.GetPlatformTypes(game.PlatformTypes).ToList();
             }
-            if (game.Publisher.Id != null)
+            if (game.Publisher != null)
             {
                 gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == game.Publisher.CompanyName);
 

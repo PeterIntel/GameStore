@@ -20,11 +20,8 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public override IEnumerable<Order> Get()
         {
             IQueryable<MongoOrderEntity> queryToEntity = Collection.AsQueryable();
-            var sss = queryToEntity.ToList();
             queryToEntity = queryToEntity.GetNestedEntities();
-            var ss = queryToEntity.ToList();
             var result = queryToEntity.ProjectTo<Order>(Mapper.ConfigurationProvider);
-            var d = result.ToList();
             return result;
         }
 

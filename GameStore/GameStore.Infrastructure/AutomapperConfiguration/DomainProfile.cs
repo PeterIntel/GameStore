@@ -58,7 +58,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => (decimal)src.UnitPrice))
                 .ForMember(dst => dst.UnitsInStock, opt => opt.MapFrom(src => (short)src.UnitsInStock))
                 .ForMember(dst => dst.Publisher, opt => opt.MapFrom(src => src.Supplier))
-                .ForMember(dst => dst.Genres, opt => opt.MapFrom(src => src.Categories))
+                .ForMember(dst => dst.Genres, opt => opt.MapFrom(src => src.Categories ?? new List<MongoCategoryEntity>()))
                 .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
                 .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
 
@@ -77,8 +77,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.OrderId, opt => opt.MapFrom(src => src.OrderID))
                 .ForMember(dst => dst.Game, opt => opt.MapFrom(src => src.Product))
                 .ForMember(dst => dst.Price, opt => opt.MapFrom(src => src.UnitPrice))
-                .ForMember(dst => dst.Order, opt => opt.Ignore())
-                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
+                .ForMember(dst => dst.Order, opt => opt.MapFrom(src => src.Order));
 
             CreateMap<MongoOrderEntity, Order>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))

@@ -84,7 +84,7 @@ namespace GameStore.DataAccess.Decorators
             var mongoEntities = from i in sqlIds
                                 join j in MongoDataRepository.Get() on i equals j.Id
                                 select j;
-            //var er = mongoEntities.ToList();
+
             var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdComparer<TDomain>());
 
             return requiredMongoCollection;
@@ -104,9 +104,9 @@ namespace GameStore.DataAccess.Decorators
             var mongoEntities = from i in sqlIds
                                 join j in MongoDataRepository.Get() on i equals j.Id
                                 select j;
-            var n = mongoEntities.ToList();
+
             var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdComparer<TDomain>()).AsQueryable().Where(filter);
-            var xs = requiredMongoCollection.ToList();
+
             return requiredMongoCollection;
         }
         public IEnumerable<TDomain> LoadDomainEntities(IEnumerable<string> ids)

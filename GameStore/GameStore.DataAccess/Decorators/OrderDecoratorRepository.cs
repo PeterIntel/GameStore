@@ -18,7 +18,6 @@ namespace GameStore.DataAccess.Decorators
 
         public IEnumerable<Order> GetOrders(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
         {
-            var c = base.Get(filter, includeProperties).ToList();
             return base.Get(filter, includeProperties);
         }
 
