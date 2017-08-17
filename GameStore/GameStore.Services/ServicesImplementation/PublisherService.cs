@@ -41,7 +41,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public Publisher GetPublisherByCompanyName(string companyName)
         {
-            return _publisherRepository.GetFirst(x => x.CompanyName == companyName);
+            return _publisherRepository.First(x => x.CompanyName == companyName);
         }
 
         public void Remove(string id)

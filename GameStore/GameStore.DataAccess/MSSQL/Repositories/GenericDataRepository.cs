@@ -52,7 +52,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
             return result;
         }
 
@@ -67,7 +67,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 queryToEntity.Include(item);
             }
 
-            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider).ToList();
+            var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
 
             return result;
         }
@@ -131,7 +131,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             return result;
         }
 
-        public TDomain GetFirst(Expression<Func<TDomain, bool>> filter)
+        public TDomain First(Expression<Func<TDomain, bool>> filter)
         {
             var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
             if (filter != null)

@@ -12,8 +12,8 @@ namespace GameStore.Infrastructure.NinjectConfiguration
     {
         public override void Load()
         {
-            Bind(typeof(IGenericDecoratorRepository<,,>)).To(typeof(GenericDecoratorRepositoryRepository<,,>));
-            Bind<IGameDecoratorRepositoryRepository>().To<GameDecoratorRepositoryRepository>();
+            Bind(typeof(IGenericDecoratorRepository<,,>)).To(typeof(GenericDecoratorRepository<,,>));
+            Bind<IGameDecoratorRepositoryRepository>().To<GameDecoratorRepository>();
             Bind<IOrderDecoratorRepository>().To<OrderDecoratorRepository>();
         }
     }
