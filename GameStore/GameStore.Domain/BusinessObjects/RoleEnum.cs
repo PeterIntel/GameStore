@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.BusinessObjects
 {
-    public class Role : BasicDomain
+    public enum RoleEnum
     {
-        public RoleEnum RoleEnum { set; get; }
-        public virtual IEnumerable<User> Users { set; get; }
+        User,
+        Moderator,
+        Manager,
+        Administrator
     }
 }

@@ -9,7 +9,7 @@ namespace GameStore.DataAccess.MSSQL.Entities
 {
     public class RoleEntity : BasicEntity
     {
-        public Role Role { set; get; }
+        public RoleEnum Role { set; get; }
         public virtual IList<UserEntity> Users { set; get; }
     }
 

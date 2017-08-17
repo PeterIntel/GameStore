@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStore.DataAccess.MSSQL.Entities
+namespace GameStore.Domain.BusinessObjects
 {
-    public class UserEntity : BasicEntity
+    public class User : BasicDomain
     {
         public string Login { set; get; }
         public string Email { set; get; }
@@ -14,8 +14,7 @@ namespace GameStore.DataAccess.MSSQL.Entities
         public string FirstName { set; get; }
         public string LastName { set; get; }
         public DateTime? BirthDay { set; get; }
-        public virtual IList<RoleEntity> Roles { set; get; }
-        public virtual IList<OrderEntity> Orders { set; get; }
+        public IEnumerable<Role> Roles { set; get; }
+        public IEnumerable<Order> Orders { set; get; }
     }
-
 }
