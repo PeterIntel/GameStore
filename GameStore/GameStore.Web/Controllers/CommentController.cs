@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GameStore.DataAccess.Entities;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Domain.BusinessObjects;
 using System.Web.UI;
@@ -53,6 +52,11 @@ namespace GameStore.Web.Controllers
         {
             if (gameKey != null)
             {
+                var game = _gameService.GetItemByKey(gameKey);
+                if (game.IsSqlEntity == false)
+                {
+                    _gameService.Add(game);
+                }
                 return View(InitComments(gameKey));
             }
 

@@ -26,5 +26,6 @@ namespace GameStore.Web.ViewModels
         public IEnumerable<string> NameGenres { set; get; }
         public IList<PlatformTypeViewModel> PlatformTypes { set; get; }
         public IList<string> NamePlatformtypes { set; get; }
+        public GameInfoViewModel GameInfo { set; get; }
     }
 }

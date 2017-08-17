@@ -13,6 +13,7 @@ namespace GameStore.Infrastructure.NinjectConfiguration
         public override void Load()
         {
             Bind<ILogWrapper>().To<WrapNLogLogger>();
+            Bind(typeof(IMongoLogger<>)).To(typeof(MongoLogger<>));
         }
     }
 }

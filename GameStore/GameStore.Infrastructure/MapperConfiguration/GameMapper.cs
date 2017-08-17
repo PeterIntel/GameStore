@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess.Entities;
+using GameStore.DataAccess.MSSQL.Entities;
 
 namespace GameStore.Infrastructure.MapperConfiguration
 {

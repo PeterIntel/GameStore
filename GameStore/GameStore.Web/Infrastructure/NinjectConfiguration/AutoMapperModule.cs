@@ -11,12 +11,6 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
         {
             var mapperConfiguration = AutoMapperConfig.GetMapper();
 
-            //Mapper.Initialize(cfg =>
-            //{
-            //    cfg.AddProfile<DomainProfile>();
-            //    cfg.AddProfile<ViewModelsProfile>();
-            //});
-
             Bind<IMapper>().ToConstant(mapperConfiguration).InSingletonScope();
         }
     }

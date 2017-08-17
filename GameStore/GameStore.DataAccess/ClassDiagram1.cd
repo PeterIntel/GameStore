@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameStore.DataAccess.Contextes.GamesSqlContext" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEEAAAAAAAAAAAAAABIAAAAAEAAAIAAAAAAAQAAAIAA=</HashCode>
+      <FileName>Contextes\GamesSqlContext.cs</FileName>
+      <NewMemberFileName>Contextes\GamesSQLContext.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.BasicEntity" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Entities\BasicEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.CommentEntity" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAEBAAQAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\CommentEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.GameEntity" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIQAgAAQACAIAAAAAAAAAIAAAAgAAAAAgIAA=</HashCode>
+      <FileName>Entities\GameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.GameInfoEntity" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\GameInfoEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.GenreEntity" Collapsed="true">
+    <Position X="16.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAIAAAQAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\GenreEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.OrderDetailsEntity" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAQAAAAAAAAEAAAAAAAgAAAAAAgAAgAAAAAA=</HashCode>
+      <FileName>Entities\OrderDetailsEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.OrderEntity" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAEAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\OrderEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.PlatformTypeEntity" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\PlatformTypeEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Entities.PublisherEntity" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAAEAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\PublisherEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.EntitiesConfigurations.GameConfiguration" Collapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntitiesConfigurations\GameConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.EntitiesConfigurations.OrderDetailsConfiguration" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntitiesConfigurations\OrderDetailsConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.EntitiesConfigurations.PublisherConfiguration" Collapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntitiesConfigurations\PublisherConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Migrations.Init" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201707191200526_Init.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Migrations.CompletionStatus" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201707200805385_CompletionStatus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Migrations.deleteComments" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201707211436293_deleteComments.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Migrations.Add_GameInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201707221908341_Add_GameInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Migrations.delete_GameId" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201707230716479_delete_GameId.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Migrations.Configuration" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStore.DataAccess.Repositories.GameRepository" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAABAAAAAAgAAAAAAAACAAAAAgAA=</HashCode>
+      <FileName>Repositories\GameRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Repositories.GenericDataRepository&lt;TEntity, TDomain&gt;" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAABABAAAABJAACAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\GenericDataRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Repositories.GenreRepository" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\GenreRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Repositories.PlatformTypeRepository" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\PlatformTypeRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.DataAccess.Repositories.PublisherRepository" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\PublisherRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameStore.DataAccess.UnitOfWork.UnitOfWork" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAIAAAgAABAAAEAAACAAAAgBAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>UnitOfWork\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="GameStore.DataAccess.Repositories.IGameRepository" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Repositories\IGameRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameStore.DataAccess.Repositories.IGenericDataRepository&lt;TEntity, TDomain&gt;" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAABAACAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IGenericDataRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameStore.DataAccess.Repositories.IGenreRepository" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IGenreRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameStore.DataAccess.Repositories.IPlatformTypeRepository" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IPlatformTypeRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameStore.DataAccess.Repositories.IPublisherRepository" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IPublisherRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameStore.DataAccess.UnitOfWork.IUnitOfWork" Collapsed="true">
+    <Position X="19.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAIAAAgAAAAAAEAAACAAAAgBAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>UnitOfWork\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

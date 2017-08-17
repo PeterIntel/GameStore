@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using GameStore.DataAccess.Entities;
+﻿using System.Drawing.Drawing2D;
+using AutoMapper;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 
@@ -10,7 +10,8 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
         public ViewModelsProfile()
         {
             CreateMap<GameViewModel, Game>()
-                .ForMember(dst => dst.Publisher, opt => opt.ResolveUsing<PublisherResolver>());
+                .ForMember(dst => dst.Publisher, opt => opt.ResolveUsing<PublisherResolver>())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
             CreateMap<CommentViewModel, Comment>();
             CreateMap<Game, GameViewModel>()
                 .ForMember(dst => dst.Comments, opt => opt.Ignore())
@@ -25,6 +26,8 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<Order, OrderViewModel>().ReverseMap();
             CreateMap<OrderDetails, OrderDetailsViewModel>().ReverseMap();
             CreateMap<FilterCriteria, FilterCriteriaViewModel>().ReverseMap();
+            CreateMap<GameInfo, GameInfoViewModel>().ReverseMap();
+            CreateMap<FilterOrders, FilterOrdersViewModel>().ReverseMap();
         }
     }
 }

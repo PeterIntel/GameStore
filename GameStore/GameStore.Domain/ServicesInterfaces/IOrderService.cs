@@ -8,8 +8,9 @@ namespace GameStore.Domain.ServicesInterfaces
     public interface IOrderService : ICrudService<Order>
     {
         IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties);
-        Order GetItemById(int id);
-        Order GetOrderByCustomerId(int id);
-        void AddGameToOrder(string gamekey, int? customerId);
+        IEnumerable<Order> GetOrdersHistory(params Expression<Func<Order, object>>[] includeProperties);
+        IEnumerable<Order> GetOrdersHistory(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties);
+        Order GetOrderByCustomerId(string id);
+        void AddGameToOrder(string gamekey, string customerId);
     }
 }

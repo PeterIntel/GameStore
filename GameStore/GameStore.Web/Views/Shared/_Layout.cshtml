@@ -12,11 +12,20 @@
 </head>
 <body>
     <div>
-        <div class="header">
+        <div class="header clearfix">
             <div class="left">
                 Quantity of games: @Cache["GamesQuantity"]
             </div>
-            <div class="right">
+            <div class="left">
+                @Html.ActionLink("Add game", "new", "game")
+            </div>
+            <div class="left">
+                @Html.ActionLink("Add publisher", "new", "publisher")
+            </div>
+            <div class="left">
+                @Html.ActionLink("All orders", "history", "order")
+            </div>
+            <div class="left">
                 @Html.ActionLink("busket", "busket", "order")
             </div>
         </div>

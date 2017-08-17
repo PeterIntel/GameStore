@@ -12,7 +12,7 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
     {
         public Publisher Resolve(GameViewModel source, Game destination, Publisher destMember, ResolutionContext context)
         {
-            return new Publisher() { CompanyName = source.SelectedPublisher};
+            return new Publisher() { Id = source.SelectedPublisher};
         }
     }
 }

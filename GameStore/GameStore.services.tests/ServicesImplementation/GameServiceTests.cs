@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Security;
+using AutoMapper;
+using GameStore.DataAccess.Decorators;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
+using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.DataAccess.Interfaces;
+using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.Tests.ServicesImplementation
 {
@@ -15,8 +20,14 @@ namespace GameStore.Services.Tests.ServicesImplementation
     {
         private GameService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
+        private Mock<IGameDecoratorRepositoryRepository> _gameRepository;
+        private Mock<IGenericDataRepository<GameInfoEntity, GameInfo>> _gameInfoRepository;
+        private Mock<IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>> _genreRepository;
+        private Mock<IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>> _publisherRepository;
+        private Mock<IMapper> _mapper;
+        private Mock<IMongoLogger<Game>> _logger;
         private static readonly string _gameKey = "game";
-        private readonly Game _gameStub = new Game() { Id = 1, Key = _gameKey };
+        private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
         private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
 
         private readonly FilterCriteria _filters = new FilterCriteria()
@@ -29,45 +40,52 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void Setup()
         {
             _unitOfWork = new Mock<IUnitOfWork>();
-            _sut = new GameService(_unitOfWork.Object);
+            _gameRepository = new Mock<IGameDecoratorRepositoryRepository>();
+            _gameInfoRepository = new Mock<IGenericDataRepository<GameInfoEntity, GameInfo>>();
+            _genreRepository = new Mock<IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>();
+            _publisherRepository = new Mock<IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>>();
+            _mapper = new Mock<IMapper>();
+            _logger = new Mock<IMongoLogger<Game>>();
+            _sut = new GameService(_unitOfWork.Object, _gameRepository.Object, _gameInfoRepository.Object, _genreRepository.Object, _publisherRepository.Object, _mapper.Object, _logger.Object);
         }
 
         [Test]
         public void Add_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(p => p.GameRepository.Add(It.IsAny<Game>()));
+            _gameRepository.Setup(p => p.Add(It.IsAny<Game>()));
 
             _sut.Add(new Game());
 
-            _unitOfWork.Verify(u => u.GameRepository.Add(It.IsAny<Game>()), Times.Once);
+            _gameRepository.Verify(p => p.Add(It.IsAny<Game>()), Times.Once);
         }
 
         [Test]
         public void GetAll_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.Get(It.IsAny<Expression<Func<Game, object>>[]>()))
-                .Returns(() => It.IsAny<IEnumerable<Game>>());
+            _gameRepository.Setup(g => g.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(() => new List<Game>());
+            _gameRepository.Setup(g => g.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>())).Returns(() => It.IsAny<int>());
 
-            _sut.Get(x => x.Comments, x => x.Genres);
+            _sut.Get(x => x.Genres);
 
-            _unitOfWork.Verify(u => u.GameRepository.Get(It.IsAny<Expression<Func<Game, object>>[]>()), Times.Once);
+            _gameRepository.Verify(u => u.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()), Times.Once);
         }
 
         [Test]
         public void GetItemByKey_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.GetGameByKey(It.IsAny<string>()))
+            _gameRepository.Setup(g => g.First(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<Game>());
 
             _sut.GetItemByKey("game");
 
-            _unitOfWork.Verify(u => u.GameRepository.GetGameByKey(It.IsAny<string>()), Times.Once);
+            _gameRepository.Verify(u => u.First(It.IsAny<Expression<Func<Game, bool>>>()), Times.Once);
         }
 
         [Test]
         public void GetItemByKey_GameNotFoundWithKey_ReturnNull()
         {
-            _unitOfWork.Setup(g => g.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>()))
+            _gameRepository.Setup(g => g.Get(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(() => It.IsAny<IList<Game>>());
 
             var result = _sut.GetItemByKey("game");
@@ -78,75 +96,75 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void RemoteGameId_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<int>()));
+            _gameRepository.Setup(g => g.Remove(It.IsAny<string>()));
 
-            _sut.Remove(133);
+            _sut.Remove("133");
 
-            _unitOfWork.Verify(u => u.GameRepository.Remove(It.IsAny<int>()), Times.Once);
+            _gameRepository.Verify(u => u.Remove(It.IsAny<string>()), Times.Once);
         }
 
         [Test]
         public void RemoteGame_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.Remove(It.IsAny<Game>()));
+            _gameRepository.Setup(g => g.Remove(It.IsAny<Game>()));
 
             _sut.Remove(_gameStub);
 
-            _unitOfWork.Verify(u => u.GameRepository.Remove(It.IsAny<Game>()), Times.Once);
+            _gameRepository.Verify(u => u.Remove(It.IsAny<Game>()), Times.Once);
         }
 
         [Test]
         public void UpdateGame_IsCalled_CalledOneTime()
         {
-            _unitOfWork.Setup(g => g.GameRepository.Update(It.IsAny<Game>()));
+            _gameRepository.Setup(g => g.Update(It.IsAny<Game>()));
 
             _sut.Update(_gameStub);
 
-            _unitOfWork.Verify(u => u.GameRepository.Update(It.IsAny<Game>()), Times.Once);
+            _gameRepository.Verify(u => u.Update(It.IsAny<Game>()), Times.Once);
         }
 
         [Test]
         public void AddViewToGame_IsCalledGetGameByKey_OneCall()
         {
-            _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<int>())).Returns(_gameInfoStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.Update(It.IsAny<GameInfo>()));
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
+            _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
             _sut.AddViewToGame(_gameKey);
 
-            _unitOfWork.Verify(x => x.GameRepository.GetGameByKey(_gameKey), Times.Once);
+            _gameRepository.Verify(x => x.First(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(2));
         }
 
         [Test]
         public void AddViewToGame_IsCalledGetItemById_OneCall()
         {
-            _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(_gameStub.Id)).Returns(_gameInfoStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.Update(It.IsAny<GameInfo>()));
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameInfoRepository.Setup(m => m.GetItemById(_gameStub.Id)).Returns(_gameInfoStub);
+            _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
             _sut.AddViewToGame(It.IsAny<string>());
 
-            _unitOfWork.Verify(x => x.GameInfoRepository.GetItemById(_gameStub.Id), Times.Once);
+            _gameInfoRepository.Verify(x => x.GetItemById(_gameStub.Id), Times.Once);
         }
 
         [Test]
         public void AddViewToGame_IsCalledUpdate_OneCall()
         {
-            _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<int>())).Returns(_gameInfoStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.Update(_gameInfoStub));
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
+            _gameInfoRepository.Setup(m => m.Update(_gameInfoStub));
 
             _sut.AddViewToGame(It.IsAny<string>());
 
-            _unitOfWork.Verify(x => x.GameInfoRepository.Update(_gameInfoStub), Times.Once);
+            _gameInfoRepository.Verify(x => x.Update(_gameInfoStub), Times.Once);
         }
 
         [Test]
         public void AddViewToGame_ChangeCountOfView_ExpectCountOfViewEqual1()
         {
-            _unitOfWork.Setup(m => m.GameRepository.GetGameByKey(It.IsAny<string>())).Returns(_gameStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.GetItemById(It.IsAny<int>())).Returns(_gameInfoStub);
-            _unitOfWork.Setup(m => m.GameInfoRepository.Update(It.IsAny<GameInfo>()));
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
+            _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
             _sut.AddViewToGame(It.IsAny<string>());
 
@@ -157,41 +175,39 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void FilterGames_IsCalledGetWithSortPriceAsc_OneTime()
         {
             int count;
-            _unitOfWork.Setup(x => x.GameRepository.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
+            _gameRepository.Setup(x => x.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<int>());
-            _unitOfWork.Setup(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(),
-                y => y.Price, It.IsAny<int>(), It.IsAny<int>()));
+            _gameRepository.Setup(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(),
+                y => y.Price, It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>())).Returns(new List<Game>());
 
             _sut.FilterGames(_filters, 1, "10");
 
-            _unitOfWork.Verify(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(), y => y.Price, It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
+            _gameRepository.Verify(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(), y => y.Price, It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }
 
         [Test]
         public void FilterGames_IsCalledGetCountObject_OneTime()
         {
             int count;
-            _unitOfWork.Setup(x => x.GameRepository.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
+            _gameRepository.Setup(x => x.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<int>());
-            _unitOfWork.Setup(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(),
-                y => y.Price, It.IsAny<int>(), It.IsAny<int>()));
+            _gameRepository.Setup(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>()));
 
             _sut.FilterGames(_filters, 1, "10");
 
-            _unitOfWork.Verify(x => x.GameRepository.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(1));
+            _gameRepository.Verify(x => x.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(1));
         }
 
         [Test]
         public void FilterGames_IsCalledGetWithoutSortCriterion_OneTime()
         {
-            _unitOfWork.Setup(x => x.GameRepository.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
+            _gameRepository.Setup(x => x.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<int>());
-            _unitOfWork.Setup(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(),
-                y => y.Id, It.IsAny<int>(), It.IsAny<int>()));
+            _gameRepository.Setup(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>())).Returns(new List<Game>());
 
             _sut.FilterGames(new FilterCriteria(), 1, "10");
 
-            _unitOfWork.Verify(x => x.GameRepository.Get(It.IsAny<Expression<Func<Game, bool>>>(), y => y.Id, It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
+            _gameRepository.Verify(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }
 
     }

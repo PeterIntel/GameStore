@@ -1,0 +1,23 @@
+﻿@model OrderViewModel
+
+@Html.LabelFor(m => m.OrderDate)
+<br>
+@Html.DisplayFor(m => m.OrderDate)
+<br>
+<table class="table">
+    <tr>
+        <th>Game</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Discount</th>
+    </tr>
+    @foreach (var details in Model.OrderDetails)
+    {
+        <tr>
+            <td>@Html.ActionLink(details.Game.Key, "GetGameDetails", "Game", new { key = details.Game.Key }, null)</td>
+            <td>@details.Price</td>
+            <td>@details.Quantity</td>
+            <td>@details.Discount</td>
+        </tr>
+    }
+</table>

@@ -2,28 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using GameStore.DataAccess.Decorators;
+using GameStore.DataAccess.Interfaces;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
+using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class CommentService : ICommentService
+    public class CommentService : BasicService<Comment>, ICommentService
     {
         private IUnitOfWork _unitOfWork;
-        public CommentService(IUnitOfWork unitOfWork)
+        private IGenericDataRepository<CommentEntity, Comment> _commentRepository;
+        private IMongoLogger<Comment> _logger;
+        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger)
         {
             _unitOfWork = unitOfWork;
+            _commentRepository = commentRepository;
+            _logger = logger;
         }
         public void Add(Comment item)
         {
-            _unitOfWork.CommentRepository.Add(item);
+            AssignIdIfEmpty(item);
+            _commentRepository.Add(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Insert, item);
         }
 
         public IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey)
         {
-            return _unitOfWork.CommentRepository.Get(x => x.Game.Key == gameKey);
+            return _commentRepository.Get(x => x.Game.Key == gameKey).ToList();
         }
 
         public IEnumerable<Comment> GetStructureOfComments(IEnumerable<Comment> comments)
@@ -33,10 +43,11 @@ namespace GameStore.Services.ServicesImplementation
             {
                 var groups = comments.GroupBy(x => x.ParentCommentId).ToList();
 
-                roots = groups.FirstOrDefault(x => x.Key.HasValue == false).ToList();
+                roots = groups.FirstOrDefault(x => string.IsNullOrEmpty(x.Key)).ToList();
+
                 if (roots.Count > 0)
                 {
-                    var dict = groups.Where(x => x.Key.HasValue).ToDictionary(x => x.Key.Value, x => x.ToList());
+                    var dict = groups.Where(x => String.IsNullOrEmpty(x.Key) == false).ToDictionary(x => x.Key, x => x.ToList());
                     foreach (var x in roots)
                     {
                         AddChildren(x, dict);
@@ -46,11 +57,11 @@ namespace GameStore.Services.ServicesImplementation
             return roots;
         }
 
-        private void AddChildren(Comment node, IDictionary<int,  List<Comment>> source)
+        private void AddChildren(Comment node, IDictionary<string, List<Comment>> source)
         {
             if (node.ParentCommentId != null)
             {
-                node.ParentComment = _unitOfWork.CommentRepository.GetItemById((int)node.ParentCommentId);
+                node.ParentComment = _commentRepository.GetItemById(node.ParentCommentId);
             }
             if (source.ContainsKey(node.Id))
             {
@@ -66,26 +77,29 @@ namespace GameStore.Services.ServicesImplementation
             }
         }
 
-        public void Remove(int id)
+        public void Remove(string id)
         {
-            _unitOfWork.CommentRepository.Remove(id);
+            _commentRepository.Remove(id);
             _unitOfWork.Save();
         }
 
         public void Remove(Comment item)
         {
-            _unitOfWork.CommentRepository.Remove(item);
+            _commentRepository.Remove(item);
             _unitOfWork.Save();
+            _logger.Write(Operation.Delete, item);
         }
 
         public void Update(Comment item)
         {
-            _unitOfWork.CommentRepository.Update(item);
+            _commentRepository.Update(item);
             _unitOfWork.Save();
+            var updatedComment = _commentRepository.GetItemById(item.Id);
+            _logger.Write(Operation.Update, item, updatedComment);
         }
         public IEnumerable<Comment> Get(params Expression<Func<Comment, object>>[] includeProperties)
         {
-            return _unitOfWork.CommentRepository.Get(includeProperties);
+            return _commentRepository.Get(includeProperties);
         }
     }
 }

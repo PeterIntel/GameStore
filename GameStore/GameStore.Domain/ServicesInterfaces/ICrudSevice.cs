@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,6 @@ namespace GameStore.Domain.ServicesInterfaces
         void Add(T item);
         void Update(T item);
         void Remove(T item);
-        void Remove(int id);
+        void Remove(string id);
     }
 }
