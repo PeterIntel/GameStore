@@ -37,7 +37,7 @@ namespace GameStore.Services.ServicesImplementation
                 throw new ArgumentNullException(nameof(customerId) + " references to NULL");
             }
 
-            var game = _gameRepository.GetFirst(x => x.Key == gamekey);
+            var game = _gameRepository.First(x => x.Key == gamekey);
             var order = GetOrderByCustomerId(customerId);
 
             var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
@@ -143,7 +143,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Order> GetOrdersHistory(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var orders = _orderRepository.GetOrders(x => true, includeProperties);
+            var orders = _orderRepository.GetOrders(x => true, includeProperties).ToList();
             return orders;
         }
     }

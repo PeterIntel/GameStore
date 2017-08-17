@@ -74,12 +74,12 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void GetItemByKey_IsCalled_CalledOneTime()
         {
-            _gameRepository.Setup(g => g.GetFirst(It.IsAny<Expression<Func<Game, bool>>>()))
+            _gameRepository.Setup(g => g.First(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<Game>());
 
             _sut.GetItemByKey("game");
 
-            _gameRepository.Verify(u => u.GetFirst(It.IsAny<Expression<Func<Game, bool>>>()), Times.Once);
+            _gameRepository.Verify(u => u.First(It.IsAny<Expression<Func<Game, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -126,19 +126,19 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void AddViewToGame_IsCalledGetGameByKey_OneCall()
         {
-            _gameRepository.Setup(m => m.GetFirst(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
             _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
             _sut.AddViewToGame(_gameKey);
 
-            _gameRepository.Verify(x => x.GetFirst(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(2));
+            _gameRepository.Verify(x => x.First(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(2));
         }
 
         [Test]
         public void AddViewToGame_IsCalledGetItemById_OneCall()
         {
-            _gameRepository.Setup(m => m.GetFirst(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
             _gameInfoRepository.Setup(m => m.GetItemById(_gameStub.Id)).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
@@ -150,7 +150,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void AddViewToGame_IsCalledUpdate_OneCall()
         {
-            _gameRepository.Setup(m => m.GetFirst(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
             _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(_gameInfoStub));
 
@@ -162,7 +162,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void AddViewToGame_ChangeCountOfView_ExpectCountOfViewEqual1()
         {
-            _gameRepository.Setup(m => m.GetFirst(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
+            _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_gameStub);
             _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 

@@ -13,6 +13,6 @@ namespace GameStore.DataAccess.Decorators
     {
         IEnumerable<TDomain> GetRequiredMongoCollection();
         IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter);
-        IEnumerable<TDomain> GetItems(IEnumerable<string> ids);
+        IEnumerable<TDomain> LoadDomainEntities(IEnumerable<string> ids);
     }
 }
