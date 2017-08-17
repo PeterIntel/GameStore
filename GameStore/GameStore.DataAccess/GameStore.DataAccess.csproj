@@ -112,6 +112,8 @@
     <Compile Include="Decorators\IOrderDecoratorRepository.cs" />
     <Compile Include="Decorators\OrderDecoratorRepository.cs" />
     <Compile Include="Infrastructure\IdComparer.cs" />
+    <Compile Include="Interfaces\IGameRepository.cs" />
+    <Compile Include="Interfaces\IReadOnlyGameRepository.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.Designer.cs">
       <DependentUpon>201708081325289_rename_IsSqlEntity.cs</DependentUpon>
@@ -120,18 +122,14 @@
     <Compile Include="Migrations\201708091322243_raname_IsMongoEntity.Designer.cs">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708141406466_Add_UserEntity_and_RoleEntity.cs" />
-    <Compile Include="Migrations\201708141406466_Add_UserEntity_and_RoleEntity.Designer.cs">
-      <DependentUpon>201708141406466_Add_UserEntity_and_RoleEntity.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
     <Compile Include="Mongo\GamesMongoContext.cs" />
     <Compile Include="Mongo\CollectionName.cs" />
     <Compile Include="Mongo\MongoEntities\BaseMongoEntity.cs" />
-    <Compile Include="MSSQL\Entities\RoleEntity.cs" />
-    <Compile Include="MSSQL\Entities\UserEntity.cs" />
+    <Compile Include="Mongo\MongoRepositories\ReadOnlyOrderRepository.cs" />
+    <Compile Include="Mongo\MongoRepositories\ReadOnlyGameRepository.cs" />
     <Compile Include="MSSQL\GamesSqlContext.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\DateTimeCustomSerializer.cs" />
     <Compile Include="MSSQL\EntitiesConfigurations\GameConfiguration.cs" />
@@ -211,9 +209,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708091322243_raname_IsMongoEntity.resx">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708141406466_Add_UserEntity_and_RoleEntity.resx">
-      <DependentUpon>201708141406466_Add_UserEntity_and_RoleEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>
