@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using GameStore.Domain.BusinessObjects;
 using System.ComponentModel.DataAnnotations;
-using GameStore.Web.Filters;
+using GameStore.Web.Attributes;
 
 namespace GameStore.Web.ViewModels
 {

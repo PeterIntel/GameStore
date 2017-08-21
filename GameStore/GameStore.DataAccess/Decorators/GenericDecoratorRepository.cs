@@ -120,5 +120,10 @@ namespace GameStore.DataAccess.Decorators
 
             return domainEntities;
         }
+
+        public bool Any(Expression<Func<TDomain, bool>> filter)
+        {
+            return SqlDataRepository.Any(filter);
+        }
     }
 }

@@ -28,6 +28,10 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<FilterCriteria, FilterCriteriaViewModel>().ReverseMap();
             CreateMap<GameInfo, GameInfoViewModel>().ReverseMap();
             CreateMap<FilterOrders, FilterOrdersViewModel>().ReverseMap();
+
+            CreateMap<RegisterViewModel, User>()
+                .ForMember(dst => dst.Roles, opt => opt.Ignore())
+                .ForMember(dst => dst.Orders, opt => opt.Ignore());
         }
     }
 }

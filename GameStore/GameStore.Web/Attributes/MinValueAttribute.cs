@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace GameStore.Web.Filters
+namespace GameStore.Web.Attributes
 {
     public class MinValueAttribute : ValidationAttribute
     {

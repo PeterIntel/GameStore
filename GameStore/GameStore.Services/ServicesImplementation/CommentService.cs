@@ -101,5 +101,10 @@ namespace GameStore.Services.ServicesImplementation
         {
             return _commentRepository.Get(includeProperties);
         }
+
+        public bool Any(Expression<Func<Comment, bool>> filter)
+        {
+            return _commentRepository.Any(filter);
+        }
     }
 }

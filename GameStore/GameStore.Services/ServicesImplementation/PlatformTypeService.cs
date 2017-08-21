@@ -73,5 +73,10 @@ namespace GameStore.Services.ServicesImplementation
             }
             return platforms;
         }
+
+        public bool Any(Expression<Func<PlatformType, bool>> filter)
+        {
+            return _platformTypeRepository.Any(filter);
+        }
     }
 }

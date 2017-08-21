@@ -142,5 +142,14 @@ namespace GameStore.DataAccess.MSSQL.Repositories
 
             return null;
         }
+
+        public bool Any(Expression<Func<TDomain, bool>> filter)
+        {
+            var s = _mapper.Map<User, UserEntity>(new User());
+            var filterToEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>> (filter);
+            var result = _dbSet.Any(filterToEntity);
+
+            return result;
+        }
     }
 }

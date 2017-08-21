@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -45,7 +53,10 @@
   <ItemGroup>
     <Compile Include="CustomAuthentication.cs" />
     <Compile Include="IAuthentication.cs" />
+    <Compile Include="IUserProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserIdentity.cs" />
+    <Compile Include="UserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">
@@ -56,6 +67,17 @@
       <Project>{16b24edc-e21a-43f7-8721-5d51af4cd0ba}</Project>
       <Name>GameStore.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GameStore.Logging\GameStore.Logging.csproj">
+      <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
+      <Name>GameStore.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameStore.Services\GameStore.Services.csproj">
+      <Project>{dc9f595c-917a-49aa-b108-6c29e6d1fbc4}</Project>
+      <Name>GameStore.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

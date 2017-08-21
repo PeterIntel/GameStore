@@ -156,5 +156,10 @@ namespace GameStore.Services.ServicesImplementation
             var games = _gameRepository.Get(x => true, x => x.Id).ToList();
             return games;
         }
+
+        public bool Any(Expression<Func<Game, bool>> filter)
+        {
+            return _gameRepository.Any(filter);
+        }
     }
 }

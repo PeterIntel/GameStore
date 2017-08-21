@@ -74,5 +74,10 @@ namespace GameStore.Services.ServicesImplementation
             }
             return genres;
         }
+
+        public bool Any(Expression<Func<Genre, bool>> filter)
+        {
+            return _genreRepository.Any(filter);
+        }
     }
 }

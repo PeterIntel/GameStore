@@ -12,8 +12,8 @@ namespace GameStore.Authorization
     public interface IAuthentication
     {
         HttpContext HttpContext { set; get; }
-        User Login(string login, string password, bool isPersistent);
-        User Login(string login);
+        User Login(string userName, string password, bool isPersistent = false);
+        User Login(string userName);
         void Logout();
         IPrincipal CurrentUser { get; }
     }

@@ -6,18 +6,19 @@ using GameStore.Web.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using GameStore.Authorization;
 using GameStore.Web.Filters;
 
 namespace GameStore.Web.Controllers
 {
-    public class GameController : Controller
+    public class GameController : BaseController
     {
         private readonly IGameService _gameService;
         private readonly IGenreService _genreService;
         private readonly IPlatformTypeService _platformTypeService;
         private readonly IPublisherService _publisherService;
         private readonly IMapper _mapper;
-        public GameController(IGameService gameService, IGenreService genreService, IPlatformTypeService platformTypeService, IPublisherService publisherService, IMapper mapper)
+        public GameController(IGameService gameService, IGenreService genreService, IPlatformTypeService platformTypeService, IPublisherService publisherService, IMapper mapper, IAuthentication authentication) : base(authentication)
         {
             _gameService = gameService;
             _genreService = genreService;

@@ -91,6 +91,7 @@
     <Compile Include="BusinessObjects\SortCriteria.cs" />
     <Compile Include="BusinessObjects\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesInterfaces\IAccountService.cs" />
     <Compile Include="ServicesInterfaces\ICommentService.cs" />
     <Compile Include="ServicesInterfaces\IGameService.cs" />
     <Compile Include="ServicesInterfaces\ICrudSevice.cs" />

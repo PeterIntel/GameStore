@@ -74,6 +74,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameStore.Authorization\GameStore.Authorization.csproj">
+      <Project>{6c9c695b-3079-468e-bfc6-09d311207940}</Project>
+      <Name>GameStore.Authorization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">
       <Project>{8e719928-b4d9-4eb4-9851-4c9b8ac4cf86}</Project>
       <Name>GameStore.DataAccess</Name>

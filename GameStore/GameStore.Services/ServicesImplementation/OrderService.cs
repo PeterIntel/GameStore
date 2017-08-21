@@ -146,5 +146,10 @@ namespace GameStore.Services.ServicesImplementation
             var orders = _orderRepository.GetOrders(x => true, includeProperties).ToList();
             return orders;
         }
+
+        public bool Any(Expression<Func<Order, bool>> filter)
+        {
+            return _orderRepository.Any(filter);
+        }
     }
 }

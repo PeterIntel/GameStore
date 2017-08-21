@@ -79,5 +79,10 @@ namespace GameStore.Services.ServicesImplementation
             }
             return publishers;
         }
+
+        public bool Any(Expression<Func<Publisher, bool>> filter)
+        {
+            return _publisherRepository.Any(filter);
+        }
     }
 }

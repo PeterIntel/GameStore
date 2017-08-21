@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServicesImplementation\AccountService.cs" />
     <Compile Include="ServicesImplementation\BasicService.cs" />
     <Compile Include="ServicesImplementation\CommentService.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\BaseFilter.cs" />

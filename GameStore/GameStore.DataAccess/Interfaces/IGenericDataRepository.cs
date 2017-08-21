@@ -12,6 +12,7 @@ namespace GameStore.DataAccess.Interfaces
         TDomain GetItemById(string id);
         TDomain First(Expression<Func<TDomain, bool>> filter);
         int GetCountObject(Expression<Func<TDomain, bool>> filter);
+        bool Any(Expression<Func<TDomain, bool>> filter);
         void Add(TDomain item);
         void Update(TDomain item);
         void Remove(TDomain item);

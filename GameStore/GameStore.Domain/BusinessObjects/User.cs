@@ -14,7 +14,12 @@ namespace GameStore.Domain.BusinessObjects
         public string FirstName { set; get; }
         public string LastName { set; get; }
         public DateTime? BirthDay { set; get; }
-        public IEnumerable<Role> Roles { set; get; }
-        public IEnumerable<Order> Orders { set; get; }
+        public IEnumerable<Role> Roles { set; get; } = new List<Role>();
+        public IEnumerable<Order> Orders { set; get; } = new List<Order>();
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
