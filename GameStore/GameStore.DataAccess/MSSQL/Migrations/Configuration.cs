@@ -1,4 +1,5 @@
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Migrations
 {
@@ -284,6 +285,36 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     GameId = context.Games.First(x => x.Key == "AgeofEmpires").Id,
                     OrderId = context.Orders.First().Id,
                     IsSqlEntity = true
+                });
+
+            context.Roles.AddOrUpdate(
+                new RoleEntity()
+                {
+                    Id = "1",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.User
+                },
+                new RoleEntity()
+                {
+                    Id = "2",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Moderator
+                },
+                new RoleEntity()
+                {
+                    Id = "3",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Manager
+                },
+                new RoleEntity()
+                {
+                    Id = "4",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Administrator
                 });
         }
     }

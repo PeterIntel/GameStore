@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using GameStore.Domain.BusinessObjects;
 using GameStore.Web.Attributes;
 
 namespace GameStore.Web.ViewModels
 {
-    public class RegisterViewModel
+    public class UserViewModel
     {
         [Required]
         [Display(Name = "Login")]
@@ -35,5 +37,7 @@ namespace GameStore.Web.ViewModels
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "The password and confirm password do not match.")]
         public string ConfirmPassword { set; get; }
+        public IList<RoleViewModel> Roles { set; get; }
+        public IList<string> IdRoles { set; get; }
     }
 }

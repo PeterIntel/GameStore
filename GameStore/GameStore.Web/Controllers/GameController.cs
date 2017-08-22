@@ -11,6 +11,7 @@ using GameStore.Web.Filters;
 
 namespace GameStore.Web.Controllers
 {
+    [Authorize]
     public class GameController : BaseController
     {
         private readonly IGameService _gameService;

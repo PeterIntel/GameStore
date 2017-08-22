@@ -15,10 +15,13 @@ namespace GameStore.Services.ServicesImplementation
     public class AccountService : BasicService<User>, IAccountService
     {
         private readonly IGenericDataRepository<UserEntity, User> _userRepository;
+        private readonly IRoleRepository _roleRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IUnitOfWork unitOfWork)
+
+        public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
+            _roleRepository = roleRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -30,6 +33,7 @@ namespace GameStore.Services.ServicesImplementation
         public void Add(User user)
         {
             AssignIdIfEmpty(user);
+            user.Roles = user.IdRoles.Select(x => new Role() {RoleEnum = (RoleEnum) Enum.Parse(typeof(RoleEnum), x)});
             _userRepository.Add(user);
             _unitOfWork.Save();
         }
@@ -55,6 +59,33 @@ namespace GameStore.Services.ServicesImplementation
         public bool Any(Expression<Func<User, bool>> filter)
         {
             return _userRepository.Any(filter);
+        }
+
+        public IEnumerable<Role> GetAllRolesAndMarkSelected(IEnumerable<string> selecredRoles)
+        {
+            IEnumerable<Role> roles = _roleRepository.Get().ToList();
+            if (selecredRoles != null)
+            {
+                foreach (var item in roles)
+                {
+                    if (selecredRoles.Contains(item.RoleEnum.ToString()))
+                    {
+                        item.IsChecked = true;
+                    }
+                }
+            }
+
+            return roles;
+        }
+
+        public User First(Expression<Func<User, bool>> filter)
+        {
+            return _userRepository.First(filter);
+        }
+
+        public IEnumerable<Role> GetRoles()
+        {
+            return _roleRepository.Get();
         }
     }
 }

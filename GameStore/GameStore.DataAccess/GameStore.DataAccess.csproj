@@ -114,6 +114,7 @@
     <Compile Include="Infrastructure\IdComparer.cs" />
     <Compile Include="Interfaces\IGameRepository.cs" />
     <Compile Include="Interfaces\IReadOnlyGameRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.Designer.cs">
       <DependentUpon>201708081325289_rename_IsSqlEntity.cs</DependentUpon>
@@ -187,6 +188,8 @@
     <Compile Include="Mongo\MongoEntities\MongoSupplierEntity.cs" />
     <Compile Include="Interfaces\IReadOnlyGenericRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGenericRepository.cs" />
+    <Compile Include="MSSQL\Repositories\RoleRepository.cs" />
+    <Compile Include="MSSQL\Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MSSQL\Repositories\GameRepository.cs" />
     <Compile Include="MSSQL\Repositories\GenericDataRepository.cs" />

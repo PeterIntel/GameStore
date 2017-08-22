@@ -12,14 +12,13 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<GameViewModel, Game>()
                 .ForMember(dst => dst.Publisher, opt => opt.ResolveUsing<PublisherResolver>())
                 .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
-            CreateMap<CommentViewModel, Comment>();
             CreateMap<Game, GameViewModel>()
                 .ForMember(dst => dst.Comments, opt => opt.Ignore())
                 .ForMember(dst => dst.SelectedPublisher, opt => opt.MapFrom(src => src.Publisher.CompanyName));
+            CreateMap<CommentViewModel, Comment>();
             CreateMap<Comment, CommentViewModel>()
                 .ForMember(dst => dst.GameKey, opt => opt.Ignore());
-            CreateMap<GenreViewModel, Genre>();
-            CreateMap<Genre, GenreViewModel>();
+            CreateMap<Genre, GenreViewModel>().ReverseMap();
             CreateMap<PlatformTypeViewModel, PlatformType>();
             CreateMap<PlatformType, PlatformTypeViewModel>();
             CreateMap<Publisher, PublisherViewModel>().ReverseMap();
@@ -28,10 +27,14 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<FilterCriteria, FilterCriteriaViewModel>().ReverseMap();
             CreateMap<GameInfo, GameInfoViewModel>().ReverseMap();
             CreateMap<FilterOrders, FilterOrdersViewModel>().ReverseMap();
-
-            CreateMap<RegisterViewModel, User>()
-                .ForMember(dst => dst.Roles, opt => opt.Ignore())
-                .ForMember(dst => dst.Orders, opt => opt.Ignore());
+            CreateMap<UserViewModel, User>()
+                .ForMember(dst => dst.Orders, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
+            CreateMap<User, UserViewModel>();
+            CreateMap<Role, RoleViewModel>()
+                .ForMember(dst => dst.Role, opt => opt.MapFrom(src => src.RoleEnum));
+            CreateMap<RoleViewModel, Role>()
+                .ForMember(dst => dst.RoleEnum, opt => opt.MapFrom(src => src.Role));
         }
     }
 }

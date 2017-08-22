@@ -231,7 +231,8 @@
     <Compile Include="ViewModels\PlatformTypeViewModel.cs" />
     <Compile Include="Infrastructure\AutoMapperConfiguration\ViewModelsProfile.cs" />
     <Compile Include="ViewModels\PublisherViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -271,7 +272,13 @@
     <Content Include="Views\Order\history.cshtml" />
     <Content Include="Views\Order\_Order.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterUser.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\GetUsers.cshtml" />
+    <Content Include="Views\Account\UserDetails.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\EditorTemplates\UserViewModel.cshtml" />
+    <Content Include="Views\Account\DisplayTemplates\RoleEnum.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -280,7 +287,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>

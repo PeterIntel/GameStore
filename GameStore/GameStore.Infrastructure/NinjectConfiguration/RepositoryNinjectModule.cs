@@ -20,8 +20,10 @@ namespace GameStore.Infrastructure.NinjectConfiguration
         {
             Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
             Bind(typeof(IGenericDataRepository<GameEntity, Game>)).To<GameRepository>();
+            Bind(typeof(IGenericDataRepository<UserEntity, User>)).To<UserRepository>();
             Bind<IGenreRepository>().To<GenreRepository>();
             Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
+            Bind<IRoleRepository>().To<RoleRepository>();
 
             Bind(typeof(IReadOnlyGenericRepository<,>)).To(typeof(ReadOnlyGenericRepository<,>));
             Bind<IReadOnlyGenericRepository<MongoOrderEntity, Order>>().To<ReadOnlyOrderRepository>();

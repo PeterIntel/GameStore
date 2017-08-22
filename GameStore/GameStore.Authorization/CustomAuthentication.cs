@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,8 +69,8 @@ namespace GameStore.Authorization
 
         private void CreateCookie(string userName, bool isPersistent = false)
         {
-            var ticket = new FormsAuthenticationTicket(1, userName, DateTime.UtcNow,
-                DateTime.UtcNow.Add(FormsAuthentication.Timeout), isPersistent, string.Empty,
+            var ticket = new FormsAuthenticationTicket(1, userName, HttpContext.Timestamp.ToLocalTime(),
+                HttpContext.Timestamp.ToLocalTime().Add(FormsAuthentication.Timeout), isPersistent, string.Empty,
                 FormsAuthentication.FormsCookiePath);
 
             var encTicket = FormsAuthentication.Encrypt(ticket);
@@ -77,8 +78,7 @@ namespace GameStore.Authorization
             var authCookie = new HttpCookie(CookieName)
             {
                 Value = encTicket,
-                Expires = DateTime.UtcNow.Add(FormsAuthentication.Timeout),
-                
+                Expires = ticket.Expiration
             };
 
             HttpContext.Response.Cookies.Set(authCookie);
@@ -93,6 +93,7 @@ namespace GameStore.Authorization
             {
                 CreateCookie(userName);
             }
+            
 
             return user;
         }

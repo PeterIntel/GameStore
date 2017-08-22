@@ -1,0 +1,26 @@
+﻿@model UserViewModel
+
+@{
+    ViewBag.Title = "RegisterUser";
+}
+
+<div class="container">
+    @using (Html.BeginForm())
+            {
+        <div class="col-md-12">
+            <h2>Registration</h2>
+
+            @Html.AntiForgeryToken()
+            <div class="validation-errors">
+                @Html.ValidationSummary(false)
+            </div>
+            <fieldset>
+                @Html.EditorForModel()
+                <input type="submit" value="Sign up" />
+            </fieldset>
+        </div>
+    }
+</div>
+
+
+
