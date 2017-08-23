@@ -13,5 +13,7 @@ namespace GameStore.Domain.ServicesInterfaces
         IEnumerable<Role> GetRoles();
         IEnumerable<Role> GetAllRolesAndMarkSelected(IEnumerable<string> selecredGenres);
         User First(Expression<Func<User, bool>> filter);
+        int GetCountAdministrators();
+        bool IsInRole(string role);
     }
 }

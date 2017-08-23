@@ -100,12 +100,11 @@ namespace GameStore.DataAccess.MSSQL.Repositories
 
             if (entity != null)
             {
-                TDomain domain = Mapper.Map<TEntity, TDomain>(entity);
-                Remove(domain);
+                entity.IsDeleted = true;
             }
         }
 
-        public void Update(TDomain item)
+        public virtual void Update(TDomain item)
         {
             if (item != null)
             {

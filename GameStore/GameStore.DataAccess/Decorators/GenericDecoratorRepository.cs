@@ -85,7 +85,7 @@ namespace GameStore.DataAccess.Decorators
                                 join j in MongoDataRepository.Get() on i equals j.Id
                                 select j;
 
-            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdComparer<TDomain>());
+            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdDomainComparer<TDomain>());
 
             return requiredMongoCollection;
         }
@@ -105,7 +105,7 @@ namespace GameStore.DataAccess.Decorators
                                 join j in MongoDataRepository.Get() on i equals j.Id
                                 select j;
 
-            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdComparer<TDomain>()).AsQueryable().Where(filter);
+            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdDomainComparer<TDomain>()).AsQueryable().Where(filter);
 
             return requiredMongoCollection;
         }

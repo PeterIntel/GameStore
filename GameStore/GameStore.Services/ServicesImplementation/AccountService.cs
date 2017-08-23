@@ -33,13 +33,17 @@ namespace GameStore.Services.ServicesImplementation
         public void Add(User user)
         {
             AssignIdIfEmpty(user);
-            user.Roles = user.IdRoles.Select(x => new Role() {RoleEnum = (RoleEnum) Enum.Parse(typeof(RoleEnum), x)});
+            if (user.IdRoles != null)
+            {
+                user.Roles = user.IdRoles.Select(x => new Role() {RoleEnum = (RoleEnum) Enum.Parse(typeof(RoleEnum), x)});
+            }
             _userRepository.Add(user);
             _unitOfWork.Save();
         }
 
         public void Update(User user)
         {
+            user.Roles = user.IdRoles.Select(x => new Role() { RoleEnum = (RoleEnum)Enum.Parse(typeof(RoleEnum), x) });
             _userRepository.Update(user);
             _unitOfWork.Save();
         }
@@ -86,6 +90,18 @@ namespace GameStore.Services.ServicesImplementation
         public IEnumerable<Role> GetRoles()
         {
             return _roleRepository.Get();
+        }
+
+        public int GetCountAdministrators()
+        {
+            var result = _userRepository.GetCountObject(x => x.Roles.Select(role => role.RoleEnum).Contains(RoleEnum.Administrator));
+
+            return result;
+        }
+
+        public bool IsInRole(string role)
+        {
+            throw new NotImplementedException();
         }
     }
 }

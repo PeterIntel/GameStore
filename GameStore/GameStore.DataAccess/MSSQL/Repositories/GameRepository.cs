@@ -47,7 +47,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (game.Genres != null)
             {
                 IEnumerable<GenreEntity> sqlGenres = _genreRepository.GetGenres(game.Genres);
-                IEnumerable<Genre> notSqlGenres = game.Genres.Except(_mapper.Map<IEnumerable<GenreEntity>, IEnumerable<Genre>>(sqlGenres), new IdComparer<Genre>());
+                IEnumerable<Genre> notSqlGenres = game.Genres.Except(_mapper.Map<IEnumerable<GenreEntity>, IEnumerable<Genre>>(sqlGenres), new IdDomainComparer<Genre>());
                 foreach (var genre in notSqlGenres)
                 {
                     _genreRepository.Add(genre);

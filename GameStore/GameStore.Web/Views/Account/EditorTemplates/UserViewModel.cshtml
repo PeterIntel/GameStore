@@ -1,5 +1,7 @@
 ﻿@model UserViewModel
 
+@Html.HiddenFor(model => model.Id)
+
 <div class="form-group clearfix">
     @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
@@ -19,9 +21,9 @@
     </div>
 </div>
 <div class="form-group clearfix">
-    @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.BirthDay, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", type = "date", id = "birthDate" } })
+        @Html.EditorFor(model => model.BirthDay, new { htmlAttributes = new { @class = "form-control", id = "birthDate"} })
     </div>
 </div>
 <div class="form-group clearfix">

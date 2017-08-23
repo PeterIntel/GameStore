@@ -61,7 +61,7 @@ namespace GameStore.Web.Controllers
             }
         }
 
-        public ActionResult LogOff(int id = 0)
+        public ActionResult LogOff()
         {
             Auth.Logout();
             return RedirectToAction("GetGames", "Game");
@@ -105,9 +105,9 @@ namespace GameStore.Web.Controllers
             return View(_mapper.Map<IEnumerable<User>, IList<UserViewModel>>(_accountService.Get()));
         }
 
-        public ActionResult UserDetails(string id)
+        public ActionResult UserDetails(string key)
         {
-            User user = _accountService.First(x => x.Login == id);
+            User user = _accountService.First(x => x.Login == key);
             if (user == null)
             {
                 return HttpNotFound();
@@ -138,6 +138,68 @@ namespace GameStore.Web.Controllers
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
 
             return View(userViewModel);
+        }
+
+        public ActionResult Edit(string key)
+        {
+            User user = _accountService.First(x => x.Login == key);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var userViewModel = _mapper.Map<User, UserViewModel>(user);
+            userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.Roles.Select(x => x.Role.ToString())));
+
+            return View(userViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(UserViewModel userViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _accountService.Update(_mapper.Map<UserViewModel, User>(userViewModel));
+                return RedirectToLocal("GetUsers");
+            }
+
+            userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
+
+            return View(userViewModel);
+        }
+
+        public ActionResult Delete(string key)
+        {
+            var user = _accountService.First(x => x.Login == key);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(_mapper.Map<User, UserViewModel>(user));
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConfirmedDelete(string id)
+        {
+            var user = _accountService.First(x => x.Id == id);
+
+            if (user.IsInRole(RoleEnum.Administrator) && _accountService.GetCountAdministrators() <= 1)
+            {
+                ModelState.AddModelError("", @"You are the last administrator and you can not delete yourself!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _accountService.Remove(id);
+
+                return RedirectToAction("GetUsers");
+            }
+
+            return View(_mapper.Map<User, UserViewModel>(user));
         }
     }
 }

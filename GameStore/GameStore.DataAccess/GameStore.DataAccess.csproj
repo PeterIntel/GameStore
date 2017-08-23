@@ -111,7 +111,8 @@
     <Compile Include="Decorators\IGameDecoratorRepository.cs" />
     <Compile Include="Decorators\IOrderDecoratorRepository.cs" />
     <Compile Include="Decorators\OrderDecoratorRepository.cs" />
-    <Compile Include="Infrastructure\IdComparer.cs" />
+    <Compile Include="Infrastructure\IdDomainComparer.cs" />
+    <Compile Include="Infrastructure\IdEntityComparer.cs" />
     <Compile Include="Interfaces\IGameRepository.cs" />
     <Compile Include="Interfaces\IReadOnlyGameRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />

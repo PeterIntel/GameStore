@@ -279,6 +279,9 @@
     <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Account\EditorTemplates\UserViewModel.cshtml" />
     <Content Include="Views\Account\DisplayTemplates\RoleEnum.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\DisplayTemplates\UserViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -18,9 +18,9 @@ namespace GameStore.Domain.BusinessObjects
         public IEnumerable<string> IdRoles { set; get; }
         public IEnumerable<Order> Orders { set; get; } 
 
-        public override string ToString()
+        public bool IsInRole(RoleEnum role)
         {
-            return base.ToString();
+            return Roles.Select(x => x.RoleEnum).Contains(role);
         }
     }
 }

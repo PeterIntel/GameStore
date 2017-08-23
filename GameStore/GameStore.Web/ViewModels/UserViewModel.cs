@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.Attributes;
 
@@ -8,6 +9,7 @@ namespace GameStore.Web.ViewModels
 {
     public class UserViewModel
     {
+        public string Id { set; get; }
         [Required]
         [Display(Name = "Login")]
         public string Login { set; get; }
@@ -21,8 +23,8 @@ namespace GameStore.Web.ViewModels
         [Display(Name = "Birth Date")]
         [ValidateBirthDate]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime BirthDate { set; get; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? BirthDay { set; get; }
         [Required]
         [Display(Name = "E-mail")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
@@ -35,7 +37,7 @@ namespace GameStore.Web.ViewModels
         [Required]
         [Display(Name = "Comfirm Password")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The password and confirm password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirm password do not match.")]
         public string ConfirmPassword { set; get; }
         public IList<RoleViewModel> Roles { set; get; }
         public IList<string> IdRoles { set; get; }

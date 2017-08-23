@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.DataAccess.Infrastructure
 {
-    public class IdComparer<TDomain> : IEqualityComparer<TDomain> where TDomain : BasicDomain
+    public class IdDomainComparer<TDomain> : IEqualityComparer<TDomain> where TDomain : BasicDomain
     {
         public bool Equals(TDomain x, TDomain y)
         {

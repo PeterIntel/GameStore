@@ -10,7 +10,7 @@ namespace GameStore.Web.Attributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if ((DateTime)value <= DateTime.Now)
+            if ((DateTime)value <= HttpContext.Current.Timestamp.ToLocalTime())
             {
                 return ValidationResult.Success;
             }
