@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.Authorization;
+using GameStore.Authorization.Implementation;
+using GameStore.Authorization.Interfaces;
 using Ninject;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Services.ServicesImplementation;

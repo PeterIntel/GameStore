@@ -6,11 +6,13 @@ using GameStore.Authorization;
 using GameStore.Web.ViewModels;
 using GameStore.Domain.ServicesInterfaces;
 using AutoMapper;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Web.Attributes;
 
 namespace GameStore.Web.Controllers
 {
-    [Authorize]
+    [CustomAuthorize(RoleEnum.Administrator)]
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;

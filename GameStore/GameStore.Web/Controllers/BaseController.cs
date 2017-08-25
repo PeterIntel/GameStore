@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.Authorization;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
 using Ninject;
 

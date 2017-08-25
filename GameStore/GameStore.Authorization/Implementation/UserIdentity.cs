@@ -1,9 +1,10 @@
 ﻿using System.Security.Principal;
+using GameStore.Authorization.Interfaces;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
 
-namespace GameStore.Authorization
+namespace GameStore.Authorization.Implementation
 {
     public class UserIdentity : IIdentity, IUserProvider
     {

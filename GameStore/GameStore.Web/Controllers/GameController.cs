@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.ViewModels;
@@ -7,6 +6,8 @@ using AutoMapper;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using GameStore.Authorization;
+using GameStore.Authorization.Interfaces;
+using GameStore.Web.Attributes;
 using GameStore.Web.Filters;
 
 namespace GameStore.Web.Controllers

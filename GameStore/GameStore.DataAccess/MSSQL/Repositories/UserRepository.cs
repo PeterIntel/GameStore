@@ -37,8 +37,10 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             {
                 var entityUser = _mapper.Map<User, UserEntity>(domainUser);
                 entityUser.Roles = _roleRepository.GetRoles(domainUser.Roles).ToList();
-                entityUser.IsSqlEntity = true;
+
                 var existingUser = _dbSet.Include(x => x.Roles).First(x => x.Id == domainUser.Id);
+                _mapper.Map(entityUser, existingUser);
+
                 var deletedRoles = existingUser.Roles.Except(entityUser.Roles, new IdEntityComparer<RoleEntity>());
                 var addedRoles = entityUser.Roles.Except(existingUser.Roles, new IdEntityComparer<RoleEntity>());
                 for (int i = 0; i < deletedRoles.Count(); i++)
@@ -48,16 +50,15 @@ namespace GameStore.DataAccess.MSSQL.Repositories
 
                 foreach (var roleEntity in addedRoles)
                 {
-                    if (_context.Entry(roleEntity).State == EntityState.Detached)
-                    {
-                        _context.Roles.Attach(roleEntity);
-                    }
-
                     existingUser.Roles.Add(roleEntity);
                 }
-                _context.SaveChanges();
-                _context.Entry(_dbSet.Find(entityUser.Id)).State = EntityState.Detached;
-                _context.Entry(entityUser).State = EntityState.Modified;
+
+                if (_context.Entry(existingUser).State == EntityState.Detached)
+                {
+                    _context.Users.Attach(existingUser);
+                }
+
+                _context.Entry(existingUser).State = EntityState.Modified;
             }
         }
     }

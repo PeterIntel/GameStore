@@ -47,12 +47,15 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformTypeEntity, PlatformTypeEntity>();
             CreateMap<OrderEntity, OrderEntity>();
             CreateMap<OrderDetailsEntity, OrderDetailsEntity>();
+            CreateMap<UserEntity, UserEntity>()
+                .ForMember(dst => dst.Roles, opt => opt.Ignore());
 
             CreateMap<Game, GameEntity>().ForMember(dst => dst.Publisher, opt => opt.Ignore());
             CreateMap<Comment, CommentEntity>();
             CreateMap<Genre, GenreEntity>();
             CreateMap<PlatformType, PlatformTypeEntity>();
-            CreateMap<User, UserEntity>();
+            CreateMap<User, UserEntity>()
+                .ForMember(dst => dst.Roles, opt => opt.Ignore());
             CreateMap<Role, RoleEntity>();
             CreateMap<Publisher, PublisherEntity>().ReverseMap();
             CreateMap<Order, OrderEntity>();
@@ -114,3 +117,4 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
         }
     }
 }
+

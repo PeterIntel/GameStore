@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
+using GameStore.Authorization.Interfaces;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Logging.Loggers;
-using Ninject;
-using NLog;
 
-namespace GameStore.Authorization
+namespace GameStore.Authorization.Implementation
 {
     public class CustomAuthentication : IAuthentication
     {
