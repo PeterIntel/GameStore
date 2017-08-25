@@ -150,5 +150,17 @@ namespace GameStore.DataAccess.MSSQL.Repositories
 
             return result;
         }
+
+        public IEnumerable<TDomain> LoadDomainEntities(IEnumerable<string> ids)
+        {
+            var domainEntities = new List<TDomain>();
+            foreach (var id in ids)
+            {
+                var domainEntity = GetItemById(id);
+                if (domainEntity != null) { domainEntities.Add(domainEntity); }
+            }
+
+            return domainEntities;
+        }
     }
 }

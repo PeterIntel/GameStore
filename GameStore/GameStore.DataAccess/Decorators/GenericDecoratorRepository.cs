@@ -15,7 +15,7 @@ using MongoDB.Driver.Linq;
 
 namespace GameStore.DataAccess.Decorators
 {
-    public class GenericDecoratorRepository<TSqlEntity, TMongoEntity, TDomain> : IGenericDecoratorRepository<TSqlEntity, TMongoEntity, TDomain> where TSqlEntity : class where TMongoEntity : class where TDomain : BasicDomain
+    public class GenericDecoratorRepository<TSqlEntity, TMongoEntity, TDomain> : IGenericDataRepository<TSqlEntity, TDomain> where TSqlEntity : class where TMongoEntity : class where TDomain : BasicDomain
     {
         protected readonly IGenericDataRepository<TSqlEntity, TDomain> SqlDataRepository;
         protected readonly IReadOnlyGenericRepository<TMongoEntity, TDomain> MongoDataRepository;
@@ -77,7 +77,7 @@ namespace GameStore.DataAccess.Decorators
             SqlDataRepository.Update(item);
         }
 
-        public IEnumerable<TDomain> GetRequiredMongoCollection()
+        private IEnumerable<TDomain> GetRequiredMongoCollection()
         {
             var sqlIds = SqlDataRepository.Get().Select(sql => sql.Id);
             //Entities from Mongo which already added to SQL
@@ -90,7 +90,7 @@ namespace GameStore.DataAccess.Decorators
             return requiredMongoCollection;
         }
         
-        public IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter)
+        private IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter)
         {
             // if selected platform type than show nothing from Mongo database
             if (filter.Body.ToString().Contains("PlatformTypes"))

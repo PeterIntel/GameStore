@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="AutomapperConfiguration\DomainProfile.cs" />
     <Compile Include="MapperConfiguration\GameMapper.cs" />
-    <Compile Include="NinjectConfiguration\DecoratorsNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\LogNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\RepositoryNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\ServiceNinjectModule.cs" />
@@ -89,6 +88,10 @@
     <ProjectReference Include="..\GameStore.Logging\GameStore.Logging.csproj">
       <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
       <Name>GameStore.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameStore.Services\GameStore.Services.csproj">
+      <Project>{dc9f595c-917a-49aa-b108-6c29e6d1fbc4}</Project>
+      <Name>GameStore.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

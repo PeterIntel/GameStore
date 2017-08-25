@@ -107,13 +107,11 @@
   <ItemGroup>
     <Compile Include="Decorators\GameDecoratorRepository.cs" />
     <Compile Include="Decorators\GenericDecoratorRepository.cs" />
-    <Compile Include="Decorators\IGenericDecoratorRepository.cs" />
-    <Compile Include="Decorators\IGameDecoratorRepository.cs" />
-    <Compile Include="Decorators\IOrderDecoratorRepository.cs" />
     <Compile Include="Decorators\OrderDecoratorRepository.cs" />
     <Compile Include="Infrastructure\IdDomainComparer.cs" />
     <Compile Include="Infrastructure\IdEntityComparer.cs" />
     <Compile Include="Interfaces\IGameRepository.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Interfaces\IReadOnlyGameRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Migrations\201708081325289_rename_IsSqlEntity.cs" />
@@ -133,7 +131,7 @@
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
     <Compile Include="Mongo\GamesMongoContext.cs" />
     <Compile Include="Mongo\CollectionName.cs" />
-    <Compile Include="Mongo\MongoEntities\BaseMongoEntity.cs" />
+    <Compile Include="Mongo\MongoEntities\BasicMongoEntity.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyOrderRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGameRepository.cs" />
     <Compile Include="MSSQL\Entities\RoleEntity.cs" />

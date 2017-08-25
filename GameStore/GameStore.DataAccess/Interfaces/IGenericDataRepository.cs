@@ -9,6 +9,7 @@ namespace GameStore.DataAccess.Interfaces
     {
         IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties);
         IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties);
+        IEnumerable<TDomain> LoadDomainEntities(IEnumerable<string> ids);
         TDomain GetItemById(string id);
         TDomain First(Expression<Func<TDomain, bool>> filter);
         int GetCountObject(Expression<Func<TDomain, bool>> filter);

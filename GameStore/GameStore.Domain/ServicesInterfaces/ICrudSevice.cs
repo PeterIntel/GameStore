@@ -15,6 +15,7 @@ namespace GameStore.Domain.ServicesInterfaces
         void Update(T item);
         void Remove(T item);
         void Remove(string id);
+        T First(Expression<Func<T, bool>> filter);
         bool Any(Expression<Func<T, bool>> filter);
     }
 }

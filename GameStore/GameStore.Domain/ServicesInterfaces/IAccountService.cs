@@ -10,10 +10,8 @@ namespace GameStore.Domain.ServicesInterfaces
 {
     public interface IAccountService : ICrudService<User>
     {
-        IEnumerable<Role> GetRoles();
         IEnumerable<Role> GetAllRolesAndMarkSelected(IEnumerable<string> selecredGenres);
-        User First(Expression<Func<User, bool>> filter);
         int GetCountAdministrators();
-        bool IsInRole(string role);
+        IEnumerable<Role> GetRoles();
     }
 }

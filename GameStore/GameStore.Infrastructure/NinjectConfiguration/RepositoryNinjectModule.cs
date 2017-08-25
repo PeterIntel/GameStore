@@ -7,10 +7,12 @@ using Ninject.Modules;
 using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess;
+using GameStore.DataAccess.Decorators;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.Mongo.MongoRepositories;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.Services.ServicesImplementation;
 
 namespace GameStore.Infrastructure.NinjectConfiguration
 {
@@ -18,13 +20,21 @@ namespace GameStore.Infrastructure.NinjectConfiguration
     {
         public override void Load()
         {
+            Bind<IGameRepository>().To<GameDecoratorRepository>();
+            Bind<IOrderRepository>().To<OrderDecoratorRepository>();
+            Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>().WhenInjectedInto<GameService>();
+            Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>().WhenInjectedInto<GenreService>();
+            Bind<IGenericDataRepository<PublisherEntity, Publisher>>().To<GenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>>().WhenInjectedInto<GameService>();
+            Bind<IGenericDataRepository<PublisherEntity, Publisher>>().To<GenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>>().WhenInjectedInto<PublisherService>();
+            Bind<IGenericDataRepository<OrderEntity, Order>>().To<GenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order>>().WhenInjectedInto<OrderService>();
+            Bind<IGenericDataRepository<OrderDetailsEntity, OrderDetails>>().To<GenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails>>().WhenInjectedInto<OrderService>();
+
             Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
-            Bind(typeof(IGenericDataRepository<GameEntity, Game>)).To<GameRepository>();
-            Bind(typeof(IGenericDataRepository<UserEntity, User>)).To<UserRepository>();
+            Bind<IGenericDataRepository<UserEntity, User>>().To<UserRepository>();
             Bind<IGenreRepository>().To<GenreRepository>();
             Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
             Bind<IRoleRepository>().To<RoleRepository>();
-
+            
             Bind(typeof(IReadOnlyGenericRepository<,>)).To(typeof(ReadOnlyGenericRepository<,>));
             Bind<IReadOnlyGenericRepository<MongoOrderEntity, Order>>().To<ReadOnlyOrderRepository>();
             Bind<IReadOnlyGenericRepository<MongoProductEntity, Game>>().To<ReadOnlyGameRepository>();

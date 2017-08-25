@@ -9,28 +9,22 @@ using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using System.Linq.Expressions;
+using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class AccountService : BasicService<User>, IAccountService
+    public class AccountService : BasicService<UserEntity, User>, IAccountService
     {
         private readonly IGenericDataRepository<UserEntity, User> _userRepository;
         private readonly IRoleRepository _roleRepository;
-        private readonly IUnitOfWork _unitOfWork;
 
-        public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork)
+        public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork, IMongoLogger<User> logger) : base(userRepository, unitOfWork, logger)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
-            _unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<User> Get(params Expression<Func<User, object>>[] includeProperties)
-        {
-            return _userRepository.Get().ToList();
-        }
-
-        public void Add(User user)
+        public override void Add(User user)
         {
             AssignIdIfEmpty(user);
             if (user.IdRoles != null)
@@ -38,31 +32,14 @@ namespace GameStore.Services.ServicesImplementation
                 user.Roles = user.IdRoles.Select(x => new Role() {RoleEnum = (RoleEnum) Enum.Parse(typeof(RoleEnum), x)});
             }
             _userRepository.Add(user);
-            _unitOfWork.Save();
+            UnitOfWork.Save();
         }
 
-        public void Update(User user)
+        public override void Update(User user)
         {
             user.Roles = user.IdRoles.Select(x => new Role() { RoleEnum = (RoleEnum)Enum.Parse(typeof(RoleEnum), x) });
             _userRepository.Update(user);
-            _unitOfWork.Save();
-        }
-
-        public void Remove(User user)
-        {
-            _userRepository.Remove(user);
-            _unitOfWork.Save();
-        }
-
-        public void Remove(string id)
-        {
-            _userRepository.Remove(id);
-            _unitOfWork.Save();
-        }
-
-        public bool Any(Expression<Func<User, bool>> filter)
-        {
-            return _userRepository.Any(filter);
+            UnitOfWork.Save();
         }
 
         public IEnumerable<Role> GetAllRolesAndMarkSelected(IEnumerable<string> selecredRoles)
@@ -82,16 +59,6 @@ namespace GameStore.Services.ServicesImplementation
             return roles;
         }
 
-        public User First(Expression<Func<User, bool>> filter)
-        {
-            return _userRepository.First(filter);
-        }
-
-        public IEnumerable<Role> GetRoles()
-        {
-            return _roleRepository.Get();
-        }
-
         public int GetCountAdministrators()
         {
             var result = _userRepository.GetCountObject(x => x.Roles.Select(role => role.RoleEnum).Contains(RoleEnum.Administrator));
@@ -99,9 +66,11 @@ namespace GameStore.Services.ServicesImplementation
             return result;
         }
 
-        public bool IsInRole(string role)
+        public IEnumerable<Role> GetRoles()
         {
-            throw new NotImplementedException();
+            var roles = _roleRepository.Get();
+
+            return roles;
         }
     }
 }

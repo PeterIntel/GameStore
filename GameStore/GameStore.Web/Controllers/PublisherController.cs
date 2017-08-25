@@ -6,13 +6,15 @@ using System.Web.Mvc;
 using AutoMapper;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
+using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
+    [CustomAuthorize(RoleEnum.Manager)]
     public class PublisherController : Controller
     {
-        private IPublisherService _publisherService;
+        private readonly IPublisherService _publisherService;
         private IMapper _mapper;
 
         public PublisherController(IPublisherService publisherService, IMapper mapper)
@@ -20,6 +22,13 @@ namespace GameStore.Web.Controllers
             _publisherService = publisherService;
             _mapper = mapper;
         }
+
+        public ActionResult GetPublishers()
+        {
+            return View(_mapper.Map<IEnumerable<Publisher>, IEnumerable<PublisherViewModel>>(_publisherService.Get()));
+        }
+
+        [CustomAuthorize(RoleEnum.Manager, RoleEnum.User)]
         // GET: Publisher
         public ActionResult GetPublisherDetails(string companyName)
         {
@@ -42,8 +51,21 @@ namespace GameStore.Web.Controllers
             {
                 var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
                 _publisherService.Add(publisher);
-                return RedirectToAction("GetPublisherDetails", new {companyName = publisherViewModel.CompanyName});
+                return RedirectToAction("GetPublishers", new {companyName = publisherViewModel.CompanyName});
             }
+            return View(publisherViewModel);
+        }
+
+        public ActionResult Edit(string companyName)
+        {
+            Publisher publisher = _publisherService.First(x => x.CompanyName == companyName);
+            if (publisher == null)
+            {
+                return HttpNotFound();
+            }
+
+            var publisherViewModel = _mapper.Map<Publisher, PublisherViewModel>(publisher);
+     
             return View(publisherViewModel);
         }
     }

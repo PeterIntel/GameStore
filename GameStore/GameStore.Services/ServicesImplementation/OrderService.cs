@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using GameStore.DataAccess.Decorators;
+using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
@@ -13,21 +13,17 @@ using GameStore.Services.ServicesImplementation.FilterImplementation.OrderFilter
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class OrderService : BasicService<Order>, IOrderService
+    public class OrderService : BasicService<OrderEntity, Order>, IOrderService
     {
-        private readonly IOrderDecoratorRepository _orderRepository;
-        private readonly IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> _orderDetailsRepository;
-        private readonly IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> _gameRepository;
-        private readonly IMongoLogger<Order> _logger;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IGenericDataRepository<OrderDetailsEntity, OrderDetails> _orderDetailsRepository;
+        private readonly IGameRepository _gameRepository;
 
-        public OrderService(IUnitOfWork unitOfWork, IOrderDecoratorRepository orderRepository, IGenericDecoratorRepository<GameEntity, MongoProductEntity, Game> gameRepository, IGenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger)
+        public OrderService(IUnitOfWork unitOfWork, IOrderRepository orderRepository, IGameRepository gameRepository, IGenericDataRepository<OrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger) : base(orderRepository, unitOfWork, logger)
         {
-            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _gameRepository = gameRepository;
             _orderDetailsRepository = orderDetailsRepository;
-            _logger = logger;
         }
 
         public void AddGameToOrder(string gamekey, string customerId)
@@ -62,15 +58,8 @@ namespace GameStore.Services.ServicesImplementation
                 });
             }
 
-            _unitOfWork.Save();
-            _logger.Write(Operation.Insert, order);
-        }
-
-        public void Add(Order item)
-        {
-            _orderRepository.Add(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Insert, item);
+            UnitOfWork.Save();
+            Logger.Write(Operation.Insert, order);
         }
 
         public Order GetOrderByCustomerId(string id)
@@ -99,37 +88,10 @@ namespace GameStore.Services.ServicesImplementation
             return result;
         }
 
-        public void Remove(string id)
-        {
-            _orderRepository.Remove(id);
-            _unitOfWork.Save();
-        }
-
-        public void Remove(Order item)
-        {
-            _orderRepository.Remove(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Delete, item);
-        }
-
-        public void Update(Order item)
-        {
-            _orderRepository.Update(item);
-            _unitOfWork.Save();
-            var updatedOrder = _orderRepository.GetItemById(item.Id);
-            _logger.Write(Operation.Update, item, updatedOrder);
-        }
-
         public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties) 
              
         {
             var orders = _orderRepository.Get(filter, includeProperties).ToList();
-            return orders;
-        }
-
-        public IEnumerable<Order> Get(params Expression<Func<Order, object>>[] includeProperties)
-        {
-            var orders = _orderRepository.Get(includeProperties).ToList();
             return orders;
         }
 
@@ -145,11 +107,6 @@ namespace GameStore.Services.ServicesImplementation
         {
             var orders = _orderRepository.GetOrders(x => true, includeProperties).ToList();
             return orders;
-        }
-
-        public bool Any(Expression<Func<Order, bool>> filter)
-        {
-            return _orderRepository.Any(filter);
         }
     }
 }

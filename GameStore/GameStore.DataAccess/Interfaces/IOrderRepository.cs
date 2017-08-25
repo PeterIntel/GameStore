@@ -1,16 +1,15 @@
-﻿using GameStore.DataAccess.MSSQL.Entities;
+﻿using GameStore.Domain.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using GameStore.DataAccess.Mongo.MongoEntities;
-using GameStore.Domain.BusinessObjects;
+using GameStore.DataAccess.MSSQL.Entities;
 
-namespace GameStore.DataAccess.Decorators
+namespace GameStore.DataAccess.Interfaces
 {
-    public interface IOrderDecoratorRepository : IGenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order>
+    public interface IOrderRepository : IGenericDataRepository<OrderEntity, Order>
     {
         IEnumerable<Order> GetOrders(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties);
     }

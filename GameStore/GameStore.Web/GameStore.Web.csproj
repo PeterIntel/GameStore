@@ -283,6 +283,8 @@
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\DisplayTemplates\UserViewModel.cshtml" />
+    <Content Include="Views\Publisher\GetPublishers.cshtml" />
+    <Content Include="Views\Publisher\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

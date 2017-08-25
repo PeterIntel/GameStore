@@ -9,7 +9,7 @@ using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.Decorators
 {
-    public class OrderDecoratorRepository : GenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order>, IOrderDecoratorRepository
+    public class OrderDecoratorRepository : GenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order>, IOrderRepository
     {
         public OrderDecoratorRepository(IGenericDataRepository<OrderEntity, Order> sqlDataRepository, IReadOnlyGenericRepository<MongoOrderEntity, Order> mongoDataRepository) : base(sqlDataRepository, mongoDataRepository)
         {

@@ -10,7 +10,7 @@ namespace GameStore.DataAccess.Mongo
         {
             get
             {
-                var _collectionNames = new Dictionary<Type, string>()
+                var collectionNames = new Dictionary<Type, string>()
                 {
                     {typeof(MongoCategoryEntity), "categories"},
                     {typeof(MongoOrderEntity), "orders"},
@@ -19,7 +19,8 @@ namespace GameStore.DataAccess.Mongo
                     {typeof(MongoShipperEntity), "shippers"},
                     {typeof(MongoSupplierEntity), "suppliers"}
                 };
-                return _collectionNames;
+                return collectionNames;
+
             }
         }
     }
