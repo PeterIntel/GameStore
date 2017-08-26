@@ -4,5 +4,18 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-12">
+            <h2>Edit</h2>
 
+            @Html.AntiForgeryToken()
+            <div class="validation-errors">
+                @Html.ValidationSummary(false)
+            </div>
+            @Html.EditorForModel()
+        </div>
+        <input type="submit" value="Edit"/>
+    }
+</div>

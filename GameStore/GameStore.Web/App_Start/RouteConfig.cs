@@ -21,7 +21,7 @@ namespace GameStore.Web
             );
 
             routes.MapRoute(
-                name: "publisher",
+                name: "addPublisher",
                 url: "publisher/new",
                 defaults: new { controller = "publisher", action = "new" }
             );

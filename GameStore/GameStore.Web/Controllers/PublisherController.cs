@@ -56,9 +56,9 @@ namespace GameStore.Web.Controllers
             return View(publisherViewModel);
         }
 
-        public ActionResult Edit(string companyName)
+        public ActionResult Edit(string key)
         {
-            Publisher publisher = _publisherService.First(x => x.CompanyName == companyName);
+            Publisher publisher = _publisherService.First(x => x.CompanyName == key);
             if (publisher == null)
             {
                 return HttpNotFound();
@@ -67,6 +67,48 @@ namespace GameStore.Web.Controllers
             var publisherViewModel = _mapper.Map<Publisher, PublisherViewModel>(publisher);
      
             return View(publisherViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PublisherViewModel publisherViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
+                _publisherService.Update(publisher);
+
+                return RedirectToAction("getPublishers");
+            }
+
+            return View(publisherViewModel); 
+        }
+
+        public ActionResult Delete(string key)
+        {
+            var publisher = _publisherService.First(x => x.CompanyName == key);
+            if (publisher == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(_mapper.Map<Publisher, PublisherViewModel>(publisher));
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConfirmedDelete(string id)
+        {
+            var publisher = _publisherService.First(x => x.Id == id);
+            if (ModelState.IsValid)
+            {
+                _publisherService.Remove(id);
+
+                return RedirectToAction("getPublishers");
+            }
+
+            return View(_mapper.Map<Publisher, PublisherViewModel>(publisher));
         }
     }
 }
