@@ -21,6 +21,28 @@ namespace GameStore.Services.ServicesImplementation
             _genreRepository = genreRepository;
         }
 
+        public override IEnumerable<Genre> Get(params Expression<Func<Genre, object>>[] includeProperties)
+        {
+            var genres = base.Get(includeProperties).ToList();
+            foreach (var genre in genres)
+            {
+                if (genre.ParentGenreId != null)
+                {
+                    genre.ParentGenreName = _genreRepository.First(g => g.Id == genre.ParentGenreId).Name;
+                }
+            }
+
+            return genres;
+        }
+
+        public override Genre First(Expression<Func<Genre, bool>> filter)
+        {
+            var genre =  base.First(filter);
+            genre.ParentGenreName = _genreRepository.First(g => g.Id == genre.Id).Name;
+
+            return genre;
+        }
+
         public IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres)
         {
             IEnumerable<Genre> genres = _genreRepository.Get().ToList();

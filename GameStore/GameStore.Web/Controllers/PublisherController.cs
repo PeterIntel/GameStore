@@ -15,7 +15,7 @@ namespace GameStore.Web.Controllers
     public class PublisherController : Controller
     {
         private readonly IPublisherService _publisherService;
-        private IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public PublisherController(IPublisherService publisherService, IMapper mapper)
         {
@@ -51,7 +51,7 @@ namespace GameStore.Web.Controllers
             {
                 var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
                 _publisherService.Add(publisher);
-                return RedirectToAction("GetPublishers", new {companyName = publisherViewModel.CompanyName});
+                return RedirectToAction("GetPublishers");
             }
             return View(publisherViewModel);
         }

@@ -14,7 +14,7 @@
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">Game Store</a>
+                <a href="@Url.Action("getGames", "game")" class="navbar-brand">Game Store</a>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
                     <span class="icon-bar"></span>
@@ -28,6 +28,7 @@
                     @if (User.IsInRole(RoleEnum.Manager.ToString()))
                     {
                         <li><a href="@Url.Action("getPublishers", "publisher")">Publishers</a></li>
+                        <li><a href="@Url.Action("getGenres", "genre")">Genres</a></li>
                     }
                     <li><a href="@Url.Action("history", "order")">All orders</a></li>
                     <li><a href="@Url.Action("busket", "order")">busket</a></li>

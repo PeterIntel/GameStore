@@ -76,5 +76,12 @@ namespace GameStore.Services.ServicesImplementation
             var updatedItem = _genericRepository.GetItemById(item.Id);
             Logger.Write(Operation.Update, item, updatedItem);
         }
+
+        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties)
+        {
+            var result = _genericRepository.Get(filter, includeProperties);
+
+            return result;
+        }
     }
 }

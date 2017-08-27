@@ -199,6 +199,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Filters\ActionPerformanceFilter.cs" />
@@ -287,6 +288,13 @@
     <Content Include="Views\Publisher\Edit.cshtml" />
     <Content Include="Views\Publisher\Delete.cshtml" />
     <Content Include="Views\Publisher\EditorTemplates\PublisherViewModel.cshtml" />
+    <Content Include="Views\Genre\GetGenres.cshtml" />
+    <Content Include="Views\Genre\New.cshtml" />
+    <Content Include="Views\Genre\EditorTemplates\GenreViewModel.cshtml" />
+    <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\DisplayTemplates\GenreViewModel.cshtml" />
+    <Content Include="Views\Publisher\DisplayTemplates\PublisherViewModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -11,6 +11,7 @@ namespace GameStore.Domain.ServicesInterfaces
     public interface ICrudService<T> where T:class
     {
         IEnumerable<T> Get(params Expression<Func<T, object>>[] includeProperties);
+        IEnumerable<T> Get(Expression<Func<T, bool>> filter, params Expression<Func<T, object>>[] includeProperties);
         void Add(T item);
         void Update(T item);
         void Remove(T item);
