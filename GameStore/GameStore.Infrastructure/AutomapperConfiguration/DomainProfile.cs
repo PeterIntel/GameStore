@@ -40,17 +40,29 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<OrderDetailsEntity, OrderDetails>();
             CreateMap<GameInfoEntity, GameInfo>();
 
-            CreateMap<GameEntity, GameEntity>();
-            CreateMap<GameInfoEntity, GameInfoEntity>();
-            CreateMap<CommentEntity, CommentEntity>();
-            CreateMap<GenreEntity, GenreEntity>();
-            CreateMap<PlatformTypeEntity, PlatformTypeEntity>();
-            CreateMap<OrderEntity, OrderEntity>();
-            CreateMap<OrderDetailsEntity, OrderDetailsEntity>();
+            CreateMap<GameEntity, GameEntity>()
+                .ForMember(dst => dst.GameInfo, opt => opt.Ignore())
+                .ForMember(dst => dst.Genres, opt => opt.Ignore())
+                .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+            CreateMap<GameInfoEntity, GameInfoEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+            CreateMap<CommentEntity, CommentEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+            CreateMap<GenreEntity, GenreEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+            CreateMap<PlatformTypeEntity, PlatformTypeEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+            CreateMap<OrderEntity, OrderEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+            CreateMap<OrderDetailsEntity, OrderDetailsEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
             CreateMap<UserEntity, UserEntity>()
-                .ForMember(dst => dst.Roles, opt => opt.Ignore());
+                .ForMember(dst => dst.Roles, opt => opt.Ignore())
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
 
-            CreateMap<Game, GameEntity>().ForMember(dst => dst.Publisher, opt => opt.Ignore());
+            CreateMap<Game, GameEntity>()
+                .ForMember(dst => dst.Publisher, opt => opt.Ignore());
             CreateMap<Comment, CommentEntity>();
             CreateMap<Genre, GenreEntity>();
             CreateMap<PlatformType, PlatformTypeEntity>();

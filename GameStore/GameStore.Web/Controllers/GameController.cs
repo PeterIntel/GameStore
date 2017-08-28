@@ -54,13 +54,14 @@ namespace GameStore.Web.Controllers
                 _gameService.Add(game);
                 return RedirectToAction("GetGames");
             }
+
             gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.NameGenres));
             gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.NamePlatformtypes));
             gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
             return View(gameViewModel);
         }
 
-        [ActionName("Edit")]
+        [ActionName("edit")]
         public ActionResult UpdateGame(string gameKey)
         {
             Game game = _gameService.First(g => g.Key == gameKey);
@@ -73,7 +74,7 @@ namespace GameStore.Web.Controllers
             gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.Genres.Select(g => g.Name)));
             gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.PlatformTypes.Select(p => p.TypeName)));
             gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
-            gameViewModel.Publishers.Insert(0, new PublisherViewModel() {CompanyName = "Not Specified"});
+            gameViewModel.Publishers.Insert(0, new PublisherViewModel() { CompanyName = "Not Specified" });
 
             return View(gameViewModel);
         }
@@ -82,18 +83,47 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         public ActionResult UpdateGame(GameViewModel gameViewModel)
         {
-            var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
-            _gameService.Update(game);
-            return new HttpStatusCodeResult(200);
+            if (ModelState.IsValid)
+            {
+                var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
+                _gameService.Update(game);
+
+                return RedirectToAction("GetGames");
+            }
+
+            gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.NameGenres));
+            gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.NamePlatformtypes));
+            gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+            gameViewModel.Publishers.Insert(0, new PublisherViewModel() { CompanyName = "Not Specified" });
+
+            return View(gameViewModel);
         }
 
-        [ActionName("remove")]
-        [HttpPost]
-        public ActionResult RemoveGame(GameViewModel gameViewModel)
+        [ActionName("delete")]
+        public ActionResult Remove(string gameKey)
         {
-            var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
-            _gameService.Remove(game);
-            return new HttpStatusCodeResult(200);
+            var game = _gameService.First(x => x.Key == gameKey);
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(_mapper.Map<Game, GameViewModel>(game));
+        }
+
+        [ActionName("delete")]
+        [HttpPost]
+        public ActionResult RemoveGame(string id)
+        {
+            var game = _gameService.First(x => x.Id == id);
+            if (ModelState.IsValid)
+            {
+                _gameService.Remove(id);
+
+                return RedirectToAction("getGames");
+            }
+
+            return View(_mapper.Map<Game, GameViewModel>(game));
         }
 
         public ActionResult GetGames()

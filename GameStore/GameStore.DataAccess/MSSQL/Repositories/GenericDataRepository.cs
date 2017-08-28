@@ -109,6 +109,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (item != null)
             {
                 TEntity entity = _mapper.Map<TDomain, TEntity>(item);
+                entity.IsSqlEntity = true;
                 _context.Entry(_dbSet.Find(entity.Id)).State = EntityState.Detached;
                 _context.Entry(entity).State = EntityState.Modified;
             }

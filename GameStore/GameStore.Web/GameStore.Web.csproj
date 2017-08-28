@@ -296,6 +296,8 @@
     <Content Include="Views\Genre\DisplayTemplates\GenreViewModel.cshtml" />
     <Content Include="Views\Publisher\DisplayTemplates\PublisherViewModel.cshtml" />
     <Content Include="Views\Game\Edit.cshtml" />
+    <Content Include="Views\Game\DisplayTemplates\GameViewModel.cshtml" />
+    <Content Include="Views\Game\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -79,6 +79,7 @@ namespace GameStore.Web.Controllers
             }
 
             genreViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.Get(g => g.Id != genreViewModel.Id));
+            genreViewModel.Genres.Insert(0, new GenreViewModel() { Name = "Not Specified" });
 
             return View(genreViewModel);
         }

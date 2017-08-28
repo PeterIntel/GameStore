@@ -108,17 +108,10 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         {
             if (game != null)
             {
-                var entityGame = _mapper.Map<Game, GameEntity>(game);
-                entityGame.Genres = _genreRepository.GetGenres(game.Genres).ToList();
-                entityGame.PlatformTypes = _platformRepository.GetPlatformTypes(game.PlatformTypes).ToList();
-                if (game.Publisher != null)
-                {
-                    entityGame.Publisher = _context.Publishers.FirstOrDefault(p => p.CompanyName == game.Publisher.CompanyName);
-                }
-
-                var existingGame = _dbSet.Include(x => x.Genres).Include(x => x.PlatformTypes).Include(x => x.Publisher).Include(x => x.GameInfo).First(x => x.Id == entityGame.Id);
+                var entityGame = InitGame(game);
+                var existingGame = _dbSet.Include(x => x.Genres).Include(x => x.PlatformTypes).Include(x => x.Publisher).First(x => x.Id == entityGame.Id);
                 _mapper.Map(entityGame, existingGame);
-
+                
                 var deletedGenres = existingGame.Genres.Except(entityGame.Genres, new IdEntityComparer<GenreEntity>());
                 var addedGenres = entityGame.Genres.Except(existingGame.Genres, new IdEntityComparer<GenreEntity>());
                 for (int i = 0; i < deletedGenres.Count(); i++)

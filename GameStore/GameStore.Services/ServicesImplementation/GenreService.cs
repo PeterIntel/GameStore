@@ -50,7 +50,7 @@ namespace GameStore.Services.ServicesImplementation
             {
                 foreach (var item in genres)
                 {
-                    if (selecredGenres.Contains(item.Id))
+                    if (selecredGenres.Contains(item.Name))
                     {
                         item.IsChecked = true;
                     }
