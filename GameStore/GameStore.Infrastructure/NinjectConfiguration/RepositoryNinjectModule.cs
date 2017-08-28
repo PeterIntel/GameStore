@@ -20,7 +20,7 @@ namespace GameStore.Infrastructure.NinjectConfiguration
     {
         public override void Load()
         {
-            Bind<IGameRepository>().To<GameDecoratorRepository>();
+            Bind<IGameRepository>().To<GameDecoratorRepository>().WhenInjectedInto<GameService>();
             Bind<IOrderRepository>().To<OrderDecoratorRepository>();
             Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>().WhenInjectedInto<GameService>();
             Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>().WhenInjectedInto<GenreService>();
@@ -30,6 +30,7 @@ namespace GameStore.Infrastructure.NinjectConfiguration
             Bind<IGenericDataRepository<OrderDetailsEntity, OrderDetails>>().To<GenericDecoratorRepository<OrderDetailsEntity, MongoOrderDetailsEntity, OrderDetails>>().WhenInjectedInto<OrderService>();
 
             Bind(typeof(IGenericDataRepository<,>)).To(typeof(GenericDataRepository<,>));
+            Bind<IGenericDataRepository<GameEntity, Game>>().To<GameRepository>();
             Bind<IGenericDataRepository<UserEntity, User>>().To<UserRepository>();
             Bind<IGenreRepository>().To<GenreRepository>();
             Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
