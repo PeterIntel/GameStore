@@ -5,6 +5,7 @@ using GameStore.Web.ViewModels;
 using AutoMapper;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using GameStore.Authorization;
 using GameStore.Authorization.Interfaces;
 using GameStore.Web.Attributes;
@@ -59,8 +60,25 @@ namespace GameStore.Web.Controllers
             return View(gameViewModel);
         }
 
+        [ActionName("Edit")]
+        public ActionResult UpdateGame(string gameKey)
+        {
+            Game game = _gameService.First(g => g.Key == gameKey);
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
 
-        [ActionName("update")]
+            var gameViewModel = _mapper.Map<Game, GameViewModel>(game);
+            gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.Genres.Select(g => g.Name)));
+            gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.PlatformTypes.Select(p => p.TypeName)));
+            gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+            gameViewModel.Publishers.Insert(0, new PublisherViewModel() {CompanyName = "Not Specified"});
+
+            return View(gameViewModel);
+        }
+
+        [ActionName("edit")]
         [HttpPost]
         public ActionResult UpdateGame(GameViewModel gameViewModel)
         {

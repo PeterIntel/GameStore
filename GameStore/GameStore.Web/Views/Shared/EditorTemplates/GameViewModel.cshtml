@@ -1,5 +1,7 @@
 ﻿@model GameViewModel
 
+@Html.HiddenFor(m => m.Id)
+
 @Html.LabelFor(m => m.Key)
 <br>
 @Html.EditorFor(m => m.Key)
@@ -64,4 +66,4 @@
 <br>
 @Html.LabelFor(m => m.SelectedPublisher)
 <br>
-@Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "Id", "CompanyName"), "Not spesified")
+@Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "Id", "CompanyName"), Model.Publisher != null ? Model.Publisher.CompanyName : "Not spesified")

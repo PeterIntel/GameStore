@@ -1,4 +1,4 @@
-using GameStore.DataAccess.MSSQL.Entities;
+ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Migrations

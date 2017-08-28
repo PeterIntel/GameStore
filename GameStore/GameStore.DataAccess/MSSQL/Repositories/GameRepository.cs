@@ -103,5 +103,53 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
             return result;
         }
+
+        public override void Update(Game game)
+        {
+            if (game != null)
+            {
+                var entityGame = _mapper.Map<Game, GameEntity>(game);
+                entityGame.Genres = _genreRepository.GetGenres(game.Genres).ToList();
+                entityGame.PlatformTypes = _platformRepository.GetPlatformTypes(game.PlatformTypes).ToList();
+                if (game.Publisher != null)
+                {
+                    entityGame.Publisher = _context.Publishers.FirstOrDefault(p => p.CompanyName == game.Publisher.CompanyName);
+                }
+
+                var existingGame = _dbSet.Include(x => x.Genres).Include(x => x.PlatformTypes).Include(x => x.Publisher).Include(x => x.GameInfo).First(x => x.Id == entityGame.Id);
+                _mapper.Map(entityGame, existingGame);
+
+                var deletedGenres = existingGame.Genres.Except(entityGame.Genres, new IdEntityComparer<GenreEntity>());
+                var addedGenres = entityGame.Genres.Except(existingGame.Genres, new IdEntityComparer<GenreEntity>());
+                for (int i = 0; i < deletedGenres.Count(); i++)
+                {
+                    existingGame.Genres.Remove(deletedGenres.ElementAt(i));
+                }
+
+                foreach (var genreEntity in addedGenres)
+                {
+                    existingGame.Genres.Add(genreEntity);
+                }
+
+                var deletedPlatforms = existingGame.PlatformTypes.Except(entityGame.PlatformTypes, new IdEntityComparer<PlatformTypeEntity>());
+                var addedPlatforms = entityGame.PlatformTypes.Except(existingGame.PlatformTypes, new IdEntityComparer<PlatformTypeEntity>());
+                for (int i = 0; i < deletedPlatforms.Count(); i++)
+                {
+                    existingGame.PlatformTypes.Remove(deletedPlatforms.ElementAt(i));
+                }
+
+                foreach (var platformEntity in addedPlatforms)
+                {
+                    existingGame.PlatformTypes.Add(platformEntity);
+                }
+
+                if (_context.Entry(existingGame).State == EntityState.Detached)
+                {
+                    _context.Games.Attach(existingGame);
+                }
+
+                _context.Entry(existingGame).State = EntityState.Modified;
+            }
+        }
     }
 }

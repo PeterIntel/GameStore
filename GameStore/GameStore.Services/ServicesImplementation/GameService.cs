@@ -45,6 +45,23 @@ namespace GameStore.Services.ServicesImplementation
             Logger.Write(Operation.Insert, item);
         }
 
+        public override void Update(Game game)
+        {
+            if (game.Genres == null)
+            {
+                game.Genres = _genreRepository.LoadDomainEntities(game.NameGenres);
+            }
+
+            game.PlatformTypes = game.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });
+
+            if (game.Publisher != null)
+            {
+                game.Publisher = _publisherRepository.GetItemById(game.Publisher.Id);
+            }
+
+            base.Update(game);
+        }
+
         public Game GetItemByKey(string key)
         {
             var result = _gameRepository.First(x => x.Key == key);

@@ -22,7 +22,7 @@ namespace GameStore.Services.ServicesImplementation
         }
 
         public override IEnumerable<Genre> Get(params Expression<Func<Genre, object>>[] includeProperties)
-        {
+         {
             var genres = base.Get(includeProperties).ToList();
             foreach (var genre in genres)
             {

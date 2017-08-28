@@ -10,6 +10,7 @@ namespace GameStore.Web.ViewModels
 {
     public class GameViewModel
     {
+        public string Id { set; get; }
         [Required]
         public string Key { set; get; }
         [Required]
@@ -20,6 +21,7 @@ namespace GameStore.Web.ViewModels
         [Display(Name = "Publisher")]
         public string SelectedPublisher { set; get; }
         public DateTime? PublishedDate { set; get; }
+        public PublisherViewModel Publisher { set; get; }
         public IList<PublisherViewModel> Publishers { set; get; }
         public IList<CommentViewModel> Comments { set; get; }
         public IList<GenreViewModel> Genres { set; get; }
