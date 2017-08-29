@@ -7,6 +7,7 @@ using GameStore.Domain.ServicesInterfaces;
 using GameStore.Domain.BusinessObjects;
 using System.Web.UI;
 using AutoMapper;
+using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
@@ -67,17 +68,30 @@ namespace GameStore.Web.Controllers
         private CommentsViewModel InitComments(string gameKey)
         {
             var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
+            var game = _gameService.GetItemByKey(gameKey);
 
             var commentsViewModel = new CommentsViewModel()
             {
                 Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments),
                 Comment = new CommentViewModel()
                 {
-                    Game = _mapper.Map<Game, GameViewModel>(_gameService.GetItemByKey(gameKey)),
+                    GameId = game.Id,
+                    IsDeletedGame = game.IsDeleted,
                     GameKey = gameKey
                 }
             };
             return commentsViewModel;
+        }
+
+        [HttpGet]
+        [CustomAuthorize(RoleEnum.Moderator)]
+        public ActionResult ChangeCommentState(string key)
+        {
+            var comment = _commentService.First(x => x.Id == key);
+            comment.IsDisabled = !comment.IsDisabled;
+            _commentService.Update(comment);
+
+            return RedirectToAction("comments", new {gameKey = comment.Game.Key});
         }
     }
 }

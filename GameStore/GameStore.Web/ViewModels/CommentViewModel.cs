@@ -15,6 +15,8 @@ namespace GameStore.Web.ViewModels
         [Required]
         public string Body { set; get; }
         public string ParentCommentId { set; get; }
+        public bool IsDisabled { set; get; }
+        public bool IsDeletedGame { set; get; }
         public string GameId { set; get; }
         public string GameKey { set; get; }
         public GameViewModel Game { set; get; }

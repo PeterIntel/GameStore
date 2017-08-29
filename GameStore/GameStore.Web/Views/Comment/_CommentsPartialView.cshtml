@@ -9,45 +9,62 @@
     };
 }
 @Comments(Model.Comments)
-@if (User.IsInRole(RoleEnum.User.ToString()) && Model.Comment.Game.IsDeleted == false)
+@if (Model.Comment.IsDeletedGame == false && !User.IsInRole(RoleEnum.Administrator.ToString()) || !User.IsInRole(RoleEnum.Manager.ToString()))
 {
-    using (Ajax.BeginForm("newcomment", "comment", commentOptions))
-    {
-        @Html.AntiForgeryToken()
+    <div id="newComment">
+        @using (Ajax.BeginForm("newcomment", "comment", commentOptions))
+        {
+            @Html.AntiForgeryToken()
 
-        @Html.HiddenFor(m => m.Comment.ParentCommentId)
-        @Html.HiddenFor(m => m.Comment.Game.Id)
-        @Html.HiddenFor(m => m.Comment.GameKey)
-        @Html.EditorFor(m => m.Comment.Name)
-        @Html.ValidationMessageFor(m => m.Comment.Name)
-        <br>
-        @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21 })
-        @Html.ValidationMessageFor(m => m.Comment.Body)
-        <br>
-        <input type="submit" value="Add Comment" />
-    }
+            @Html.HiddenFor(m => m.Comment.ParentCommentId)
+            @Html.HiddenFor(m => m.Comment.GameId)
+            @Html.HiddenFor(m => m.Comment.GameKey)
+            @Html.EditorFor(m => m.Comment.Name)
+            @Html.ValidationMessageFor(m => m.Comment.Name)
+            <br>
+            @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21 })
+            @Html.ValidationMessageFor(m => m.Comment.Body)
+            <br>
+            <input type="submit" value="Add Comment" />
+        }
+    </div>
 }
 @helper Comments(IList<CommentViewModel> comments)
 {
     <ul>
         @for (int i = 0; i < comments.Count; i++)
         {
-            <li id="Id_@comments[i].Id" class="comment">
-                @if (comments[i].ParentCommentId != null)
-                {
-                    <span>@comments[i].Name, <a href="#Id_@comments[i].ParentCommentId">@comments[i].ParentComment.Name</a>,</span>
-                }
-                else
-                {
-                    <span>@comments[i].Name,</span>
-                }
-                <span>@Html.Raw(comments[i].Body)</span>
-                <button id="Reply_@(comments[i].Id + "_" + comments[i].Name)">Reply</button>
-                @if (comments.Count != 0)
-                {
-                    @Comments(comments[i].Comments)
-                }
-            </li>
+            if (comments[i].IsDisabled == false || User.IsInRole(RoleEnum.Moderator.ToString()))
+            {
+                <li id="Id_@comments[i].Id" class="comment">
+                    @if (comments[i].ParentCommentId != null)
+                    {
+                        <span>@comments[i].Name, <a href="#Id_@comments[i].ParentCommentId">@comments[i].ParentComment.Name</a>,</span>
+                    }
+                    else
+                    {
+                        <span>@comments[i].Name,</span>
+                    }
+                    <span>@Html.Raw(comments[i].Body)</span>
+                    <a href="#newComment" id="Reply_@( comments[i].Id + "_" + comments[i].Name)">Reply</a>
+                    @if (comments.Count != 0)
+                    {
+                        @Comments(comments[i].Comments)
+                    }
+
+                    @if (User.IsInRole(RoleEnum.Moderator.ToString()))
+                    {
+                        if (comments[i].IsDisabled)
+                        {
+                            @Html.ActionLink("Restore", "ChangeCommentState", new { key = comments[i].Id })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Disable", "ChangeCommentState", new { key = comments[i].Id })
+                        }
+                    }
+                </li>
+            }
         }
     </ul>
 }

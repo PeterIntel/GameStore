@@ -64,7 +64,7 @@ namespace GameStore.Services.ServicesImplementation
 
         public Order GetOrderByCustomerId(string id)
         {
-            Order order = _orderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+            Order order = _orderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Complete).FirstOrDefault();
 
             if (order == null)
             {
@@ -76,7 +76,7 @@ namespace GameStore.Services.ServicesImplementation
                     OrderDate = DateTime.UtcNow,
                 });
 
-                order = _orderRepository.Get(x => x.CustomerId == id && x.Status == CompletionStatus.InComplete).FirstOrDefault();
+                order = _orderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Complete).FirstOrDefault();
             }
 
             return order;
@@ -86,13 +86,6 @@ namespace GameStore.Services.ServicesImplementation
         {
             var result = _orderRepository.GetItemById(id);
             return result;
-        }
-
-        public IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties) 
-             
-        {
-            var orders = _orderRepository.Get(filter, includeProperties).ToList();
-            return orders;
         }
 
         public IEnumerable<Order> GetOrdersHistory(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties)

@@ -126,6 +126,10 @@
     <Compile Include="Migrations\201708171420149_Add_Update_to_UserEntity.Designer.cs">
       <DependentUpon>201708171420149_Add_Update_to_UserEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708290858518_IsDisabled_field_to_CommentEntity.cs" />
+    <Compile Include="Migrations\201708290858518_IsDisabled_field_to_CommentEntity.Designer.cs">
+      <DependentUpon>201708290858518_IsDisabled_field_to_CommentEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
@@ -220,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708171420149_Add_Update_to_UserEntity.resx">
       <DependentUpon>201708171420149_Add_Update_to_UserEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708290858518_IsDisabled_field_to_CommentEntity.resx">
+      <DependentUpon>201708290858518_IsDisabled_field_to_CommentEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

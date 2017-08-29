@@ -63,6 +63,7 @@ namespace GameStore.Web.Controllers
             }
         }
 
+        [AllowAnonymous]
         public ActionResult LogOff()
         {
             Auth.Logout();

@@ -168,7 +168,8 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Body = "bla-bla-bla",
                     ParentCommentId = null,
                     IsDeleted = false,
-                    IsSqlEntity = true
+                    IsSqlEntity = true,
+                    IsDisabled = false
                 });
             context.SaveChanges();
             context.Comments.AddOrUpdate(
@@ -180,7 +181,8 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Body = "bla-bla-bla",
                     ParentCommentId = context.Comments.First().Id,
                     IsDeleted = false,
-                    IsSqlEntity = true
+                    IsSqlEntity = true,
+                    IsDisabled = false
                 },
                 new CommentEntity()
                 {
@@ -190,7 +192,8 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Body = "bla-bla-bla",
                     ParentCommentId = context.Comments.First().Id,
                     IsDeleted = false,
-                    IsSqlEntity = true
+                    IsSqlEntity = true,
+                    IsDisabled = false
                 }
                 );
 

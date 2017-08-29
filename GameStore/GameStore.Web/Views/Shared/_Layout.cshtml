@@ -29,12 +29,17 @@
                         <li><a href="@Url.Action("new", "game")">Add game</a></li>
                         <li><a href="@Url.Action("getPublishers", "publisher")">Publishers</a></li>
                         <li><a href="@Url.Action("getGenres", "genre")">Genres</a></li>
+                        <li><a href="@Url.Action("history", "order")">All orders</a></li>
                     }
-                    <li><a href="@Url.Action("history", "order")">All orders</a></li>
-                    <li><a href="@Url.Action("busket", "order")">busket</a></li>
+
                     @if (User.IsInRole(RoleEnum.Administrator.ToString()))
                     {
                         <li><a href="@Url.Action("getUsers", "account")">Users</a></li>
+                    }
+                    
+                    @if (User.IsInRole(RoleEnum.User.ToString()))
+                    {
+                        <li><a href="@Url.Action("busket", "order")">busket</a></li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

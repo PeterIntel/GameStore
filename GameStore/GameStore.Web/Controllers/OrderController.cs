@@ -4,19 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
-        private static string CustomId = "1";
-        private IOrderService _orderService;
-        private IMapper _mapper;
+        private readonly IOrderService _orderService;
+        private readonly IMapper _mapper;
 
-        public OrderController(IOrderService orderService, IMapper mapper)
+        public OrderController(IAuthentication authentication, IOrderService orderService, IMapper mapper) : base(authentication)
         {
             _orderService = orderService;
             _mapper = mapper;
@@ -26,7 +26,7 @@ namespace GameStore.Web.Controllers
         [ActionName("busket")]
         public ActionResult GetOrderDetails()
         {
-            var order = _orderService.GetOrderByCustomerId(CustomId);
+            var order = _orderService.GetOrderByCustomerId(CurrentUser.Id);
 
             return View(_mapper.Map<Order, OrderViewModel>(order));
         }
@@ -35,7 +35,7 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         public ActionResult AddGameToOrder(string gamekey)
         {
-            _orderService.AddGameToOrder(gamekey, CustomId);
+            _orderService.AddGameToOrder(gamekey, CurrentUser.Id);
             return RedirectToAction("busket");
         }
 

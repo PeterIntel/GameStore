@@ -3,6 +3,8 @@
     public enum CompletionStatus
     {
         Complete,
-        InComplete
+        InComplete,
+        Shipped,
+        Paid
     }
 }

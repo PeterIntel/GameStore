@@ -13,7 +13,6 @@ using GameStore.Web.Filters;
 
 namespace GameStore.Web.Controllers
 {
-    [Authorize]
     public class GameController : BaseController
     {
         private readonly IGameService _gameService;
@@ -193,6 +192,7 @@ namespace GameStore.Web.Controllers
         }
 
         [ActionName("download")]
+        [CustomAuthorize(RoleEnum.User)]
         public ActionResult DownloadPage(string gamekey)
         {
             return View((object)gamekey);

@@ -28,7 +28,7 @@ namespace GameStore.Web.Controllers
             return View(_mapper.Map<IEnumerable<Publisher>, IEnumerable<PublisherViewModel>>(_publisherService.Get()));
         }
 
-        [CustomAuthorize(RoleEnum.Manager, RoleEnum.User)]
+        [AllowAnonymous]
         // GET: Publisher
         public ActionResult GetPublisherDetails(string companyName)
         {
