@@ -18,7 +18,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFil
         {
             if (_genres != null && _genres.Count() != 0)
             {
-                Expression<Func<Game, bool>> filter = x => x.Genres.Any(y => _genres.Contains(y.Id));
+                Expression<Func<Game, bool>> filter = x => x.Genres.Any(y => _genres.Contains(y.Name));
                 return AggregateExpression(input, filter);
             }
 

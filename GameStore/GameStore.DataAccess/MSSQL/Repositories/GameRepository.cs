@@ -144,5 +144,30 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 _context.Entry(existingGame).State = EntityState.Modified;
             }
         }
+
+        public override Game First(Expression<Func<Game, bool>> filter)
+        {
+            var filterEntity = _mapper.Map<Expression<Func<Game, bool>>, Expression<Func<GameEntity, bool>>>(filter);
+            if (filter != null)
+            {
+                IQueryable<GameEntity> queryToEntities = _dbSet.Where(filterEntity);
+                return queryToEntities.ProjectTo<Game>(_mapper.ConfigurationProvider).FirstOrDefault();
+            }
+
+            return null;
+        }
+
+        public override Game GetItemById(string id)
+        {
+            GameEntity entity = _dbSet.Find(id);
+
+            if (entity != null)
+            {
+                Game domain = _mapper.Map<GameEntity, Game>(entity);
+                return domain;
+            }
+
+            return null;
+        }
     }
 }

@@ -7,15 +7,21 @@
 
 <h2>GetGameDetails</h2>
 
-@Html.Partial("_GameDetails", Model)
+@Html.DisplayFor(game => Model)
 
-@Html.ActionLink("Edit", "edit", new { gameKey = Model.Key}) 
-@Html.ActionLink("Delete", "delete", new { gamekey = Model.Key })
-@Html.ActionLink("download", "download", new {gamekey =  Model.Key}, new { target = "blank"})
+@if (User.IsInRole(RoleEnum.Manager.ToString()) && Model.IsDeleted == false)
+{
+    @Html.ActionLink("Edit", "edit", new { gameKey = Model.Key })
+    @Html.ActionLink("Delete", "delete", new { gamekey = Model.Key })
+}
+@Html.ActionLink("download", "download", new { gamekey = Model.Key }, new { target = "blank" })
 @Html.ActionLink("show comments", "comments", "comment", new { gamekey = Model.Key }, new { target = "blank" })
 
-@using (@Html.BeginForm("buy", "order", new { gamekey = Model.Key }, FormMethod.Post, new { @class = "form"}))
+@if (User.IsInRole(RoleEnum.User.ToString()) && Model.IsDeleted == false)
 {
-    <input type="submit" value="Buy"/>   
+    using (@Html.BeginForm("buy", "order", new { gamekey = Model.Key }, FormMethod.Post, new { @class = "form" }))
+    {
+        <input type="submit" value="Buy" />
+    }
 }
 

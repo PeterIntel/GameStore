@@ -5,7 +5,7 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using System.Linq.Expressions;
- using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.Interfaces;
 using GameStore.Logging.Loggers;
 using GameStore.Services.ServicesImplementation.FilterImplementation.GameFilters;
@@ -31,10 +31,10 @@ namespace GameStore.Services.ServicesImplementation
             AssignIdIfEmpty(item);
             if (item.Genres == null)
             {
-                item.Genres = _genreRepository.LoadDomainEntities(item.NameGenres);
+                item.Genres = item.NameGenres != null ? _genreRepository.LoadDomainEntities(item.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
             }
 
-            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() {TypeName = x});
+            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });
 
             if (item.Publisher != null)
             {
@@ -47,9 +47,10 @@ namespace GameStore.Services.ServicesImplementation
 
         public override void Update(Game game)
         {
+            var s = _genreRepository.Get(genre => genre.Name == "Other").ToList();
             if (game.Genres == null)
             {
-                game.Genres = _genreRepository.LoadDomainEntities(game.NameGenres);
+                game.Genres = game.NameGenres != null ? _genreRepository.LoadDomainEntities(game.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
             }
 
             game.PlatformTypes = game.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });

@@ -45,6 +45,13 @@ namespace GameStore.Services.ServicesImplementation
 
         public IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres)
         {
+            var genres = GetAllGenresAndMarkSelectedForFilter(selecredGenres).Where(genre => genre.Name != "Other");
+
+            return genres;
+        }
+
+        public IEnumerable<Genre> GetAllGenresAndMarkSelectedForFilter(IEnumerable<string> selecredGenres)
+        {
             IEnumerable<Genre> genres = _genreRepository.Get().ToList();
             if (selecredGenres != null)
             {

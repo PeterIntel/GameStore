@@ -13,6 +13,7 @@ namespace GameStore.Domain.BusinessObjects
         public string Body { set; get; }
         public string ParentCommentId { set; get; }
         public string GameId { set; get; }
+        [JsonIgnore]
         public Game Game { set; get; }
         public Comment ParentComment { set; get; }
         [JsonIgnore]

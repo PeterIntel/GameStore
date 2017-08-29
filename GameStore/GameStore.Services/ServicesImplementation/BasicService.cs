@@ -77,7 +77,7 @@ namespace GameStore.Services.ServicesImplementation
             Logger.Write(Operation.Update, item, updatedItem);
         }
 
-        public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties)
+        public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties)
         {
             var result = _genericRepository.Get(filter, includeProperties);
 

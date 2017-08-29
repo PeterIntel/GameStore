@@ -72,7 +72,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             return result;
         }
 
-        public TDomain GetItemById(string id)
+        public virtual TDomain GetItemById(string id)
         {
             TEntity entity = _dbSet.Find(id);
 
@@ -85,7 +85,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             return null;
         }
 
-        public void Remove(TDomain item)
+        public virtual void Remove(TDomain item)
         {
             if (item != null)
             {
@@ -94,7 +94,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
         }
 
-        public void Remove(string id)
+        public virtual void Remove(string id)
         {
             TEntity entity = _dbSet.Find(id);
 
@@ -131,7 +131,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             return result;
         }
 
-        public TDomain First(Expression<Func<TDomain, bool>> filter)
+        public virtual TDomain First(Expression<Func<TDomain, bool>> filter)
         {
             var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
             if (filter != null)

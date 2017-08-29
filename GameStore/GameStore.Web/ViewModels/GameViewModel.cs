@@ -18,6 +18,7 @@ namespace GameStore.Web.ViewModels
         public decimal Price { set; get; }
         public short UnitsInStock { set; get; }
         public bool Discontinued { set; get; }
+        public bool IsDeleted { set; get; }
         [Display(Name = "Publisher")]
         public string SelectedPublisher { set; get; }
         public DateTime? PublishedDate { set; get; }

@@ -53,6 +53,7 @@ namespace GameStore.Web.Controllers
             if (gameKey != null)
             {
                 var game = _gameService.GetItemByKey(gameKey);
+                // If user come with direct link to game's comments then copy game to the sql databse if necessary
                 if (game.IsSqlEntity == false)
                 {
                     _gameService.Add(game);
@@ -72,7 +73,7 @@ namespace GameStore.Web.Controllers
                 Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments),
                 Comment = new CommentViewModel()
                 {
-                    GameId = _gameService.GetItemByKey(gameKey).Id,
+                    Game = _mapper.Map<Game, GameViewModel>(_gameService.GetItemByKey(gameKey)),
                     GameKey = gameKey
                 }
             };

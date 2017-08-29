@@ -1,5 +1,4 @@
 ﻿@model CommentsViewModel
-
 @{
     var commentOptions = new AjaxOptions()
     {
@@ -9,32 +8,31 @@
 
     };
 }
-
 @Comments(Model.Comments)
-
-@using (Ajax.BeginForm("newcomment", "comment", commentOptions))
+@if (User.IsInRole(RoleEnum.User.ToString()) && Model.Comment.Game.IsDeleted == false)
 {
-    @Html.AntiForgeryToken()
+    using (Ajax.BeginForm("newcomment", "comment", commentOptions))
+    {
+        @Html.AntiForgeryToken()
 
-    @Html.HiddenFor(m => m.Comment.ParentCommentId)
-    @Html.HiddenFor(m => m.Comment.GameId)
-    @Html.HiddenFor(m => m.Comment.GameKey)
-    @Html.EditorFor(m => m.Comment.Name)
-    @Html.ValidationMessageFor(m => m.Comment.Name)
-    <br>
-    @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21})
-    @Html.ValidationMessageFor(m => m.Comment.Body)
-    <br>
-    <input type="submit" value="Add Comment" />
+        @Html.HiddenFor(m => m.Comment.ParentCommentId)
+        @Html.HiddenFor(m => m.Comment.Game.Id)
+        @Html.HiddenFor(m => m.Comment.GameKey)
+        @Html.EditorFor(m => m.Comment.Name)
+        @Html.ValidationMessageFor(m => m.Comment.Name)
+        <br>
+        @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21 })
+        @Html.ValidationMessageFor(m => m.Comment.Body)
+        <br>
+        <input type="submit" value="Add Comment" />
+    }
 }
-
 @helper Comments(IList<CommentViewModel> comments)
 {
     <ul>
         @for (int i = 0; i < comments.Count; i++)
         {
             <li id="Id_@comments[i].Id" class="comment">
-
                 @if (comments[i].ParentCommentId != null)
                 {
                     <span>@comments[i].Name, <a href="#Id_@comments[i].ParentCommentId">@comments[i].ParentComment.Name</a>,</span>
@@ -43,10 +41,8 @@
                 {
                     <span>@comments[i].Name,</span>
                 }
-
                 <span>@Html.Raw(comments[i].Body)</span>
                 <button id="Reply_@(comments[i].Id + "_" + comments[i].Name)">Reply</button>
-
                 @if (comments.Count != 0)
                 {
                     @Comments(comments[i].Comments)
@@ -55,9 +51,8 @@
         }
     </ul>
 }
-
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         var reply = $("button[id^=Reply_]").on("click", setParentId);
 
         function setParentId(event) {

@@ -24,9 +24,9 @@
             </div>
             <div class="collapse navbar-collapse" id="navHeaderCollapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("new", "game")">Add game</a></li>
                     @if (User.IsInRole(RoleEnum.Manager.ToString()))
                     {
+                        <li><a href="@Url.Action("new", "game")">Add game</a></li>
                         <li><a href="@Url.Action("getPublishers", "publisher")">Publishers</a></li>
                         <li><a href="@Url.Action("getGenres", "genre")">Genres</a></li>
                     }

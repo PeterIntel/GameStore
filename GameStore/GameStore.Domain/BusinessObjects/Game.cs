@@ -15,7 +15,7 @@ namespace GameStore.Domain.BusinessObjects
         public Publisher Publisher { set; get; } = new Publisher();
         public IEnumerable<Comment> Comments { set; get; } = new List<Comment>();
         public IEnumerable<Genre> Genres { set; get; } 
-        public IEnumerable<string> NameGenres { set; get; } = new List<string>();
+        public IEnumerable<string> NameGenres { set; get; }
         public IEnumerable<PlatformType> PlatformTypes { set; get; } = new List<PlatformType>();
         public IEnumerable<string> NamePlatformTypes { set; get; } = new List<string>();
     }

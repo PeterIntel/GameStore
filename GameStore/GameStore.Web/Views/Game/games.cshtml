@@ -17,7 +17,7 @@
 <div class="games">
     @foreach (var game in Model.Games)
     {
-        @Html.Partial("_GameDetails", game)
+        @Html.DisplayFor(m => game)
     }
 </div>
 
