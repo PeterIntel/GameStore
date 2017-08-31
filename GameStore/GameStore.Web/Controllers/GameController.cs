@@ -65,7 +65,7 @@ namespace GameStore.Web.Controllers
         public ActionResult UpdateGame(string gameKey)
         {
             Game game = _gameService.First(g => g.Key == gameKey);
-            if (CurrentUser.IsInRole(RoleEnum.Publisher) && CurrentUser.Publisher.CompanyName == game.Publisher.CompanyName || CurrentUser.IsInRole(RoleEnum.Publisher))
+            if (CurrentUser.IsInRole(RoleEnum.Publisher) && (game.Publisher != null && CurrentUser.Publisher.CompanyName == game.Publisher.CompanyName) || CurrentUser.IsInRole(RoleEnum.Publisher))
             {
                 if (game == null || game.IsDeleted)
                 {
