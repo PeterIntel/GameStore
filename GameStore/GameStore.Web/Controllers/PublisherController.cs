@@ -12,7 +12,6 @@ using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
-    [CustomAuthorize(RoleEnum.Manager)]
     public class PublisherController : BaseController
     {
         private readonly IPublisherService _publisherService;
@@ -24,6 +23,7 @@ namespace GameStore.Web.Controllers
             _mapper = mapper;
         }
 
+        [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult GetPublishers()
         {
             return View(_mapper.Map<IEnumerable<Publisher>, IEnumerable<PublisherViewModel>>(_publisherService.Get()));
@@ -38,6 +38,7 @@ namespace GameStore.Web.Controllers
             return View(_mapper.Map<Publisher, PublisherViewModel>(publisher));
         }
 
+        [CustomAuthorize(RoleEnum.Manager)]
         [ActionName("new")]
         public ActionResult AddPublisher()
         {
@@ -58,12 +59,26 @@ namespace GameStore.Web.Controllers
             return View(publisherViewModel);
         }
 
+        [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult Edit(string key)
         {
-            if (CurrentUser.IsInRole(RoleEnum.Publisher) && CurrentUser.Publisher.CompanyName == key || CurrentUser.IsInRole(RoleEnum.Publisher))
+            Publisher publisher = _publisherService.First(x => x.CompanyName == key);
+            if (publisher == null)
             {
+                return HttpNotFound();
+            }
 
-                Publisher publisher = _publisherService.First(x => x.CompanyName == key);
+            var publisherViewModel = _mapper.Map<Publisher, PublisherViewModel>(publisher);
+
+            return View(publisherViewModel);
+        }
+
+        [CustomAuthorize(RoleEnum.Publisher)]
+        public ActionResult EditProfile()
+        {
+            if (CurrentUser.Publisher != null)
+            {
+                Publisher publisher = _publisherService.First(x => x.CompanyName == CurrentUser.Publisher.CompanyName);
                 if (publisher == null)
                 {
                     return HttpNotFound();
@@ -71,7 +86,7 @@ namespace GameStore.Web.Controllers
 
                 var publisherViewModel = _mapper.Map<Publisher, PublisherViewModel>(publisher);
 
-                return View(publisherViewModel);
+                return View("edit", publisherViewModel);
             }
 
             return new HttpStatusCodeResult(403);
@@ -86,12 +101,18 @@ namespace GameStore.Web.Controllers
                 var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
                 _publisherService.Update(publisher);
 
+                if (CurrentUser.IsInRole(RoleEnum.Publisher))
+                {
+                    return RedirectToAction("details", new { companyName = publisher.CompanyName });
+                }
+
                 return RedirectToAction("getPublishers");
             }
 
             return View(publisherViewModel);
         }
 
+        [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult Delete(string key)
         {
             var publisher = _publisherService.First(x => x.CompanyName == key);

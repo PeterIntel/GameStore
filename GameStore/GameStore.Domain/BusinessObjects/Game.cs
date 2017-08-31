@@ -12,7 +12,7 @@ namespace GameStore.Domain.BusinessObjects
         public bool Discontinued { set; get; }
         public DateTime? PublishedDate { set; get; } = new DateTime();
         public GameInfo GameInfo { set; get; } = new GameInfo();
-        public Publisher Publisher { set; get; } = new Publisher();
+        public Publisher Publisher { set; get; } 
         public IEnumerable<Comment> Comments { set; get; } = new List<Comment>();
         public IEnumerable<Genre> Genres { set; get; } 
         public IEnumerable<string> NameGenres { set; get; }

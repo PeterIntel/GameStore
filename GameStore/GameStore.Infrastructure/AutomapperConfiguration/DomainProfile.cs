@@ -45,22 +45,30 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.GameInfo, opt => opt.Ignore())
                 .ForMember(dst => dst.Genres, opt => opt.Ignore())
                 .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
             CreateMap<GameInfoEntity, GameInfoEntity>()
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
             CreateMap<CommentEntity, CommentEntity>()
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
             CreateMap<GenreEntity, GenreEntity>()
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
             CreateMap<PlatformTypeEntity, PlatformTypeEntity>()
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
             CreateMap<OrderEntity, OrderEntity>()
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
             CreateMap<OrderDetailsEntity, OrderDetailsEntity>()
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
             CreateMap<UserEntity, UserEntity>()
                 .ForMember(dst => dst.Roles, opt => opt.Ignore())
-                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore());
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
 
             CreateMap<Game, GameEntity>()
                 .ForMember(dst => dst.Publisher, opt => opt.Ignore());

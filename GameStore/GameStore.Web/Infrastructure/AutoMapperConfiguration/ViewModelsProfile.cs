@@ -29,8 +29,10 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
             CreateMap<FilterOrders, FilterOrdersViewModel>().ReverseMap();
             CreateMap<UserViewModel, User>()
                 .ForMember(dst => dst.Orders, opt => opt.Ignore())
+                .ForMember(dst => dst.Publisher, opt => opt.ResolveUsing<PublisherResolverForUser>())
                 .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
             CreateMap<User, UserViewModel>()
+                .ForMember(dst => dst.SelectedPublisher, opt => opt.MapFrom(src => src.Publisher.CompanyName))
                 .ForMember(dst => dst.ConfirmPassword, opt => opt.MapFrom(src => src.Password));
             CreateMap<Role, RoleViewModel>()
                 .ForMember(dst => dst.Role, opt => opt.MapFrom(src => src.RoleEnum));

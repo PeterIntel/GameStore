@@ -15,6 +15,12 @@
     @Html.ActionLink("Delete", "delete", new { gamekey = Model.Key })
 }
 
+@if (User.IsInRole(RoleEnum.Publisher.ToString()) && Model.IsDeleted == false && ((User)ViewBag.CurrentUser).Publisher != null && Model.Publisher != null 
+    && ((User)ViewBag.CurrentUser).Publisher.CompanyName == Model.Publisher.CompanyName)
+{
+    @Html.ActionLink("Edit", "edit", new { gameKey = Model.Key })
+}
+
 @Html.ActionLink("show comments", "comments", "comment", new { gamekey = Model.Key }, new { target = "blank" })
 
 @if (User.IsInRole(RoleEnum.User.ToString()) && Model.IsDeleted == false)

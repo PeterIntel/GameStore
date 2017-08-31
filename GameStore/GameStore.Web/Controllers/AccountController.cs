@@ -160,6 +160,7 @@ namespace GameStore.Web.Controllers
 
             var userViewModel = _mapper.Map<User, UserViewModel>(user);
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.Roles.Select(x => x.Role.ToString())));
+            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
 
             return View(userViewModel);
         }
@@ -175,6 +176,7 @@ namespace GameStore.Web.Controllers
             }
 
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
+            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
 
             return View(userViewModel);
         }

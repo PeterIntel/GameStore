@@ -64,8 +64,9 @@ namespace GameStore.Web.Controllers
         [ActionName("edit")]
         public ActionResult UpdateGame(string gameKey)
         {
+
             Game game = _gameService.First(g => g.Key == gameKey);
-            if (CurrentUser.IsInRole(RoleEnum.Publisher) && (game.Publisher != null && CurrentUser.Publisher.CompanyName == game.Publisher.CompanyName) || CurrentUser.IsInRole(RoleEnum.Publisher))
+            if (CurrentUser.IsInRole(RoleEnum.Publisher) && (game.Publisher != null && CurrentUser.Publisher != null && CurrentUser.Publisher.CompanyName == game.Publisher.CompanyName) || CurrentUser.IsInRole(RoleEnum.Manager))
             {
                 if (game == null || game.IsDeleted)
                 {
@@ -198,6 +199,7 @@ namespace GameStore.Web.Controllers
         {
             _gameService.AddViewToGame(key);
             var gameViewModel = _mapper.Map<Game, GameViewModel>(_gameService.GetItemByKey(key));
+            ViewBag.CurrentUser = CurrentUser;
             return View(gameViewModel);
         }
 

@@ -24,6 +24,11 @@
             </div>
             <div class="collapse navbar-collapse" id="navHeaderCollapse">
                 <ul class="nav navbar-nav">
+                    @if (User.IsInRole(RoleEnum.Publisher.ToString()))
+                    {
+                        <li><a href="@Url.Action("EditProfile", "publisher")">Profile</a></li>
+                    }
+
                     @if (User.IsInRole(RoleEnum.Manager.ToString()))
                     {
                         <li><a href="@Url.Action("new", "game")">Add game</a></li>
@@ -37,7 +42,7 @@
                     {
                         <li><a href="@Url.Action("getUsers", "account")">Users</a></li>
                     }
-                    
+
                     @if (User.IsInRole(RoleEnum.User.ToString()))
                     {
                         <li><a href="@Url.Action("busket", "order")">busket</a></li>
