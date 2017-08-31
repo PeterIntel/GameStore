@@ -83,3 +83,11 @@ label {
 .form-group label {
     margin-top: 5px;
 }
+
+.inline-block {
+    display: inline-block;
+}
+
+.edit {
+    text-align: center;
+}

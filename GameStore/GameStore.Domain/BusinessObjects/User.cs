@@ -17,6 +17,7 @@ namespace GameStore.Domain.BusinessObjects
         public IEnumerable<Role> Roles { set; get; } = new List<Role>();
         public IEnumerable<string> IdRoles { set; get; }
         public IEnumerable<Order> Orders { set; get; } 
+        public Publisher Publisher { set; get; }
 
         public bool IsInRole(RoleEnum role)
         {

@@ -89,8 +89,9 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         {
             if (item != null)
             {
-                TEntity entity = _mapper.Map<TDomain, TEntity>(item);
+                TEntity entity = _dbSet.Find(item.Id);
                 entity.IsDeleted = true;
+                _context.Entry(entity).State = EntityState.Modified;
             }
         }
 
@@ -101,6 +102,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (entity != null)
             {
                 entity.IsDeleted = true;
+                _context.Entry(entity).State = EntityState.Modified;
             }
         }
 

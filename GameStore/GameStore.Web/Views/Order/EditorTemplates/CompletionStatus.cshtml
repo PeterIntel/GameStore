@@ -1,0 +1,11 @@
+﻿@model CompletionStatus
+
+<select id="orderViewModel.Status" , name="model.Status">
+    @foreach (CompletionStatus item in Enum.GetValues(typeof(CompletionStatus)))
+    {
+        <option value="@item" @(Model == item ? "selected=\"selected\"" : "")>
+            @item
+        </option>
+    }
+</select>
+

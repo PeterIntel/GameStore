@@ -75,6 +75,7 @@
     <Compile Include="BusinessObjects\BaseDomain.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\CompletionStatus.cs" />
+    <Compile Include="BusinessObjects\DateTimeIntervalFlag.cs" />
     <Compile Include="BusinessObjects\FilterCriteria.cs" />
     <Compile Include="BusinessObjects\FilterOrders.cs" />
     <Compile Include="BusinessObjects\PaginationGames.cs" />

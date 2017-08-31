@@ -67,3 +67,4 @@
 @Html.LabelFor(m => m.SelectedPublisher)
 <br>
 @Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "Id", "CompanyName"), Model.Publisher != null ? Model.Publisher.CompanyName : "Not spesified")
+

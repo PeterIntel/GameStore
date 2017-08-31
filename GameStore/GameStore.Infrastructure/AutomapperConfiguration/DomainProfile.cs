@@ -36,7 +36,8 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.RoleEnum, opt => opt.MapFrom(src => src.Role))
                 .MaxDepth(1);
 
-            CreateMap<OrderEntity, Order>();
+            CreateMap<OrderEntity, Order>()
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
             CreateMap<OrderDetailsEntity, OrderDetails>();
             CreateMap<GameInfoEntity, GameInfo>();
 

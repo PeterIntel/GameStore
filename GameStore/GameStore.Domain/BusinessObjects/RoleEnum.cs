@@ -11,6 +11,7 @@ namespace GameStore.Domain.BusinessObjects
         User,
         Moderator,
         Manager,
-        Administrator
+        Administrator,
+        Publisher
     }
 }

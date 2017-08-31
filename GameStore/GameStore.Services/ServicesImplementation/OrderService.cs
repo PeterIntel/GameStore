@@ -15,33 +15,77 @@ namespace GameStore.Services.ServicesImplementation
 {
     public class OrderService : BasicService<OrderEntity, Order>, IOrderService
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IDecoratorOrderRepository _decoratorOrderRepository;
         private readonly IGenericDataRepository<OrderDetailsEntity, OrderDetails> _orderDetailsRepository;
         private readonly IGameRepository _gameRepository;
+        private readonly TimeSpan _periodDatetime = TimeSpan.FromDays(30);
+        private readonly OrderPipeLine _orderPipeLine;
 
-        public OrderService(IUnitOfWork unitOfWork, IOrderRepository orderRepository, IGameRepository gameRepository, IGenericDataRepository<OrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger) : base(orderRepository, unitOfWork, logger)
+        public OrderService(IUnitOfWork unitOfWork, IDecoratorOrderRepository decoratorOrderRepository, IGameRepository gameRepository, IGenericDataRepository<OrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger) : base(decoratorOrderRepository, unitOfWork, logger)
         {
-            _orderRepository = orderRepository;
+            _decoratorOrderRepository = decoratorOrderRepository;
             _gameRepository = gameRepository;
             _orderDetailsRepository = orderDetailsRepository;
+            _orderPipeLine = new OrderPipeLine();
         }
 
-        public void AddGameToOrder(string gamekey, string customerId)
+        public void AddGameToOrder(string gameId, string orderId)
+        {
+            var game = _gameRepository.First(x => x.Id == gameId);
+            var order = _decoratorOrderRepository.First(x => x.Id == orderId);
+            AddGameToOrder(order, game.Key);
+        }
+
+        public void AddGameToCustomerOrder(string gamekey, string customerId)
         {
             if (customerId == null)
             {
                 throw new ArgumentNullException(nameof(customerId) + " references to NULL");
             }
 
-            var game = _gameRepository.First(x => x.Key == gamekey);
             var order = GetOrderByCustomerId(customerId);
+            AddGameToOrder(order, gamekey);
+
+        }
+
+        public void DeleteGameFromOrder(string gameId, string orderId)
+        {
+            var order = _decoratorOrderRepository.First(x => x.Id == orderId);
+            var game = _gameRepository.First(x => x.Id == gameId);
+
+            var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Id, gameId, StringComparison.OrdinalIgnoreCase));
+
+            if (gameDetails != null)
+            {
+                if (gameDetails.Quantity > 1)
+                {
+                    gameDetails.Quantity--;
+                    gameDetails.Price = gameDetails.Game.Price;
+                    gameDetails.Order = null;
+                    gameDetails.Game = null;
+                    _orderDetailsRepository.Update(gameDetails);
+
+                    UnitOfWork.Save();
+                }
+                else
+                {
+                    _decoratorOrderRepository.DeleteGameFromOrder(order.Id, gameDetails.Id);
+                    UnitOfWork.Save();
+                }
+            }
+
+        }
+
+        private void AddGameToOrder(Order order, string gamekey)
+        {
+            var game = _gameRepository.First(x => x.Key == gamekey);
 
             var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
 
             if (gameDetails != null)
             {
                 gameDetails.Quantity++;
-                gameDetails.Price = gameDetails.Quantity * gameDetails.Game.Price;
+                gameDetails.Price = gameDetails.Game.Price;
                 gameDetails.Order = null;
                 gameDetails.Game = null;
                 _orderDetailsRepository.Update(gameDetails);
@@ -61,10 +105,9 @@ namespace GameStore.Services.ServicesImplementation
             UnitOfWork.Save();
             Logger.Write(Operation.Insert, order);
         }
-
         public Order GetOrderByCustomerId(string id)
         {
-            Order order = _orderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Complete).FirstOrDefault();
+            Order order = _decoratorOrderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Paid).FirstOrDefault();
 
             if (order == null)
             {
@@ -76,7 +119,7 @@ namespace GameStore.Services.ServicesImplementation
                     OrderDate = DateTime.UtcNow,
                 });
 
-                order = _orderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Complete).FirstOrDefault();
+                order = _decoratorOrderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Paid).FirstOrDefault();
             }
 
             return order;
@@ -84,21 +127,44 @@ namespace GameStore.Services.ServicesImplementation
 
         public Order GetItemById(string id)
         {
-            var result = _orderRepository.GetItemById(id);
+            var result = _decoratorOrderRepository.GetItemById(id);
             return result;
-        }
-
-        public IEnumerable<Order> GetOrdersHistory(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties)
-        {
-            OrderPipeLine pipeline = new OrderPipeLine();
-            var filterExpression = pipeline.ApplyFilters(filter);
-            var orders = _orderRepository.GetOrders(filterExpression, includeProperties);
-            return orders;
         }
 
         public IEnumerable<Order> GetOrdersHistory(params Expression<Func<Order, object>>[] includeProperties)
         {
-            var orders = _orderRepository.GetOrders(x => true, includeProperties).ToList();
+
+            var filterExpression = _orderPipeLine.ApplyFilters(new FilterOrders() { PeriodDate = _periodDatetime, DateTimeIntervalFlag = DateTimeIntervalFlag.BeforeDateTime });
+            var orders = _decoratorOrderRepository.GetOrders(filterExpression, includeProperties).ToList();
+
+            return orders;
+        }
+
+        public IEnumerable<Order> GetOrdersHistory(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties)
+        {
+            filter.PeriodDate = _periodDatetime;
+            filter.DateTimeIntervalFlag = DateTimeIntervalFlag.BeforeDateTime;
+            var filterExpression = _orderPipeLine.ApplyFilters(filter);
+            var orders = _decoratorOrderRepository.GetOrders(filterExpression, includeProperties).ToList();
+
+            return orders;
+        }
+
+        public IEnumerable<Order> GetCurrentOrders(params Expression<Func<Order, object>>[] includeProperties)
+        {
+            var filterExpression = _orderPipeLine.ApplyFilters(new FilterOrders() { PeriodDate = _periodDatetime, DateTimeIntervalFlag = DateTimeIntervalFlag.AfterDateTime });
+            var orders = _decoratorOrderRepository.GetOrders(filterExpression, includeProperties).ToList();
+
+            return orders;
+        }
+
+        public IEnumerable<Order> GetCurrentOrders(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties)
+        {
+            filter.PeriodDate = _periodDatetime;
+            filter.DateTimeIntervalFlag = DateTimeIntervalFlag.AfterDateTime;
+            var filterExpression = _orderPipeLine.ApplyFilters(filter);
+            var orders = _decoratorOrderRepository.GetOrders(filterExpression, includeProperties).ToList();
+
             return orders;
         }
     }

@@ -16,10 +16,12 @@ namespace GameStore.Web.Controllers
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
+        private readonly IPublisherService _publisherService;
         private readonly IMapper _mapper;
-        public AccountController(IAccountService accountService, IAuthentication auth, IMapper mapper) : base(auth)
+        public AccountController(IAccountService accountService, IAuthentication auth, IMapper mapper, IPublisherService publisherService) : base(auth)
         {
             _accountService = accountService;
+            _publisherService = publisherService;
             _mapper = mapper;
         }
 
@@ -67,7 +69,7 @@ namespace GameStore.Web.Controllers
         public ActionResult LogOff()
         {
             Auth.Logout();
-            return RedirectToAction("GetGames", "Game");
+            return RedirectToAction("games", "Game");
         }
 
         [AllowAnonymous]
@@ -100,7 +102,7 @@ namespace GameStore.Web.Controllers
                 return Redirect(returnUrl);
             }
 
-            return RedirectToAction("GetGames", "Game");
+            return RedirectToAction("Games", "Game");
         }
 
         public ActionResult GetUsers()
@@ -121,7 +123,11 @@ namespace GameStore.Web.Controllers
 
         public ActionResult Create()
         {
-            return View(new UserViewModel() {Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()) });
+            return View(new UserViewModel()
+            {
+                Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()),
+                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
+            });
         }
 
         [HttpPost]
@@ -139,6 +145,7 @@ namespace GameStore.Web.Controllers
             }
 
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
+            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
 
             return View(userViewModel);
         }

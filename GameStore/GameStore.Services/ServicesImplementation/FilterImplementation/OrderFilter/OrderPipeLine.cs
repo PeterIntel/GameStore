@@ -27,6 +27,8 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.OrderFi
 
             Register(new DateToFilter(filters.DateTo));
 
+            Register(new PeriodDateFilter(filters.PeriodDate, filters.DateTimeIntervalFlag));
+
             return Process(x => true);
         }
     }

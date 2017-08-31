@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
@@ -12,12 +13,12 @@ using GameStore.Web.ViewModels;
 namespace GameStore.Web.Controllers
 {
     [CustomAuthorize(RoleEnum.Manager)]
-    public class PublisherController : Controller
+    public class PublisherController : BaseController
     {
         private readonly IPublisherService _publisherService;
         private readonly IMapper _mapper;
 
-        public PublisherController(IPublisherService publisherService, IMapper mapper)
+        public PublisherController(IPublisherService publisherService, IMapper mapper, IAuthentication auth) : base(auth)
         {
             _publisherService = publisherService;
             _mapper = mapper;
@@ -29,6 +30,7 @@ namespace GameStore.Web.Controllers
         }
 
         [AllowAnonymous]
+        [ActionName("details")]
         // GET: Publisher
         public ActionResult GetPublisherDetails(string companyName)
         {
@@ -58,15 +60,21 @@ namespace GameStore.Web.Controllers
 
         public ActionResult Edit(string key)
         {
-            Publisher publisher = _publisherService.First(x => x.CompanyName == key);
-            if (publisher == null)
+            if (CurrentUser.IsInRole(RoleEnum.Publisher) && CurrentUser.Publisher.CompanyName == key || CurrentUser.IsInRole(RoleEnum.Publisher))
             {
-                return HttpNotFound();
+
+                Publisher publisher = _publisherService.First(x => x.CompanyName == key);
+                if (publisher == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var publisherViewModel = _mapper.Map<Publisher, PublisherViewModel>(publisher);
+
+                return View(publisherViewModel);
             }
 
-            var publisherViewModel = _mapper.Map<Publisher, PublisherViewModel>(publisher);
-     
-            return View(publisherViewModel);
+            return new HttpStatusCodeResult(403);
         }
 
         [HttpPost]
@@ -81,7 +89,7 @@ namespace GameStore.Web.Controllers
                 return RedirectToAction("getPublishers");
             }
 
-            return View(publisherViewModel); 
+            return View(publisherViewModel);
         }
 
         public ActionResult Delete(string key)

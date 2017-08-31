@@ -22,7 +22,8 @@ namespace GameStore.Infrastructure.NinjectConfiguration
         {
             Bind<IGameRepository>().To<GameDecoratorRepository>().WhenInjectedInto<GameService>();
             Bind<IGameRepository>().To<GameDecoratorRepository>().WhenInjectedInto<OrderService>();
-            Bind<IOrderRepository>().To<OrderDecoratorRepository>();
+            Bind<IDecoratorOrderRepository>().To<DecoratorOrderDecoratorRepository>();
+            Bind<IOrderRepository>().To<OrderRepository>().WhenInjectedInto<DecoratorOrderDecoratorRepository>();
             Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>().WhenInjectedInto<GameService>();
             Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>().WhenInjectedInto<GenreService>();
             Bind<IGenericDataRepository<PublisherEntity, Publisher>>().To<GenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>>().WhenInjectedInto<GameService>();

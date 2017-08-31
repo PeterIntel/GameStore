@@ -9,25 +9,28 @@
     };
 }
 @Comments(Model.Comments)
-@if (Model.Comment.IsDeletedGame == false && !User.IsInRole(RoleEnum.Administrator.ToString()) || !User.IsInRole(RoleEnum.Manager.ToString()))
+@if (Model.Comment.IsDeletedGame == false)
 {
-    <div id="newComment">
-        @using (Ajax.BeginForm("newcomment", "comment", commentOptions))
-        {
-            @Html.AntiForgeryToken()
+    if (!User.IsInRole(RoleEnum.Administrator.ToString()) || !User.IsInRole(RoleEnum.Manager.ToString()))
+    {
+        <div id="newComment">
+            @using (Ajax.BeginForm("newcomment", "comment", commentOptions))
+            {
+                @Html.AntiForgeryToken()
 
-            @Html.HiddenFor(m => m.Comment.ParentCommentId)
-            @Html.HiddenFor(m => m.Comment.GameId)
-            @Html.HiddenFor(m => m.Comment.GameKey)
-            @Html.EditorFor(m => m.Comment.Name)
-            @Html.ValidationMessageFor(m => m.Comment.Name)
-            <br>
-            @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21 })
-            @Html.ValidationMessageFor(m => m.Comment.Body)
-            <br>
-            <input type="submit" value="Add Comment" />
-        }
-    </div>
+                @Html.HiddenFor(m => m.Comment.ParentCommentId)
+                @Html.HiddenFor(m => m.Comment.GameId)
+                @Html.HiddenFor(m => m.Comment.GameKey)
+                @Html.EditorFor(m => m.Comment.Name)
+                @Html.ValidationMessageFor(m => m.Comment.Name)
+                <br>
+                @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21 })
+                @Html.ValidationMessageFor(m => m.Comment.Body)
+                <br>
+                <input type="submit" value="Add Comment" />
+            }
+        </div>
+    }
 }
 @helper Comments(IList<CommentViewModel> comments)
 {

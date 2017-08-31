@@ -9,11 +9,17 @@ using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.Decorators
 {
-    public class OrderDecoratorRepository : GenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order>, IOrderRepository
+    public class DecoratorOrderDecoratorRepository : GenericDecoratorRepository<OrderEntity, MongoOrderEntity, Order>, IDecoratorOrderRepository
     {
-        public OrderDecoratorRepository(IGenericDataRepository<OrderEntity, Order> sqlDataRepository, IReadOnlyGenericRepository<MongoOrderEntity, Order> mongoDataRepository) : base(sqlDataRepository, mongoDataRepository)
+        private readonly IOrderRepository _orderRepository;
+        public DecoratorOrderDecoratorRepository(IOrderRepository sqlDataRepository, IReadOnlyGenericRepository<MongoOrderEntity, Order> mongoDataRepository) : base(sqlDataRepository, mongoDataRepository)
         {
-          
+            _orderRepository = sqlDataRepository;
+        }
+
+        public void DeleteGameFromOrder(string orderId, string orderDetailsId)
+        {
+            _orderRepository.DeleteGameFromOrder(orderId, orderDetailsId);
         }
 
         public IEnumerable<Order> GetOrders(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)

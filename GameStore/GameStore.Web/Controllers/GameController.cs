@@ -62,22 +62,32 @@ namespace GameStore.Web.Controllers
         }
 
         [ActionName("edit")]
-        [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult UpdateGame(string gameKey)
         {
             Game game = _gameService.First(g => g.Key == gameKey);
-            if (game == null || game.IsDeleted)
+            if (CurrentUser.IsInRole(RoleEnum.Publisher) && CurrentUser.Publisher.CompanyName == game.Publisher.CompanyName || CurrentUser.IsInRole(RoleEnum.Publisher))
             {
-                return HttpNotFound();
+                if (game == null || game.IsDeleted)
+                {
+                    return HttpNotFound();
+                }
+
+                var gameViewModel = _mapper.Map<Game, GameViewModel>(game);
+                gameViewModel.Genres =
+                    _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(
+                        _genreService.GetAllGenresAndMarkSelected(gameViewModel.Genres.Select(g => g.Name)));
+                gameViewModel.PlatformTypes =
+                    _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(
+                        _platformTypeService.GetAllPlatformTypesAndMarkSelected(
+                            gameViewModel.PlatformTypes.Select(p => p.TypeName)));
+                gameViewModel.Publishers =
+                    _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+                gameViewModel.Publishers.Insert(0, new PublisherViewModel() { CompanyName = "Not Specified" });
+
+                return View(gameViewModel);
             }
 
-            var gameViewModel = _mapper.Map<Game, GameViewModel>(game);
-            gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.Genres.Select(g => g.Name)));
-            gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.PlatformTypes.Select(p => p.TypeName)));
-            gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
-            gameViewModel.Publishers.Insert(0, new PublisherViewModel() { CompanyName = "Not Specified" });
-
-            return View(gameViewModel);
+            return new HttpStatusCodeResult(403);
         }
 
         [ActionName("edit")]

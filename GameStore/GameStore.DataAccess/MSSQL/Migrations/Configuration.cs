@@ -314,6 +314,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                 },
                 new RoleEntity()
                 {
+                    Id = "5",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Publisher
+                },
+                new RoleEntity()
+                {
                     Id = "4",
                     IsDeleted = false,
                     IsSqlEntity = true,

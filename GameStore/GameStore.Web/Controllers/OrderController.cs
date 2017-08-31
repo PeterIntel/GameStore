@@ -7,6 +7,7 @@ using AutoMapper;
 using GameStore.Authorization.Interfaces;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
@@ -24,6 +25,7 @@ namespace GameStore.Web.Controllers
         // GET: Order
         [HttpGet]
         [ActionName("busket")]
+        [CustomAuthorize(RoleEnum.User)]
         public ActionResult GetOrderDetails()
         {
             var order = _orderService.GetOrderByCustomerId(CurrentUser.Id);
@@ -33,37 +35,125 @@ namespace GameStore.Web.Controllers
 
         [ActionName("buy")]
         [HttpPost]
-        public ActionResult AddGameToOrder(string gamekey)
+        [CustomAuthorize(RoleEnum.User)]
+        public ActionResult AddGameToOrder(string gameKey)
         {
-            _orderService.AddGameToOrder(gamekey, CurrentUser.Id);
+            _orderService.AddGameToCustomerOrder(gameKey, CurrentUser.Id);
             return RedirectToAction("busket");
         }
 
-        [ActionName("history")]
-        public ActionResult GetOrders()
+
+
+        [HttpPost]
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult AddOneGameToOrder(OrderDetailsViewModel details)
         {
-            var orders = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(_orderService.GetOrdersHistory());
-            TempData["orders"] = orders;
-            return View(new FilterOrdersViewModel() { Orders = orders});
+            _orderService.AddGameToOrder(details.GameId, details.OrderId);
+            return RedirectToAction("edit", new { key = details.OrderId});
         }
 
         [HttpPost]
-        public ActionResult FilterOrders(FilterOrdersViewModel filterViewModel)
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult DeleteOneGameFromOrder(OrderDetailsViewModel details)
+        {
+            _orderService.DeleteGameFromOrder(details.GameId, details.OrderId);
+            return RedirectToAction("edit", new { key = details.OrderId });
+        }
+
+        [ActionName("history")]
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult GetHistoryOrders()
+        {
+            return View(GetOrders(_orderService.GetOrdersHistory()));
+        }
+
+        private FilterOrdersViewModel GetOrders(IEnumerable<Order> orders)
+        {
+            var ordersViewModel = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
+            TempData["orders"] = orders;
+            return new FilterOrdersViewModel() { Orders = ordersViewModel };
+        }
+
+        [ActionName("history")]
+        [HttpPost]
+        public ActionResult FilterHistoryOrders(FilterOrdersViewModel filterViewModel)
         {
             var filter = _mapper.Map<FilterOrdersViewModel, FilterOrders>(filterViewModel);
-            IList<OrderViewModel> orders;
+
+            return View(FilterOrders(_orderService.GetOrdersHistory(filter)));
+        }
+
+        private FilterOrdersViewModel FilterOrders(IEnumerable<Order> orders)
+        {
+            IList<OrderViewModel> ordersViewModel;
             if (ModelState.IsValid)
             {
-                orders =
-                    _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(_orderService.GetOrdersHistory(filter));
-                TempData["orders"] = orders;
+                ordersViewModel =
+                    _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
+                TempData["orders"] = ordersViewModel;
             }
             else
             {
-                orders = TempData["orders"] as IList<OrderViewModel>;
-                TempData["orders"] = orders;
+                ordersViewModel = TempData["orders"] as IList<OrderViewModel>;
+                TempData["orders"] = ordersViewModel;
             }
-            return View("history", new FilterOrdersViewModel() { Orders = orders });
+
+            return new FilterOrdersViewModel() { Orders = ordersViewModel };
+        }
+
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult GetCurrentOrders()
+        {
+            return View(GetOrders(_orderService.GetCurrentOrders()));
+        }
+
+        [ActionName("GetCurrentOrders")]
+        [HttpPost]
+        public ActionResult FilterCurrentOrders(FilterOrdersViewModel filterViewModel)
+        {
+            var filter = _mapper.Map<FilterOrdersViewModel, FilterOrders>(filterViewModel);
+
+            return View(FilterOrders(_orderService.GetCurrentOrders(filter)));
+        }
+
+        [HttpPost]
+        [CustomAuthorize(RoleEnum.User)]
+        public ActionResult Pay(string orderId)
+        {
+            var order = _orderService.First(x => x.Id == orderId);
+            if (order.OrderDetails == null || order.OrderDetails.Count == 0)
+            {
+                ModelState.AddModelError("", @"The busket have no games");
+            }
+
+            if (ModelState.IsValid)
+            {
+                order.Status = CompletionStatus.Paid;
+                _orderService.Update(order);
+
+                return RedirectToAction("games", "game");
+            }
+
+            return View("busket", _mapper.Map<Order, OrderViewModel>(order));
+        }
+
+        [ActionName("edit")]
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult Edit(string key)
+        {
+            var order = _orderService.First(x => x.Id == key);
+
+            return View(_mapper.Map<Order, OrderViewModel>(order));
+        }
+
+        [ActionName("edit")]
+        [HttpPost]
+        public ActionResult Edit(OrderViewModel model)
+        {
+            var order = _mapper.Map<OrderViewModel, Order>(model);
+            _orderService.Update(order);
+
+            return RedirectToAction("GetCurrentOrders");
         }
     }
 }

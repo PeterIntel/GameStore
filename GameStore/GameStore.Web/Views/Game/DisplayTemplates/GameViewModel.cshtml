@@ -40,7 +40,7 @@
     @if (Model.SelectedPublisher != null)
     {
         <br>
-        @Html.ActionLink(Model.SelectedPublisher, "GetPublisherDetails", "publisher", new {companyName = Model.SelectedPublisher}, null)
+        @Html.ActionLink(Model.SelectedPublisher, "details", "publisher", new {companyName = Model.SelectedPublisher}, null)
     }
     else
     {

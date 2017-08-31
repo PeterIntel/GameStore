@@ -111,6 +111,7 @@
     <Compile Include="Infrastructure\IdDomainComparer.cs" />
     <Compile Include="Infrastructure\IdEntityComparer.cs" />
     <Compile Include="Interfaces\IGameRepository.cs" />
+    <Compile Include="Interfaces\IDecoratorOrderRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Interfaces\IReadOnlyGameRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
@@ -129,6 +130,10 @@
     <Compile Include="Migrations\201708290858518_IsDisabled_field_to_CommentEntity.cs" />
     <Compile Include="Migrations\201708290858518_IsDisabled_field_to_CommentEntity.Designer.cs">
       <DependentUpon>201708290858518_IsDisabled_field_to_CommentEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708311459224_addPublisher.cs" />
+    <Compile Include="Migrations\201708311459224_addPublisher.Designer.cs">
+      <DependentUpon>201708311459224_addPublisher.cs</DependentUpon>
     </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
@@ -191,6 +196,7 @@
     <Compile Include="Mongo\MongoEntities\MongoSupplierEntity.cs" />
     <Compile Include="Interfaces\IReadOnlyGenericRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGenericRepository.cs" />
+    <Compile Include="MSSQL\Repositories\OrderRepository.cs" />
     <Compile Include="MSSQL\Repositories\RoleRepository.cs" />
     <Compile Include="MSSQL\Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708290858518_IsDisabled_field_to_CommentEntity.resx">
       <DependentUpon>201708290858518_IsDisabled_field_to_CommentEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708311459224_addPublisher.resx">
+      <DependentUpon>201708311459224_addPublisher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

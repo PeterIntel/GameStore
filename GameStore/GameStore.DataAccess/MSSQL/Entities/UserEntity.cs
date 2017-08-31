@@ -16,6 +16,7 @@ namespace GameStore.DataAccess.MSSQL.Entities
         public DateTime? BirthDay { set; get; }
         public virtual IList<RoleEntity> Roles { set; get; }
         public virtual IList<OrderEntity> Orders { set; get; }
+        public virtual PublisherEntity Publisher { set; get; }
     }
 
 }

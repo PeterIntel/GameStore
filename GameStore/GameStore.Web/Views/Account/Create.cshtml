@@ -19,6 +19,14 @@
             </div>
             <fieldset>
                 @Html.EditorForModel()
+                
+                <div class="form-group clearfix">
+                    @Html.LabelFor(model => model.SelectedPublisher, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "Id", "CompanyName"), Model.Publisher != null ? Model.Publisher.CompanyName : "Not spesified", new { @class = "form-control" })
+                    </div>
+                </div>
+
 
                 @Html.LabelFor(m => m.Roles)
                 <br>

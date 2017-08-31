@@ -41,5 +41,9 @@ namespace GameStore.Web.ViewModels
         public string ConfirmPassword { set; get; }
         public IList<RoleViewModel> Roles { set; get; }
         public IList<string> IdRoles { set; get; }
+        [Display(Name = "Publisher")]
+        public string SelectedPublisher { set; get; }
+        public PublisherViewModel Publisher { set; get; }
+        public IList<PublisherViewModel> Publishers { set; get; }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model OrderDetailsViewModel
+    
+@Html.HiddenFor(m => m.Id)
+
+<tr>
+    <td>
+        @Html.ActionLink(Model.Game.Key, "GetGameDetails", "Game", new { key = Model.Game.Key }, null)
+    </td>
+    <td>@Model.Price</td>
+    <td>@Html.DisplayFor(m => m.Quantity)</td>
+    <td>@Html.EditorFor(m => m.Discount, new { htmlAttributes = new { type="number"} })</td>
+    <td style="width: 7%">
+        @using (Html.BeginForm("addOneGameToOrder", "order", FormMethod.Post, new { @class = "inline-block"}))
+        {
+            @Html.HiddenFor(x => x.GameId)
+            @Html.HiddenFor(x =>  x.OrderId)
+            <button class="btn btn-link" type="submit">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        }
+        @using (Html.BeginForm("DeleteOneGameFromOrder", "order", FormMethod.Post, new { @class = "inline-block" }))
+        {
+            @Html.HiddenFor(x => x.GameId)
+            @Html.HiddenFor(x =>  x.OrderId)
+            <button class="btn btn-link" type="submit">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        }
+    </td>
+</tr>
