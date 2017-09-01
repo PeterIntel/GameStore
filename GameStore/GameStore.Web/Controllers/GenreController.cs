@@ -1,9 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using AutoMapper;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
-using System.Collections.Generic;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
@@ -43,6 +43,7 @@ namespace GameStore.Web.Controllers
             {
                 var genre = _mapper.Map<GenreViewModel, Genre>(genreViewModel);
                 _genreService.Add(genre);
+
                 return RedirectToAction("GetGenres");
             }
 

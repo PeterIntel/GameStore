@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
@@ -21,16 +17,17 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         {
             var order = _dbSet.First(x => x.Id == orderId);
             var orderDetails = _context.OrderDetails.First(x => x.Id == orderDetailsId);
-
             order.OrderDetails.Remove(orderDetails);
         }
 
         public override void Update(Order order)
         {
             var orderEntity = _dbSet.Find(order.Id);
-            orderEntity.Status = order.Status;
-
-            _context.Entry(orderEntity).State = EntityState.Modified;
+            if (orderEntity != null)
+            {
+                orderEntity.Status = order.Status;
+                _context.Entry(orderEntity).State = EntityState.Modified;
+            }
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using GameStore.DataAccess.Decorators;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
@@ -43,6 +41,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
+
             return roots;
         }
 

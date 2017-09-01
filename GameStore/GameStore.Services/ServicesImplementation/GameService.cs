@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using GameStore.DataAccess.Interfaces;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
-using System.Linq.Expressions;
-using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.DataAccess.Interfaces;
 using GameStore.Logging.Loggers;
 using GameStore.Services.ServicesImplementation.FilterImplementation.GameFilters;
 
@@ -40,6 +40,7 @@ namespace GameStore.Services.ServicesImplementation
             {
                 item.Publisher = _publisherRepository.GetItemById(item.Publisher.Id);
             }
+
             _gameRepository.Add(item);
             UnitOfWork.Save();
             Logger.Write(Operation.Insert, item);
@@ -66,6 +67,7 @@ namespace GameStore.Services.ServicesImplementation
         public Game GetItemByKey(string key)
         {
             var result = _gameRepository.First(x => x.Key == key);
+
             return result;
         }
 
@@ -135,6 +137,7 @@ namespace GameStore.Services.ServicesImplementation
                 Count = _gameRepository.GetCountObject(x => true),
                 Games = _gameRepository.Get(x => true, x => x.Id).ToList()
             };
+
             return games;
         }
     }

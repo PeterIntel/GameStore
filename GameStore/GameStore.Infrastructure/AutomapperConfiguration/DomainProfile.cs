@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Runtime.Remoting.Channels;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
-using AutoMapper.XpressionMapper;
+using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess.Mongo.MongoEntities;
 
 namespace GameStore.Infrastructure.AutomapperConfiguration
 {

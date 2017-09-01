@@ -1,13 +1,12 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using GameStore.Authorization;
 using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.Web.Attributes
 {
     public class CustomAuthorize : AuthorizeAttribute
     {
-        private RoleEnum[] _roles;
+        private readonly RoleEnum[] _roles;
         public CustomAuthorize(params RoleEnum[] roles)
         {
             _roles = roles;

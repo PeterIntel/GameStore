@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GameStore.Logging.Loggers;
 using Ninject.Modules;
-using GameStore.Logging.Loggers;
 
 namespace GameStore.Infrastructure.NinjectConfiguration
 {

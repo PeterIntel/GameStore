@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using GameStore.Authorization.Interfaces;
@@ -35,6 +32,7 @@ namespace GameStore.Web.Controllers
         public ActionResult GetPublisherDetails(string companyName)
         {
             var publisher = _publisherService.GetPublisherByCompanyName(companyName);
+
             return View(_mapper.Map<Publisher, PublisherViewModel>(publisher));
         }
 
@@ -56,6 +54,7 @@ namespace GameStore.Web.Controllers
                 _publisherService.Add(publisher);
                 return RedirectToAction("GetPublishers");
             }
+
             return View(publisherViewModel);
         }
 

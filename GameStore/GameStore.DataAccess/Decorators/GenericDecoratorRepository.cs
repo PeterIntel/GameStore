@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Common.CommandTrees;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using GameStore.DataAccess.Infrastructure;
 using GameStore.DataAccess.Interfaces;
 using GameStore.Domain.BusinessObjects;
-using System.Text.RegularExpressions;
-using GameStore.DataAccess.Infrastructure;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 
 namespace GameStore.DataAccess.Decorators
 {
@@ -76,39 +69,6 @@ namespace GameStore.DataAccess.Decorators
         {
             SqlDataRepository.Update(item);
         }
-
-        private IEnumerable<TDomain> GetRequiredMongoCollection()
-        {
-            var sqlIds = SqlDataRepository.Get().Select(sql => sql.Id);
-            //Entities from Mongo which already added to SQL
-            var mongoEntities = from i in sqlIds
-                                join j in MongoDataRepository.Get() on i equals j.Id
-                                select j;
-
-            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdDomainComparer<TDomain>());
-
-            return requiredMongoCollection;
-        }
-        
-        private IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter)
-        {
-            // if selected platform type than show nothing from Mongo database
-            if (filter.Body.ToString().Contains("PlatformTypes"))
-            {
-                filter = x => false;
-            }
-
-            var sqlIds = SqlDataRepository.Get(filter).Select(sql => sql.Id);
-
-            //Entities from Mongo which already added to SQL
-            var mongoEntities = from i in sqlIds
-                                join j in MongoDataRepository.Get() on i equals j.Id
-                                select j;
-
-            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdDomainComparer<TDomain>()).AsQueryable().Where(filter);
-
-            return requiredMongoCollection;
-        }
         public IEnumerable<TDomain> LoadDomainEntities(IEnumerable<string> ids)
         {
             var domainEntities = new List<TDomain>();
@@ -124,6 +84,39 @@ namespace GameStore.DataAccess.Decorators
         public bool Any(Expression<Func<TDomain, bool>> filter)
         {
             return SqlDataRepository.Any(filter);
+        }
+
+        private IEnumerable<TDomain> GetRequiredMongoCollection()
+        {
+            var sqlIds = SqlDataRepository.Get().Select(sql => sql.Id);
+            //Entities from Mongo which already added to SQL
+            var mongoEntities = from i in sqlIds
+                join j in MongoDataRepository.Get() on i equals j.Id
+                select j;
+
+            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdDomainComparer<TDomain>());
+
+            return requiredMongoCollection;
+        }
+
+        private IEnumerable<TDomain> GetRequiredMongoCollection(Expression<Func<TDomain, bool>> filter)
+        {
+            // if selected platform type than show nothing from Mongo database
+            if (filter.Body.ToString().Contains("PlatformTypes"))
+            {
+                filter = x => false;
+            }
+
+            var sqlIds = SqlDataRepository.Get(filter).Select(sql => sql.Id);
+
+            //Entities from Mongo which already added to SQL
+            var mongoEntities = from i in sqlIds
+                join j in MongoDataRepository.Get() on i equals j.Id
+                select j;
+
+            var requiredMongoCollection = MongoDataRepository.Get().Except(mongoEntities, new IdDomainComparer<TDomain>()).AsQueryable().Where(filter);
+
+            return requiredMongoCollection;
         }
     }
 }

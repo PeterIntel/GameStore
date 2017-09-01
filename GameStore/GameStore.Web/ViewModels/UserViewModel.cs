@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
-using GameStore.Domain.BusinessObjects;
 using GameStore.Web.Attributes;
 
 namespace GameStore.Web.ViewModels

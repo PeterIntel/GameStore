@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using GameStore.Domain.ServicesInterfaces;
-using GameStore.Domain.BusinessObjects;
-using System.Web.UI;
 using AutoMapper;
+using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
 
@@ -44,6 +41,7 @@ namespace GameStore.Web.Controllers
             }
 
             commentsViewModel.Comments = InitComments(gamekey).Comments;
+
             return PartialView("_CommentsPartialView", commentsViewModel);
         }
 
@@ -59,6 +57,7 @@ namespace GameStore.Web.Controllers
                 {
                     _gameService.Add(game);
                 }
+
                 return View(InitComments(gameKey));
             }
 
@@ -80,6 +79,7 @@ namespace GameStore.Web.Controllers
                     GameKey = gameKey
                 }
             };
+
             return commentsViewModel;
         }
 

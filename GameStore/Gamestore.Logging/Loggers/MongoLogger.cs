@@ -1,7 +1,6 @@
 ﻿using System;
-using MongoDB.Driver;
 using System.Configuration;
-using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace GameStore.Logging.Loggers
 {
@@ -10,7 +9,7 @@ namespace GameStore.Logging.Loggers
     {
         private readonly IMongoClient _client;
         private readonly IMongoDatabase _database;
-        private IMongoCollection<LogEntity<TDomain>> _collection;
+        private readonly IMongoCollection<LogEntity<TDomain>> _collection;
 
         public MongoLogger()
         {

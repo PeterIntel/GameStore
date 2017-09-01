@@ -22,6 +22,8 @@ namespace GameStore.Authorization.Implementation
             _logger = logger;
         }
 
+        public HttpContext HttpContext { set; get; }
+
         public IPrincipal CurrentUser
         {
             get
@@ -44,10 +46,10 @@ namespace GameStore.Authorization.Implementation
                     _logger.Write(null, ex, "Error when getting user", LogLevels.Error);
                     _currentUser = new UserProvider();
                 }
+
                 return _currentUser;
             }
         }
-        public HttpContext HttpContext { set; get; }
 
         public User Login(string userName)
         {
@@ -59,23 +61,6 @@ namespace GameStore.Authorization.Implementation
             }
 
             return user;
-        }
-
-        private void CreateCookie(string userName, bool isPersistent = false)
-        {
-            var ticket = new FormsAuthenticationTicket(1, userName, HttpContext.Timestamp.ToLocalTime(),
-                HttpContext.Timestamp.ToLocalTime().Add(FormsAuthentication.Timeout), isPersistent, string.Empty,
-                FormsAuthentication.FormsCookiePath);
-
-            var encTicket = FormsAuthentication.Encrypt(ticket);
-
-            var authCookie = new HttpCookie(CookieName)
-            {
-                Value = encTicket,
-                Expires = ticket.Expiration
-            };
-
-            HttpContext.Response.Cookies.Set(authCookie);
         }
 
         public User Login(string userName, string password, bool isPersistent = false)
@@ -100,6 +85,23 @@ namespace GameStore.Authorization.Implementation
             {
                 httpCookie.Value = string.Empty;
             }
+        }
+
+        private void CreateCookie(string userName, bool isPersistent = false)
+        {
+            var ticket = new FormsAuthenticationTicket(1, userName, HttpContext.Timestamp.ToLocalTime(),
+                HttpContext.Timestamp.ToLocalTime().Add(FormsAuthentication.Timeout), isPersistent, string.Empty,
+                FormsAuthentication.FormsCookiePath);
+
+            var encTicket = FormsAuthentication.Encrypt(ticket);
+
+            var authCookie = new HttpCookie(CookieName)
+            {
+                Value = encTicket,
+                Expires = ticket.Expiration
+            };
+
+            HttpContext.Response.Cookies.Set(authCookie);
         }
     }
 }

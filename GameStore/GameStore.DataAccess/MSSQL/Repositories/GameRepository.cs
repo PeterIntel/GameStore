@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameStore.Domain.BusinessObjects;
-using AutoMapper;
-using System.Linq.Expressions;
 using System.Data.Entity;
-using System.Security.Cryptography.X509Certificates;
+using System.Linq;
+using System.Linq.Expressions;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using GameStore.DataAccess.Infrastructure;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.DataAccess.Infrastructure;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Repositories
 {
@@ -35,7 +32,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             {
                 var gameEntity = InitGame(game);
                 gameEntity.IsSqlEntity = true;
-                gameEntity.GameInfo = new GameInfoEntity() { IsSqlEntity = true, UploadDate = DateTime.UtcNow, CountOfViews = 0};
+                gameEntity.GameInfo = new GameInfoEntity() { IsSqlEntity = true, UploadDate = DateTime.UtcNow, CountOfViews = 0 };
                 _dbSet.Add(gameEntity);
             }
         }
@@ -52,6 +49,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 {
                     _genreRepository.Add(genre);
                 }
+
                 _context.SaveChanges();
 
                 gameEntity.Genres = _genreRepository.GetGenres(game.Genres).ToList();
@@ -97,10 +95,10 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
 
             queryToEntity = ascending ? queryToEntity.OrderBy(sortEntity) : queryToEntity.OrderByDescending(sortEntity);
-
             queryToEntity = queryToEntity.Take((int)size * page);
 
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
+
             return result;
         }
 
@@ -111,7 +109,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 var entityGame = InitGame(game);
                 var existingGame = _dbSet.Include(x => x.Genres).Include(x => x.PlatformTypes).Include(x => x.Publisher).First(x => x.Id == entityGame.Id);
                 _mapper.Map(entityGame, existingGame);
-                
+
                 var deletedGenres = existingGame.Genres.Except(entityGame.Genres, new IdEntityComparer<GenreEntity>());
                 var addedGenres = entityGame.Genres.Except(existingGame.Genres, new IdEntityComparer<GenreEntity>());
                 for (int i = 0; i < deletedGenres.Count(); i++)

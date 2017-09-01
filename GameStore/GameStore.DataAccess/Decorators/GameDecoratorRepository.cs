@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;

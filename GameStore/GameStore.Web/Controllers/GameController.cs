@@ -1,15 +1,14 @@
-﻿using System.Web.Mvc;
-using GameStore.Domain.BusinessObjects;
-using GameStore.Domain.ServicesInterfaces;
-using GameStore.Web.ViewModels;
-using AutoMapper;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using GameStore.Authorization;
+using System.Web.Mvc;
+using AutoMapper;
 using GameStore.Authorization.Interfaces;
+using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
 using GameStore.Web.Filters;
+using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
@@ -40,6 +39,7 @@ namespace GameStore.Web.Controllers
                 PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.Get()),
                 Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
             };
+
             return View(game);
         }
 
@@ -52,12 +52,14 @@ namespace GameStore.Web.Controllers
             {
                 var game = _mapper.Map<GameViewModel, Game>(gameViewModel);
                 _gameService.Add(game);
+
                 return RedirectToAction("games");
             }
 
             gameViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelected(gameViewModel.NameGenres));
             gameViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(gameViewModel.NamePlatformtypes));
             gameViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+
             return View(gameViewModel);
         }
 
@@ -200,6 +202,7 @@ namespace GameStore.Web.Controllers
             _gameService.AddViewToGame(key);
             var gameViewModel = _mapper.Map<Game, GameViewModel>(_gameService.GetItemByKey(key));
             ViewBag.CurrentUser = CurrentUser;
+
             return View(gameViewModel);
         }
 
@@ -214,6 +217,7 @@ namespace GameStore.Web.Controllers
         {
             byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/download/download.exe"));
             string filename = "download.exe";
+
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, filename);
         }
     }

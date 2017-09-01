@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using GameStore.Authorization;
-using GameStore.Web.ViewModels;
-using GameStore.Domain.ServicesInterfaces;
 using AutoMapper;
 using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
+using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
@@ -30,6 +28,7 @@ namespace GameStore.Web.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -52,23 +51,11 @@ namespace GameStore.Web.Controllers
             return View(model);
         }
 
-        private void CheckLoginAndEmail(UserViewModel model)
-        {
-            if (_accountService.Any(x => x.Login == model.Login))
-            {
-                ModelState.AddModelError("Login", $"Login {model.Login} already exists!");
-            }
-
-            if (_accountService.Any(x => x.Email == model.Email))
-            {
-                ModelState.AddModelError("Email", $"E-mail {model.Email} already exists!");
-            }
-        }
-
         [AllowAnonymous]
         public ActionResult LogOff()
         {
             Auth.Logout();
+
             return RedirectToAction("games", "Game");
         }
 
@@ -76,6 +63,7 @@ namespace GameStore.Web.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+
             return View();
         }
 
@@ -93,16 +81,6 @@ namespace GameStore.Web.Controllers
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
 
             return View(model);
-        }
-
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-
-            return RedirectToAction("Games", "Game");
         }
 
         public ActionResult GetUsers()
@@ -212,6 +190,29 @@ namespace GameStore.Web.Controllers
             }
 
             return View(_mapper.Map<User, UserViewModel>(user));
+        }
+
+        private void CheckLoginAndEmail(UserViewModel model)
+        {
+            if (_accountService.Any(x => x.Login == model.Login))
+            {
+                ModelState.AddModelError("Login", $"Login {model.Login} already exists!");
+            }
+
+            if (_accountService.Any(x => x.Email == model.Email))
+            {
+                ModelState.AddModelError("Email", $"E-mail {model.Email} already exists!");
+            }
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+
+            return RedirectToAction("Games", "Game");
         }
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using GameStore.DataAccess.Interfaces;
-using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
-using GameStore.DataAccess.UnitOfWork;
 using GameStore.Logging.Loggers;
 using GameStore.Services.ServicesImplementation.FilterImplementation.OrderFilter;
 
@@ -76,35 +75,6 @@ namespace GameStore.Services.ServicesImplementation
 
         }
 
-        private void AddGameToOrder(Order order, string gamekey)
-        {
-            var game = _gameRepository.First(x => x.Key == gamekey);
-
-            var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
-
-            if (gameDetails != null)
-            {
-                gameDetails.Quantity++;
-                gameDetails.Price = gameDetails.Game.Price;
-                gameDetails.Order = null;
-                gameDetails.Game = null;
-                _orderDetailsRepository.Update(gameDetails);
-            }
-            else
-            {
-                _orderDetailsRepository.Add(new OrderDetails()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    OrderId = order.Id,
-                    GameId = game.Id,
-                    Quantity = 1,
-                    Price = game.Price
-                });
-            }
-
-            UnitOfWork.Save();
-            Logger.Write(Operation.Insert, order);
-        }
         public Order GetOrderByCustomerId(string id)
         {
             Order order = _decoratorOrderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Paid).FirstOrDefault();
@@ -128,6 +98,7 @@ namespace GameStore.Services.ServicesImplementation
         public Order GetItemById(string id)
         {
             var result = _decoratorOrderRepository.GetItemById(id);
+
             return result;
         }
 
@@ -166,6 +137,36 @@ namespace GameStore.Services.ServicesImplementation
             var orders = _decoratorOrderRepository.GetOrders(filterExpression, includeProperties).ToList();
 
             return orders;
+        }
+
+        private void AddGameToOrder(Order order, string gamekey)
+        {
+            var game = _gameRepository.First(x => x.Key == gamekey);
+
+            var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Key, gamekey, StringComparison.OrdinalIgnoreCase));
+
+            if (gameDetails != null)
+            {
+                gameDetails.Quantity++;
+                gameDetails.Price = gameDetails.Game.Price;
+                gameDetails.Order = null;
+                gameDetails.Game = null;
+                _orderDetailsRepository.Update(gameDetails);
+            }
+            else
+            {
+                _orderDetailsRepository.Add(new OrderDetails()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    OrderId = order.Id,
+                    GameId = game.Id,
+                    Quantity = 1,
+                    Price = game.Price
+                });
+            }
+
+            UnitOfWork.Save();
+            Logger.Write(Operation.Insert, order);
         }
     }
 }

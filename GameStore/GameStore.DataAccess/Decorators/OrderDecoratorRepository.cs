@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
@@ -30,6 +29,7 @@ namespace GameStore.DataAccess.Decorators
         public override Order GetItemById(string id)
         {
             var order = SqlDataRepository.GetItemById(id);
+
             return order;
         }
 
@@ -48,12 +48,14 @@ namespace GameStore.DataAccess.Decorators
         public override IEnumerable<Order> Get(params Expression<Func<Order, object>>[] includeProperties)
         {
             var orders = SqlDataRepository.Get(includeProperties);
+
             return orders;
         }
 
         public override IEnumerable<Order> Get(Expression<Func<Order, bool>> filter, params Expression<Func<Order, object>>[] includeProperties)
         {
             var orders = SqlDataRepository.Get(filter, includeProperties);
+
             return orders;
         }
     }

@@ -1,5 +1,4 @@
-﻿using System.Drawing.Drawing2D;
-using AutoMapper;
+﻿using AutoMapper;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 

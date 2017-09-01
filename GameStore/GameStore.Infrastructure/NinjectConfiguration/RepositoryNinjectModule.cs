@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ninject.Modules;
-using GameStore.DataAccess.MSSQL.Repositories;
-using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess;
-using GameStore.DataAccess.Decorators;
+﻿using GameStore.DataAccess.Decorators;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.Mongo.MongoRepositories;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Repositories;
+using GameStore.Domain.BusinessObjects;
 using GameStore.Services.ServicesImplementation;
+using Ninject.Modules;
 
 namespace GameStore.Infrastructure.NinjectConfiguration
 {

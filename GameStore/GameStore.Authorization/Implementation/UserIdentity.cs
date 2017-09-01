@@ -17,6 +17,7 @@ namespace GameStore.Authorization.Implementation
             Init(name, userRepository);
         }
         public User User { get; set; }
+
         public string AuthenticationType
         {
             get

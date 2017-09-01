@@ -1,14 +1,11 @@
-﻿using GameStore.Domain.ServicesInterfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameStore.Domain.BusinessObjects;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
-using System.Linq.Expressions;
+using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation

@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameStore.DataAccess.Interfaces;
-using GameStore.DataAccess.Mongo;
-using GameStore.DataAccess.Mongo.MongoEntities;
-using GameStore.DataAccess.Mongo.MongoRepositories;
-using GameStore.DataAccess.MSSQL;
-using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess.MSSQL.Repositories;
-using Ninject;
+﻿using GameStore.DataAccess.MSSQL;
 
 namespace GameStore.DataAccess.UnitOfWork
 {

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameStore.Domain.BusinessObjects;
-using System.Linq;
-using System.Web;
 
 namespace GameStore.Web.ViewModels
 {

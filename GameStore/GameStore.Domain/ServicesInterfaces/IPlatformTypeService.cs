@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GameStore.Domain.BusinessObjects;
-using System.Linq.Expressions;
 
 namespace GameStore.Domain.ServicesInterfaces
 {

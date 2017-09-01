@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using GameStore.Domain.BusinessObjects;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using GameStore.Domain.BusinessObjects;
 using GameStore.Web.Attributes;
 
 namespace GameStore.Web.ViewModels
