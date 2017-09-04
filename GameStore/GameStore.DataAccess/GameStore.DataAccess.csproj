@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201708311459224_addPublisher.Designer.cs">
       <DependentUpon>201708311459224_addPublisher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709040917053_Add_Local_Tables.cs" />
+    <Compile Include="Migrations\201709040917053_Add_Local_Tables.Designer.cs">
+      <DependentUpon>201709040917053_Add_Local_Tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
@@ -143,6 +147,12 @@
     <Compile Include="Mongo\MongoEntities\BasicMongoEntity.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyOrderRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGameRepository.cs" />
+    <Compile Include="MSSQL\Entities\Localization\AbstractLocalizationEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\CultureEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\GameLocalEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\GenreLocalEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\PlatformTypeLocalEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\PublisherLocalEntity.cs" />
     <Compile Include="MSSQL\Entities\RoleEntity.cs" />
     <Compile Include="MSSQL\Entities\UserEntity.cs" />
     <Compile Include="MSSQL\GamesSqlContext.cs" />
@@ -237,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708311459224_addPublisher.resx">
       <DependentUpon>201708311459224_addPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709040917053_Add_Local_Tables.resx">
+      <DependentUpon>201709040917053_Add_Local_Tables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

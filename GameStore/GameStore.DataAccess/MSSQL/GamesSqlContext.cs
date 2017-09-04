@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Entities.Localization;
 using GameStore.DataAccess.MSSQL.EntitiesConfigurations;
 using GameStore.DataAccess.MSSQL.Migrations;
 
@@ -24,6 +25,7 @@ namespace GameStore.DataAccess.MSSQL
         public virtual DbSet<GameInfoEntity> GamesInfo { set; get; }
         public virtual DbSet<UserEntity> Users { set; get; }
         public virtual DbSet<RoleEntity> Roles { set; get; }
+        public DbSet<CultureEntity> Cultures { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

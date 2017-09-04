@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using GameStore.DataAccess.MSSQL.Entities.Localization;
 
 namespace GameStore.DataAccess.MSSQL.Entities
 {
@@ -22,5 +23,6 @@ namespace GameStore.DataAccess.MSSQL.Entities
         public virtual IList<GenreEntity> Genres { set; get; }
 
         public virtual IList<PlatformTypeEntity> PlatformTypes { set; get; }
+        public virtual IList<GameLocalEntity> Locals { get; set; }
     }
 }
