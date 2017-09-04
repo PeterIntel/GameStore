@@ -139,6 +139,10 @@
     <Compile Include="Migrations\201709040917053_Add_Local_Tables.Designer.cs">
       <DependentUpon>201709040917053_Add_Local_Tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709041001355_Add_ParentGenre_to_Genres.cs" />
+    <Compile Include="Migrations\201709041001355_Add_ParentGenre_to_Genres.Designer.cs">
+      <DependentUpon>201709041001355_Add_ParentGenre_to_Genres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
     <Compile Include="Mongo\DataProviders\DataProvider.cs" />
@@ -250,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709040917053_Add_Local_Tables.resx">
       <DependentUpon>201709040917053_Add_Local_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041001355_Add_ParentGenre_to_Genres.resx">
+      <DependentUpon>201709041001355_Add_ParentGenre_to_Genres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

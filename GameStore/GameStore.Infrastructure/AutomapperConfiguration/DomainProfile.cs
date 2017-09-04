@@ -2,7 +2,9 @@
 using AutoMapper;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Entities.Localization;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.BusinessObjects.LocalizationObjects;
 
 namespace GameStore.Infrastructure.AutomapperConfiguration
 {
@@ -128,6 +130,12 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Genre, MongoCategoryEntity>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.CategoryName, opt => opt.MapFrom(src => src.Name));
+
+            CreateMap<GameLocalEntity, GameLocal>().ReverseMap();
+            CreateMap<GenreLocalEntity, GenreLocal>().ReverseMap();
+            CreateMap<PlatformTypeLocalEntity, PlatformTypeLocal>().ReverseMap();
+            CreateMap<PublisherLocalEntity, PublisherLocal>().ReverseMap();
+            CreateMap<CultureEntity, Culture>().ReverseMap();
         }
     }
 }

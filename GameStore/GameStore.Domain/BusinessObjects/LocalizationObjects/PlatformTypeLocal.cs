@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStore.DataAccess.MSSQL.Entities.Localization
+namespace GameStore.Domain.BusinessObjects.LocalizationObjects
 {
-    public class PlatformTypeLocalEntity : AbstractLocalizationEntity
+    public class PlatformTypeLocal : AbstractLocalizationDomain
     {
         public string PlatformTypeId { get; set; }
 
-        public virtual PlatformTypeEntity PlatformType { get; set; }
+        public virtual PlatformType PlatformType { get; set; }
 
         public string TypeName { get; set; }
     }

@@ -11,6 +11,7 @@ namespace GameStore.DataAccess.MSSQL.Entities
         [StringLength(450)]
         public string Name { set; get; }
         public string ParentGenreId { set; get; }
+        public virtual GenreEntity ParentGenre { set; get; }
         public virtual IList<GenreEntity> Genres { set; get; }
         public virtual IList<GameEntity> Games { set; get; }
         public virtual IList<GenreLocalEntity> Locals { get; set; }

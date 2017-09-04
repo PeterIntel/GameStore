@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameStore.Domain.BusinessObjects.LocalizationObjects;
 using Newtonsoft.Json;
 
 namespace GameStore.Domain.BusinessObjects
@@ -9,5 +10,7 @@ namespace GameStore.Domain.BusinessObjects
         public bool IsChecked { set; get; }
         [JsonIgnore]
         public IEnumerable<Game> Games { set; get; }
+        [JsonIgnore]
+        public IEnumerable<PlatformTypeLocal> Locals { get; set; }
     }
 }
