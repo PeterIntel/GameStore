@@ -1,5 +1,8 @@
-﻿using System.Text;
+﻿using System.Collections.Specialized;
+using System.Text;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Infrastructure.Helpers
@@ -39,5 +42,32 @@ namespace GameStore.Web.Infrastructure.Helpers
             }
             return MvcHtmlString.Create(result.ToString());
         }
+
+        public static MvcHtmlString LangSwitcher(this UrlHelper url, string name, ViewContext viewContext, string lang)
+        {
+            var routeData = viewContext.RouteData;
+            var queryString = viewContext.RequestContext.HttpContext.Request.Url.Query;
+            var li = new TagBuilder("li");
+            var a = new TagBuilder("a");
+            var routeValueDictionary = new RouteValueDictionary(routeData.Values);
+            if (routeValueDictionary.ContainsKey("lang"))
+            {
+                if (routeData.Values["lang"] as string == lang)
+                {
+                    li.AddCssClass("active");
+                }
+                else
+                {
+                    routeValueDictionary["lang"] = lang;
+                }
+            }
+
+            a.MergeAttribute("href", url.RouteUrl(routeValueDictionary) + queryString);
+            a.SetInnerText(name);
+            li.InnerHtml = a.ToString();
+            
+            return new MvcHtmlString(li.ToString());
+        }
+
     }
 }

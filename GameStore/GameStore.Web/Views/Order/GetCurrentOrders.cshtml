@@ -1,6 +1,6 @@
 ﻿@model FilterOrdersViewModel
 @{
-    ViewBag.Title = "history";
+    ViewBag.Title = Resources.CurrentOrders;
 }
 @using (Html.BeginForm("GetCurrentOrders", "Order"))
 {
@@ -13,14 +13,14 @@
     <br>
     @Html.EditorFor(x => x.DateTo)
     <br>
-    <input type="submit" Value="Filter orders" />
+    <input type="submit" Value="@Resources.Filters" />
 }
-<h2>history</h2>
+<h2>@Resources.CurrentOrders</h2>
 @foreach (var order in Model.Orders)
 {
     @Html.Partial("order", order)
     <div class="edit">
-        @Html.ActionLink("Edit", "edit", new { key = order.Id })
+        @Html.ActionLink(Resources.Edit, "edit", new { key = order.Id })
     </div>
     <hr/>
 }

@@ -6,7 +6,7 @@
     @foreach (SortCriteria item in Enum.GetValues(typeof(SortCriteria)))
     {
         <option value="@item" @(Model == item ? "selected=\"selected\"" : "")>
-            @item
+            @Resources.ResourceManager.GetString(item.ToString())
         </option>
     }
 </select>

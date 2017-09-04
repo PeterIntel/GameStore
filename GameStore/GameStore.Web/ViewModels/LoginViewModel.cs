@@ -1,18 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "User Name")]
+        [Required( ErrorMessageResourceName = "LoginRequired", ErrorMessageResourceType = typeof(Resources))]
+        [Display(Name = "User", ResourceType = typeof(Resources))]
         public string UserName { set; get; }
-        [Required]
-        [Display(Name = "Password")]
+        [Required(ErrorMessageResourceName = "PasswordRequired", ErrorMessageResourceType = typeof(Resources))]
+        [Display(Name = "Password", ResourceType = typeof(Resources))]
         [DataType(DataType.Password)]
         public string Password { set; get; }
-
-        [Display(Name = "Remember me?")]
+        [Display(Name = "RememberMe", ResourceType = typeof(Resources))]
         public bool RememberMe { set; get; }
     }
 }

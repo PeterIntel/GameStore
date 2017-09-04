@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
@@ -9,12 +10,12 @@ using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
-    public class CommentController : Controller
+    public class CommentController : BaseController
     {
         private readonly ICommentService _commentService;
         private readonly IGameService _gameService;
         private readonly IMapper _mapper;
-        public CommentController(ICommentService commentService, IGameService gameService, IMapper mapper)
+        public CommentController(ICommentService commentService, IGameService gameService, IMapper mapper, IAuthentication auth) : base(auth)
         {
             _commentService = commentService;
             _gameService = gameService;

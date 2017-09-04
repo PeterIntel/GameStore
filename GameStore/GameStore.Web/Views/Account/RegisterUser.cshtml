@@ -1,14 +1,14 @@
 ﻿@model UserViewModel
 
 @{
-    ViewBag.Title = "RegisterUser";
+    ViewBag.Title = Resources.Registration;
 }
 
 <div class="container">
     @using (Html.BeginForm())
             {
         <div class="col-md-12">
-            <h2>Registration</h2>
+            <h2>@Resources.Registration</h2>
 
             @Html.AntiForgeryToken()
             <div class="validation-errors">
@@ -16,7 +16,7 @@
             </div>
             <fieldset>
                 @Html.EditorForModel()
-                <input type="submit" value="Sign up" />
+                <input type="submit" value="@Resources.Register" />
             </fieldset>
         </div>
     }

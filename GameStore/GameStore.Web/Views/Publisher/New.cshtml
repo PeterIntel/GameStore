@@ -1,6 +1,6 @@
 ﻿@model PublisherViewModel
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = Resources.Add;
 }
 
 <h2>New</h2>
@@ -25,6 +25,6 @@
     @Html.EditorFor(m => m.HomePage)
     @Html.ValidationMessageFor(m => m.HomePage)
     <br>
-    <input type="submit" value="Add publisher"/>
+    <input type="submit" value="@Resources.Add"/>
 }
 

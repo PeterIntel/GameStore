@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.ViewModels
 {
     public class GenreViewModel
     {
         public string Id { set; get; }
-        [Required]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Resources))]
         public string Name { set; get; }
         public string ParentGenreId { set; get; }
         public string ParentGenreName { set; get; }

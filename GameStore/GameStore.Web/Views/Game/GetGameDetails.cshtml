@@ -2,34 +2,34 @@
 @model GameViewModel
 
 @{
-    ViewBag.Title = "GetGameDetails";
+    ViewBag.Title = Resources.Details;
 }
 
-<h2>GetGameDetails</h2>
+<h2>@Resources.Details</h2>
 
 @Html.DisplayFor(game => Model)
 
 @if (User.IsInRole(RoleEnum.Manager.ToString()) && Model.IsDeleted == false)
 {
-    @Html.ActionLink("Edit", "edit", new { gameKey = Model.Key })
-    @Html.ActionLink("Delete", "delete", new { gamekey = Model.Key })
+    @Html.ActionLink(Resources.Edit, "edit", new { gameKey = Model.Key })
+    @Html.ActionLink(Resources.Delete, "delete", new { gamekey = Model.Key })
 }
 
 @if (User.IsInRole(RoleEnum.Publisher.ToString()) && Model.IsDeleted == false && ((User)ViewBag.CurrentUser).Publisher != null && Model.Publisher != null 
     && ((User)ViewBag.CurrentUser).Publisher.CompanyName == Model.Publisher.CompanyName)
 {
-    @Html.ActionLink("Edit", "edit", new { gameKey = Model.Key })
+    @Html.ActionLink(Resources.Edit, "edit", new { gameKey = Model.Key })
 }
 
-@Html.ActionLink("show comments", "comments", "comment", new { gamekey = Model.Key }, new { target = "blank" })
+@Html.ActionLink(Resources.Comments, "comments", new { gamekey = Model.Key }, new { target = "blank" })
 
 @if (User.IsInRole(RoleEnum.User.ToString()) && Model.IsDeleted == false)
 {
-    @Html.ActionLink("download", "download", new { gamekey = Model.Key }, new { target = "blank" })
+    @Html.ActionLink(Resources.Download, "download", new { gamekey = Model.Key }, new { target = "blank" })
 
     using (@Html.BeginForm("buy", "order", new { gamekey = Model.Key }, FormMethod.Post, new { @class = "form" }))
     {
-        <input type="submit" value="Buy" />
+        <input type="submit" value="@Resources.Buy" />
     }
 }
 

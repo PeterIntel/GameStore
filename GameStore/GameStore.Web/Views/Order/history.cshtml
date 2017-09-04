@@ -1,7 +1,7 @@
 ﻿@model FilterOrdersViewModel
 
 @{
-    ViewBag.Title = "history";
+    ViewBag.Title = Resources.History;
 }
 
 @using (Html.BeginForm("history", "Order"))
@@ -15,10 +15,10 @@
     <br>
     @Html.EditorFor(x => x.DateTo)
     <br>
-    <input type="submit" Value="Filter orders"/>
+    <input type="submit" Value="@Resources.Filters"/>
 }
 
-<h2>history</h2>
+<h2>@Resources.History</h2>
 
 @foreach (var order in Model.Orders)
 {

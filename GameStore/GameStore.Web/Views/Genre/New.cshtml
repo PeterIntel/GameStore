@@ -1,14 +1,14 @@
 ﻿@model GenreViewModel
 
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = Resources.Create;
 }
 
 <div class="container">
     @using (Html.BeginForm())
     {
         <div class="col-md-12">
-            <h2>New</h2>
+            <h2>@Resources.Create</h2>
 
             @Html.AntiForgeryToken()
             <div class="validation-errors">
@@ -16,7 +16,7 @@
             </div>
             @Html.EditorForModel()
         </div>
-        <input type="submit" value="Add" />
+        <input type="submit" value="@Resources.Create" />
     }
 </div>
 

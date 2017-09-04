@@ -27,7 +27,7 @@
                 @Html.TextAreaFor(m => m.Comment.Body, new { cols = 21 })
                 @Html.ValidationMessageFor(m => m.Comment.Body)
                 <br>
-                <input type="submit" value="Add Comment" />
+                <input type="submit" value="@Resources.Add" />
             }
         </div>
     }
@@ -49,7 +49,7 @@
                         <span>@comments[i].Name,</span>
                     }
                     <span>@Html.Raw(comments[i].Body)</span>
-                    <a href="#newComment" id="Reply_@( comments[i].Id + "_" + comments[i].Name)">Reply</a>
+                    <a href="#newComment" id="Reply_@( comments[i].Id + "_" + comments[i].Name)">@Resources.Reply</a>
                     @if (comments.Count != 0)
                     {
                         @Comments(comments[i].Comments)

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
@@ -9,13 +10,13 @@ using GameStore.Web.ViewModels;
 namespace GameStore.Web.Controllers
 {
     [CustomAuthorize(RoleEnum.Manager)]
-    public class GenreController : Controller
+    public class GenreController : BaseController
     {
 
         private readonly IGenreService _genreService;
         private readonly IMapper _mapper;
 
-        public GenreController(IGenreService genreService, IMapper mapper)
+        public GenreController(IGenreService genreService, IMapper mapper, IAuthentication auth) : base(auth)
         {
             _genreService = genreService;
             _mapper = mapper;

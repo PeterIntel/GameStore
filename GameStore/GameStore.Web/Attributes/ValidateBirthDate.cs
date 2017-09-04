@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.Attributes
 {
@@ -14,7 +15,7 @@ namespace GameStore.Web.Attributes
             }
             else
             {
-                return new ValidationResult("Birth date must be less than the current date.");
+                return new ValidationResult(Resources.ErrorBirthDay);
             }
         }
     }

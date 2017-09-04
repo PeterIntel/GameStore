@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<PublisherViewModel>
 
 @{
-    ViewBag.Title = "GetPublishers";
+    ViewBag.Title = Resources.Publishers;
 }
 
-<h2>GetPublishers</h2>
+<h2>@Resources.Publishers</h2>
 
 <p>
-    @Html.ActionLink("Create New", "new")
+    @Html.ActionLink(Resources.Add, "new")
 </p>
 <table class="table">
     <tr>
@@ -36,8 +36,8 @@
                 @Html.DisplayFor(modelItem => item.HomePage)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { key = item.CompanyName }) |
-                @Html.ActionLink("Delete", "Delete", new { key = item.CompanyName })
+                @Html.ActionLink(Resources.Edit, "Edit", new { key = item.CompanyName }) |
+                @Html.ActionLink(Resources.Delete, "Delete", new { key = item.CompanyName })
             </td>
         </tr>
     }

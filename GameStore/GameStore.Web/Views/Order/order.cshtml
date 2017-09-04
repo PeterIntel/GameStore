@@ -6,13 +6,13 @@
 <br>
 @Html.LabelFor(m => m.Status)
 <br>
-@Html.DisplayFor(m => m.Status)
+@Html.DisplayFor(m => m.Status, Resources.ResourceManager.GetString(Model.Status.ToString()))
 <table class="table">
     <tr>
-        <th>Game</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Discount</th>
+        <th>@Resources.Game</th>
+        <th>@Resources.Price</th>
+        <th>@Resources.Quantity</th>
+        <th>@Resources.Discount</th>
     </tr>
     @foreach (var details in Model.OrderDetails)
     {

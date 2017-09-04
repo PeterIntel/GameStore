@@ -1,15 +1,15 @@
 ﻿@model GameViewModel
 
 @{
-    ViewBag.Title = "AddGame";
+    ViewBag.Title = Resources.AddGame;
 }
 
-<h2>AddGame</h2>
+<h2>@Resources.AddGame</h2>
 
 @using (Html.BeginForm())
 {
     @Html.EditorForModel()
     <br>
-    <input type="submit" value="Add game"/>
+    <input type="submit" value="@Resources.AddGame"/>
 }
 

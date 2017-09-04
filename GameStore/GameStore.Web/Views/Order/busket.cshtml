@@ -1,10 +1,10 @@
 ﻿@model OrderViewModel
 
 @{
-    ViewBag.Title = "busket";
+    ViewBag.Title = Resources.Basket;
 }
 
-<h2>busket</h2>
+<h2>@Resources.Basket</h2>
 @Html.ValidationSummary()
 @Html.Partial("order", Model)
 
@@ -12,5 +12,5 @@
 @using (Html.BeginForm("pay", "order"))
 {
     @Html.Hidden("orderId", Model.Id)
-    <input type="submit" value="Pay" />
+    <input type="submit" value="@Resources.Pay" />
 }

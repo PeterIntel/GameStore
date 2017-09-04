@@ -1,9 +1,9 @@
 ﻿@model CommentsViewModel
 @{
-    ViewBag.Title = "comments";
+    ViewBag.Title = Resources.Comments;
 }
 
-<h2>comments</h2>
+<h2>@Resources.Comments</h2>
 
 <div id="commets-list">
     @Html.Partial("_CommentsPartialView", Model)
