@@ -23,7 +23,7 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult GetPublishers()
         {
-            return View(_mapper.Map<IEnumerable<Publisher>, IEnumerable<PublisherViewModel>>(_publisherService.Get()));
+            return View(_mapper.Map<IEnumerable<Publisher>, IEnumerable<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode)));
         }
 
         [AllowAnonymous]
@@ -31,7 +31,7 @@ namespace GameStore.Web.Controllers
         // GET: Publisher
         public ActionResult GetPublisherDetails(string companyName)
         {
-            var publisher = _publisherService.GetPublisherByCompanyName(companyName);
+            var publisher = _publisherService.GetPublisherByCompanyName(companyName, CurrentLanguageCode);
 
             return View(_mapper.Map<Publisher, PublisherViewModel>(publisher));
         }
@@ -51,7 +51,7 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
-                _publisherService.Add(publisher);
+                _publisherService.Add(publisher, CurrentLanguageCode);
                 return RedirectToAction("GetPublishers");
             }
 
@@ -61,7 +61,7 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult Edit(string key)
         {
-            Publisher publisher = _publisherService.First(x => x.CompanyName == key);
+            Publisher publisher = _publisherService.First(x => x.CompanyName == key, CurrentLanguageCode);
             if (publisher == null)
             {
                 return HttpNotFound();
@@ -77,7 +77,7 @@ namespace GameStore.Web.Controllers
         {
             if (CurrentUser.Publisher != null)
             {
-                Publisher publisher = _publisherService.First(x => x.CompanyName == CurrentUser.Publisher.CompanyName);
+                Publisher publisher = _publisherService.First(x => x.CompanyName == CurrentUser.Publisher.CompanyName, CurrentLanguageCode);
                 if (publisher == null)
                 {
                     return HttpNotFound();
@@ -98,7 +98,7 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var publisher = _mapper.Map<PublisherViewModel, Publisher>(publisherViewModel);
-                _publisherService.Update(publisher);
+                _publisherService.Update(publisher, CurrentLanguageCode);
 
                 if (CurrentUser.IsInRole(RoleEnum.Publisher))
                 {
@@ -114,7 +114,7 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult Delete(string key)
         {
-            var publisher = _publisherService.First(x => x.CompanyName == key);
+            var publisher = _publisherService.First(x => x.CompanyName == key, CurrentLanguageCode);
             if (publisher == null)
             {
                 return HttpNotFound();
@@ -128,7 +128,7 @@ namespace GameStore.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ConfirmedDelete(string id)
         {
-            var publisher = _publisherService.First(x => x.Id == id);
+            var publisher = _publisherService.First(x => x.Id == id, CurrentLanguageCode);
             if (ModelState.IsValid)
             {
                 _publisherService.Remove(id);

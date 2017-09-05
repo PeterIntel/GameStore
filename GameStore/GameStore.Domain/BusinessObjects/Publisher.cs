@@ -13,6 +13,6 @@ namespace GameStore.Domain.BusinessObjects
         [JsonIgnore]
         public virtual IEnumerable<Game> Games { set; get; }
         [JsonIgnore]
-        public IEnumerable<PublisherLocal> Locals { get; set; }
+        public IEnumerable<PublisherLocal> Locals { get; set; } = new List<PublisherLocal>();
     }
 }

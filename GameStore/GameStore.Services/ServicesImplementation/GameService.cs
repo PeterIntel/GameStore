@@ -8,6 +8,7 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 using GameStore.Services.ServicesImplementation.FilterImplementation.GameFilters;
 
 namespace GameStore.Services.ServicesImplementation
@@ -18,15 +19,19 @@ namespace GameStore.Services.ServicesImplementation
         private readonly IGenericDataRepository<GameInfoEntity, GameInfo> _gameInfoRepository;
         private readonly IGenericDataRepository<GenreEntity, Genre> _genreRepository;
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
+        private readonly ICultureService _cultureService;
         private GamePipeline _gamePipeline;
-        public GameService(IUnitOfWork unitOfWork, IGameRepository gameRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository, IGenericDataRepository<GenreEntity, Genre> genreRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IMongoLogger<Game> logger) : base(gameRepository, unitOfWork, logger)
+
+        public GameService(IUnitOfWork unitOfWork, IGameRepository gameRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository, IGenericDataRepository<GenreEntity, Genre> genreRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IMongoLogger<Game> logger,
+            ICultureService cultureService, ILocalizationProvider<Game> localizatorProvider) : base(gameRepository, unitOfWork, logger, localizatorProvider)
         {
             _gameRepository = gameRepository;
             _gameInfoRepository = gameInfoRepository;
             _genreRepository = genreRepository;
             _publisherRepository = publisherRepository;
+            _cultureService = cultureService;
         }
-        public override void Add(Game item)
+        public override void Add(Game item, string cultureCode)
         {
             AssignIdIfEmpty(item);
             if (item.Genres == null)
@@ -46,7 +51,7 @@ namespace GameStore.Services.ServicesImplementation
             Logger.Write(Operation.Insert, item);
         }
 
-        public override void Update(Game game)
+        public override void Update(Game game, string cultureCode)
         {
             var s = _genreRepository.Get(genre => genre.Name == "Other").ToList();
             if (game.Genres == null)
@@ -61,17 +66,17 @@ namespace GameStore.Services.ServicesImplementation
                 game.Publisher = _publisherRepository.GetItemById(game.Publisher.Id);
             }
 
-            base.Update(game);
+            base.Update(game, cultureCode);
         }
 
-        public Game GetItemByKey(string key)
+        public Game GetItemByKey(string key, string cultureCode)
         {
             var result = _gameRepository.First(x => x.Key == key);
 
             return result;
         }
 
-        public PaginationGames FilterGames(FilterCriteria filters, int page, string size)
+        public PaginationGames FilterGames(FilterCriteria filters, int page, string size, string cultureCode)
         {
             _gamePipeline = new GamePipeline();
             var filterExpression = _gamePipeline.ApplyFilters(filters);
@@ -110,14 +115,14 @@ namespace GameStore.Services.ServicesImplementation
             return filteredGames;
         }
 
-        public void AddViewToGame(string key)
+        public void AddViewToGame(string key, string cultureCode)
         {
             var game = _gameRepository.First(x => x.Key == key);
             if (game != null)
             {
                 if (game.IsSqlEntity == false)
                 {
-                    Add(game);
+                    Add(game, cultureCode);
                     game = _gameRepository.First(x => x.Key == key);
                 }
                 var gameInfo = _gameInfoRepository.GetItemById(game.Id);
@@ -130,7 +135,7 @@ namespace GameStore.Services.ServicesImplementation
             }
         }
 
-        public new PaginationGames Get(params Expression<Func<Game, object>>[] includeProperties)
+        public new PaginationGames Get(string cultureCode, params Expression<Func<Game, object>>[] includeProperties)
         {
             var games = new PaginationGames()
             {

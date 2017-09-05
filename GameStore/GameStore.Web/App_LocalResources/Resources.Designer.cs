@@ -529,6 +529,24 @@ namespace GameStore.Web.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Such e-mail already exists!.
+        /// </summary>
+        public static string ExistEmail {
+            get {
+                return ResourceManager.GetString("ExistEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Such login already exists!.
+        /// </summary>
+        public static string ExistLogin {
+            get {
+                return ResourceManager.GetString("ExistLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filters.
         /// </summary>
         public static string Filters {

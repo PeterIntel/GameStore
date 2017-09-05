@@ -11,9 +11,12 @@ namespace GameStore.Services.Localization.Specific
     {
         public Publisher Localize(Publisher publisher, string cultureCode)
         {
-            var local = publisher.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ?? publisher.Locals.First();
-            publisher.Description = local.Description;
-
+            if (publisher.Locals != null && publisher.Locals.Any())
+            {
+                var local = publisher.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ??
+                            publisher.Locals.First();
+                publisher.Description = local.Description;
+            }
             return publisher;
         }
     }

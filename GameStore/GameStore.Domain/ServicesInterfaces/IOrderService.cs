@@ -11,8 +11,8 @@ namespace GameStore.Domain.ServicesInterfaces
         IEnumerable<Order> GetOrdersHistory(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties);
         IEnumerable<Order> GetCurrentOrders(params Expression<Func<Order, object>>[] includeProperties);
         IEnumerable<Order> GetCurrentOrders(FilterOrders filter, params Expression<Func<Order, object>>[] includeProperties);
-        Order GetOrderByCustomerId(string id);
-        void AddGameToCustomerOrder(string gamekey, string customerId);
+        Order GetOrderByCustomerId(string id, string cultureCode);
+        void AddGameToCustomerOrder(string gamekey, string customerId, string cultureCode);
         void AddGameToOrder(string gamekey, string orderId);
         void DeleteGameFromOrder(string orderId, string gamekey);
     }

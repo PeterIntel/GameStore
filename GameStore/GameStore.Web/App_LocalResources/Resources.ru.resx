@@ -627,4 +627,10 @@
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
   </data>
+  <data name="ExistEmail" xml:space="preserve">
+    <value>Такая почта уже существует</value>
+  </data>
+  <data name="ExistLogin" xml:space="preserve">
+    <value>Такой логин уже существует</value>
+  </data>
 </root>

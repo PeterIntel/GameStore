@@ -7,23 +7,28 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 
 namespace GameStore.Services.ServicesImplementation
 {
     public abstract class BasicService<TSqlEntity, TDomain> : ICrudService<TDomain> where TDomain : BasicDomain where TSqlEntity : BasicEntity
     {
+        protected const string DefaultCultureCode = "en";
+
         private readonly IGenericDataRepository<TSqlEntity, TDomain> _genericRepository;
         protected readonly IUnitOfWork UnitOfWork;
         protected readonly IMongoLogger<TDomain> Logger;
+        protected readonly ILocalizationProvider<TDomain> LocalizationProvider;
 
-        protected BasicService(IGenericDataRepository<TSqlEntity, TDomain> genericRepository, IUnitOfWork unitOfWork, IMongoLogger<TDomain> logger)
+        protected BasicService(IGenericDataRepository<TSqlEntity, TDomain> genericRepository, IUnitOfWork unitOfWork, IMongoLogger<TDomain> logger, ILocalizationProvider<TDomain> localizationProvider)
         {
             _genericRepository = genericRepository;
             UnitOfWork = unitOfWork;
             Logger = logger;
+            LocalizationProvider = localizationProvider;
         }
 
-        public virtual void Add(TDomain item)
+        public virtual void Add(TDomain item, string cultureCode)
         {
             AssignIdIfEmpty(item);
             _genericRepository.Add(item);
@@ -44,12 +49,12 @@ namespace GameStore.Services.ServicesImplementation
             }
         }
 
-        public virtual TDomain First(Expression<Func<TDomain, bool>> filter)
+        public virtual TDomain First(Expression<Func<TDomain, bool>> filter, string cultureCode)
         {
             return _genericRepository.First(filter);
         }
 
-        public virtual IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties)
+        public virtual IEnumerable<TDomain> Get(string cultureCode, params Expression<Func<TDomain, object>>[] includeProperties)
         {
             return _genericRepository.Get(includeProperties);
         }
@@ -67,7 +72,7 @@ namespace GameStore.Services.ServicesImplementation
             Logger.Write(Operation.Delete, item);
         }
 
-        public virtual void Update(TDomain item)
+        public virtual void Update(TDomain item, string cultureCode)
         {
             _genericRepository.Update(item);
             UnitOfWork.Save();
@@ -75,11 +80,19 @@ namespace GameStore.Services.ServicesImplementation
             Logger.Write(Operation.Update, item, updatedItem);
         }
 
-        public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, params Expression<Func<TDomain, object>>[] includeProperties)
+        public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, string cultureCode, params Expression<Func<TDomain, object>>[] includeProperties)
         {
             var result = _genericRepository.Get(filter, includeProperties);
 
             return result;
+        }
+
+        protected void CheckForNull(object objectToCheck, string exceptionMessage)
+        {
+            if (objectToCheck == null)
+            {
+                throw new ArgumentException(exceptionMessage);
+            }
         }
     }
 }

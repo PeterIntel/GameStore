@@ -11,9 +11,12 @@ namespace GameStore.Services.Localization.Specific
     {
         public PlatformType Localize(PlatformType platformType, string cultureCode)
         {
-            var local = platformType.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ?? platformType.Locals.First();
-            platformType.TypeName = local.TypeName;
-
+            if (platformType.Locals != null && platformType.Locals.Any())
+            {
+                var local = platformType.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ??
+                            platformType.Locals.First();
+                platformType.TypeName = local.TypeName;
+            }
             return platformType;
         }
     }

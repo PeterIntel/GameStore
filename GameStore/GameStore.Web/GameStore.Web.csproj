@@ -218,10 +218,12 @@
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Filters\ActionPerformanceFilter.cs" />
     <Compile Include="Filters\AddGameErrorFilter.cs" />
+    <Compile Include="Filters\FilterTranslatorAttribute.cs" />
     <Compile Include="Filters\GetNumberOfGamesFilter.cs" />
     <Compile Include="Filters\LogErrorFilter.cs" />
     <Compile Include="Filters\LogIPFilter.cs" />
     <Compile Include="Attributes\MinValueAttribute.cs" />
+    <Compile Include="Filters\TranslatorAttributeBase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,6 +232,7 @@
     <Compile Include="Infrastructure\AutoMapperConfiguration\PublisherResolverForUser.cs" />
     <Compile Include="Infrastructure\Helpers\CustomHelperMethods.cs" />
     <Compile Include="Infrastructure\HttpModules\AuthHttpModule.cs" />
+    <Compile Include="Infrastructure\Localization\ILocalizedToOriginalTranslator.cs" />
     <Compile Include="Infrastructure\NinjectConfiguration\AutoMapperModule.cs" />
     <Compile Include="Infrastructure\NinjectConfiguration\NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

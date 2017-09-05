@@ -7,6 +7,7 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 
 namespace GameStore.Services.ServicesImplementation
 {
@@ -16,14 +17,15 @@ namespace GameStore.Services.ServicesImplementation
         private readonly IRoleRepository _roleRepository;
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
 
-        public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork, IMongoLogger<User> logger, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository) : base(userRepository, unitOfWork, logger)
+        public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork, IMongoLogger<User> logger, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository,
+            ICultureService cultureService, ILocalizationProvider<User> localizatorProvider) : base(userRepository, unitOfWork, logger, localizatorProvider)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
             _publisherRepository = publisherRepository;
         }
 
-        public override void Add(User user)
+        public override void Add(User user, string cultureCode)
         {
             AssignIdIfEmpty(user);
             if (user.IdRoles != null)
@@ -40,7 +42,7 @@ namespace GameStore.Services.ServicesImplementation
             UnitOfWork.Save();
         }
 
-        public override void Update(User user)
+        public override void Update(User user, string cultureCode)
         {
             user.Roles = user.IdRoles.Select(x => new Role() { RoleEnum = (RoleEnum)Enum.Parse(typeof(RoleEnum), x) });
             if (user.Publisher != null)

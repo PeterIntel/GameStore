@@ -15,6 +15,6 @@ namespace GameStore.Domain.BusinessObjects
         [JsonIgnore]
         public IEnumerable<Game> Games { set; get; }
         [JsonIgnore]
-        public IEnumerable<GenreLocal> Locals { get; set; }
+        public IEnumerable<GenreLocal> Locals { get; set; } = new List<GenreLocal>();
     }
 }

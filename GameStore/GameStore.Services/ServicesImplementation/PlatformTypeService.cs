@@ -6,19 +6,23 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 
 namespace GameStore.Services.ServicesImplementation
 {
     public class PlatformTypeService : BasicService<PlatformTypeEntity, PlatformType>, IPlatformTypeService
     {
         private readonly IGenericDataRepository<PlatformTypeEntity, PlatformType> _platformTypeRepository;
+        private readonly ICultureService _cultureService;
 
-        public PlatformTypeService(IUnitOfWork unitOfWork, IGenericDataRepository<PlatformTypeEntity, PlatformType> platformTypeRepository, IMongoLogger<PlatformType> logger) : base(platformTypeRepository, unitOfWork, logger)
+        public PlatformTypeService(IUnitOfWork unitOfWork, IGenericDataRepository<PlatformTypeEntity, PlatformType> platformTypeRepository, IMongoLogger<PlatformType> logger, ICultureService cultureService, ILocalizationProvider<PlatformType> localizationProvider) :
+            base(platformTypeRepository, unitOfWork, logger, localizationProvider)
         {
             _platformTypeRepository = platformTypeRepository;
+            _cultureService = cultureService;
         }
 
-        public IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms)
+        public IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms, string cultureCode)
         {
             IEnumerable<PlatformType> platforms = _platformTypeRepository.Get().ToList();
             if (selecredPlatforms != null)

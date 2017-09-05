@@ -7,6 +7,7 @@ using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.Controllers
 {
@@ -41,7 +42,7 @@ namespace GameStore.Web.Controllers
                 var user = _mapper.Map<UserViewModel, User>(model);
 
                 ((IList<Role>)user.Roles).Add(new Role() {RoleEnum = RoleEnum.User});
-                _accountService.Add(user);
+                _accountService.Add(user, CurrentLanguageCode);
 
                 Auth.Login(model.Login, model.Password);
 
@@ -78,19 +79,19 @@ namespace GameStore.Web.Controllers
 
                 return RedirectToLocal(returnUrl);
             }
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", Resources.IncorrectLogin);
 
             return View(model);
         }
 
         public ActionResult GetUsers()
         {
-            return View(_mapper.Map<IEnumerable<User>, IList<UserViewModel>>(_accountService.Get()));
+            return View(_mapper.Map<IEnumerable<User>, IList<UserViewModel>>(_accountService.Get(CurrentLanguageCode)));
         }
 
         public ActionResult UserDetails(string key)
         {
-            User user = _accountService.First(x => x.Login == key);
+            User user = _accountService.First(x => x.Login == key, CurrentLanguageCode);
             if (user == null)
             {
                 return HttpNotFound();
@@ -104,7 +105,7 @@ namespace GameStore.Web.Controllers
             return View(new UserViewModel()
             {
                 Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()),
-                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
+                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode))
             });
         }
 
@@ -117,20 +118,20 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var user = _mapper.Map<UserViewModel, User>(userViewModel);
-                _accountService.Add(user);
+                _accountService.Add(user, CurrentLanguageCode);
 
                 return RedirectToAction("GetUsers");
             }
 
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
-            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode));
 
             return View(userViewModel);
         }
 
         public ActionResult Edit(string key)
         {
-            User user = _accountService.First(x => x.Login == key);
+            User user = _accountService.First(x => x.Login == key, CurrentLanguageCode);
             if (user == null)
             {
                 return HttpNotFound();
@@ -138,7 +139,7 @@ namespace GameStore.Web.Controllers
 
             var userViewModel = _mapper.Map<User, UserViewModel>(user);
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.Roles.Select(x => x.Role.ToString())));
-            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode));
 
             return View(userViewModel);
         }
@@ -149,19 +150,19 @@ namespace GameStore.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _accountService.Update(_mapper.Map<UserViewModel, User>(userViewModel));
+                _accountService.Update(_mapper.Map<UserViewModel, User>(userViewModel), CurrentLanguageCode);
                 return RedirectToLocal("GetUsers");
             }
 
             userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
-            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode));
 
             return View(userViewModel);
         }
 
         public ActionResult Delete(string key)
         {
-            var user = _accountService.First(x => x.Login == key);
+            var user = _accountService.First(x => x.Login == key, CurrentLanguageCode);
             if (user == null)
             {
                 return HttpNotFound();
@@ -175,7 +176,7 @@ namespace GameStore.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ConfirmedDelete(string id)
         {
-            var user = _accountService.First(x => x.Id == id);
+            var user = _accountService.First(x => x.Id == id, CurrentLanguageCode);
 
             if (user.IsInRole(RoleEnum.Administrator) && _accountService.GetCountAdministrators() <= 1)
             {
@@ -196,12 +197,12 @@ namespace GameStore.Web.Controllers
         {
             if (_accountService.Any(x => x.Login == model.Login))
             {
-                ModelState.AddModelError("Login", $"Login {model.Login} already exists!");
+                ModelState.AddModelError("Login", Resources.ExistLogin);
             }
 
             if (_accountService.Any(x => x.Email == model.Email))
             {
-                ModelState.AddModelError("Email", $"E-mail {model.Email} already exists!");
+                ModelState.AddModelError("Email", Resources.ExistEmail);
             }
         }
 

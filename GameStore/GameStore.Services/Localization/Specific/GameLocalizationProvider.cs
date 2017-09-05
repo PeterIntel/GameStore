@@ -19,19 +19,21 @@ namespace GameStore.Services.Localization.Specific
         }
         public Game Localize(Game game, string cultureCode) 
         {
-            var local = game.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ?? game.Locals.First();
-            game.Description = local.Description;
-
-            foreach (var genre in game.Genres)
+            if (game.Locals != null && game.Locals.Any())
             {
-                _genreLocalizationProvider.Localize(genre, cultureCode);
-            }
+                var local = game.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ?? game.Locals.First();
+                game.Description = local.Description;
 
-            foreach (var platformType in game.PlatformTypes)
-            {
-                _platformTypeLocalizationProvider.Localize(platformType, cultureCode);
-            }
+                foreach (var genre in game.Genres)
+                {
+                    _genreLocalizationProvider.Localize(genre, cultureCode);
+                }
 
+                foreach (var platformType in game.PlatformTypes)
+                {
+                    _platformTypeLocalizationProvider.Localize(platformType, cultureCode);
+                }
+            }
             return game;
         }
     }

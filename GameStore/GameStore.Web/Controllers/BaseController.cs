@@ -11,6 +11,7 @@ namespace GameStore.Web.Controllers
     public class BaseController : Controller
     {
         protected IAuthentication Auth { set; get; }
+        protected string CurrentLanguageCode { set; get; }
         private string _currentLanguageCode;
         public BaseController(IAuthentication auth)
         {
@@ -24,6 +25,7 @@ namespace GameStore.Web.Controllers
 
         protected override void Initialize(RequestContext requestContext)
         {
+            CurrentLanguageCode = (string)requestContext.RouteData.Values["lang"];
             if (requestContext.RouteData.Values["lang"] != null &&
                 requestContext.RouteData.Values["lang"] is string)
             {

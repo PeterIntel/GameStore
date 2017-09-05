@@ -5,6 +5,7 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.MSSQL.Entities.Localization;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.BusinessObjects.LocalizationObjects;
+using CultureEntity = GameStore.DataAccess.MSSQL.Entities.Localization.CultureEntity;
 
 namespace GameStore.Infrastructure.AutomapperConfiguration
 {
@@ -41,7 +42,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.Genres, opt => opt.Ignore())
                 .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
                 .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
-                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
             CreateMap<GameInfoEntity, GameInfoEntity>()
                 .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
                 .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); ;
@@ -63,7 +64,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<UserEntity, UserEntity>()
                 .ForMember(dst => dst.Roles, opt => opt.Ignore())
                 .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
-                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
 
             CreateMap<Game, GameEntity>()
                 .ForMember(dst => dst.Publisher, opt => opt.Ignore());
@@ -87,16 +88,19 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.Publisher, opt => opt.MapFrom(src => src.Supplier))
                 .ForMember(dst => dst.Genres, opt => opt.MapFrom(src => src.Categories ?? new List<MongoCategoryEntity>()))
                 .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
+                .ForMember(dst => dst.Locals, opt => opt.Ignore())
                 .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
 
             CreateMap<MongoSupplierEntity, Publisher>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Description, opt => opt.Ignore())
+                .ForMember(dst => dst.Locals, opt => opt.Ignore())
                 .ForMember(dst => dst.CompanyName, opt => opt.MapFrom(src => src.CompanyName));
 
             CreateMap<MongoCategoryEntity, Genre>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.CategoryName));
+                .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.CategoryName))
+                .ForMember(dst => dst.Locals, opt => opt.ResolveUsing<GenreResolver>());
 
             CreateMap<MongoOrderDetailsEntity, OrderDetails>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
@@ -116,10 +120,9 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Game, MongoProductEntity>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Categories, opt => opt.Ignore())
-                .ForMember(dst => dst.ProductName, opt => opt.Ignore())
                 .ForMember(dst => dst.UnitsInStock, opt => opt.MapFrom(src => (int)src.UnitsInStock))
                 .ForMember(dst => dst.Supplier, opt => opt.Ignore())
-                .ForMember(dst => dst.ProductName, opt => opt.MapFrom(src => (double)src.Price))
+                .ForMember(dst => dst.UnitPrice, opt => opt.MapFrom(src => (double)src.Price))
                 .ForMember(dst => dst.ProductID, opt => opt.MapFrom(src => src.Key));
 
             CreateMap<Publisher, MongoSupplierEntity>()
@@ -136,6 +139,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformTypeLocalEntity, PlatformTypeLocal>().ReverseMap();
             CreateMap<PublisherLocalEntity, PublisherLocal>().ReverseMap();
             CreateMap<CultureEntity, Culture>().ReverseMap();
+
         }
     }
 }

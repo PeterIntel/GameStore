@@ -13,14 +13,16 @@ namespace GameStore.Services.Localization.Specific
     {
         public Genre Localize(Genre genre, string cultureCode)
         {
-            var local = genre.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ?? genre.Locals.First();
-
-            genre.Name = local.Name;
-            if (genre.ParentGenre != null)
+            if (genre.Locals != null && genre.Locals.Any())
             {
-                Localize(genre.ParentGenre, cultureCode);
-            }
+                var local = genre.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ?? genre.Locals.First();
 
+                genre.Name = local.Name;
+                if (genre.ParentGenre != null)
+                {
+                    Localize(genre.ParentGenre, cultureCode);
+                }
+            }
             return genre;
         }
     }

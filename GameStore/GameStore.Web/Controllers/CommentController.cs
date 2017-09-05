@@ -32,7 +32,7 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 var comment = _mapper.Map<CommentViewModel, Comment>(commentsViewModel.Comment);
-                _commentService.Add(comment);
+                _commentService.Add(comment, CurrentLanguageCode);
                 commentsViewModel.Comment = new CommentViewModel()
                 {
                     GameId = commentsViewModel.Comment.GameId,
@@ -52,11 +52,11 @@ namespace GameStore.Web.Controllers
         {
             if (gameKey != null)
             {
-                var game = _gameService.GetItemByKey(gameKey);
+                var game = _gameService.GetItemByKey(gameKey, CurrentLanguageCode);
                 // If user come with direct link to game's comments then copy game to the sql databse if necessary
                 if (game.IsSqlEntity == false)
                 {
-                    _gameService.Add(game);
+                    _gameService.Add(game, CurrentLanguageCode);
                 }
 
                 return View(InitComments(gameKey));
@@ -68,7 +68,7 @@ namespace GameStore.Web.Controllers
         private CommentsViewModel InitComments(string gameKey)
         {
             var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
-            var game = _gameService.GetItemByKey(gameKey);
+            var game = _gameService.GetItemByKey(gameKey, CurrentLanguageCode);
 
             var commentsViewModel = new CommentsViewModel()
             {
@@ -88,9 +88,9 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.Moderator)]
         public ActionResult ChangeCommentState(string key)
         {
-            var comment = _commentService.First(x => x.Id == key);
+            var comment = _commentService.First(x => x.Id == key, CurrentLanguageCode);
             comment.IsDisabled = !comment.IsDisabled;
-            _commentService.Update(comment);
+            _commentService.Update(comment, CurrentLanguageCode);
 
             return RedirectToAction("comments", new {gameKey = comment.Game.Key});
         }

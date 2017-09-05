@@ -631,4 +631,10 @@
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="ExistEmail" xml:space="preserve">
+    <value>Such e-mail already exists!</value>
+  </data>
+  <data name="ExistLogin" xml:space="preserve">
+    <value>Such login already exists!</value>
+  </data>
 </root>
