@@ -28,7 +28,6 @@ namespace GameStore.Web.Controllers
 
         [AllowAnonymous]
         [ActionName("details")]
-        // GET: Publisher
         public ActionResult GetPublisherDetails(string companyName)
         {
             var publisher = _publisherService.GetPublisherByCompanyName(companyName);

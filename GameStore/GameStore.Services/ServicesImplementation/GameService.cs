@@ -19,6 +19,7 @@ namespace GameStore.Services.ServicesImplementation
         private readonly IGenericDataRepository<GenreEntity, Genre> _genreRepository;
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
         private GamePipeline _gamePipeline;
+
         public GameService(IUnitOfWork unitOfWork, IGameRepository gameRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository, IGenericDataRepository<GenreEntity, Genre> genreRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IMongoLogger<Game> logger) : base(gameRepository, unitOfWork, logger)
         {
             _gameRepository = gameRepository;
@@ -26,6 +27,7 @@ namespace GameStore.Services.ServicesImplementation
             _genreRepository = genreRepository;
             _publisherRepository = publisherRepository;
         }
+
         public override void Add(Game item)
         {
             AssignIdIfEmpty(item);

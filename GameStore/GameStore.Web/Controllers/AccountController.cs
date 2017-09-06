@@ -51,6 +51,7 @@ namespace GameStore.Web.Controllers
 
             return View(model);
         }
+
         [CustomAuthorize(RoleEnum.Administrator, RoleEnum.Manager, RoleEnum.Moderator, RoleEnum.User, RoleEnum.Publisher)]
         //TODO Consider: remove this attribute
         public ActionResult LogOff()

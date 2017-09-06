@@ -14,13 +14,14 @@ namespace GameStore.Web.Controllers
         private readonly ICommentService _commentService;
         private readonly IGameService _gameService;
         private readonly IMapper _mapper;
+
         public CommentController(ICommentService commentService, IGameService gameService, IMapper mapper)
         {
             _commentService = commentService;
             _gameService = gameService;
             _mapper = mapper;
         }
-        // GET: Comment
+
         [HttpPost]
         [ActionName("newcomment")]
         [ValidateAntiForgeryToken]

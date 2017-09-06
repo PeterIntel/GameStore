@@ -31,6 +31,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
+
             return platforms;
         }
     }

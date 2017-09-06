@@ -12,6 +12,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFil
         {
             _priceFrom = priceFrom;
         }
+
         public override Expression<Func<Game, bool>> Execute(Expression<Func<Game, bool>> input)
         {
 

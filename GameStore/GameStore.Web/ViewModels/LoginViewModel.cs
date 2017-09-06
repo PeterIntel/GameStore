@@ -7,6 +7,7 @@ namespace GameStore.Web.ViewModels
         [Required]
         [Display(Name = "User Name")]
         public string UserName { set; get; }
+
         [Required]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]

@@ -20,7 +20,7 @@ namespace GameStore.Web.Controllers
             _genreService = genreService;
             _mapper = mapper;
         }
-        // GET: Genre
+
         public ActionResult GetGenres()
         {
             return View(_mapper.Map<IEnumerable<Genre>, IEnumerable<GenreViewModel>>(_genreService.Get()));

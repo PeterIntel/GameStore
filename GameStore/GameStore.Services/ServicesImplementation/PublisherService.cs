@@ -36,6 +36,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
+
             return publishers;
         }
     }
