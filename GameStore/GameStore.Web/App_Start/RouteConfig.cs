@@ -62,56 +62,56 @@ namespace GameStore.Web
 
             #region LocalizedRoutes
             routes.MapRoute(
-                name: "busket",
+                name: "Lbusket",
                 url: "{lang}/busket",
                 defaults: new { controller = "order", action = "busket" },
                 constraints: new { LangConstraint}
             );
 
             routes.MapRoute(
-                name: "games",
+                name: "Lgames",
                 url: "{lang}/games",
                 defaults: new { lang = "en", controller = "Game", action = "games" },
                 constraints: new { LangConstraint }
             );
 
             routes.MapRoute(
-                name: "orders",
+                name: "Lorders",
                 url: "{lang}/orders",
                 defaults: new { lang = "en", controller = "Order", action = "getCurrentOrders" },
                 constraints: new { LangConstraint }
             );
 
             routes.MapRoute(
-                name: "gameKey",
+                name: "LgameKey",
                 url: "{lang}/game/{key}",
                 defaults: new { lang = "en", controller = "Game", action = "GetGameDetails", key = UrlParameter.Optional },
                 constraints: new { LangConstraint }
             );
 
             routes.MapRoute(
-                name: "publisherDetails",
+                name: "LpublisherDetails",
                 url: "{lang}/publisher/{action}/{CompanyName}",
                 defaults: new { lang = "en", controller = "publisher", CompanyName = UrlParameter.Optional },
                 constraints: new { LangConstraint }
             );
 
             routes.MapRoute(
-                name: "gameKeyAction",
+                name: "LgameKeyAction",
                 url: "{lang}/game/{gamekey}/{action}",
                 defaults: new { lang = "en", controller = "game" },
                 constraints: new { LangConstraint }
             );
 
             routes.MapRoute(
-                name: "defaultS",
+                name: "LdefaultS",
                 url: "{lang}/{controller}s/{action}/{key}",
                 defaults: new { lang = "en", controller = "Game", action = "GetGames", key = UrlParameter.Optional },
                 constraints: new { LangConstraint }
             );
 
             routes.MapRoute(
-                name: "default",
+                name: "Ldefault",
                 url: "{lang}/{controller}/{action}/{id}/{gamekey}",
                 defaults: new { lang = "en", controller = "Game", action = "GetGames", id = UrlParameter.Optional, gamekey = UrlParameter.Optional },
                 constraints: new { LangConstraint }
