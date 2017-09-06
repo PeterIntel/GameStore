@@ -12,7 +12,7 @@ namespace GameStore.Web.Attributes
             {
                 return ValidationResult.Success;
             }
-            else
+            else //TODO Consider: remove useless 'else'
             {
                 return new ValidationResult("Birth date must be less than the current date.");
             }
