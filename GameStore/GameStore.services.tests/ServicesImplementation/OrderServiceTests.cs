@@ -15,16 +15,16 @@ namespace GameStore.Services.Tests.ServicesImplementation
     [TestFixture]
     class OrderServiceTests
     {
+        private static string _gameKeyFirst;
+        private static string _customerId = "1";
+        private static Game _game;
+        private static OrderDetails _orderDetails;
         private OrderService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IDecoratorOrderRepository> _orderRepository;
         private Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>> _orderDetailsRepository;
         private Mock<IGameRepository> _gameRepository;
         private Mock<IMongoLogger<Order>> _logger;
-        private static string _gameKeyFirst;
-        private static string _customerId = "1";
-        private static Game _game;
-        private static OrderDetails _orderDetails;
         private Order _order;
 
         [SetUp]
