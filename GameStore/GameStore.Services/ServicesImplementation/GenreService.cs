@@ -6,6 +6,7 @@ using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.BusinessObjects.LocalizationObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
 using GameStore.Services.Localization;
@@ -30,7 +31,7 @@ namespace GameStore.Services.ServicesImplementation
                 LocalizationProvider.Localize(genre, cultureCode);
                 if (genre.ParentGenreId != null)
                 {
-                    genre.ParentGenreName = _genreRepository.First(g => g.Id == genre.ParentGenreId).Name;
+                    genre.ParentGenreName = LocalizationProvider.Localize(_genreRepository.First(g => g.Id == genre.ParentGenreId), cultureCode).Name;
                 }
             }
 
@@ -41,7 +42,7 @@ namespace GameStore.Services.ServicesImplementation
         {
             var genre = _genreRepository.First(x => x.Locals.Any(y => y.Name == key));
             LocalizationProvider.Localize(genre, cultureCode);
-            genre.ParentGenreName = LocalizationProvider.Localize(_genreRepository.First(g => g.Id == genre.Id), cultureCode).Name;
+            genre.ParentGenreName = genre.ParentGenre != null ? LocalizationProvider.Localize(_genreRepository.First(g => g.Id == genre.ParentGenreId), cultureCode).Name : null;
 
             return genre;
         }
@@ -71,7 +72,7 @@ namespace GameStore.Services.ServicesImplementation
             {
                 foreach (var item in genres)
                 {
-                    if (selecredGenres.Contains(item.Name))
+                    if (selecredGenres.Contains(item.Id))
                     {
                         item.IsChecked = true;
                     }
@@ -79,6 +80,34 @@ namespace GameStore.Services.ServicesImplementation
             }
 
             return genres;
+        }
+
+        public override void Add(Genre genre, string cultureCode)
+        {
+            genre.Locals = new List<GenreLocal>()
+            {
+                new GenreLocal()
+                {
+                    Culture = new Culture() {Code = cultureCode},
+                    Name = genre.Name
+                }
+            };
+
+            base.Add(genre, cultureCode);
+        }
+
+        public override void Update(Genre genre, string cultureCode)
+        {
+            genre.Locals = new List<GenreLocal>()
+            {
+                new GenreLocal()
+                {
+                    Culture = new Culture() {Code = cultureCode},
+                    Name = genre.Name
+                }
+            };
+
+            base.Update(genre, cultureCode);
         }
     }
 }

@@ -30,6 +30,7 @@ namespace GameStore.Infrastructure.NinjectConfiguration
             Bind<IGenericDataRepository<GameEntity, Game>>().To<GameRepository>();
             Bind<IGenericDataRepository<UserEntity, User>>().To<UserRepository>();
             Bind<IGenreRepository>().To<GenreRepository>();
+            Bind<IGenericDataRepository<GenreEntity, Genre>>().To<GenreRepository>();
             Bind<IPlatformTypeRepository>().To<PlatformTypeRepository>();
             Bind<IRoleRepository>().To<RoleRepository>();
             Bind<ICultureRepository>().To<CultureRepository>();

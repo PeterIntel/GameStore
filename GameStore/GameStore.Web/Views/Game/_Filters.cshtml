@@ -4,7 +4,7 @@
 <br>
 @for (int i = 0; i < Model.Genres.Count; i++)
 {
-    @Html.CustomCheckBox("Genre" + i, "NameGenres", Model.Genres[i].Name, Model.Genres[i].IsChecked)
+    @Html.CustomCheckBox("Genre" + i, "NameGenres", Model.Genres[i].Id, Model.Genres[i].IsChecked)
     @Html.Label("Genre" + i, Model.Genres[i].Name)
 }
 
@@ -14,7 +14,7 @@
 <br>
 @for (int i = 0; i < Model.PlatformTypes.Count; i++)
 {
-    @Html.CustomCheckBox("PlatformType" + i, "NamePlatformTypes", Model.PlatformTypes[i].TypeName, Model.PlatformTypes[i].IsChecked)
+    @Html.CustomCheckBox("PlatformType" + i, "NamePlatformTypes", Model.PlatformTypes[i].Id, Model.PlatformTypes[i].IsChecked)
     @Html.Label("PlatformType" + i, Model.PlatformTypes[i].TypeName)
 }
 

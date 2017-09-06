@@ -30,8 +30,11 @@
                 @Html.DisplayFor(modelItem => item.ParentGenreName)
             </td>
             <td>
-                @Html.ActionLink(Resources.Edit, "Edit", new { key = item.Name }) |
-                @Html.ActionLink(Resources.Delete, "Delete", new { key = item.Name })
+                @if (item.IsSqlEntity == true)
+                {
+                    @Html.ActionLink(Resources.Edit, "Edit", new {key = item.Name}); <span>|</span>
+                    @Html.ActionLink(Resources.Delete, "Delete", new {key = item.Name});
+                }
             </td>
         </tr>
     }

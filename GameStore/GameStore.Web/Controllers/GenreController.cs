@@ -64,7 +64,10 @@ namespace GameStore.Web.Controllers
 
             var genreViewModel = _mapper.Map<Genre, GenreViewModel>(genre);
             genreViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.Get(g => g.Id != genreViewModel.Id, CurrentLanguageCode));
-            genreViewModel.Genres.Insert(0, new GenreViewModel() { Name = Resources.NotSpecified});
+            if (genre.ParentGenre != null)
+            {
+                genreViewModel.Genres.Insert(0, new GenreViewModel() {Name = Resources.NotSpecified});
+            }
 
             return View(genreViewModel);
         }
@@ -82,7 +85,10 @@ namespace GameStore.Web.Controllers
             }
 
             genreViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.Get(g => g.Id != genreViewModel.Id, CurrentLanguageCode));
-            genreViewModel.Genres.Insert(0, new GenreViewModel() { Name = "Not Specified" });
+            if (genreViewModel.ParentGenreId != null)
+            {
+                genreViewModel.Genres.Insert(0, new GenreViewModel() { Name = Resources.NotSpecified });
+            }
 
             return View(genreViewModel);
         }

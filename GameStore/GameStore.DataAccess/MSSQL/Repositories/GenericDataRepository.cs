@@ -167,5 +167,10 @@ namespace GameStore.DataAccess.MSSQL.Repositories
 
             return domainEntities;
         }
+
+        protected string GetGuidId()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }

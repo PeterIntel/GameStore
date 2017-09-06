@@ -33,7 +33,7 @@ namespace GameStore.Services.ServicesImplementation
             {
                 foreach (var item in platforms)
                 {
-                    if (selecredPlatforms.Contains(item.TypeName))
+                    if (selecredPlatforms.Contains(item.Id))
                     {
                         item.IsChecked = true;
                     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 using AutoMapper;
 using GameStore.Authorization.Interfaces;
@@ -9,6 +10,7 @@ using GameStore.Domain.ServicesInterfaces;
 using GameStore.Web.Attributes;
 using GameStore.Web.Filters;
 using GameStore.Web.ViewModels;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.Controllers
 {
@@ -35,7 +37,7 @@ namespace GameStore.Web.Controllers
         {
             var game = new GameViewModel()
             {
-                Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.Get(g => g.Name != "Other", CurrentLanguageCode)),
+                Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.Get(g => g.Locals.Any(x => x.Name != "Other"), CurrentLanguageCode)),
                 PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.Get(CurrentLanguageCode)),
                 Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode))
             };
@@ -78,14 +80,14 @@ namespace GameStore.Web.Controllers
                 var gameViewModel = _mapper.Map<Game, GameViewModel>(game);
                 gameViewModel.Genres =
                     _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(
-                        _genreService.GetAllGenresAndMarkSelected(gameViewModel.Genres.Select(g => g.Name), CurrentLanguageCode));
+                        _genreService.GetAllGenresAndMarkSelected(gameViewModel.Genres.Select(g => g.Id), CurrentLanguageCode));
                 gameViewModel.PlatformTypes =
                     _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(
                         _platformTypeService.GetAllPlatformTypesAndMarkSelected(
-                            gameViewModel.PlatformTypes.Select(p => p.TypeName), CurrentLanguageCode));
+                            gameViewModel.PlatformTypes.Select(p => p.Id), CurrentLanguageCode));
                 gameViewModel.Publishers =
                     _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode));
-                gameViewModel.Publishers.Insert(0, new PublisherViewModel() { CompanyName = "Not Specified" });
+                gameViewModel.Publishers.Insert(0, new PublisherViewModel() { CompanyName = Resources.NotSpecified });
 
                 return View(gameViewModel);
             }

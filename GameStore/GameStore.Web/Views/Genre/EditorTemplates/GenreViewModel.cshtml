@@ -3,10 +3,11 @@
 <fieldset>
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.ParentGenreName)
+
     <div class="form-group clearfix">
         @Html.LabelFor(model => model.Genres, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(genre => genre.ParentGenreId, new SelectList(Model.Genres, "Id", "Name"), Model.ParentGenreName ?? "Not Specified", new { @class = "form-control" })
+            @Html.DropDownListFor(genre => genre.ParentGenreId, new SelectList(Model.Genres, "Id", "Name"), Model.ParentGenreName ?? Resources.NotSpecified, new { @class = "form-control" })
         </div>
     </div>
 

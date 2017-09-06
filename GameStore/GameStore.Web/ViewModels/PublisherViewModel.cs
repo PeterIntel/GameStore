@@ -17,6 +17,7 @@ namespace GameStore.Web.ViewModels
         [Display(Name = "HomePage", ResourceType = typeof(Resources))]
         public string HomePage { set; get; }
         public bool IsChecked { set; get; }
+        public bool IsSqlEntity { set; get; }
         public IList<GameViewModel> Games { set; get; }
     }
 }

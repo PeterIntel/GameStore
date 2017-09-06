@@ -52,7 +52,10 @@ namespace GameStore.Services.ServicesImplementation
 
         public virtual TDomain First(Expression<Func<TDomain, bool>> filter, string cultureCode)
         {
-            return _genericRepository.First(filter);
+            var item = _genericRepository.First(filter);
+
+            LocalizationProvider.Localize(item, cultureCode);
+            return item;
         }
 
         public virtual IEnumerable<TDomain> Get(string cultureCode, params Expression<Func<TDomain, object>>[] includeProperties)
