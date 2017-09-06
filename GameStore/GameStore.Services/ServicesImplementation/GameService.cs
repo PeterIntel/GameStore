@@ -50,7 +50,6 @@ namespace GameStore.Services.ServicesImplementation
 
         public override void Update(Game game)
         {
-            var s = _genreRepository.Get(genre => genre.Name == "Other").ToList();
             if (game.Genres == null)
             {
                 game.Genres = game.NameGenres != null ? _genreRepository.LoadDomainEntities(game.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();

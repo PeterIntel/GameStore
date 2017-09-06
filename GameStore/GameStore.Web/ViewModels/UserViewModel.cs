@@ -9,7 +9,6 @@ namespace GameStore.Web.ViewModels
     {
         public string Id { set; get; }
 
-        [Required]
         [Display(Name = "Login")]
         public string Login { set; get; }
 
