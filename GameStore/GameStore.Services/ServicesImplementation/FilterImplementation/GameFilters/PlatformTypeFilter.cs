@@ -18,7 +18,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFil
         {
             if (_platforms != null && _platforms.Count() != 0)
             {
-                Expression<Func<Game, bool>> filter = x => x.PlatformTypes.Any(y => _platforms.Contains(y.TypeName));
+                Expression<Func<Game, bool>> filter = x => x.PlatformTypes.Any(y => y.Locals.Any(z => _platforms.Contains(z.TypeName)));
                 return AggregateExpression(input, filter);
             }
 

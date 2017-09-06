@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GameStore.DataAccess.MSSQL.Entities.Localization
 {
@@ -11,7 +8,8 @@ namespace GameStore.DataAccess.MSSQL.Entities.Localization
         public string PlatformTypeId { get; set; }
 
         public virtual PlatformTypeEntity PlatformType { get; set; }
-
+        [Index(IsUnique = true)]
+        [StringLength(450)]
         public string TypeName { get; set; }
     }
 }

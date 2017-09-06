@@ -23,7 +23,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         {
             IQueryable<MongoProductEntity> queryToEntity = Collection.AsQueryable();
             queryToEntity = queryToEntity.GetNestedEntities();
-            var result = queryToEntity.ProjectTo<Game>(Mapper.ConfigurationProvider);
+            var result = Mapper.Map<IQueryable<MongoProductEntity>, IEnumerable<Game>>(queryToEntity);
 
             return result;
         }
@@ -31,13 +31,13 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public override IEnumerable<Game> Get(Expression<Func<Game, bool>> filterToDomain)
         {
             IQueryable<MongoProductEntity> queryToEntity = Collection.AsQueryable();
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = Mapper.Map<IQueryable<MongoProductEntity>, IEnumerable<Game>>(queryToEntity);
             if (filterToDomain != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<Game, bool>>, Expression<Func<MongoProductEntity, bool>>>(filterToDomain);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                var predicate = filterToDomain.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
-            queryToEntity = queryToEntity.GetNestedEntities();
-            var queryToDomain = queryToEntity.ProjectTo<Game>(Mapper.ConfigurationProvider);
 
             return queryToDomain;
         }
@@ -45,37 +45,36 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public override Game First(Expression<Func<Game, bool>> filter)
         {
             IQueryable<MongoProductEntity> queryToEntity = Collection.AsQueryable();
-
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = Mapper.Map<IQueryable<MongoProductEntity>, IEnumerable<Game>>(queryToEntity);
             if (filter != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<Game, bool>>, Expression<Func<MongoProductEntity, bool>>>(filter);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                var predicate = filter.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
 
-            queryToEntity = queryToEntity.GetNestedEntities();
-            Game order = queryToEntity.ProjectTo<Game>(Mapper.ConfigurationProvider).FirstOrDefault();
+            var game = queryToDomain.FirstOrDefault();
 
-            return order;
+            return game;
         }
 
         public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, bool ascending = true, int page = 1, int? size = 10)
         {
             IQueryable<MongoProductEntity> queryToEntity = Collection.AsQueryable();
-
-            var sortEntity = Mapper.Map<Expression<Func<Game, TKey>>, Expression<Func<MongoProductEntity, TKey>>>(sortDomain);
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = Mapper.Map<IQueryable<MongoProductEntity>, IEnumerable<Game>>(queryToEntity);
 
             if (filterDomain != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<Game, bool>>, Expression<Func<MongoProductEntity, bool>>>(filterDomain);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                var predicate = filterDomain.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
 
-            queryToEntity = ascending ? queryToEntity.OrderBy(sortEntity) : queryToEntity.OrderByDescending(sortEntity);
+            var sortPredicate = sortDomain.Compile();
 
-            queryToEntity = queryToEntity.Take((int)size * page);
+            queryToDomain = ascending ? queryToDomain.OrderBy(sortPredicate) : queryToDomain.OrderByDescending(sortPredicate);
 
-            queryToEntity = queryToEntity.GetNestedEntities();
-            var queryToDomain = queryToEntity.ProjectTo<Game>(Mapper.ConfigurationProvider);
+            queryToDomain = queryToDomain.Take((int)size * page);
 
             return queryToDomain;
         }

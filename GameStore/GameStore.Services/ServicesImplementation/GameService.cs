@@ -39,7 +39,7 @@ namespace GameStore.Services.ServicesImplementation
                 item.Genres = item.NameGenres != null ? _genreRepository.LoadDomainEntities(item.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
             }
 
-            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });
+            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() { Id = x });
 
             if (item.Publisher != null)
             {
@@ -59,7 +59,7 @@ namespace GameStore.Services.ServicesImplementation
                 game.Genres = game.NameGenres != null ? _genreRepository.LoadDomainEntities(game.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
             }
 
-            game.PlatformTypes = game.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });
+            game.PlatformTypes = game.NamePlatformTypes.Select(x => new PlatformType() { Id = x });
 
             if (game.Publisher != null)
             {
@@ -71,9 +71,10 @@ namespace GameStore.Services.ServicesImplementation
 
         public Game GetItemByKey(string key, string cultureCode)
         {
-            var result = _gameRepository.First(x => x.Key == key);
+            var game = _gameRepository.First(x => x.Key == key);
+            LocalizationProvider.Localize(game, cultureCode);
 
-            return result;
+            return game;
         }
 
         public PaginationGames FilterGames(FilterCriteria filters, int page, string size, string cultureCode)
@@ -112,6 +113,11 @@ namespace GameStore.Services.ServicesImplementation
                 Games = games.ToList()
             };
 
+            foreach (var game in filteredGames.Games)
+            {
+                LocalizationProvider.Localize(game, cultureCode);
+            }
+
             return filteredGames;
         }
 
@@ -142,6 +148,11 @@ namespace GameStore.Services.ServicesImplementation
                 Count = _gameRepository.GetCountObject(x => true),
                 Games = _gameRepository.Get(x => true, x => x.Id).ToList()
             };
+
+            foreach (var game in games.Games)
+            {
+                LocalizationProvider.Localize(game, cultureCode);
+            }
 
             return games;
         }

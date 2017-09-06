@@ -7,9 +7,6 @@ namespace GameStore.DataAccess.MSSQL.Entities
 {
     public class GenreEntity : BasicEntity 
     {
-        [Index(IsUnique = true)]
-        [StringLength(450)]
-        public string Name { set; get; }
         public string ParentGenreId { set; get; }
         public virtual GenreEntity ParentGenre { set; get; }
         public virtual IList<GenreEntity> Genres { set; get; }

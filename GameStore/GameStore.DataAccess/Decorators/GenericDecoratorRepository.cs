@@ -38,7 +38,7 @@ namespace GameStore.DataAccess.Decorators
 
         public virtual int GetCountObject(Expression<Func<TDomain, bool>> filter)
         {
-            return SqlDataRepository.GetCountObject(filter) + GetRequiredMongoCollection(filter).Count();
+            return SqlDataRepository.GetCountObject(filter) + MongoDataRepository.GetCountObject(filter);
         }
 
         public virtual TDomain First(Expression<Func<TDomain, bool>> filter)

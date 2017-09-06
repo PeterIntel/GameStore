@@ -17,7 +17,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         {
             var platforms = from i in platformtypes
                 from platform in _dbSet
-                where i.TypeName == platform.TypeName
+                where i.TypeName == platform.Id
                 select platform;
             return platforms;
         }

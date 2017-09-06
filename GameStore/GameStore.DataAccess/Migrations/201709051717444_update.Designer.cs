@@ -7,13 +7,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class IsDisabled_field_to_CommentEntity : IMigrationMetadata
+    public sealed partial class update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(IsDisabled_field_to_CommentEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708290858518_IsDisabled_field_to_CommentEntity"; }
+            get { return "201709051717444_update"; }
         }
         
         string IMigrationMetadata.Source

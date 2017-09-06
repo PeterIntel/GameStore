@@ -7,13 +7,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Add_Local_Tables : IMigrationMetadata
+    public sealed partial class Delete_fields_from_localizedEntities : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Local_Tables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Delete_fields_from_localizedEntities));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709040917053_Add_Local_Tables"; }
+            get { return "201709051809016_Delete_fields_from_localizedEntities"; }
         }
         
         string IMigrationMetadata.Source

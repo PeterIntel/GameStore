@@ -42,14 +42,20 @@ namespace GameStore.Services.ServicesImplementation
         public  Genre GetFirstGenreByName(string key, string cultureCode)
         {
             var genre = _genreRepository.First(x => x.Locals.Any(y => y.Name == key));
-            genre.ParentGenreName = _genreRepository.First(g => g.Id == genre.Id).Name;
+            LocalizationProvider.Localize(genre, cultureCode);
+            genre.ParentGenreName = LocalizationProvider.Localize(_genreRepository.First(g => g.Id == genre.Id), cultureCode).Name;
 
             return genre;
         }
 
         public IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres, string cultureCode)
         {
-            var genres = GetAllGenresAndMarkSelectedForFilter(selecredGenres, cultureCode).Where(genre => genre.Name != "Other");
+            var genres = GetAllGenresAndMarkSelectedForFilter(selecredGenres, cultureCode).Where(genre => genre.Locals.Any(g => g.Name != "Other"));
+
+            foreach (var genre in genres)
+            {
+                LocalizationProvider.Localize(genre, cultureCode);
+            }
 
             return genres;
         }
@@ -57,6 +63,12 @@ namespace GameStore.Services.ServicesImplementation
         public IEnumerable<Genre> GetAllGenresAndMarkSelectedForFilter(IEnumerable<string> selecredGenres, string cultureCode)
         {
             IEnumerable<Genre> genres = _genreRepository.Get().ToList();
+
+            foreach (var genre in genres)
+            {
+                LocalizationProvider.Localize(genre, cultureCode);
+            }
+
             if (selecredGenres != null)
             {
                 foreach (var item in genres)

@@ -21,22 +21,22 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         {
             IQueryable<MongoOrderEntity> queryToEntity = Collection.AsQueryable();
             queryToEntity = queryToEntity.GetNestedEntities();
-            var result = queryToEntity.ProjectTo<Order>(Mapper.ConfigurationProvider);
+            var queryToDomain = Mapper.Map<IQueryable<MongoOrderEntity>, IEnumerable<Order>>(queryToEntity);
 
-            return result;
+            return queryToDomain;
         }
 
         public override IEnumerable<Order> Get(Expression<Func<Order, bool>> filterToDomain)
         {
             IQueryable<MongoOrderEntity> queryToEntity = Collection.AsQueryable();
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = Mapper.Map<IQueryable<MongoOrderEntity>, IEnumerable<Order>>(queryToEntity);
+
             if (filterToDomain != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<Order, bool>>, Expression<Func<MongoOrderEntity, bool>>>(filterToDomain);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                var predicate = filterToDomain.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
-
-            queryToEntity = queryToEntity.GetNestedEntities();
-            var queryToDomain = queryToEntity.ProjectTo<Order>(Mapper.ConfigurationProvider);
 
             return queryToDomain;
         }
@@ -44,15 +44,16 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public override Order First(Expression<Func<Order, bool>> filter)
         {
             IQueryable<MongoOrderEntity> queryToEntity = Collection.AsQueryable();
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = Mapper.Map<IQueryable<MongoOrderEntity>, IEnumerable<Order>>(queryToEntity);
 
             if (filter != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<Order, bool>>, Expression<Func<MongoOrderEntity, bool>>>(filter);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                var predicate = filter.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
 
-            queryToEntity = queryToEntity.GetNestedEntities();
-            Order order = queryToEntity.ProjectTo<Order>(Mapper.ConfigurationProvider).FirstOrDefault();
+            var order = queryToDomain.FirstOrDefault();
 
             return order;
         }

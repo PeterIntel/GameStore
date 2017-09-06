@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
@@ -56,7 +57,14 @@ namespace GameStore.Services.ServicesImplementation
 
         public virtual IEnumerable<TDomain> Get(string cultureCode, params Expression<Func<TDomain, object>>[] includeProperties)
         {
-            return _genericRepository.Get(includeProperties);
+            var items = _genericRepository.Get(includeProperties).ToList();
+
+            foreach (var item in items)
+            {
+                LocalizationProvider.Localize(item, cultureCode);
+            }
+
+            return items;
         }
 
         public virtual void Remove(string id)
@@ -82,9 +90,14 @@ namespace GameStore.Services.ServicesImplementation
 
         public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filter, string cultureCode, params Expression<Func<TDomain, object>>[] includeProperties)
         {
-            var result = _genericRepository.Get(filter, includeProperties);
+            var items = _genericRepository.Get(filter, includeProperties).ToList();
 
-            return result;
+            foreach (var item in items)
+            {
+                LocalizationProvider.Localize(item, cultureCode);
+            }
+
+            return items;
         }
 
         protected void CheckForNull(object objectToCheck, string exceptionMessage)

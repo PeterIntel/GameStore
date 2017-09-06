@@ -100,7 +100,11 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<MongoCategoryEntity, Genre>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.CategoryName))
-                .ForMember(dst => dst.Locals, opt => opt.ResolveUsing<GenreResolver>());
+                .ForMember(dst => dst.Locals, opt => opt.ResolveUsing(
+                    m => new List<GenreLocal>
+                    {
+                        new GenreLocal() {Name = m.CategoryName, Culture = new Culture() {Code = "en"}}
+                    }));
 
             CreateMap<MongoOrderDetailsEntity, OrderDetails>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
@@ -139,7 +143,6 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformTypeLocalEntity, PlatformTypeLocal>().ReverseMap();
             CreateMap<PublisherLocalEntity, PublisherLocal>().ReverseMap();
             CreateMap<CultureEntity, Culture>().ReverseMap();
-
         }
     }
 }

@@ -25,6 +25,12 @@ namespace GameStore.Services.ServicesImplementation
         public IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms, string cultureCode)
         {
             IEnumerable<PlatformType> platforms = _platformTypeRepository.Get().ToList();
+
+            foreach (var platform in platforms)
+            {
+                LocalizationProvider.Localize(platform, cultureCode);
+            }
+
             if (selecredPlatforms != null)
             {
                 foreach (var item in platforms)
@@ -35,6 +41,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
+
             return platforms;
         }
     }

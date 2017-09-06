@@ -24,12 +24,21 @@ namespace GameStore.Services.ServicesImplementation
 
         public Publisher GetPublisherByCompanyName(string companyName, string cultureCode)
         {
-            return _publisherRepository.First(x => x.CompanyName == companyName);
+            var company = _publisherRepository.First(x => x.CompanyName == companyName);
+            LocalizationProvider.Localize(company, cultureCode);
+
+            return company;
         }
 
         public IEnumerable<Publisher> GetAllPublishersAndMarkSelected(IEnumerable<string> selecredPublishers, string cultureCode)
         {
             IEnumerable<Publisher> publishers = _publisherRepository.Get().ToList();
+
+            foreach (var publisher in publishers)
+            {
+                LocalizationProvider.Localize(publisher, cultureCode);
+            }
+
             if (selecredPublishers != null)
             {
                 foreach (var item in publishers)
@@ -40,6 +49,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
+
             return publishers;
         }
     }

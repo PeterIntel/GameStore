@@ -26,6 +26,10 @@ namespace GameStore.DataAccess.MSSQL
         public virtual DbSet<UserEntity> Users { set; get; }
         public virtual DbSet<RoleEntity> Roles { set; get; }
         public DbSet<CultureEntity> Cultures { get; set; }
+        public DbSet<GameLocalEntity> GameLocal { set; get; }
+        public DbSet<GenreLocalEntity> GenreLocal { set; get; }
+        public DbSet<PlatformTypeLocalEntity> PlatformLocal { set; get; }
+        public DbSet<PublisherLocalEntity> PublisherLocal { set; get; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,6 +39,7 @@ namespace GameStore.DataAccess.MSSQL
             modelBuilder.Entity<OrderEntity>().Property(x => x.OrderDate).HasColumnType("datetime2");
             modelBuilder.Entity<GameInfoEntity>().Property(x => x.UploadDate).HasColumnType("datetime2");
             modelBuilder.Entity<OrderEntity>().HasRequired(x => x.Customer).WithMany(x => x.Orders).HasForeignKey(fk => fk.CustomerId);
+            modelBuilder.Entity<PublisherLocalEntity>().Property(p => p.Description).HasColumnType("ntext");
             base.OnModelCreating(modelBuilder);
         }
     }
