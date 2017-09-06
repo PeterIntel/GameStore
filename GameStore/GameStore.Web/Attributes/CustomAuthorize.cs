@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using GameStore.Domain.BusinessObjects;
 
@@ -20,18 +21,9 @@ namespace GameStore.Web.Attributes
                 return false;
             }
 
-            if (_roles != null) //TODO Required: refactor using LINQ
-            {
-                foreach (var role in _roles)
-                {
-                    if (httpContext.User.IsInRole(role.ToString()))
-                    {
-                        return true;
-                    }
-                }
-            }
+            var result = _roles.Any(x => httpContext.User.IsInRole(x.ToString())); // TODO Required: refactor using LINQ
 
-            return false;
+            return result;
         }
     }
 }

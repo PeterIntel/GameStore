@@ -13,12 +13,9 @@ namespace GameStore.Web.Attributes
 
         public override bool IsValid(object value) //TODO Consider refactor without 'if'
         {
-            if (value != null)
-            {
-                return (decimal) value >= _minValue;
-            }
+            var result = value == null || (decimal) value >= _minValue;
 
-            return true;
+            return result;
         }
     }
 }

@@ -12,10 +12,7 @@ namespace GameStore.Authorization.Implementation
 
         public UserProvider(string name, IGenericDataRepository<UserEntity, User> userRepository)
         {
-            if (name != null)
-            {
-                _userIdentity = new UserIdentity(name, userRepository);
-            }
+            _userIdentity = new UserIdentity(name, userRepository);
         }
         public IIdentity Identity
         {

@@ -126,7 +126,7 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult ConfirmedDelete(string id)
+        public ActionResult ConfirmDelete(string id)
         {
             var publisher = _publisherService.First(x => x.Id == id);
             if (ModelState.IsValid)

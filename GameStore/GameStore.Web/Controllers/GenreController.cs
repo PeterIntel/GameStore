@@ -99,7 +99,7 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult ConfirmedDelete(string id)
+        public ActionResult ConfirmDelete(string id)
         {
             var genre = _genreService.First(x => x.Id == id);
             if (ModelState.IsValid)
