@@ -10,209 +10,217 @@ using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
-    [CustomAuthorize(RoleEnum.Administrator)]
-    public class AccountController : BaseController
-    {
-        private readonly IAccountService _accountService;
-        private readonly IPublisherService _publisherService;
-        private readonly IMapper _mapper;
-        public AccountController(IAccountService accountService, IAuthentication auth, IMapper mapper, IPublisherService publisherService) : base(auth)
-        {
-            _accountService = accountService;
-            _publisherService = publisherService;
-            _mapper = mapper;
-        }
+	[CustomAuthorize(RoleEnum.Administrator)]
+	public class AccountController : BaseController
+	{
+		private readonly IAccountService _accountService;
+		private readonly IPublisherService _publisherService;
+		private readonly IMapper _mapper;
 
-        [AllowAnonymous]
-        public ActionResult RegisterUser()
-        {
-            return View();
-        }
+		public AccountController(IAccountService accountService, IAuthentication auth, IMapper mapper,
+			IPublisherService publisherService) : base(auth)
+		{
+			_accountService = accountService;
+			_publisherService = publisherService;
+			_mapper = mapper;
+		}
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult RegisterUser(UserViewModel model)
-        {
-            CheckLoginAndEmail(model);
+		[AllowAnonymous]
+		public ActionResult RegisterUser()
+		{
+			return View();
+		}
 
-            if (ModelState.IsValid)
-            {
-                var user = _mapper.Map<UserViewModel, User>(model);
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
+		public ActionResult RegisterUser(UserViewModel model)
+		{
+			CheckLoginAndEmail(model);
 
-                ((IList<Role>)user.Roles).Add(new Role() {RoleEnum = RoleEnum.User});
-                _accountService.Add(user);
+			if (ModelState.IsValid)
+			{
+				var user = _mapper.Map<UserViewModel, User>(model);
 
-                Auth.Login(model.Login, model.Password);
+				((IList<Role>) user.Roles).Add(new Role() {RoleEnum = RoleEnum.User});
+				_accountService.Add(user);
 
-                return RedirectToAction("GetUsers");
-            }
+				Auth.Login(model.Login, model.Password);
 
-            return View(model);
-        }
+				return RedirectToAction("GetUsers");
+			}
 
-        [AllowAnonymous]
-        public ActionResult LogOff()
-        {
-            Auth.Logout();
+			return View(model);
+		}
 
-            return RedirectToAction("games", "Game");
-        }
+		[AllowAnonymous] //TODO Consider: remove this attribute
+		public ActionResult LogOff()
+		{
+			Auth.Logout();
 
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
+			return RedirectToAction("games", "Game");
+		}
 
-            return View();
-        }
+		[AllowAnonymous]
+		public ActionResult Login(string returnUrl)
+		{
+			ViewBag.ReturnUrl = returnUrl;
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                Auth.Login(model.UserName, model.Password, model.RememberMe);
+			return View();
+		}
 
-                return RedirectToLocal(returnUrl);
-            }
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
+		public ActionResult Login(LoginViewModel model, string returnUrl)
+		{
+			if (ModelState.IsValid)
+			{
+				Auth.Login(model.UserName, model.Password, model.RememberMe);
 
-            return View(model);
-        }
+				return RedirectToLocal(returnUrl);
+			}
+			ModelState.AddModelError("", "The user name or password provided is incorrect.");
 
-        public ActionResult GetUsers()
-        {
-            return View(_mapper.Map<IEnumerable<User>, IList<UserViewModel>>(_accountService.Get()));
-        }
+			return View(model);
+		}
 
-        public ActionResult UserDetails(string key)
-        {
-            User user = _accountService.First(x => x.Login == key);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+		public ActionResult GetUsers()
+		{
+			return View(_mapper.Map<IEnumerable<User>, IList<UserViewModel>>(_accountService.Get()));
+		}
 
-            return View(_mapper.Map<User, UserViewModel>(user));
-        }
+		public ActionResult UserDetails(string key)
+		{
+			User user = _accountService.First(x => x.Login == key);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
 
-        public ActionResult Create()
-        {
-            return View(new UserViewModel()
-            {
-                Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()),
-                Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
-            });
-        }
+			return View(_mapper.Map<User, UserViewModel>(user));
+		}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(UserViewModel userViewModel)
-        {
-            CheckLoginAndEmail(userViewModel);
+		public ActionResult Create()
+		{
+			return View(new UserViewModel() //TODO Required: remove useless '()'
+			{
+				Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()),
+				Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
+			});
+		}
 
-            if (ModelState.IsValid)
-            {
-                var user = _mapper.Map<UserViewModel, User>(userViewModel);
-                _accountService.Add(user);
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Create(UserViewModel userViewModel)
+		{
+			CheckLoginAndEmail(userViewModel);
 
-                return RedirectToAction("GetUsers");
-            }
+			if (ModelState.IsValid)
+			{
+				var user = _mapper.Map<UserViewModel, User>(userViewModel);
+				_accountService.Add(user);
 
-            userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
-            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+				return RedirectToAction("GetUsers");
+			}
 
-            return View(userViewModel);
-        }
+			userViewModel.Roles =
+				_mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(
+					_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
+			userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
 
-        public ActionResult Edit(string key)
-        {
-            User user = _accountService.First(x => x.Login == key);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+			return View(userViewModel);
+		}
 
-            var userViewModel = _mapper.Map<User, UserViewModel>(user);
-            userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.Roles.Select(x => x.Role.ToString())));
-            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+		public ActionResult Edit(string key)
+		{
+			User user = _accountService.First(x => x.Login == key);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
 
-            return View(userViewModel);
-        }
+			var userViewModel = _mapper.Map<User, UserViewModel>(user);
+			userViewModel.Roles =
+				_mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(
+					_accountService.GetAllRolesAndMarkSelected(userViewModel.Roles.Select(x => x.Role.ToString())));
+			userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(UserViewModel userViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                _accountService.Update(_mapper.Map<UserViewModel, User>(userViewModel));
-                return RedirectToLocal("GetUsers");
-            }
+			return View(userViewModel);
+		}
 
-            userViewModel.Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
-            userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Edit(UserViewModel userViewModel)
+		{
+			if (ModelState.IsValid)
+			{
+				_accountService.Update(_mapper.Map<UserViewModel, User>(userViewModel));
+				return RedirectToLocal("GetUsers");
+			}
 
-            return View(userViewModel);
-        }
+			userViewModel.Roles =
+				_mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(
+					_accountService.GetAllRolesAndMarkSelected(userViewModel.IdRoles));
+			userViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get());
 
-        public ActionResult Delete(string key)
-        {
-            var user = _accountService.First(x => x.Login == key);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
+			return View(userViewModel);
+		}
 
-            return View(_mapper.Map<User, UserViewModel>(user));
-        }
+		public ActionResult Delete(string key)
+		{
+			var user = _accountService.First(x => x.Login == key);
+			if (user == null)
+			{
+				return HttpNotFound();
+			}
 
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult ConfirmedDelete(string id)
-        {
-            var user = _accountService.First(x => x.Id == id);
+			return View(_mapper.Map<User, UserViewModel>(user));
+		}
 
-            if (user.IsInRole(RoleEnum.Administrator) && _accountService.GetCountAdministrators() <= 1)
-            {
-                ModelState.AddModelError("", @"You are the last administrator and you can not delete yourself!");
-            }
+		[HttpPost]
+		[ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+		public ActionResult ConfirmedDelete(string id) //TODO Consider: rename to 'ConfirmDelete'
+		{
+			var user = _accountService.First(x => x.Id == id);
 
-            if (ModelState.IsValid)
-            {
-                _accountService.Remove(id);
+			if (user.IsInRole(RoleEnum.Administrator) && _accountService.GetCountAdministrators() <= 1)
+			{
+				ModelState.AddModelError("", @"You are the last administrator and you can not delete yourself!");
+			}
 
-                return RedirectToAction("GetUsers");
-            }
+			if (ModelState.IsValid)
+			{
+				_accountService.Remove(id);
 
-            return View(_mapper.Map<User, UserViewModel>(user));
-        }
+				return RedirectToAction("GetUsers");
+			}
 
-        private void CheckLoginAndEmail(UserViewModel model)
-        {
-            if (_accountService.Any(x => x.Login == model.Login))
-            {
-                ModelState.AddModelError("Login", $"Login {model.Login} already exists!");
-            }
+			return View(_mapper.Map<User, UserViewModel>(user));
+		}
 
-            if (_accountService.Any(x => x.Email == model.Email))
-            {
-                ModelState.AddModelError("Email", $"E-mail {model.Email} already exists!");
-            }
-        }
+		private void CheckLoginAndEmail(UserViewModel model)
+		{
+			if (_accountService.Any(x => x.Login == model.Login))
+			{
+				ModelState.AddModelError("Login", $"Login {model.Login} already exists!");
+			}
 
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
+			if (_accountService.Any(x => x.Email == model.Email))
+			{
+				ModelState.AddModelError("Email", $"E-mail {model.Email} already exists!");
+			}
+		}
 
-            return RedirectToAction("Games", "Game");
-        }
-    }
+		private ActionResult RedirectToLocal(string returnUrl)
+		{
+			if (Url.IsLocalUrl(returnUrl))
+			{
+				return Redirect(returnUrl);
+			}
+
+			return RedirectToAction("Games", "Game");
+		}
+	}
 }

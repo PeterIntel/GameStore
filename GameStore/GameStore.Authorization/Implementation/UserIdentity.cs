@@ -8,7 +8,7 @@ namespace GameStore.Authorization.Implementation
 {
     public class UserIdentity : IIdentity, IUserProvider
     {
-        public UserIdentity()
+        public UserIdentity() // TODO Required: remove useless constructor
         {
             
         }

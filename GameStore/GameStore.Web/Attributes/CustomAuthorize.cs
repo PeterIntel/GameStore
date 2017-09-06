@@ -20,7 +20,7 @@ namespace GameStore.Web.Attributes
                 return false;
             }
 
-            if (_roles != null)
+            if (_roles != null) //TODO Required: refactor using LINQ
             {
                 foreach (var role in _roles)
                 {
