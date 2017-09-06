@@ -78,5 +78,22 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
 
             return queryToDomain;
         }
+
+        public override int GetCountObject(Expression<Func<Game, bool>> filter)
+        {
+            IQueryable<MongoProductEntity> queryToEntity = Collection.AsQueryable();
+            queryToEntity = queryToEntity.GetNestedEntities();
+            var queryToDomain = Mapper.Map<IQueryable<MongoProductEntity>, IEnumerable<Game>>(queryToEntity);
+
+            if (filter != null)
+            {
+                var predicate = filter.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
+            }
+
+            var result = queryToDomain.Count();
+
+            return result;
+        }
     }
 }

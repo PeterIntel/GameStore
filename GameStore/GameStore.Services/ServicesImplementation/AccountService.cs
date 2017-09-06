@@ -18,7 +18,7 @@ namespace GameStore.Services.ServicesImplementation
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
 
         public AccountService(IGenericDataRepository<UserEntity, User> userRepository, IRoleRepository roleRepository, IUnitOfWork unitOfWork, IMongoLogger<User> logger, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository,
-            ICultureService cultureService, ILocalizationProvider<User> localizatorProvider) : base(userRepository, unitOfWork, logger, localizatorProvider)
+            ILocalizationProvider<User> localizatorProvider) : base(userRepository, unitOfWork, logger, localizatorProvider)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;

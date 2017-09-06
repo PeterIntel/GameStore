@@ -15,13 +15,11 @@ namespace GameStore.Services.ServicesImplementation
     public class GenreService : BasicService<GenreEntity, Genre>, IGenreService
     {
         private readonly IGenericDataRepository<GenreEntity, Genre> _genreRepository;
-        private readonly ICultureService _cultureService;
 
         public GenreService(IUnitOfWork unitOfWork, IGenericDataRepository<GenreEntity, Genre> genreRepository, IMongoLogger<Genre> logger,
-            ICultureService cultureService, ILocalizationProvider<Genre> localizatorProvider) : base(genreRepository, unitOfWork, logger, localizatorProvider)
+            ILocalizationProvider<Genre> localizatorProvider) : base(genreRepository, unitOfWork, logger, localizatorProvider)
         {
             _genreRepository = genreRepository;
-            _cultureService = cultureService;
         }
 
         public override IEnumerable<Genre> Get(string cultureCode, params Expression<Func<Genre, object>>[] includeProperties)

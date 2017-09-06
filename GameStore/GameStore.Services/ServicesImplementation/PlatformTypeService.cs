@@ -13,13 +13,11 @@ namespace GameStore.Services.ServicesImplementation
     public class PlatformTypeService : BasicService<PlatformTypeEntity, PlatformType>, IPlatformTypeService
     {
         private readonly IGenericDataRepository<PlatformTypeEntity, PlatformType> _platformTypeRepository;
-        private readonly ICultureService _cultureService;
-
-        public PlatformTypeService(IUnitOfWork unitOfWork, IGenericDataRepository<PlatformTypeEntity, PlatformType> platformTypeRepository, IMongoLogger<PlatformType> logger, ICultureService cultureService, ILocalizationProvider<PlatformType> localizationProvider) :
+        
+        public PlatformTypeService(IUnitOfWork unitOfWork, IGenericDataRepository<PlatformTypeEntity, PlatformType> platformTypeRepository, IMongoLogger<PlatformType> logger, ILocalizationProvider<PlatformType> localizationProvider) :
             base(platformTypeRepository, unitOfWork, logger, localizationProvider)
         {
             _platformTypeRepository = platformTypeRepository;
-            _cultureService = cultureService;
         }
 
         public IEnumerable<PlatformType> GetAllPlatformTypesAndMarkSelected(IEnumerable<string> selecredPlatforms, string cultureCode)

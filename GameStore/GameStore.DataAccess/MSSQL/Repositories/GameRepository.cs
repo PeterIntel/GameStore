@@ -8,6 +8,7 @@ using AutoMapper.QueryableExtensions;
 using GameStore.DataAccess.Infrastructure;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Entities.Localization;
 using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Repositories
@@ -18,6 +19,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         private readonly IPlatformTypeRepository _platformRepository;
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
         private readonly IGenericDataRepository<GameInfoEntity, GameInfo> _gameInfoRepository;
+
         public GameRepository(GamesSqlContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository) : base(context, mapper)
         {
             _genreRepository = genreRepository;
@@ -68,6 +70,16 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                     _context.SaveChanges();
                     gameEntity.Publisher = _context.Publishers.FirstOrDefault(x => x.CompanyName == game.Publisher.CompanyName);
                 }
+            }
+
+            if (game.Locals != null && game.Locals.Any())
+            {
+                gameEntity.Locals.Add(new GameLocalEntity()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Culture = _context.Cultures.First(c => c.Code == game.Locals.First().Culture.Code),
+                    Description = game.Locals.First().Description
+                });
             }
 
             return gameEntity;

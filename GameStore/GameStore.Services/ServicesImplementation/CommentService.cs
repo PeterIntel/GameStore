@@ -15,7 +15,7 @@ namespace GameStore.Services.ServicesImplementation
     {
         private readonly IGenericDataRepository<CommentEntity, Comment> _commentRepository;
         public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger,
-            ICultureService cultureService, ILocalizationProvider<Comment> localizatorProvider) :
+            ILocalizationProvider<Comment> localizatorProvider) :
             base(commentRepository, unitOfWork, logger, localizatorProvider)
         {
             _commentRepository = commentRepository;

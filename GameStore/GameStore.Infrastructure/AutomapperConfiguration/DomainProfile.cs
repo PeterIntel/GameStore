@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.MSSQL.Entities.Localization;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.BusinessObjects.LocalizationObjects;
+using MongoDB.Bson;
 using CultureEntity = GameStore.DataAccess.MSSQL.Entities.Localization.CultureEntity;
 
 namespace GameStore.Infrastructure.AutomapperConfiguration
@@ -103,7 +105,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.Locals, opt => opt.ResolveUsing(
                     m => new List<GenreLocal>
                     {
-                        new GenreLocal() {Name = m.CategoryName, Culture = new Culture() {Code = "en"}}
+                        new GenreLocal() {Id = Guid.NewGuid().ToString(), Name = m.CategoryName, Culture = new Culture() {Code = "en"}}
                     }));
 
             CreateMap<MongoOrderDetailsEntity, OrderDetails>()

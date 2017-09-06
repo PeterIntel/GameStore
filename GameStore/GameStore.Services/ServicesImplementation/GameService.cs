@@ -19,17 +19,15 @@ namespace GameStore.Services.ServicesImplementation
         private readonly IGenericDataRepository<GameInfoEntity, GameInfo> _gameInfoRepository;
         private readonly IGenericDataRepository<GenreEntity, Genre> _genreRepository;
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
-        private readonly ICultureService _cultureService;
         private GamePipeline _gamePipeline;
 
         public GameService(IUnitOfWork unitOfWork, IGameRepository gameRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository, IGenericDataRepository<GenreEntity, Genre> genreRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IMongoLogger<Game> logger,
-            ICultureService cultureService, ILocalizationProvider<Game> localizatorProvider) : base(gameRepository, unitOfWork, logger, localizatorProvider)
+            ILocalizationProvider<Game> localizatorProvider) : base(gameRepository, unitOfWork, logger, localizatorProvider)
         {
             _gameRepository = gameRepository;
             _gameInfoRepository = gameInfoRepository;
             _genreRepository = genreRepository;
             _publisherRepository = publisherRepository;
-            _cultureService = cultureService;
         }
         public override void Add(Game item, string cultureCode)
         {

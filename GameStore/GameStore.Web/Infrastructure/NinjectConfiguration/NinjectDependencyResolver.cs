@@ -49,7 +49,6 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
             _kernel.Bind<IOrderService>().To<OrderService>();
             _kernel.Bind<IAccountService>().To<AccountService>();
             _kernel.Bind<IAuthentication>().To<CustomAuthentication>().InRequestScope();
-            _kernel.Bind<ICultureService>().To<CultureService>();
 
             _kernel.Bind(typeof(ILocalizationProvider<>)).To(typeof(LocalizationProvider<>));
             _kernel.Bind<ILocalizationProvider<Game>>().To<GameLocalizationProvider>();

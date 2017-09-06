@@ -62,7 +62,6 @@
     <Compile Include="ServicesImplementation\AccountService.cs" />
     <Compile Include="ServicesImplementation\BasicService.cs" />
     <Compile Include="ServicesImplementation\CommentService.cs" />
-    <Compile Include="ServicesImplementation\CultureService.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\BaseFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\GameNameFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\GamePipeline.cs" />

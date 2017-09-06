@@ -13,13 +13,11 @@ namespace GameStore.Services.ServicesImplementation
     public class PublisherService : BasicService<PublisherEntity, Publisher>, IPublisherService
     {
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
-        private readonly ICultureService _cultureService;
 
         public PublisherService(IUnitOfWork unitOfWork, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IMongoLogger<Publisher> logger,
-            ICultureService cultureService, ILocalizationProvider<Publisher> localizationProvider) : base(publisherRepository, unitOfWork, logger, localizationProvider)
+            ILocalizationProvider<Publisher> localizationProvider) : base(publisherRepository, unitOfWork, logger, localizationProvider)
         {
             _publisherRepository = publisherRepository;
-            _cultureService = cultureService;
         }
 
         public Publisher GetPublisherByCompanyName(string companyName, string cultureCode)

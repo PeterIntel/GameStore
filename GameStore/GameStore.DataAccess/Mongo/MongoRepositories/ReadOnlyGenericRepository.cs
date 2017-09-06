@@ -45,18 +45,17 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             return queryToDomain;
         }
 
-        public int GetCountObject(Expression<Func<TDomain, bool>> filter)
+        public virtual int GetCountObject(Expression<Func<TDomain, bool>> filter)
         {
-            IEnumerable<TEntity> queryToEntity = Collection.AsQueryable().ToList();
+            IEnumerable<TEntity> queryToEntity = Collection.AsQueryable();
             var queryToDomain = Mapper.Map<IEnumerable<TEntity>, IEnumerable<TDomain>>(queryToEntity);
 
             if (filter != null)
             {
-                var predicate = filter.Compile();
-                queryToDomain = queryToDomain.Where(predicate);
+                queryToDomain = queryToDomain.AsQueryable().Where(filter);
             }
 
-            var result = queryToDomain.Count();
+            var result = queryToDomain.ToList().Count();
 
             return result;
         }
