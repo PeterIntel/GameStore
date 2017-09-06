@@ -14,7 +14,7 @@ namespace GameStore.Web.Infrastructure.HttpModules
 
         public void Init(HttpApplication context)
         {
-            context.AuthenticateRequest += this.Authenticate; //TODO Required: subscribe with direct 'Authenticate' method
+            context.AuthenticateRequest += Authenticate; //TODO Required: subscribe with direct 'Authenticate' method
 		}
 
         private void Authenticate(object source, EventArgs e) //TODO Required: use 'object'
