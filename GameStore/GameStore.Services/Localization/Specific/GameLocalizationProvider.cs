@@ -16,7 +16,7 @@ namespace GameStore.Services.Localization.Specific
         {
             _genreLocalizationProvider = genreLocalizationProvider;
             _platformTypeLocalizationProvider = platformTypeLocalizationProvider;
-        } //TODO Required: blank line below
+        }
 
         public Game Localize(Game game, string cultureCode) 
         {
