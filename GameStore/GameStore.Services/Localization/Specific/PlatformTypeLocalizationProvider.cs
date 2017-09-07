@@ -17,6 +17,7 @@ namespace GameStore.Services.Localization.Specific
                             platformType.Locals.First();
                 platformType.TypeName = local.TypeName;
 			} //TODO Required: blank line below
+
 			return platformType;
         }
     }

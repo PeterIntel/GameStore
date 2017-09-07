@@ -17,6 +17,7 @@ namespace GameStore.Services.Localization.Specific
                             publisher.Locals.First();
                 publisher.Description = local.Description;
 			} //TODO Required: blank line below
+
 			return publisher;
         }
     }
