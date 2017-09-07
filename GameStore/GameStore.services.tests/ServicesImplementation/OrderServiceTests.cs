@@ -6,6 +6,7 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
@@ -25,6 +26,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         private Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>> _orderDetailsRepository;
         private Mock<IGameRepository> _gameRepository;
         private Mock<IMongoLogger<Order>> _logger;
+        private Mock<ILocalizationProvider<Order>> _localizationProvider;
         private Order _order;
 
         [SetUp]
@@ -39,7 +41,9 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _orderDetailsRepository = new Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>>();
             _gameRepository = new Mock<IGameRepository>();
             _logger = new Mock<IMongoLogger<Order>>();
-            _sut = new OrderService(_unitOfWork.Object, _orderRepository.Object, _gameRepository.Object, _orderDetailsRepository.Object, _logger.Object);
+            _localizationProvider = new Mock<ILocalizationProvider<Order>>();
+            _sut = new OrderService(_unitOfWork.Object, _orderRepository.Object, _gameRepository.Object, _orderDetailsRepository.Object, _logger.Object, 
+                _localizationProvider.Object);
             _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_game);
         }
 
@@ -86,7 +90,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _orderRepository.Setup(m => m.Get(It.IsAny<Expression<Func<Order, bool>>>())).Throws(new ArgumentException());
 
-            Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<string>()));
+            Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<string>(), It.IsAny<string>()));
         }
     }
 }

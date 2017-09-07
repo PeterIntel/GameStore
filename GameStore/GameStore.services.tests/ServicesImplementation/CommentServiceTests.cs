@@ -7,6 +7,7 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
@@ -21,6 +22,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IGenericDataRepository<CommentEntity, Comment>> _commentRepository;
         private Mock<IMongoLogger<Comment>> _logger;
+        private Mock<ILocalizationProvider<Comment>> _localizationProvider;
         private Comment _commentStub = new Comment();
         private IList<Comment> _comments = new List<Comment>()
         {
@@ -81,8 +83,9 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _commentRepository = new Mock<IGenericDataRepository<CommentEntity, Comment>>();
             _unitOfWork = new Mock<IUnitOfWork>();
             _logger = new Mock<IMongoLogger<Comment>>();
+            _localizationProvider = new Mock<ILocalizationProvider<Comment>>();
             
-            _sut = new CommentService(_unitOfWork.Object, _commentRepository.Object, _logger.Object);
+            _sut = new CommentService(_unitOfWork.Object, _commentRepository.Object, _logger.Object, _localizationProvider.Object);
         }
 
         [Test]
@@ -90,7 +93,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _commentRepository.Setup(p => p.Add(It.IsAny<Comment>()));
 
-            _sut.Add(new Comment());
+            _sut.Add(new Comment(), It.IsAny<string>());
 
             _commentRepository.Verify(u => u.Add(It.IsAny<Comment>()), Times.Once);
         }
@@ -131,7 +134,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _commentRepository.Setup(g => g.Update(It.IsAny<Comment>()));
 
-            _sut.Update(_commentStub);
+            _sut.Update(_commentStub, It.IsAny<string>());
 
             _commentRepository.Verify(u => u.Update(It.IsAny<Comment>()), Times.Once);
         }
