@@ -7,13 +7,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class update : IMigrationMetadata
+    public sealed partial class updatedatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709060912240_update"; }
+            get { return "201709071240208_update-database"; }
         }
         
         string IMigrationMetadata.Source

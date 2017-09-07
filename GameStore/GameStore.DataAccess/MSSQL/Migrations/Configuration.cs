@@ -135,14 +135,51 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                             Culture = context.Cultures.First(c=>c.Code == "en")
                         }
                     }
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9945").ToString(),
+                    ParentGenreId = null,
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Locals = new List<GenreLocalEntity>()
+                    {
+                        new GenreLocalEntity()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Name = "RTS",
+                            Culture = context.Cultures.First(c=>c.Code == "en")
+                        },
+                        new GenreLocalEntity()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Name = "ÐÒÑ",
+                            Culture = context.Cultures.First(c=>c.Code == "ru")
+                        }
+                    }
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9946").ToString(),
+                    ParentGenreId = null,
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Locals = new List<GenreLocalEntity>()
+                    {
+                        new GenreLocalEntity()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Name = "rally",
+                            Culture = context.Cultures.First(c=>c.Code == "en")
+                        },
+                        new GenreLocalEntity()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Name = "ðàëëè",
+                            Culture = context.Cultures.First(c=>c.Code == "ru")
+                        }
+                    }
                 });
-            context.SaveChanges();
-            context.Genres.AddOrUpdate(
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9945").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id, Name = "RTS", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9946").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "Sports").Id, Name = "TBS", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9947").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id, Name = "rally", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9948").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "Races").Id, Name = "arcade", IsDeleted = false, IsSqlEntity = true }
-                );
 
             context.SaveChanges();
 

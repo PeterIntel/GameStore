@@ -3,11 +3,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class update : DbMigration
+    public partial class updatedatabase : DbMigration
     {
         public override void Up()
         {
+            DropIndex("dbo.GenreEntities", new[] { "Name" });
             DropIndex("dbo.GenreEntities", new[] { "GenreEntity_Id" });
+            DropIndex("dbo.PlatformTypeEntities", new[] { "TypeName" });
             DropColumn("dbo.GenreEntities", "ParentGenreId");
             RenameColumn(table: "dbo.GenreEntities", name: "GenreEntity_Id", newName: "ParentGenreId");
             CreateTable(
@@ -16,13 +18,14 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         GenreId = c.String(maxLength: 128),
-                        Name = c.String(),
+                        Name = c.String(maxLength: 450),
                         CultureId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.CultureEntities", t => t.CultureId)
                 .ForeignKey("dbo.GenreEntities", t => t.GenreId)
                 .Index(t => t.GenreId)
+                .Index(t => t.Name, unique: true)
                 .Index(t => t.CultureId);
             
             CreateTable(
@@ -58,13 +61,14 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         PlatformTypeId = c.String(maxLength: 128),
-                        TypeName = c.String(),
+                        TypeName = c.String(maxLength: 450),
                         CultureId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.CultureEntities", t => t.CultureId)
                 .ForeignKey("dbo.PlatformTypeEntities", t => t.PlatformTypeId)
                 .Index(t => t.PlatformTypeId)
+                .Index(t => t.TypeName, unique: true)
                 .Index(t => t.CultureId);
             
             CreateTable(
@@ -73,7 +77,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         PublisherId = c.String(maxLength: 128),
-                        Description = c.String(),
+                        Description = c.String(storeType: "ntext"),
                         CultureId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
@@ -131,10 +135,18 @@ namespace GameStore.DataAccess.MSSQL.Migrations
             CreateIndex("dbo.GenreEntities", "ParentGenreId");
             CreateIndex("dbo.OrderEntities", "CustomerId");
             AddForeignKey("dbo.OrderEntities", "CustomerId", "dbo.UserEntities", "Id", cascadeDelete: true);
+            DropColumn("dbo.GameEntities", "Description");
+            DropColumn("dbo.GenreEntities", "Name");
+            DropColumn("dbo.PlatformTypeEntities", "TypeName");
+            DropColumn("dbo.PublisherEntities", "Description");
         }
         
         public override void Down()
         {
+            AddColumn("dbo.PublisherEntities", "Description", c => c.String(storeType: "ntext"));
+            AddColumn("dbo.PlatformTypeEntities", "TypeName", c => c.String(maxLength: 450));
+            AddColumn("dbo.GenreEntities", "Name", c => c.String(maxLength: 450));
+            AddColumn("dbo.GameEntities", "Description", c => c.String());
             DropForeignKey("dbo.OrderEntities", "CustomerId", "dbo.UserEntities");
             DropForeignKey("dbo.RoleEntityUserEntities", "UserEntity_Id", "dbo.UserEntities");
             DropForeignKey("dbo.RoleEntityUserEntities", "RoleEntity_Id", "dbo.RoleEntities");
@@ -154,10 +166,12 @@ namespace GameStore.DataAccess.MSSQL.Migrations
             DropIndex("dbo.PublisherLocalEntities", new[] { "CultureId" });
             DropIndex("dbo.PublisherLocalEntities", new[] { "PublisherId" });
             DropIndex("dbo.PlatformTypeLocalEntities", new[] { "CultureId" });
+            DropIndex("dbo.PlatformTypeLocalEntities", new[] { "TypeName" });
             DropIndex("dbo.PlatformTypeLocalEntities", new[] { "PlatformTypeId" });
             DropIndex("dbo.GameLocalEntities", new[] { "CultureId" });
             DropIndex("dbo.GameLocalEntities", new[] { "GameId" });
             DropIndex("dbo.GenreLocalEntities", new[] { "CultureId" });
+            DropIndex("dbo.GenreLocalEntities", new[] { "Name" });
             DropIndex("dbo.GenreLocalEntities", new[] { "GenreId" });
             DropIndex("dbo.GenreEntities", new[] { "ParentGenreId" });
             AlterColumn("dbo.OrderEntities", "CustomerId", c => c.String());
@@ -173,7 +187,9 @@ namespace GameStore.DataAccess.MSSQL.Migrations
             DropTable("dbo.GenreLocalEntities");
             RenameColumn(table: "dbo.GenreEntities", name: "ParentGenreId", newName: "GenreEntity_Id");
             AddColumn("dbo.GenreEntities", "ParentGenreId", c => c.String());
+            CreateIndex("dbo.PlatformTypeEntities", "TypeName", unique: true);
             CreateIndex("dbo.GenreEntities", "GenreEntity_Id");
+            CreateIndex("dbo.GenreEntities", "Name", unique: true);
         }
     }
 }
