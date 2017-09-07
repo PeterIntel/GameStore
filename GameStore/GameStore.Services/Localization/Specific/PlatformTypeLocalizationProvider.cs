@@ -16,8 +16,8 @@ namespace GameStore.Services.Localization.Specific
                 var local = platformType.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ??
                             platformType.Locals.First();
                 platformType.TypeName = local.TypeName;
-            }
-            return platformType;
+			} //TODO Required: blank line below
+			return platformType;
         }
     }
 }

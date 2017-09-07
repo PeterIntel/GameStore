@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace GameStore.Web.Filters
-{
-    public class FilterTranslatorAttribute : TranslatorAttributeBase
+{//TODO Required: delete this file
+	public class FilterTranslatorAttribute : TranslatorAttributeBase
     {
         //public FilterTranslatorAttribute(string argumentName) : base(argumentName)
         //{

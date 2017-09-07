@@ -22,8 +22,8 @@ namespace GameStore.Services.Localization.Specific
                 {
                     Localize(genre.ParentGenre, cultureCode);
                 }
-            }
-            return genre;
+			} //TODO Required: blank line below
+			return genre;
         }
     }
 }

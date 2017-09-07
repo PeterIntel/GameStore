@@ -12,7 +12,7 @@ namespace GameStore.Web.Controllers
     {
         protected IAuthentication Auth { set; get; }
         protected string CurrentLanguageCode { set; get; }
-        private string _currentLanguageCode;
+        private string _currentLanguageCode; //TODO Required: put to top
         public BaseController(IAuthentication auth)
         {
             Auth = auth;
@@ -35,8 +35,8 @@ namespace GameStore.Web.Controllers
                     Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture =
                         new CultureInfo(_currentLanguageCode);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) //TODO Required: remove useless 'ex'
+				{
                     throw new NotSupportedException($"Invalid language code '{_currentLanguageCode}'.");
                 }
             }
