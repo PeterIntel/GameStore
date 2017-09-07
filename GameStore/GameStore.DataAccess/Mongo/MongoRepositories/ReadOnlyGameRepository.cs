@@ -1,6 +1,4 @@
-﻿using GameStore.DataAccess.Mongo.MongoEntities;
-using GameStore.Domain.BusinessObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,6 +6,8 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.DataProviders;
+using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.Domain.BusinessObjects;
 using MongoDB.Driver;
 
 namespace GameStore.DataAccess.Mongo.MongoRepositories
@@ -58,7 +58,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             return order;
         }
 
-        public new IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, bool ascending = true, int page = 1, int? size = 10)
+        public IEnumerable<Game> Get<TKey>(Expression<Func<Game, bool>> filterDomain, Expression<Func<Game, TKey>> sortDomain, bool ascending = true, int page = 1, int? size = 10)
         {
             IQueryable<MongoProductEntity> queryToEntity = Collection.AsQueryable();
 

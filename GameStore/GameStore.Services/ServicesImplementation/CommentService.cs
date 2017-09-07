@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using GameStore.DataAccess.Decorators;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
@@ -12,23 +10,12 @@ using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class CommentService : BasicService<Comment>, ICommentService
+    public class CommentService : BasicService<CommentEntity, Comment>, ICommentService
     {
-        private IUnitOfWork _unitOfWork;
-        private IGenericDataRepository<CommentEntity, Comment> _commentRepository;
-        private IMongoLogger<Comment> _logger;
-        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger)
+        private readonly IGenericDataRepository<CommentEntity, Comment> _commentRepository;
+        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger) : base(commentRepository, unitOfWork, logger)
         {
-            _unitOfWork = unitOfWork;
             _commentRepository = commentRepository;
-            _logger = logger;
-        }
-        public void Add(Comment item)
-        {
-            AssignIdIfEmpty(item);
-            _commentRepository.Add(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Insert, item);
         }
 
         public IEnumerable<Comment> GetAllCommentsByGameKey(string gameKey)
@@ -54,6 +41,7 @@ namespace GameStore.Services.ServicesImplementation
                     }
                 }
             }
+
             return roots;
         }
 
@@ -75,31 +63,6 @@ namespace GameStore.Services.ServicesImplementation
             {
                 node.Comments = new List<Comment>();
             }
-        }
-
-        public void Remove(string id)
-        {
-            _commentRepository.Remove(id);
-            _unitOfWork.Save();
-        }
-
-        public void Remove(Comment item)
-        {
-            _commentRepository.Remove(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Delete, item);
-        }
-
-        public void Update(Comment item)
-        {
-            _commentRepository.Update(item);
-            _unitOfWork.Save();
-            var updatedComment = _commentRepository.GetItemById(item.Id);
-            _logger.Write(Operation.Update, item, updatedComment);
-        }
-        public IEnumerable<Comment> Get(params Expression<Func<Comment, object>>[] includeProperties)
-        {
-            return _commentRepository.Get(includeProperties);
         }
     }
 }

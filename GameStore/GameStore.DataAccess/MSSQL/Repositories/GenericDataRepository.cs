@@ -37,9 +37,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         public IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterDomain, params Expression<Func<TDomain, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
-
             var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterDomain);
-
             var includePropertiesForEntities = _mapper.Map<Expression<Func<TDomain, object>>[], Expression<Func<TEntity, object>>[]>(includeProperties);
 
             if (filterEntity != null)
@@ -53,13 +51,13 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
 
             var result = queryToEntity.ProjectTo<TDomain>(_mapper.ConfigurationProvider);
+
             return result;
         }
 
         public IEnumerable<TDomain> Get(params Expression<Func<TDomain, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
-
             var includePropertiesForEntities = _mapper.Map<Expression<Func<TDomain, object>>[], Expression<Func<TEntity, object>>[]>(includeProperties);
 
             foreach (var item in includePropertiesForEntities)
@@ -72,44 +70,50 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             return result;
         }
 
-        public TDomain GetItemById(string id)
+        public virtual TDomain GetItemById(string id)
         {
             TEntity entity = _dbSet.Find(id);
 
             if (entity != null && entity.IsDeleted == false)
             {
                 TDomain domain = _mapper.Map<TEntity, TDomain>(entity);
+
                 return domain;
             }
 
             return null;
         }
 
-        public void Remove(TDomain item)
+        public virtual void Remove(TDomain item)
         {
             if (item != null)
             {
-                TEntity entity = _mapper.Map<TDomain, TEntity>(item);
-                entity.IsDeleted = true;
+                TEntity entity = _dbSet.Find(item.Id);
+                if (entity != null)
+                {
+                    entity.IsDeleted = true;
+                    _context.Entry(entity).State = EntityState.Modified;
+                }
             }
         }
 
-        public void Remove(string id)
+        public virtual void Remove(string id)
         {
             TEntity entity = _dbSet.Find(id);
 
             if (entity != null)
             {
-                TDomain domain = Mapper.Map<TEntity, TDomain>(entity);
-                Remove(domain);
+                entity.IsDeleted = true;
+                _context.Entry(entity).State = EntityState.Modified;
             }
         }
 
-        public void Update(TDomain item)
+        public virtual void Update(TDomain item)
         {
             if (item != null)
             {
                 TEntity entity = _mapper.Map<TDomain, TEntity>(item);
+                entity.IsSqlEntity = true;
                 _context.Entry(_dbSet.Find(entity.Id)).State = EntityState.Detached;
                 _context.Entry(entity).State = EntityState.Modified;
             }
@@ -118,7 +122,6 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         public int GetCountObject(Expression<Func<TDomain, bool>> filter)
         {
             var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
-
             IQueryable<TEntity> queryToEntity = _dbSet.Where(x => x.IsDeleted == false);
 
             if (filter != null)
@@ -131,7 +134,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             return result;
         }
 
-        public TDomain First(Expression<Func<TDomain, bool>> filter)
+        public virtual TDomain First(Expression<Func<TDomain, bool>> filter)
         {
             var filterEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
             if (filter != null)
@@ -141,6 +144,27 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
 
             return null;
+        }
+
+        public bool Any(Expression<Func<TDomain, bool>> filter)
+        {
+            var s = _mapper.Map<User, UserEntity>(new User());
+            var filterToEntity = _mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
+            var result = _dbSet.Any(filterToEntity);
+
+            return result;
+        }
+
+        public IEnumerable<TDomain> LoadDomainEntities(IEnumerable<string> ids)
+        {
+            var domainEntities = new List<TDomain>();
+            foreach (var id in ids)
+            {
+                var domainEntity = GetItemById(id);
+                if (domainEntity != null) { domainEntities.Add(domainEntity); }
+            }
+
+            return domainEntities;
         }
     }
 }

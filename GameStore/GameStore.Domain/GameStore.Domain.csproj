@@ -75,6 +75,7 @@
     <Compile Include="BusinessObjects\BaseDomain.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\CompletionStatus.cs" />
+    <Compile Include="BusinessObjects\DateTimeIntervalFlag.cs" />
     <Compile Include="BusinessObjects\FilterCriteria.cs" />
     <Compile Include="BusinessObjects\FilterOrders.cs" />
     <Compile Include="BusinessObjects\PaginationGames.cs" />
@@ -86,8 +87,12 @@
     <Compile Include="BusinessObjects\PlatformType.cs" />
     <Compile Include="BusinessObjects\DateTimeIntervals.cs" />
     <Compile Include="BusinessObjects\Publisher.cs" />
+    <Compile Include="BusinessObjects\Role.cs" />
+    <Compile Include="BusinessObjects\RoleEnum.cs" />
     <Compile Include="BusinessObjects\SortCriteria.cs" />
+    <Compile Include="BusinessObjects\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesInterfaces\IAccountService.cs" />
     <Compile Include="ServicesInterfaces\ICommentService.cs" />
     <Compile Include="ServicesInterfaces\IGameService.cs" />
     <Compile Include="ServicesInterfaces\ICrudSevice.cs" />

@@ -193,8 +193,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\CustomAuthorize.cs" />
+    <Compile Include="Attributes\ValidateBirthDate.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Filters\ActionPerformanceFilter.cs" />
@@ -202,13 +207,15 @@
     <Compile Include="Filters\GetNumberOfGamesFilter.cs" />
     <Compile Include="Filters\LogErrorFilter.cs" />
     <Compile Include="Filters\LogIPFilter.cs" />
-    <Compile Include="Filters\MinValueAttribute.cs" />
+    <Compile Include="Attributes\MinValueAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperConfiguration\AutoMapperConfig.cs" />
     <Compile Include="Infrastructure\AutoMapperConfiguration\PublisherResolver.cs" />
+    <Compile Include="Infrastructure\AutoMapperConfiguration\PublisherResolverForUser.cs" />
     <Compile Include="Infrastructure\Helpers\CustomHelperMethods.cs" />
+    <Compile Include="Infrastructure\HttpModules\AuthHttpModule.cs" />
     <Compile Include="Infrastructure\NinjectConfiguration\AutoMapperModule.cs" />
     <Compile Include="Infrastructure\NinjectConfiguration\NinjectDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,12 +227,15 @@
     <Compile Include="ViewModels\GamesAndFilterViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\GenreViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\PagingInfoViewModel.cs" />
     <Compile Include="ViewModels\PlatformTypeViewModel.cs" />
     <Compile Include="Infrastructure\AutoMapperConfiguration\ViewModelsProfile.cs" />
     <Compile Include="ViewModels\PublisherViewModel.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -252,18 +262,46 @@
     <Content Include="Views\Comment\_CommentsPartialView.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
-    <Content Include="Views\Publisher\GetPublisherDetails.cshtml" />
+    <Content Include="Views\Publisher\details.cshtml" />
     <Content Include="Views\Publisher\New.cshtml" />
     <Content Include="Views\Order\busket.cshtml" />
-    <Content Include="Views\Game\GetGames.cshtml" />
+    <Content Include="Views\Game\games.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SortCriteria.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTimeIntervals.cshtml" />
-    <Content Include="Views\Game\_GameDetails.cshtml" />
+    <Content Include="Views\Game\DisplayTemplates\GameViewModel.cshtml" />
     <Content Include="Views\Game\_Filters.cshtml" />
     <Content Include="Views\Game\AddError.cshtml" />
-    <Content Include="Views\Game\GameInfoViewModel.cshtml" />
+    <Content Include="Views\Game\DisplayTemplates\GameInfoViewModel.cshtml" />
     <Content Include="Views\Order\history.cshtml" />
-    <Content Include="Views\Order\_Order.cshtml" />
+    <Content Include="Views\Order\order.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\RegisterUser.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\GetUsers.cshtml" />
+    <Content Include="Views\Account\UserDetails.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\EditorTemplates\UserViewModel.cshtml" />
+    <Content Include="Views\Account\DisplayTemplates\RoleEnum.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\DisplayTemplates\UserViewModel.cshtml" />
+    <Content Include="Views\Publisher\GetPublishers.cshtml" />
+    <Content Include="Views\Publisher\Edit.cshtml" />
+    <Content Include="Views\Publisher\Delete.cshtml" />
+    <Content Include="Views\Publisher\EditorTemplates\PublisherViewModel.cshtml" />
+    <Content Include="Views\Genre\GetGenres.cshtml" />
+    <Content Include="Views\Genre\New.cshtml" />
+    <Content Include="Views\Genre\EditorTemplates\GenreViewModel.cshtml" />
+    <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\DisplayTemplates\GenreViewModel.cshtml" />
+    <Content Include="Views\Publisher\DisplayTemplates\PublisherViewModel.cshtml" />
+    <Content Include="Views\Game\Edit.cshtml" />
+    <Content Include="Views\Game\Delete.cshtml" />
+    <Content Include="Views\Order\GetCurrentOrders.cshtml" />
+    <Content Include="Views\Order\edit.cshtml" />
+    <Content Include="Views\Order\EditorTemplates\OrderDetailsViewModel.cshtml" />
+    <Content Include="Views\Order\EditorTemplates\CompletionStatus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -275,6 +313,10 @@
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameStore.Authorization\GameStore.Authorization.csproj">
+      <Project>{6c9c695b-3079-468e-bfc6-09d311207940}</Project>
+      <Name>GameStore.Authorization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameStore.DataAccess\GameStore.DataAccess.csproj">
       <Project>{8e719928-b4d9-4eb4-9851-4c9b8ac4cf86}</Project>
       <Name>GameStore.DataAccess</Name>

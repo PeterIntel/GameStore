@@ -1,0 +1,34 @@
+﻿@model OrderViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@Html.LabelFor(m => m.OrderDate)
+<br>
+@Html.DisplayFor(m => m.OrderDate)
+<table class="table">
+    <tr>
+        <th>Game</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Discount</th>
+    </tr>
+
+    @foreach (var details in Model.OrderDetails)
+    {
+        @Html.EditorFor(x => details)
+    }
+
+</table>
+
+@using (Html.BeginForm("edit", "order"))
+{
+    @Html.Hidden("model.Id", Model.Id)
+    @Html.LabelFor(m => m.Status)
+    @Html.EditorFor(m => m.Status)
+ 
+    <input type="submit" value="Edit" />
+}

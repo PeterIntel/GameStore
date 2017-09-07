@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using GameStore.DataAccess.Decorators;
-using GameStore.DataAccess.Mongo.MongoEntities;
+using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
@@ -14,64 +11,58 @@ using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class GenreService : BasicService<Genre>, IGenreService
+    public class GenreService : BasicService<GenreEntity, Genre>, IGenreService
     {
-        private readonly IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre> _genreRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMongoLogger<Genre> _logger;
-
-        public GenreService(IUnitOfWork unitOfWork, IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre> genreRepository, IMongoLogger<Genre> logger)
+        private readonly IGenericDataRepository<GenreEntity, Genre> _genreRepository;
+        
+        public GenreService(IUnitOfWork unitOfWork, IGenericDataRepository<GenreEntity, Genre> genreRepository, IMongoLogger<Genre> logger) : base(genreRepository, unitOfWork, logger)
         {
-            _unitOfWork = unitOfWork;
             _genreRepository = genreRepository;
-            _logger = logger;
-        }
-        public void Add(Genre item)
-        {
-            _genreRepository.Add(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Insert, item);
         }
 
-        public IEnumerable<Genre> Get(params Expression<Func<Genre, object>>[] includeProperties)
-        {
-            return _genreRepository.Get(includeProperties).ToList();
+        public override IEnumerable<Genre> Get(params Expression<Func<Genre, object>>[] includeProperties)
+         {
+            var genres = base.Get(includeProperties).ToList();
+            foreach (var genre in genres)
+            {
+                if (genre.ParentGenreId != null)
+                {
+                    genre.ParentGenreName = _genreRepository.First(g => g.Id == genre.ParentGenreId).Name;
+                }
+            }
+
+            return genres;
         }
 
-        public void Remove(string id)
+        public override Genre First(Expression<Func<Genre, bool>> filter)
         {
-            _genreRepository.Remove(id);
-            _unitOfWork.Save();
-        }
+            var genre =  base.First(filter);
+            genre.ParentGenreName = _genreRepository.First(g => g.Id == genre.Id).Name;
 
-        public void Remove(Genre item)
-        {
-            _genreRepository.Remove(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Delete, item);
-        }
-
-        public void Update(Genre item)
-        {
-            _genreRepository.Update(item);
-            _unitOfWork.Save();
-            var updatedGenre = _genreRepository.GetItemById(item.Id);
-            _logger.Write(Operation.Update, item, updatedGenre);
+            return genre;
         }
 
         public IEnumerable<Genre> GetAllGenresAndMarkSelected(IEnumerable<string> selecredGenres)
+        {
+            var genres = GetAllGenresAndMarkSelectedForFilter(selecredGenres).Where(genre => genre.Name != "Other");
+
+            return genres;
+        }
+
+        public IEnumerable<Genre> GetAllGenresAndMarkSelectedForFilter(IEnumerable<string> selecredGenres)
         {
             IEnumerable<Genre> genres = _genreRepository.Get().ToList();
             if (selecredGenres != null)
             {
                 foreach (var item in genres)
                 {
-                    if (selecredGenres.Contains(item.Id))
+                    if (selecredGenres.Contains(item.Name))
                     {
                         item.IsChecked = true;
                     }
                 }
             }
+
             return genres;
         }
     }

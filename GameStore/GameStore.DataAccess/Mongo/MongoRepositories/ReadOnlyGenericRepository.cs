@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
-using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.DataAccess.MSSQL.Migrations;
 using GameStore.Domain.BusinessObjects;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using GameStore.DataAccess.Mongo.DataProviders;
 
 namespace GameStore.DataAccess.Mongo.MongoRepositories
 {
@@ -47,6 +40,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
                 queryToEntity = queryToEntity.Where(filterToEntity);
             }
             var queryToDomain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
+
             return queryToDomain;
         }
 
@@ -60,6 +54,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             }
 
             var result = domainItems.Count();
+
             return result;
         }
 
@@ -87,6 +82,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
                 queryToEntity = queryToEntity.Where(filterToEntity); 
             }
             TDomain domain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).FirstOrDefault();
+
             return domain;
         }
     }

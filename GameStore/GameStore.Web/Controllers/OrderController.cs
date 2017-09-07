@@ -1,69 +1,158 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
-using GameStore.Domain.ServicesInterfaces;
+using GameStore.Authorization.Interfaces;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
+using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
-        private static string CustomId = "1";
-        private IOrderService _orderService;
-        private IMapper _mapper;
+        private readonly IOrderService _orderService;
+        private readonly IMapper _mapper;
 
-        public OrderController(IOrderService orderService, IMapper mapper)
+        public OrderController(IAuthentication authentication, IOrderService orderService, IMapper mapper) : base(authentication)
         {
             _orderService = orderService;
             _mapper = mapper;
         }
-        // GET: Order
+
         [HttpGet]
         [ActionName("busket")]
+        [CustomAuthorize(RoleEnum.User)]
         public ActionResult GetOrderDetails()
         {
-            var order = _orderService.GetOrderByCustomerId(CustomId);
+            var order = _orderService.GetOrderByCustomerId(CurrentUser.Id);
 
             return View(_mapper.Map<Order, OrderViewModel>(order));
         }
 
         [ActionName("buy")]
         [HttpPost]
-        public ActionResult AddGameToOrder(string gamekey)
+        [CustomAuthorize(RoleEnum.User)]
+        public ActionResult AddGameToOrder(string gameKey)
         {
-            _orderService.AddGameToOrder(gamekey, CustomId);
+            _orderService.AddGameToCustomerOrder(gameKey, CurrentUser.Id);
+
             return RedirectToAction("busket");
         }
-
-        [ActionName("history")]
-        public ActionResult GetOrders()
+        
+        [HttpPost]
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult AddOneGameToOrder(OrderDetailsViewModel details)
         {
-            var orders = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(_orderService.GetOrdersHistory());
-            TempData["orders"] = orders;
-            return View(new FilterOrdersViewModel() { Orders = orders});
+            _orderService.AddGameToOrder(details.GameId, details.OrderId);
+
+            return RedirectToAction("edit", new { key = details.OrderId});
         }
 
         [HttpPost]
-        public ActionResult FilterOrders(FilterOrdersViewModel filterViewModel)
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult DeleteOneGameFromOrder(OrderDetailsViewModel details)
+        {
+            _orderService.DeleteGameFromOrder(details.GameId, details.OrderId);
+
+            return RedirectToAction("edit", new { key = details.OrderId });
+        }
+
+        [ActionName("history")]
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult GetHistoryOrders()
+        {
+            return View(GetOrders(_orderService.GetOrdersHistory()));
+        }
+
+        [ActionName("history")]
+        [HttpPost]
+        public ActionResult FilterHistoryOrders(FilterOrdersViewModel filterViewModel)
         {
             var filter = _mapper.Map<FilterOrdersViewModel, FilterOrders>(filterViewModel);
-            IList<OrderViewModel> orders;
+
+            return View(FilterOrders(_orderService.GetOrdersHistory(filter)));
+        }
+
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult GetCurrentOrders()
+        {
+            return View(GetOrders(_orderService.GetCurrentOrders()));
+        }
+
+        [ActionName("GetCurrentOrders")]
+        [HttpPost]
+        public ActionResult FilterCurrentOrders(FilterOrdersViewModel filterViewModel)
+        {
+            var filter = _mapper.Map<FilterOrdersViewModel, FilterOrders>(filterViewModel);
+
+            return View(FilterOrders(_orderService.GetCurrentOrders(filter)));
+        }
+
+        [HttpPost]
+        [CustomAuthorize(RoleEnum.User)]
+        public ActionResult Pay(string orderId)
+        {
+            var order = _orderService.First(x => x.Id == orderId);
+            if (order.OrderDetails == null || order.OrderDetails.Count == 0)
+            {
+                ModelState.AddModelError("", @"The busket have no games");
+            }
+
             if (ModelState.IsValid)
             {
-                orders =
-                    _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(_orderService.GetOrdersHistory(filter));
-                TempData["orders"] = orders;
+                order.Status = CompletionStatus.Paid;
+                _orderService.Update(order);
+
+                return RedirectToAction("games", "game");
+            }
+
+            return View("busket", _mapper.Map<Order, OrderViewModel>(order));
+        }
+
+        [ActionName("edit")]
+        [CustomAuthorize(RoleEnum.Manager)]
+        public ActionResult Edit(string key)
+        {
+            var order = _orderService.First(x => x.Id == key);
+
+            return View(_mapper.Map<Order, OrderViewModel>(order));
+        }
+
+        [ActionName("edit")]
+        [HttpPost]
+        public ActionResult Edit(OrderViewModel model)
+        {
+            var order = _mapper.Map<OrderViewModel, Order>(model);
+            _orderService.Update(order);
+
+            return RedirectToAction("GetCurrentOrders");
+        }
+
+        private FilterOrdersViewModel GetOrders(IEnumerable<Order> orders)
+        {
+            var ordersViewModel = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
+            TempData["orders"] = orders;
+
+            return new FilterOrdersViewModel() { Orders = ordersViewModel };
+        }
+
+        private FilterOrdersViewModel FilterOrders(IEnumerable<Order> orders)
+        {
+            IList<OrderViewModel> ordersViewModel;
+            if (ModelState.IsValid)
+            {
+                ordersViewModel =
+                    _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
+                TempData["orders"] = ordersViewModel;
             }
             else
             {
-                orders = TempData["orders"] as IList<OrderViewModel>;
-                TempData["orders"] = orders;
+                ordersViewModel = TempData["orders"] as IList<OrderViewModel>;
+                TempData["orders"] = ordersViewModel;
             }
-            return View("history", new FilterOrdersViewModel() { Orders = orders });
+
+            return new FilterOrdersViewModel() { Orders = ordersViewModel };
         }
     }
 }

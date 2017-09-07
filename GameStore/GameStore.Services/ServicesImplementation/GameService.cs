@@ -1,63 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using GameStore.DataAccess.Interfaces;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using GameStore.DataAccess.Decorators;
-using GameStore.DataAccess.Mongo.MongoEntities;
-using GameStore.DataAccess.MSSQL.Entities;
-using AutoMapper;
-using GameStore.DataAccess.Interfaces;
 using GameStore.Logging.Loggers;
 using GameStore.Services.ServicesImplementation.FilterImplementation.GameFilters;
 
 namespace GameStore.Services.ServicesImplementation
 {
-    public class GameService : BasicService<Game>, IGameService
+    public class GameService : BasicService<GameEntity, Game>, IGameService
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IGameDecoratorRepositoryRepository _gameRepository;
+        private readonly IGameRepository _gameRepository;
         private readonly IGenericDataRepository<GameInfoEntity, GameInfo> _gameInfoRepository;
-        private readonly IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre> _genreRepository;
-        private readonly IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher> _publisherRepository;
-        private readonly IMapper _mapper;
-        private readonly IMongoLogger<Game> _logger;
+        private readonly IGenericDataRepository<GenreEntity, Genre> _genreRepository;
+        private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
         private GamePipeline _gamePipeline;
-        public GameService(IUnitOfWork unitOfWork, IGameDecoratorRepositoryRepository gameRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository, IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre> genreRepository, IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher> publisherRepository,  IMapper mapper, IMongoLogger<Game> logger)
+
+        public GameService(IUnitOfWork unitOfWork, IGameRepository gameRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository, IGenericDataRepository<GenreEntity, Genre> genreRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IMongoLogger<Game> logger) : base(gameRepository, unitOfWork, logger)
         {
-            _unitOfWork = unitOfWork;
             _gameRepository = gameRepository;
             _gameInfoRepository = gameInfoRepository;
             _genreRepository = genreRepository;
             _publisherRepository = publisherRepository;
-            _mapper = mapper;
-            _logger = logger;
         }
-        public void Add(Game item)
+
+        public override void Add(Game item)
         {
             AssignIdIfEmpty(item);
             if (item.Genres == null)
             {
-                item.Genres = _genreRepository.LoadDomainEntities(item.NameGenres);
+                item.Genres = item.NameGenres != null ? _genreRepository.LoadDomainEntities(item.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
             }
 
-            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() {TypeName = x});
+            item.PlatformTypes = item.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });
 
             if (item.Publisher != null)
             {
                 item.Publisher = _publisherRepository.GetItemById(item.Publisher.Id);
             }
+
             _gameRepository.Add(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Insert, item);
+            UnitOfWork.Save();
+            Logger.Write(Operation.Insert, item);
+        }
+
+        public override void Update(Game game)
+        {
+            if (game.Genres == null)
+            {
+                game.Genres = game.NameGenres != null ? _genreRepository.LoadDomainEntities(game.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
+            }
+
+            game.PlatformTypes = game.NamePlatformTypes.Select(x => new PlatformType() { TypeName = x });
+
+            if (game.Publisher != null)
+            {
+                game.Publisher = _publisherRepository.GetItemById(game.Publisher.Id);
+            }
+
+            base.Update(game);
         }
 
         public Game GetItemByKey(string key)
         {
             var result = _gameRepository.First(x => x.Key == key);
+
             return result;
         }
 
@@ -100,27 +111,6 @@ namespace GameStore.Services.ServicesImplementation
             return filteredGames;
         }
 
-        public void Remove(string id)
-        {
-            _gameRepository.Remove(id);
-            _unitOfWork.Save();
-        }
-
-        public void Remove(Game item)
-        {
-            _gameRepository.Remove(item);
-            _unitOfWork.Save();
-            _logger.Write(Operation.Delete, item);
-        }
-
-        public void Update(Game item)
-        {
-            _gameRepository.Update(item);
-            _unitOfWork.Save();
-            var updatedGame = _gameRepository.GetItemById(item.Id);
-            _logger.Write(Operation.Update, item, updatedGame);
-        }
-
         public void AddViewToGame(string key)
         {
             var game = _gameRepository.First(x => x.Key == key);
@@ -135,25 +125,20 @@ namespace GameStore.Services.ServicesImplementation
                 gameInfo.CountOfViews++;
                 gameInfo.Game = null;
                 _gameInfoRepository.Update(gameInfo);
-                _unitOfWork.Save();
+                UnitOfWork.Save();
                 var updatedGame = _gameRepository.GetItemById(game.Id);
-                _logger.Write(Operation.Update, game, updatedGame);
+                Logger.Write(Operation.Update, game, updatedGame);
             }
         }
 
-        public PaginationGames Get(params Expression<Func<Game, object>>[] includeProperties)
+        public new PaginationGames Get(params Expression<Func<Game, object>>[] includeProperties)
         {
             var games = new PaginationGames()
             {
                 Count = _gameRepository.GetCountObject(x => true),
                 Games = _gameRepository.Get(x => true, x => x.Id).ToList()
             };
-            return games;
-        }
 
-        IEnumerable<Game> ICrudService<Game>.Get(params Expression<Func<Game, object>>[] includeProperties)
-        {
-            var games = _gameRepository.Get(x => true, x => x.Id).ToList();
             return games;
         }
     }

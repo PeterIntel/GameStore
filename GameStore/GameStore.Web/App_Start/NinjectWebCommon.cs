@@ -43,7 +43,7 @@ namespace GameStore.Web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var modules = new INinjectModule[] { new RepositoryNinjectModule(), new ServiceNinjectModule(), new LogNinjectModule(), new AutoMapperModule(), new DecoratorsNinjectModule()};
+            var modules = new INinjectModule[] { new RepositoryNinjectModule(), new UnitOfWorkNinjectModule(), new LogNinjectModule(), new AutoMapperModule()};
             var kernel = new StandardKernel(modules);
             try
             {
@@ -51,6 +51,7 @@ namespace GameStore.Web.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
                 return kernel;
             }
             catch

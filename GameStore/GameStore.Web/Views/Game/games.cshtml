@@ -1,0 +1,65 @@
+﻿@model GamesAndFilterViewModel
+
+@{
+    ViewBag.Title = "GetGames";
+}
+
+<h2>GetGames</h2>
+@using (Html.BeginForm("filter", "game", FormMethod.Get, new { id = "filterForm" }))
+{
+    @Html.Partial("_Filters", Model.Filter)
+    <br>
+    <input type="hidden" id="page" name="page"/>
+    @Html.DropDownList("size", new SelectList(Model.PagingInfo.QuantityItems.Select(x => new { Value = x, Text = x}), "Value", "Text"))
+    <br>
+    <input id="filterButton" type="button" value="Apply Filters">
+}
+<div class="games">
+    @foreach (var game in Model.Games)
+    {
+        @Html.DisplayFor(m => game)
+    }
+</div>
+
+<div id="pageLinks" class="links">
+    @Html.PageLinks(Model.PagingInfo)
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var formOriginalData = $("#filterForm").serialize();
+
+            $("#filterButton").on("click",
+                function () {
+                    if (formOriginalData !== $("#filterForm").serialize()) {
+
+                        disableInputsWithoutValue();
+
+                        $("#filterForm").submit();
+                    }
+                });
+            var pageLinks = document.getElementById("pageLinks").getElementsByTagName("button");
+
+            for (var i = 0; i < pageLinks.length; i++) {
+                pageLinks[i].value = i + 1;
+                pageLinks[i].addEventListener("click", function () {
+                    $("#page").val(this.value);
+                    disableInputsWithoutValue();
+                    $("#filterForm").submit();
+                });
+            }
+
+            function disableInputsWithoutValue() {
+                $('.isEmptyValue').each(function () {
+                    if (!$(this).val()) {
+                        $(this).prop('disabled', true);
+                    }
+                });
+            }
+
+        })
+    </script>
+}
+
+

@@ -1,52 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using AutoMapper;
-using GameStore.DataAccess.Decorators;
+using GameStore.DataAccess.Interfaces;
+using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
+using GameStore.Logging.Loggers;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
-using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.DataAccess.Mongo.MongoEntities;
-using GameStore.DataAccess.Interfaces;
-using GameStore.Logging.Loggers;
 
 namespace GameStore.Services.Tests.ServicesImplementation
 {
     [TestFixture]
     class GameServiceTests
     {
-        private GameService _sut;
-        private Mock<IUnitOfWork> _unitOfWork;
-        private Mock<IGameDecoratorRepositoryRepository> _gameRepository;
-        private Mock<IGenericDataRepository<GameInfoEntity, GameInfo>> _gameInfoRepository;
-        private Mock<IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>> _genreRepository;
-        private Mock<IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>> _publisherRepository;
-        private Mock<IMapper> _mapper;
-        private Mock<IMongoLogger<Game>> _logger;
         private static readonly string _gameKey = "game";
         private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
         private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
-
         private readonly FilterCriteria _filters = new FilterCriteria()
         {
             SortCriteria = SortCriteria.ByPriceAsc
         };
+        private GameService _sut;
+        private Mock<IUnitOfWork> _unitOfWork;
+        private Mock<IGameRepository> _gameRepository;
+        private Mock<IGenericDataRepository<GameInfoEntity, GameInfo>> _gameInfoRepository;
+        private Mock<IGenericDataRepository<GenreEntity, Genre>> _genreRepository;
+        private Mock<IGenericDataRepository<PublisherEntity, Publisher>> _publisherRepository;
+        private Mock<IMongoLogger<Game>> _logger;
 
 
         [SetUp]
         public void Setup()
         {
             _unitOfWork = new Mock<IUnitOfWork>();
-            _gameRepository = new Mock<IGameDecoratorRepositoryRepository>();
+            _gameRepository = new Mock<IGameRepository>();
             _gameInfoRepository = new Mock<IGenericDataRepository<GameInfoEntity, GameInfo>>();
-            _genreRepository = new Mock<IGenericDecoratorRepository<GenreEntity, MongoCategoryEntity, Genre>>();
-            _publisherRepository = new Mock<IGenericDecoratorRepository<PublisherEntity, MongoSupplierEntity, Publisher>>();
-            _mapper = new Mock<IMapper>();
+            _genreRepository = new Mock<IGenericDataRepository<GenreEntity, Genre>>();
+            _publisherRepository = new Mock<IGenericDataRepository<PublisherEntity, Publisher>>();
             _logger = new Mock<IMongoLogger<Game>>();
-            _sut = new GameService(_unitOfWork.Object, _gameRepository.Object, _gameInfoRepository.Object, _genreRepository.Object, _publisherRepository.Object, _mapper.Object, _logger.Object);
+            _sut = new GameService(_unitOfWork.Object, _gameRepository.Object, _gameInfoRepository.Object, _genreRepository.Object, _publisherRepository.Object, _logger.Object);
         }
 
         [Test]

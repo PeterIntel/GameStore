@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServicesImplementation\AccountService.cs" />
     <Compile Include="ServicesImplementation\BasicService.cs" />
     <Compile Include="ServicesImplementation\CommentService.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\BaseFilter.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\DateFromFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\DateToFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\OrderPipeLine.cs" />
+    <Compile Include="ServicesImplementation\FilterImplementation\OrderFilter\PeriodDateFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\Pipeline.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PlatformTypeFilter.cs" />
     <Compile Include="ServicesImplementation\FilterImplementation\GameFilters\PriceFromFilter.cs" />

@@ -1,0 +1,15 @@
+﻿@model UserViewModel
+
+@{
+    ViewBag.Title = "UserDetails";
+}
+
+<h2>UserDetails</h2>
+
+<div>
+    @Html.DisplayForModel()
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { key = Model.Login }) |
+    @Html.ActionLink("Back to Users", "GetUsers")
+</p>

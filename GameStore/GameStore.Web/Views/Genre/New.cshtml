@@ -1,0 +1,24 @@
+﻿@model GenreViewModel
+
+@{
+    ViewBag.Title = "New";
+}
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-12">
+            <h2>New</h2>
+
+            @Html.AntiForgeryToken()
+            <div class="validation-errors">
+                @Html.ValidationSummary(false)
+            </div>
+            @Html.EditorForModel()
+        </div>
+        <input type="submit" value="Add" />
+    }
+</div>
+
+
+

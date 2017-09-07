@@ -1,0 +1,26 @@
+﻿@model FilterOrdersViewModel
+@{
+    ViewBag.Title = "history";
+}
+@using (Html.BeginForm("GetCurrentOrders", "Order"))
+{
+    @Html.ValidationSummary(true)
+    @Html.LabelFor(x => x.DateFrom)
+    <br>
+    @Html.EditorFor(x => x.DateFrom)
+    <br>
+    @Html.LabelFor(x => x.DateTo)
+    <br>
+    @Html.EditorFor(x => x.DateTo)
+    <br>
+    <input type="submit" Value="Filter orders" />
+}
+<h2>history</h2>
+@foreach (var order in Model.Orders)
+{
+    @Html.Partial("order", order)
+    <div class="edit">
+        @Html.ActionLink("Edit", "edit", new { key = order.Id })
+    </div>
+    <hr/>
+}

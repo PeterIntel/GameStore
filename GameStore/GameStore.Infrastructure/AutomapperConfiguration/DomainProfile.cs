@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Runtime.Remoting.Channels;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
-using AutoMapper.XpressionMapper;
+using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.Domain.BusinessObjects;
-using GameStore.DataAccess.Mongo.MongoEntities;
 
 namespace GameStore.Infrastructure.AutomapperConfiguration
 {
@@ -29,26 +22,76 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformTypeEntity, PlatformType>()
                 .MaxDepth(1);
 
-            CreateMap<OrderEntity, Order>();
+            CreateMap<UserEntity, User>()
+                .MaxDepth(1);
+
+            CreateMap<RoleEntity, Role>()
+                .ForMember(dst => dst.RoleEnum, opt => opt.MapFrom(src => src.Role))
+                .MaxDepth(1);
+
+            CreateMap<OrderEntity, Order>()
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null));
+
             CreateMap<OrderDetailsEntity, OrderDetails>();
+
             CreateMap<GameInfoEntity, GameInfo>();
 
-            CreateMap<GameEntity, GameEntity>();
-            CreateMap<GameInfoEntity, GameInfoEntity>();
-            CreateMap<CommentEntity, CommentEntity>();
-            CreateMap<GenreEntity, GenreEntity>();
-            CreateMap<PlatformTypeEntity, PlatformTypeEntity>();
-            CreateMap<OrderEntity, OrderEntity>();
-            CreateMap<OrderDetailsEntity, OrderDetailsEntity>();
+            CreateMap<GameEntity, GameEntity>()
+                .ForMember(dst => dst.GameInfo, opt => opt.Ignore())
+                .ForMember(dst => dst.Genres, opt => opt.Ignore())
+                .ForMember(dst => dst.PlatformTypes, opt => opt.Ignore())
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
 
-            CreateMap<Game, GameEntity>().ForMember(dst => dst.Publisher, opt => opt.Ignore());
+            CreateMap<GameInfoEntity, GameInfoEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<CommentEntity, CommentEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<GenreEntity, GenreEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<PlatformTypeEntity, PlatformTypeEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<OrderEntity, OrderEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<OrderDetailsEntity, OrderDetailsEntity>()
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<UserEntity, UserEntity>()
+                .ForMember(dst => dst.Roles, opt => opt.Ignore())
+                .ForMember(dst => dst.IsSqlEntity, opt => opt.Ignore())
+                .ForAllMembers(opt => opt.Condition((src, dst, srcMember) => srcMember != null)); 
+
+            CreateMap<Game, GameEntity>()
+                .ForMember(dst => dst.Publisher, opt => opt.Ignore());
+
             CreateMap<Comment, CommentEntity>();
+
             CreateMap<Genre, GenreEntity>();
+
             CreateMap<PlatformType, PlatformTypeEntity>();
-           
+
+            CreateMap<User, UserEntity>()
+                .ForMember(dst => dst.Roles, opt => opt.Ignore());
+
+            CreateMap<Role, RoleEntity>();
+
             CreateMap<Publisher, PublisherEntity>().ReverseMap();
+
             CreateMap<Order, OrderEntity>();
+
             CreateMap<OrderDetails, OrderDetailsEntity>();
+
             CreateMap<GameInfo, GameInfoEntity>();
 
             CreateMap<MongoProductEntity, Game>()
@@ -103,7 +146,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<Genre, MongoCategoryEntity>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.CategoryName, opt => opt.MapFrom(src => src.Name));
-
         }
     }
 }
+

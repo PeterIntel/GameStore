@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.Mongo.MongoEntities;
 using GameStore.DataAccess.MSSQL.Entities;
@@ -11,7 +9,7 @@ using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.Decorators
 {
-    public class GameDecoratorRepository : GenericDecoratorRepository<GameEntity, MongoProductEntity, Game>, IGameDecoratorRepositoryRepository
+    public class GameDecoratorRepository : GenericDecoratorRepository<GameEntity, MongoProductEntity, Game>, IGameRepository
     {
         public GameDecoratorRepository(IGenericDataRepository<GameEntity, Game> sqlDataRepository, IReadOnlyGenericRepository<MongoProductEntity, Game> mongoDataRepository) : base(sqlDataRepository, mongoDataRepository)
         {

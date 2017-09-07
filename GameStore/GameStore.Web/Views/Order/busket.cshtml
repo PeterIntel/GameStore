@@ -5,6 +5,12 @@
 }
 
 <h2>busket</h2>
+@Html.ValidationSummary()
+@Html.Partial("order", Model)
 
-@Html.Partial("_Order", Model)
 
+@using (Html.BeginForm("pay", "order"))
+{
+    @Html.Hidden("orderId", Model.Id)
+    <input type="submit" value="Pay" />
+}

@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameStore.Domain.BusinessObjects;
-using AutoMapper;
-using System.Linq.Expressions;
 using System.Data.Entity;
-using System.Security.Cryptography.X509Certificates;
+using System.Linq;
+using System.Linq.Expressions;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using GameStore.DataAccess.Infrastructure;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.DataAccess.Infrastructure;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Repositories
 {
@@ -35,7 +32,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             {
                 var gameEntity = InitGame(game);
                 gameEntity.IsSqlEntity = true;
-                gameEntity.GameInfo = new GameInfoEntity() { IsSqlEntity = true, UploadDate = DateTime.UtcNow, CountOfViews = 0};
+                gameEntity.GameInfo = new GameInfoEntity() { IsSqlEntity = true, UploadDate = DateTime.UtcNow, CountOfViews = 0 };
                 _dbSet.Add(gameEntity);
             }
         }
@@ -47,11 +44,12 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (game.Genres != null)
             {
                 IEnumerable<GenreEntity> sqlGenres = _genreRepository.GetGenres(game.Genres);
-                IEnumerable<Genre> notSqlGenres = game.Genres.Except(_mapper.Map<IEnumerable<GenreEntity>, IEnumerable<Genre>>(sqlGenres), new IdComparer<Genre>());
+                IEnumerable<Genre> notSqlGenres = game.Genres.Except(_mapper.Map<IEnumerable<GenreEntity>, IEnumerable<Genre>>(sqlGenres), new IdDomainComparer<Genre>());
                 foreach (var genre in notSqlGenres)
                 {
                     _genreRepository.Add(genre);
                 }
+
                 _context.SaveChanges();
 
                 gameEntity.Genres = _genreRepository.GetGenres(game.Genres).ToList();
@@ -97,11 +95,77 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
 
             queryToEntity = ascending ? queryToEntity.OrderBy(sortEntity) : queryToEntity.OrderByDescending(sortEntity);
-
             queryToEntity = queryToEntity.Take((int)size * page);
 
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
+
             return result;
+        }
+
+        public override void Update(Game game)
+        {
+            if (game != null)
+            {
+                var entityGame = InitGame(game);
+                var existingGame = _dbSet.Include(x => x.Genres).Include(x => x.PlatformTypes).Include(x => x.Publisher).First(x => x.Id == entityGame.Id);
+                _mapper.Map(entityGame, existingGame);
+
+                var deletedGenres = existingGame.Genres.Except(entityGame.Genres, new IdEntityComparer<GenreEntity>());
+                var addedGenres = entityGame.Genres.Except(existingGame.Genres, new IdEntityComparer<GenreEntity>());
+                for (int i = 0; i < deletedGenres.Count(); i++)
+                {
+                    existingGame.Genres.Remove(deletedGenres.ElementAt(i));
+                }
+
+                foreach (var genreEntity in addedGenres)
+                {
+                    existingGame.Genres.Add(genreEntity);
+                }
+
+                var deletedPlatforms = existingGame.PlatformTypes.Except(entityGame.PlatformTypes, new IdEntityComparer<PlatformTypeEntity>());
+                var addedPlatforms = entityGame.PlatformTypes.Except(existingGame.PlatformTypes, new IdEntityComparer<PlatformTypeEntity>());
+                for (int i = 0; i < deletedPlatforms.Count(); i++)
+                {
+                    existingGame.PlatformTypes.Remove(deletedPlatforms.ElementAt(i));
+                }
+
+                foreach (var platformEntity in addedPlatforms)
+                {
+                    existingGame.PlatformTypes.Add(platformEntity);
+                }
+
+                if (_context.Entry(existingGame).State == EntityState.Detached)
+                {
+                    _context.Games.Attach(existingGame);
+                }
+
+                _context.Entry(existingGame).State = EntityState.Modified;
+            }
+        }
+
+        public override Game First(Expression<Func<Game, bool>> filter)
+        {
+            var filterEntity = _mapper.Map<Expression<Func<Game, bool>>, Expression<Func<GameEntity, bool>>>(filter);
+            if (filter != null)
+            {
+                IQueryable<GameEntity> queryToEntities = _dbSet.Where(filterEntity);
+                return queryToEntities.ProjectTo<Game>(_mapper.ConfigurationProvider).FirstOrDefault();
+            }
+
+            return null;
+        }
+
+        public override Game GetItemById(string id)
+        {
+            GameEntity entity = _dbSet.Find(id);
+
+            if (entity != null)
+            {
+                Game domain = _mapper.Map<GameEntity, Game>(entity);
+                return domain;
+            }
+
+            return null;
         }
     }
 }

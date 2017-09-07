@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Serializers;
-using MongoDB.Bson.IO;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 
 namespace GameStore.DataAccess.Mongo.CustomMongoSerializers
 {
@@ -25,6 +18,7 @@ namespace GameStore.DataAccess.Mongo.CustomMongoSerializers
                     return context.Reader.ReadInt32().ToString();
                 default:
                     var message = $"Cannot deserialize BsonInt32 from BsonType {bsonType}.";
+
                     throw new BsonSerializationException(message);
             }
         }

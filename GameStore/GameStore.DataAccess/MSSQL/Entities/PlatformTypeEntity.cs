@@ -9,6 +9,7 @@ namespace GameStore.DataAccess.MSSQL.Entities
         [Index(IsUnique = true)]
         [StringLength(450)]
         public string TypeName { set; get; }
+
         public virtual IList<GameEntity> Games { set; get; }
     }
 }

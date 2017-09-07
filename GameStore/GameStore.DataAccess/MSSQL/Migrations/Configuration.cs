@@ -1,4 +1,5 @@
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Migrations
 {
@@ -21,24 +22,92 @@ namespace GameStore.DataAccess.MSSQL.Migrations
             Random r = new Random();
 
             context.PlatformTypes.AddOrUpdate(
-                    new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(), TypeName = "Android", IsDeleted = false, IsSqlEntity = true},
-                    new PlatformTypeEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(), TypeName = "iOS", IsDeleted = false, IsSqlEntity = true }
-                );
+                new PlatformTypeEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(),
+                    TypeName = "Android",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new PlatformTypeEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(),
+                    TypeName = "iOS",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                }
+            );
 
             context.SaveChanges();
 
             context.Genres.AddOrUpdate(
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(), ParentGenreId = null, Name = "Strategy", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(), ParentGenreId = null, Name = "RPG", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9943").ToString(), ParentGenreId = null, Name = "Sports", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9944").ToString(), ParentGenreId = null, Name = "Races", IsDeleted = false, IsSqlEntity = true });
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9941").ToString(),
+                    ParentGenreId = null,
+                    Name = "Strategy",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9942").ToString(),
+                    ParentGenreId = null,
+                    Name = "RPG",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9943").ToString(),
+                    ParentGenreId = null,
+                    Name = "Sports",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9944").ToString(),
+                    ParentGenreId = null,
+                    Name = "Races",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                });
             context.SaveChanges();
             context.Genres.AddOrUpdate(
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9945").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id, Name = "RTS", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9946").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "Sports").Id, Name = "TBS", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9947").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id, Name = "rally", IsDeleted = false, IsSqlEntity = true },
-                new GenreEntity() { Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9948").ToString(), ParentGenreId = context.Genres.First(x => x.Name == "Races").Id, Name = "arcade", IsDeleted = false, IsSqlEntity = true }
-                );
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9945").ToString(),
+                    ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id,
+                    Name = "RTS",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9946").ToString(),
+                    ParentGenreId = context.Genres.First(x => x.Name == "Sports").Id,
+                    Name = "TBS",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9947").ToString(),
+                    ParentGenreId = context.Genres.First(x => x.Name == "RPG").Id,
+                    Name = "rally",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9948").ToString(),
+                    ParentGenreId = context.Genres.First(x => x.Name == "Races").Id,
+                    Name = "arcade",
+                    IsDeleted = false,
+                    IsSqlEntity = true
+                }
+            );
 
             context.SaveChanges();
 
@@ -70,8 +139,16 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Key = "AgeofEmpires",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "RTS"), context.Genres.First(x => x.Name == "Sports") },
+                    PlatformTypes = new List<PlatformTypeEntity>()
+                    {
+                        context.PlatformTypes.First(x => x.TypeName == "Android"),
+                        context.PlatformTypes.First(x => x.TypeName == "iOS")
+                    },
+                    Genres = new List<GenreEntity>
+                    {
+                        context.Genres.First(x => x.Name == "RTS"),
+                        context.Genres.First(x => x.Name == "Sports")
+                    },
                     Publisher = context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
                     Price = 100,
                     IsSqlEntity = true
@@ -83,8 +160,16 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Key = "CompanyofHeros",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "RTS"), context.Genres.First(x => x.Name == "Races") },
+                    PlatformTypes = new List<PlatformTypeEntity>()
+                    {
+                        context.PlatformTypes.First(x => x.TypeName == "Android"),
+                        context.PlatformTypes.First(x => x.TypeName == "iOS")
+                    },
+                    Genres = new List<GenreEntity>
+                    {
+                        context.Genres.First(x => x.Name == "RTS"),
+                        context.Genres.First(x => x.Name == "Races")
+                    },
                     Price = 120,
                     Publisher = context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
                     PublishedDate = new DateTime(2017, 07, 22),
@@ -97,8 +182,16 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Key = "TotalWar",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "Strategy"), context.Genres.First(x => x.Name == "RTS") },
+                    PlatformTypes = new List<PlatformTypeEntity>()
+                    {
+                        context.PlatformTypes.First(x => x.TypeName == "Android"),
+                        context.PlatformTypes.First(x => x.TypeName == "iOS")
+                    },
+                    Genres = new List<GenreEntity>
+                    {
+                        context.Genres.First(x => x.Name == "Strategy"),
+                        context.Genres.First(x => x.Name == "RTS")
+                    },
                     Price = 400,
                     Publisher = context.Publishers.First(x => x.CompanyName == "Nale"),
                     PublishedDate = new DateTime(2016, 07, 22),
@@ -111,8 +204,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Key = "FIFA17",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android") },
-                    Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "Strategy"), context.Genres.First(x => x.Name == "RTS") },
+                    PlatformTypes =
+                        new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android") },
+                    Genres = new List<GenreEntity>
+                    {
+                        context.Genres.First(x => x.Name == "Strategy"),
+                        context.Genres.First(x => x.Name == "RTS")
+                    },
                     Price = 330,
                     Publisher = context.Publishers.First(x => x.CompanyName == "Nale"),
                     PublishedDate = new DateTime(2017, 06, 28),
@@ -125,7 +223,11 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Key = "Superracing",
                     Description = "bla-bla-bla",
                     IsDeleted = false,
-                    PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.First(x => x.TypeName == "Android"), context.PlatformTypes.First(x => x.TypeName == "iOS") },
+                    PlatformTypes = new List<PlatformTypeEntity>()
+                    {
+                        context.PlatformTypes.First(x => x.TypeName == "Android"),
+                        context.PlatformTypes.First(x => x.TypeName == "iOS")
+                    },
                     Genres = new List<GenreEntity> { context.Genres.First(x => x.Name == "Strategy") },
                     Price = 110,
                     Publisher = context.Publishers.First(x => x.CompanyName == "Nale"),
@@ -133,7 +235,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     IsSqlEntity = true
 
                 }
-                );
+            );
             context.SaveChanges();
 
             for (int i = 6; i < 100; i++)
@@ -145,15 +247,25 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                         Key = "Game" + i,
                         Description = "Game description",
                         IsDeleted = false,
-                        PlatformTypes = new List<PlatformTypeEntity>() { context.PlatformTypes.AsEnumerable().First(x => x.TypeName == "Android"), context.PlatformTypes.AsEnumerable().First(x => x.TypeName == "iOS") },
-                        Genres = new List<GenreEntity> { context.Genres.AsEnumerable().First(x => x.Name == "Strategy"), context.Genres.AsEnumerable().First(x => x.Name == "rally") },
+                        PlatformTypes = new List<PlatformTypeEntity>()
+                        {
+                            context.PlatformTypes.AsEnumerable().First(x => x.TypeName == "Android"),
+                            context.PlatformTypes.AsEnumerable().First(x => x.TypeName == "iOS")
+                        },
+                        Genres = new List<GenreEntity>
+                        {
+                            context.Genres.AsEnumerable().First(x => x.Name == "Strategy"),
+                            context.Genres.AsEnumerable().First(x => x.Name == "rally")
+                        },
                         Price = 110 + i,
-                        Publisher = r.Next(1, 3) == 1 ? context.Publishers.First(x => x.CompanyName == "Nale") : context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
+                        Publisher = r.Next(1, 3) == 1
+                            ? context.Publishers.First(x => x.CompanyName == "Nale")
+                            : context.Publishers.First(x => x.CompanyName == "MicrosoftStudio"),
                         PublishedDate = new DateTime(2017, r.Next(1, 12), 21),
                         UnitsInStock = (short)r.Next(1, 15),
                         IsSqlEntity = true
                     }
-                    );
+                );
                 context.SaveChanges();
             }
             context.SaveChanges();
@@ -167,7 +279,8 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Body = "bla-bla-bla",
                     ParentCommentId = null,
                     IsDeleted = false,
-                    IsSqlEntity = true
+                    IsSqlEntity = true,
+                    IsDisabled = false
                 });
             context.SaveChanges();
             context.Comments.AddOrUpdate(
@@ -179,7 +292,8 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Body = "bla-bla-bla",
                     ParentCommentId = context.Comments.First().Id,
                     IsDeleted = false,
-                    IsSqlEntity = true
+                    IsSqlEntity = true,
+                    IsDisabled = false
                 },
                 new CommentEntity()
                 {
@@ -189,9 +303,10 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     Body = "bla-bla-bla",
                     ParentCommentId = context.Comments.First().Id,
                     IsDeleted = false,
-                    IsSqlEntity = true
+                    IsSqlEntity = true,
+                    IsDisabled = false
                 }
-                );
+            );
 
             context.GamesInfo.AddOrUpdate(
                 new GameInfoEntity()
@@ -248,7 +363,128 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     }
                 );
             }
+
+            context.Roles.AddOrUpdate(
+                new RoleEntity()
+                {
+                    Id = "1",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.User
+                },
+                new RoleEntity()
+                {
+                    Id = "2",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Moderator
+                },
+                new RoleEntity()
+                {
+                    Id = "3",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Manager
+                },
+                new RoleEntity()
+                {
+                    Id = "5",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Publisher
+                },
+                new RoleEntity()
+                {
+                    Id = "4",
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Role = RoleEnum.Administrator
+                });
+
+
             context.SaveChanges();
+
+            context.Users.AddOrUpdate(
+                new UserEntity()
+                {
+                    Id = "1",
+                    FirstName = "Ivan",
+                    LastName = "Ivanow",
+                    Login = "admin",
+                    Email = "admin@ukr.net",
+                    Password = "customer1",
+                    BirthDay = DateTime.UtcNow.AddYears(20),
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Roles = new List<RoleEntity>()
+                    {
+                        context.Roles.First(x => x.Id == "4")
+                    }
+                },
+                new UserEntity()
+                {
+                    Id = "2",
+                    FirstName = "Ivan",
+                    LastName = "Ivanow",
+                    Login = "moderator",
+                    Email = "moderator@ukr.net",
+                    Password = "customer1",
+                    BirthDay = DateTime.UtcNow.AddYears(20),
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Roles = new List<RoleEntity>()
+                    {
+                        context.Roles.First(x => x.Id == "2")
+                    }
+                },
+                new UserEntity()
+                {
+                    Id = "3",
+                    FirstName = "Ivan",
+                    LastName = "Ivanow",
+                    Login = "user",
+                    Email = "user@ukr.net",
+                    Password = "customer1",
+                    BirthDay = DateTime.UtcNow.AddYears(20),
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Roles = new List<RoleEntity>()
+                    {
+                        context.Roles.First(x => x.Id == "1")
+                    }
+                },
+                new UserEntity()
+                {
+                    Id = "4",
+                    FirstName = "Ivan",
+                    LastName = "Ivanow",
+                    Login = "manager",
+                    Email = "manager@ukr.net",
+                    Password = "customer1",
+                    BirthDay = DateTime.UtcNow.AddYears(20),
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Roles = new List<RoleEntity>()
+                    {
+                        context.Roles.First(x => x.Id == "3")
+                    }
+                },
+                new UserEntity()
+                {
+                    Id = "5",
+                    FirstName = "Ivan",
+                    LastName = "Ivanow",
+                    Login = "publisher",
+                    Email = "publisher@ukr.net",
+                    Password = "customer1",
+                    BirthDay = DateTime.UtcNow.AddYears(20),
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Roles = new List<RoleEntity>()
+                    {
+                        context.Roles.First(x => x.Id == "5")
+                    }
+                });
 
             context.Orders.AddOrUpdate(
                 new OrderEntity()

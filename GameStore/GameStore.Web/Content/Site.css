@@ -44,9 +44,10 @@ label {
     clear: both;
 }
 
-.header {
+.mynavbar {
     width: 70%;
     margin: 0 auto;
+    text-align: center;
 }   
 
 .header div {
@@ -67,4 +68,26 @@ label {
     content: "";
     display: table;
     clear: both;
+}
+
+.mynavbar .quantityGames{
+    display:inline-block;
+}
+
+.name{
+    color: #999;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.form-group label {
+    margin-top: 5px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.edit {
+    text-align: center;
 }

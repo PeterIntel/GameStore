@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Globalization;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -26,10 +25,12 @@ namespace GameStore.DataAccess.Mongo.CustomMongoSerializers
                         {
                             throw new BsonSerializationException($"Cannot deserialize BsonDateTime from BsonType {bsonType}.");
                         }
+
                         return output;
                     }
 
                 default:
+
                     throw new BsonSerializationException($"Cannot deserialize BsonDateTime from BsonType {bsonType}.");
             }
         }
@@ -44,6 +45,7 @@ namespace GameStore.DataAccess.Mongo.CustomMongoSerializers
             {
                 return output;
             }
+
             return null;
         }
 

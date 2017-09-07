@@ -1,0 +1,67 @@
+﻿@model GameViewModel
+
+<div class="game">
+    @Html.LabelFor(m => m.Key)
+    <br>
+    @Html.ActionLink(Model.Key, "GetGameDetails", new { key = Model.Key })
+
+    <br>
+
+    @Html.LabelFor(m => m.Description)
+    <br>
+    @Html.DisplayFor(m => m.Description)
+
+    <br>
+
+    @Html.LabelFor(m => m.Price)
+    <br>
+    @Html.DisplayFor(m => m.Price)
+
+    <br>
+    @Html.LabelFor(m => m.UnitsInStock)
+    <br>
+    @Html.DisplayFor(m => m.UnitsInStock)
+
+    <br>
+    @Html.LabelFor(m => m.Discontinued)
+    <br>
+    @Html.DisplayFor(m => m.Discontinued)
+    
+    <br>
+    @Html.LabelFor(m => m.PublishedDate)
+    <br>
+    @Html.DisplayFor(m => m.PublishedDate)
+    
+    @Html.DisplayFor(m => Model.GameInfo)
+    
+    <br>
+    @Html.LabelFor(m => m.SelectedPublisher)
+
+    @if (Model.SelectedPublisher != null)
+    {
+        <br>
+        @Html.ActionLink(Model.SelectedPublisher, "details", "publisher", new {companyName = Model.SelectedPublisher}, null)
+    }
+    else
+    {
+        <br />
+        <span>unknown</span>
+    }
+    <br>
+    @Html.LabelFor(m => m.Genres)
+    <br>
+    @foreach (var genre in Model.Genres)
+    {
+        @Html.DisplayFor(m => genre.Name)
+        <br>
+    }
+
+    @Html.LabelFor(m => m.PlatformTypes)
+    <br>
+    @foreach (var platform in Model.PlatformTypes)
+    {
+        @Html.DisplayFor(m => platform.TypeName)
+        <br>
+    }
+
+</div>

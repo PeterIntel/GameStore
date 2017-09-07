@@ -4,7 +4,7 @@
     ViewBag.Title = "history";
 }
 
-@using (Html.BeginForm("FilterOrders", "Order"))
+@using (Html.BeginForm("history", "Order"))
 {
     @Html.ValidationSummary(true)
     @Html.LabelFor(x => x.DateFrom)
@@ -22,5 +22,5 @@
 
 @foreach (var order in Model.Orders)
 {
-    @Html.Partial("_Order", order)
+    @Html.Partial("Order", order)
 }

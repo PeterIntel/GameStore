@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
+﻿using AutoMapper;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Web.ViewModels;
 
@@ -12,7 +8,7 @@ namespace GameStore.Web.Infrastructure.AutoMapperConfiguration
     {
         public Publisher Resolve(GameViewModel source, Game destination, Publisher destMember, ResolutionContext context)
         {
-            return new Publisher() { Id = source.SelectedPublisher};
+            return source.SelectedPublisher != null ? new Publisher() { Id = source.SelectedPublisher} : null;
         }
     }
 }

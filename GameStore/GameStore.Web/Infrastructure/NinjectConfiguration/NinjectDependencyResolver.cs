@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GameStore.Authorization;
+using GameStore.Authorization.Implementation;
+using GameStore.Authorization.Interfaces;
 using Ninject;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Services.ServicesImplementation;
@@ -15,7 +18,7 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {
-        private IKernel _kernel;
+        private readonly IKernel _kernel;
         public NinjectDependencyResolver(IKernel kernel)
         {
             _kernel = kernel;
@@ -41,6 +44,8 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
             _kernel.Bind<IPlatformTypeService>().To<PlatformTypeService>();
             _kernel.Bind<IPublisherService>().To<PublisherService>();
             _kernel.Bind<IOrderService>().To<OrderService>();
+            _kernel.Bind<IAccountService>().To<AccountService>();
+            _kernel.Bind<IAuthentication>().To<CustomAuthentication>().InRequestScope();
         }
     }
 }

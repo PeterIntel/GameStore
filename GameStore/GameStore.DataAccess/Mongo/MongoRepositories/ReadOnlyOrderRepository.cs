@@ -22,6 +22,7 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
             IQueryable<MongoOrderEntity> queryToEntity = Collection.AsQueryable();
             queryToEntity = queryToEntity.GetNestedEntities();
             var result = queryToEntity.ProjectTo<Order>(Mapper.ConfigurationProvider);
+
             return result;
         }
 

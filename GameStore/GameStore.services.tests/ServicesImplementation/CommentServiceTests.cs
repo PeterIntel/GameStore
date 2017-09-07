@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
-using GameStore.DataAccess.MSSQL.Repositories;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Logging.Loggers;
@@ -17,12 +16,12 @@ namespace GameStore.Services.Tests.ServicesImplementation
     [TestFixture]
     class CommentServiceTests
     {
+        private static int CommentId = 1;
         private CommentService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IGenericDataRepository<CommentEntity, Comment>> _commentRepository;
         private Mock<IMongoLogger<Comment>> _logger;
         private Comment _commentStub = new Comment();
-        private static int CommentId = 1;
         private IList<Comment> _comments = new List<Comment>()
         {
             new Comment()

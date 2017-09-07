@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using GameStore.Domain.ServicesInterfaces;
-using GameStore.Domain.BusinessObjects;
-using System.Web.UI;
 using AutoMapper;
+using GameStore.Domain.BusinessObjects;
+using GameStore.Domain.ServicesInterfaces;
+using GameStore.Web.Attributes;
 using GameStore.Web.ViewModels;
 
 namespace GameStore.Web.Controllers
@@ -16,13 +14,14 @@ namespace GameStore.Web.Controllers
         private readonly ICommentService _commentService;
         private readonly IGameService _gameService;
         private readonly IMapper _mapper;
+
         public CommentController(ICommentService commentService, IGameService gameService, IMapper mapper)
         {
             _commentService = commentService;
             _gameService = gameService;
             _mapper = mapper;
         }
-        // GET: Comment
+
         [HttpPost]
         [ActionName("newcomment")]
         [ValidateAntiForgeryToken]
@@ -43,6 +42,7 @@ namespace GameStore.Web.Controllers
             }
 
             commentsViewModel.Comments = InitComments(gamekey).Comments;
+
             return PartialView("_CommentsPartialView", commentsViewModel);
         }
 
@@ -53,10 +53,12 @@ namespace GameStore.Web.Controllers
             if (gameKey != null)
             {
                 var game = _gameService.GetItemByKey(gameKey);
+                // If user come with direct link to game's comments then copy game to the sql databse if necessary
                 if (game.IsSqlEntity == false)
                 {
                     _gameService.Add(game);
                 }
+
                 return View(InitComments(gameKey));
             }
 
@@ -66,17 +68,31 @@ namespace GameStore.Web.Controllers
         private CommentsViewModel InitComments(string gameKey)
         {
             var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
+            var game = _gameService.GetItemByKey(gameKey);
 
             var commentsViewModel = new CommentsViewModel()
             {
                 Comments = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments),
                 Comment = new CommentViewModel()
                 {
-                    GameId = _gameService.GetItemByKey(gameKey).Id,
+                    GameId = game.Id,
+                    IsDeletedGame = game.IsDeleted,
                     GameKey = gameKey
                 }
             };
+
             return commentsViewModel;
+        }
+
+        [HttpGet]
+        [CustomAuthorize(RoleEnum.Moderator)]
+        public ActionResult ChangeCommentState(string key)
+        {
+            var comment = _commentService.First(x => x.Id == key);
+            comment.IsDisabled = !comment.IsDisabled;
+            _commentService.Update(comment);
+
+            return RedirectToAction("comments", new {gameKey = comment.Game.Key});
         }
     }
 }

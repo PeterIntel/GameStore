@@ -1,0 +1,42 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="col-md-7">
+        <h2>Log in</h2>
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+            {
+            @Html.AntiForgeryToken()
+            <div class="validation-errors">
+                @Html.ValidationSummary(false)
+            </div>
+            <fieldset>
+                <ul>
+                    <li>
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </li>
+                    <li>
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox-label" })
+                    </li>
+                </ul>
+                <input type="submit" value="Log in" />
+            </fieldset>
+            <p>
+                @Html.ActionLink("Register", "RegisterUser") if you don't have an account.
+            </p>
+        }
+    </div>
+</div>
+
+
+
