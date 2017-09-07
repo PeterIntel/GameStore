@@ -45,7 +45,7 @@ namespace GameStore.Web
             routes.MapRoute(
                 name: "gameComments",
                 url: "{lang}/game/{gamekey}/comments",
-                defaults: new { controller = "comment", action="comments"},
+                defaults: new { controller = "comment", action = "comments" },
                 constraints: new { lang = LangConstraint });
 
             routes.MapRoute(
