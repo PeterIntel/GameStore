@@ -6,6 +6,7 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
@@ -15,30 +16,35 @@ namespace GameStore.Services.Tests.ServicesImplementation
     [TestFixture]
     class OrderServiceTests
     {
+        private static string _gameKeyFirst;
+        private static string _customerId = "1";
+        private static Game _game;
+        private static OrderDetails _orderDetails;
         private OrderService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IDecoratorOrderRepository> _orderRepository;
         private Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>> _orderDetailsRepository;
         private Mock<IGameRepository> _gameRepository;
         private Mock<IMongoLogger<Order>> _logger;
-        private static string _gameKeyFirst = "game";
-        private static string _gameKeySecond = "game2";
-        private static string _customerId = "1";
-        private static Game _game = new Game() { Id = "1", Key = "game" , Price = 120};
-        private static OrderDetails _orderDetails = new OrderDetails() {Id = "1", Quantity = 2, OrderId = "1", Game = _game, Price = _game.Price * 2};
-        private  Order _order = new Order() {Id = "1", OrderDetails = new List<OrderDetails>() {_orderDetails}};
+        private Mock<ILocalizationProvider<Order>> _localizationProvider;
+        private Order _order;
 
         [SetUp]
         public void Setup()
         {
+            _game = new Game() { Id = "1", Key = "game", Price = 120 };
+            _orderDetails = new OrderDetails() { Id = "1", Quantity = 2, OrderId = "1", Game = _game, Price = _game.Price * 2 };
+            _order = new Order() { Id = "1", OrderDetails = new List<OrderDetails>() { _orderDetails } };
+            _gameKeyFirst = "game";
             _unitOfWork = new Mock<IUnitOfWork>();
             _orderRepository = new Mock<IDecoratorOrderRepository>();
             _orderDetailsRepository = new Mock<IGenericDataRepository<OrderDetailsEntity, OrderDetails>>();
             _gameRepository = new Mock<IGameRepository>();
             _logger = new Mock<IMongoLogger<Order>>();
-            _sut = new OrderService(_unitOfWork.Object, _orderRepository.Object, _gameRepository.Object, _orderDetailsRepository.Object, _logger.Object);
+            _localizationProvider = new Mock<ILocalizationProvider<Order>>();
+            _sut = new OrderService(_unitOfWork.Object, _orderRepository.Object, _gameRepository.Object, _orderDetailsRepository.Object, _logger.Object, 
+                _localizationProvider.Object);
             _gameRepository.Setup(m => m.First(It.IsAny<Expression<Func<Game, bool>>>())).Returns(_game);
-
         }
 
         [Test]
@@ -51,7 +57,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         public void AddGameToOrders_AddGameToExitingGameDetailsInOrder_IncreaseQuantity()
         {
             _orderRepository.Setup(m => m.First(It.IsAny<Expression<Func<Order, bool>>>())).Returns(_order);
-            
+
             _sut.AddGameToOrder("game", _customerId);
 
             Assert.AreEqual(3, _orderDetails.Quantity);
@@ -60,9 +66,9 @@ namespace GameStore.Services.Tests.ServicesImplementation
         [Test]
         public void AddGameToOrder_AddGameToExitingGameDetailsInOrder_IncreaseCost()
         {
-            _orderRepository.Setup(m => m.First(It.IsAny<Expression<Func<Order, bool>>>())).Returns(_order );
+            _orderRepository.Setup(m => m.First(It.IsAny<Expression<Func<Order, bool>>>())).Returns(_order);
 
-            _sut.AddGameToOrder("game", _customerId);
+            _sut.AddGameToOrder(It.IsAny<string>(), It.IsAny<string>());
 
             Assert.AreEqual(120, _orderDetails.Price);
         }
@@ -84,7 +90,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _orderRepository.Setup(m => m.Get(It.IsAny<Expression<Func<Order, bool>>>())).Throws(new ArgumentException());
 
-            Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<string>()));
+            Assert.Catch(() => _sut.GetOrderByCustomerId(It.IsAny<string>(), It.IsAny<string>()));
         }
     }
 }

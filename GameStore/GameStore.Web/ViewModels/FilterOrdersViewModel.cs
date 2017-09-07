@@ -9,8 +9,10 @@ namespace GameStore.Web.ViewModels
     {
         [DataType(DataType.Date)]
         public DateTime? DateFrom { set; get; }
+
         [DataType(DataType.Date)]
         public DateTime? DateTo { set; get; }
+
         public IEnumerable<OrderViewModel> Orders { set; get; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

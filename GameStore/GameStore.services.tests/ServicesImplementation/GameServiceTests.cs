@@ -6,6 +6,7 @@ using GameStore.DataAccess.MSSQL.Entities;
 using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 using GameStore.Services.ServicesImplementation;
 using Moq;
 using NUnit.Framework;
@@ -15,21 +16,22 @@ namespace GameStore.Services.Tests.ServicesImplementation
     [TestFixture]
     class GameServiceTests
     {
+        private static readonly string _gameKey = "game";
+        private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
+        private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
+        private readonly FilterCriteria _filters = new FilterCriteria()
+        {
+            SortCriteria = SortCriteria.ByPriceAsc
+        };
         private GameService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IGameRepository> _gameRepository;
         private Mock<IGenericDataRepository<GameInfoEntity, GameInfo>> _gameInfoRepository;
         private Mock<IGenericDataRepository<GenreEntity, Genre>> _genreRepository;
         private Mock<IGenericDataRepository<PublisherEntity, Publisher>> _publisherRepository;
+        private Mock<IGenericDataRepository<PlatformTypeEntity, PlatformType>> _platformRepository;
         private Mock<IMongoLogger<Game>> _logger;
-        private static readonly string _gameKey = "game";
-        private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
-        private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
-
-        private readonly FilterCriteria _filters = new FilterCriteria()
-        {
-            SortCriteria = SortCriteria.ByPriceAsc
-        };
+        private Mock<ILocalizationProvider<Game>> _localizationProvider;
 
 
         [SetUp]
@@ -41,7 +43,9 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _genreRepository = new Mock<IGenericDataRepository<GenreEntity, Genre>>();
             _publisherRepository = new Mock<IGenericDataRepository<PublisherEntity, Publisher>>();
             _logger = new Mock<IMongoLogger<Game>>();
-            _sut = new GameService(_unitOfWork.Object, _gameRepository.Object, _gameInfoRepository.Object, _genreRepository.Object, _publisherRepository.Object, _logger.Object);
+            _localizationProvider = new Mock<ILocalizationProvider<Game>>();
+            _platformRepository = new Mock<IGenericDataRepository<PlatformTypeEntity, PlatformType>>();
+            _sut = new GameService(_unitOfWork.Object, _gameRepository.Object, _gameInfoRepository.Object, _genreRepository.Object, _publisherRepository.Object, _logger.Object, _localizationProvider.Object, _platformRepository.Object);
         }
 
         [Test]
@@ -49,7 +53,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _gameRepository.Setup(p => p.Add(It.IsAny<Game>()));
 
-            _sut.Add(new Game());
+            _sut.Add(new Game(), It.IsAny<string>());
 
             _gameRepository.Verify(p => p.Add(It.IsAny<Game>()), Times.Once);
         }
@@ -61,7 +65,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
                 .Returns(() => new List<Game>());
             _gameRepository.Setup(g => g.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>())).Returns(() => It.IsAny<int>());
 
-            _sut.Get(x => x.Genres);
+            _sut.Get(It.IsAny<string>(), x => x.Genres);
 
             _gameRepository.Verify(u => u.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()), Times.Once);
         }
@@ -72,7 +76,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameRepository.Setup(g => g.First(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(It.IsAny<Game>());
 
-            _sut.GetItemByKey("game");
+            _sut.GetItemByKey("game", It.IsAny<string>());
 
             _gameRepository.Verify(u => u.First(It.IsAny<Expression<Func<Game, bool>>>()), Times.Once);
         }
@@ -83,7 +87,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameRepository.Setup(g => g.Get(It.IsAny<Expression<Func<Game, bool>>>()))
                 .Returns(() => It.IsAny<IList<Game>>());
 
-            var result = _sut.GetItemByKey("game");
+            var result = _sut.GetItemByKey("game", It.IsAny<string>());
 
             Assert.AreEqual(null, result);
         }
@@ -113,7 +117,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
         {
             _gameRepository.Setup(g => g.Update(It.IsAny<Game>()));
 
-            _sut.Update(_gameStub);
+            _sut.Update(_gameStub, It.IsAny<string>());
 
             _gameRepository.Verify(u => u.Update(It.IsAny<Game>()), Times.Once);
         }
@@ -125,7 +129,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
-            _sut.AddViewToGame(_gameKey);
+            _sut.AddViewToGame(_gameKey, It.IsAny<string>());
 
             _gameRepository.Verify(x => x.First(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(2));
         }
@@ -137,7 +141,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameInfoRepository.Setup(m => m.GetItemById(_gameStub.Id)).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
-            _sut.AddViewToGame(It.IsAny<string>());
+            _sut.AddViewToGame(It.IsAny<string>(), It.IsAny<string>());
 
             _gameInfoRepository.Verify(x => x.GetItemById(_gameStub.Id), Times.Once);
         }
@@ -149,7 +153,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(_gameInfoStub));
 
-            _sut.AddViewToGame(It.IsAny<string>());
+            _sut.AddViewToGame(It.IsAny<string>(), It.IsAny<string>());
 
             _gameInfoRepository.Verify(x => x.Update(_gameInfoStub), Times.Once);
         }
@@ -161,7 +165,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameInfoRepository.Setup(m => m.GetItemById(It.IsAny<string>())).Returns(_gameInfoStub);
             _gameInfoRepository.Setup(m => m.Update(It.IsAny<GameInfo>()));
 
-            _sut.AddViewToGame(It.IsAny<string>());
+            _sut.AddViewToGame(It.IsAny<string>(), It.IsAny<string>());
 
             Assert.AreEqual(1, _gameInfoStub.CountOfViews);
         }
@@ -175,7 +179,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
             _gameRepository.Setup(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(),
                 y => y.Price, It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>())).Returns(new List<Game>());
 
-            _sut.FilterGames(_filters, 1, "10");
+            _sut.FilterGames(_filters, 1, "10", It.IsAny<string>());
 
             _gameRepository.Verify(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(), y => y.Price, It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }
@@ -188,7 +192,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
                 .Returns(It.IsAny<int>());
             _gameRepository.Setup(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>()));
 
-            _sut.FilterGames(_filters, 1, "10");
+            _sut.FilterGames(_filters, 1, "10", It.IsAny<string>());
 
             _gameRepository.Verify(x => x.GetCountObject(It.IsAny<Expression<Func<Game, bool>>>()), Times.Exactly(1));
         }
@@ -200,7 +204,7 @@ namespace GameStore.Services.Tests.ServicesImplementation
                 .Returns(It.IsAny<int>());
             _gameRepository.Setup(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>())).Returns(new List<Game>());
 
-            _sut.FilterGames(new FilterCriteria(), 1, "10");
+            _sut.FilterGames(new FilterCriteria(), 1, "10", It.IsAny<string>());
 
             _gameRepository.Verify(x => x.Get(It.IsAny<Expression<Func<Game, bool>>>(), It.IsAny<Expression<Func<Game, string>>>(), It.IsAny<bool>(), It.IsAny<int>(), It.IsAny<int>()), Times.Exactly(1));
         }

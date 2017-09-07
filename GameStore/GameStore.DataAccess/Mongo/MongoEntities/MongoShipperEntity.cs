@@ -6,7 +6,9 @@ namespace GameStore.DataAccess.Mongo.MongoEntities
     public class MongoShipperEntity : BasicMongoEntity
     {
         public int ShipperID { set; get; }
+
         public string CompanyName { set; get; }
+
         public string Phone { set; get; }
     }
 }

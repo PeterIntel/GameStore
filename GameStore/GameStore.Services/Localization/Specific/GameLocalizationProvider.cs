@@ -17,6 +17,7 @@ namespace GameStore.Services.Localization.Specific
             _genreLocalizationProvider = genreLocalizationProvider;
             _platformTypeLocalizationProvider = platformTypeLocalizationProvider;
         }
+
         public Game Localize(Game game, string cultureCode) 
         {
             if (game.Locals != null && game.Locals.Any())
@@ -34,6 +35,7 @@ namespace GameStore.Services.Localization.Specific
                     _platformTypeLocalizationProvider.Localize(platformType, cultureCode);
                 }
             }
+
             return game;
         }
     }

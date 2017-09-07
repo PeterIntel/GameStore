@@ -10,10 +10,6 @@ namespace GameStore.Authorization.Implementation
     {
         private readonly UserIdentity _userIdentity;
 
-        public UserProvider()
-        {
-            _userIdentity = new UserIdentity();
-        }
         public UserProvider(string name, IGenericDataRepository<UserEntity, User> userRepository)
         {
             _userIdentity = new UserIdentity(name, userRepository);

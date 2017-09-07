@@ -11,13 +11,14 @@ using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.Controllers
 {
-    [CustomAuthorize(RoleEnum.Administrator)]
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
         private readonly IPublisherService _publisherService;
         private readonly IMapper _mapper;
-        public AccountController(IAccountService accountService, IAuthentication auth, IMapper mapper, IPublisherService publisherService) : base(auth)
+
+        public AccountController(IAccountService accountService, IAuthentication auth, IMapper mapper,
+            IPublisherService publisherService) : base(auth)
         {
             _accountService = accountService;
             _publisherService = publisherService;
@@ -52,7 +53,7 @@ namespace GameStore.Web.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
+        [CustomAuthorize(RoleEnum.Administrator, RoleEnum.Manager, RoleEnum.Moderator, RoleEnum.User, RoleEnum.Publisher)]
         public ActionResult LogOff()
         {
             Auth.Logout();
@@ -84,11 +85,13 @@ namespace GameStore.Web.Controllers
             return View(model);
         }
 
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult GetUsers()
         {
             return View(_mapper.Map<IEnumerable<User>, IList<UserViewModel>>(_accountService.Get(CurrentLanguageCode)));
         }
 
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult UserDetails(string key)
         {
             User user = _accountService.First(x => x.Login == key, CurrentLanguageCode);
@@ -100,9 +103,10 @@ namespace GameStore.Web.Controllers
             return View(_mapper.Map<User, UserViewModel>(user));
         }
 
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult Create()
         {
-            return View(new UserViewModel()
+            return View(new UserViewModel
             {
                 Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()),
                 Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get(CurrentLanguageCode))
@@ -111,6 +115,7 @@ namespace GameStore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult Create(UserViewModel userViewModel)
         {
             CheckLoginAndEmail(userViewModel);
@@ -129,6 +134,7 @@ namespace GameStore.Web.Controllers
             return View(userViewModel);
         }
 
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult Edit(string key)
         {
             User user = _accountService.First(x => x.Login == key, CurrentLanguageCode);
@@ -146,6 +152,7 @@ namespace GameStore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult Edit(UserViewModel userViewModel)
         {
             if (ModelState.IsValid)
@@ -160,6 +167,7 @@ namespace GameStore.Web.Controllers
             return View(userViewModel);
         }
 
+        [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult Delete(string key)
         {
             var user = _accountService.First(x => x.Login == key, CurrentLanguageCode);
@@ -174,7 +182,8 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult ConfirmedDelete(string id)
+        [CustomAuthorize(RoleEnum.Administrator)]
+        public ActionResult ConfirmDelete(string id)
         {
             var user = _accountService.First(x => x.Id == id, CurrentLanguageCode);
 

@@ -8,7 +8,9 @@ namespace GameStore.DataAccess.MSSQL.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Id { set; get; }
+
         public bool IsDeleted { set; get; }
+
         public bool IsSqlEntity { set; get; }
     }
 }

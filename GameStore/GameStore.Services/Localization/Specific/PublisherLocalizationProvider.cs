@@ -16,8 +16,9 @@ namespace GameStore.Services.Localization.Specific
                 var local = publisher.Locals.FirstOrDefault(x => x.Culture.Code == cultureCode) ??
                             publisher.Locals.First();
                 publisher.Description = local.Description;
-            }
-            return publisher;
+			} 
+
+			return publisher;
         }
     }
 }

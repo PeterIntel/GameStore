@@ -22,7 +22,7 @@ namespace GameStore.Web.Controllers
             _genreService = genreService;
             _mapper = mapper;
         }
-        // GET: Genre
+
         public ActionResult GetGenres()
         {
             return View(_mapper.Map<IEnumerable<Genre>, IEnumerable<GenreViewModel>>(_genreService.Get(CurrentLanguageCode)));
@@ -107,7 +107,7 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult ConfirmedDelete(string id)
+        public ActionResult ConfirmDelete(string id)
         {
             var genre = _genreService.First(x => x.Id == id, CurrentLanguageCode);
             if (ModelState.IsValid)

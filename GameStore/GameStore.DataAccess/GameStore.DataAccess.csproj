@@ -128,13 +128,9 @@
     <Compile Include="Migrations\201708091322243_raname_IsMongoEntity.Designer.cs">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709051717444_update.cs" />
-    <Compile Include="Migrations\201709051717444_update.Designer.cs">
-      <DependentUpon>201709051717444_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709051809016_Delete_fields_from_localizedEntities.cs" />
-    <Compile Include="Migrations\201709051809016_Delete_fields_from_localizedEntities.Designer.cs">
-      <DependentUpon>201709051809016_Delete_fields_from_localizedEntities.cs</DependentUpon>
+    <Compile Include="Migrations\201709071240208_update-database.cs" />
+    <Compile Include="Migrations\201709071240208_update-database.Designer.cs">
+      <DependentUpon>201709071240208_update-database.cs</DependentUpon>
     </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
@@ -238,11 +234,8 @@
     <EmbeddedResource Include="Migrations\201708091322243_raname_IsMongoEntity.resx">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709051717444_update.resx">
-      <DependentUpon>201709051717444_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709051809016_Delete_fields_from_localizedEntities.resx">
-      <DependentUpon>201709051809016_Delete_fields_from_localizedEntities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709071240208_update-database.resx">
+      <DependentUpon>201709071240208_update-database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

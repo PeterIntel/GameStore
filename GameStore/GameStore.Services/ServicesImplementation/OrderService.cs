@@ -52,7 +52,6 @@ namespace GameStore.Services.ServicesImplementation
         public void DeleteGameFromOrder(string gameId, string orderId)
         {
             var order = _decoratorOrderRepository.First(x => x.Id == orderId);
-            var game = _gameRepository.First(x => x.Id == gameId);
 
             var gameDetails = order.OrderDetails.FirstOrDefault(x => string.Equals(x.Game.Id, gameId, StringComparison.OrdinalIgnoreCase));
 

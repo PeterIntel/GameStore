@@ -14,6 +14,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFil
         {
             _platforms = platforms;
         }
+
         public override Expression<Func<Game, bool>> Execute(Expression<Func<Game, bool>> input)
         {
             if (_platforms != null && _platforms.Count() != 0)

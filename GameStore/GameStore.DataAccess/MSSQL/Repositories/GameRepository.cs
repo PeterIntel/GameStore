@@ -117,7 +117,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             queryToEntity = queryToEntity.Take((int)size * page);
 
             var result = queryToEntity.ProjectTo<Game>(_mapper.ConfigurationProvider);
-            var d = result.ToList();
+
             return result;
         }
 

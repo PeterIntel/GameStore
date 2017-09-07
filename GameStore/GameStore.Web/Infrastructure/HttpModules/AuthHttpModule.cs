@@ -14,10 +14,10 @@ namespace GameStore.Web.Infrastructure.HttpModules
 
         public void Init(HttpApplication context)
         {
-            context.AuthenticateRequest += new EventHandler(this.Authenticate);
-        }
+            context.AuthenticateRequest += Authenticate;
+		}
 
-        private void Authenticate(Object source, EventArgs e)
+        private void Authenticate(object source, EventArgs e)
         {
             HttpApplication app = (HttpApplication)source;
             HttpContext context = app.Context;

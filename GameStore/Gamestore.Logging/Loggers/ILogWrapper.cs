@@ -11,6 +11,7 @@ namespace GameStore.Logging.Loggers
         Error,
         Fatal
     }
+
     public interface ILogWrapper
     {
         void Write(string name, Exception ex, string message, LogLevels level);

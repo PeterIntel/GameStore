@@ -19,7 +19,7 @@ namespace GameStore.Web.Controllers
             _orderService = orderService;
             _mapper = mapper;
         }
-        // GET: Order
+
         [HttpGet]
         [ActionName("busket")]
         [CustomAuthorize(RoleEnum.User)]
