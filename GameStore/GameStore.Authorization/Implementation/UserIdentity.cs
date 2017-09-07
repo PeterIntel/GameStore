@@ -8,8 +8,6 @@ namespace GameStore.Authorization.Implementation
 {
     public class UserIdentity : IIdentity, IUserProvider
     {
-        // TODO Required: remove useless constructor
-
         public UserIdentity(string name, IGenericDataRepository<UserEntity, User> userRepository)
         {
             if (name != null)

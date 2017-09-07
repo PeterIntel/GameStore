@@ -21,7 +21,7 @@ namespace GameStore.Web.Attributes
                 return false;
             }
 
-            var result = _roles.Any(x => httpContext.User.IsInRole(x.ToString())); // TODO Required: refactor using LINQ
+            var result = _roles.Any(x => httpContext.User.IsInRole(x.ToString()));
 
             return result;
         }

@@ -14,10 +14,10 @@ namespace GameStore.Web.Infrastructure.HttpModules
 
         public void Init(HttpApplication context)
         {
-            context.AuthenticateRequest += Authenticate; //TODO Required: subscribe with direct 'Authenticate' method
+            context.AuthenticateRequest += Authenticate;
 		}
 
-        private void Authenticate(object source, EventArgs e) //TODO Required: use 'object'
+        private void Authenticate(object source, EventArgs e)
         {
             HttpApplication app = (HttpApplication)source;
             HttpContext context = app.Context;

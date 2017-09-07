@@ -8,7 +8,7 @@ namespace GameStore.Web.Attributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var result = value != null && (DateTime)value <= HttpContext.Current.Timestamp.ToLocalTime() //TODO Consider: remove useless 'else'
+            var result = value != null && (DateTime)value <= HttpContext.Current.Timestamp.ToLocalTime()
                 ? ValidationResult.Success
                 : new ValidationResult("Birth date must be less than the current date.");
             return result;

@@ -53,7 +53,6 @@ namespace GameStore.Web.Controllers
         }
 
         [CustomAuthorize(RoleEnum.Administrator, RoleEnum.Manager, RoleEnum.Moderator, RoleEnum.User, RoleEnum.Publisher)]
-        //TODO Consider: remove this attribute
         public ActionResult LogOff()
         {
             Auth.Logout();
@@ -106,7 +105,7 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.Administrator)]
         public ActionResult Create()
         {
-            return View(new UserViewModel //TODO Required: remove useless '()'
+            return View(new UserViewModel
             {
                 Roles = _mapper.Map<IEnumerable<Role>, IList<RoleViewModel>>(_accountService.GetRoles()),
                 Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.Get())
@@ -189,7 +188,7 @@ namespace GameStore.Web.Controllers
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [CustomAuthorize(RoleEnum.Administrator)]
-        public ActionResult ConfirmDelete(string id) //TODO Consider: rename to 'ConfirmDelete'
+        public ActionResult ConfirmDelete(string id)
         {
             var user = _accountService.First(x => x.Id == id);
 
