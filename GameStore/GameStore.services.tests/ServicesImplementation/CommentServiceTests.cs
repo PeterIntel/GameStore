@@ -16,12 +16,12 @@ namespace GameStore.Services.Tests.ServicesImplementation
     [TestFixture]
     class CommentServiceTests
     {
+        private static int CommentId = 1;
         private CommentService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IGenericDataRepository<CommentEntity, Comment>> _commentRepository;
         private Mock<IMongoLogger<Comment>> _logger;
         private Comment _commentStub = new Comment();
-        private static int CommentId = 1;
         private IList<Comment> _comments = new List<Comment>()
         {
             new Comment()

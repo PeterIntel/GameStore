@@ -8,14 +8,14 @@ namespace GameStore.Authorization.Implementation
 {
     public class UserIdentity : IIdentity, IUserProvider
     {
-        public UserIdentity()
-        {
-            
-        }
         public UserIdentity(string name, IGenericDataRepository<UserEntity, User> userRepository)
         {
-            Init(name, userRepository);
+            if (name != null)
+            {
+                Init(name, userRepository);
+            }
         }
+
         public User User { get; set; }
 
         public string AuthenticationType

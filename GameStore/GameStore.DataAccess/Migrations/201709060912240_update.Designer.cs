@@ -7,13 +7,13 @@ namespace GameStore.DataAccess.MSSQL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Add_UserEntity_and_RoleEntity : IMigrationMetadata
+    public sealed partial class update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_UserEntity_and_RoleEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708141406466_Add_UserEntity_and_RoleEntity"; }
+            get { return "201709060912240_update"; }
         }
         
         string IMigrationMetadata.Source

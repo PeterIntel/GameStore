@@ -15,6 +15,13 @@ namespace GameStore.Services.Tests.ServicesImplementation
     [TestFixture]
     class GameServiceTests
     {
+        private static readonly string _gameKey = "game";
+        private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
+        private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
+        private readonly FilterCriteria _filters = new FilterCriteria()
+        {
+            SortCriteria = SortCriteria.ByPriceAsc
+        };
         private GameService _sut;
         private Mock<IUnitOfWork> _unitOfWork;
         private Mock<IGameRepository> _gameRepository;
@@ -22,14 +29,6 @@ namespace GameStore.Services.Tests.ServicesImplementation
         private Mock<IGenericDataRepository<GenreEntity, Genre>> _genreRepository;
         private Mock<IGenericDataRepository<PublisherEntity, Publisher>> _publisherRepository;
         private Mock<IMongoLogger<Game>> _logger;
-        private static readonly string _gameKey = "game";
-        private readonly Game _gameStub = new Game() { Id = "1", Key = _gameKey };
-        private readonly GameInfo _gameInfoStub = new GameInfo() { CountOfViews = 0 };
-
-        private readonly FilterCriteria _filters = new FilterCriteria()
-        {
-            SortCriteria = SortCriteria.ByPriceAsc
-        };
 
 
         [SetUp]

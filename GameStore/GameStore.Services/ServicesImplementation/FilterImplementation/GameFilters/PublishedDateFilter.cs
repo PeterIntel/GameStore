@@ -12,6 +12,7 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFil
         {
             _dateTimeIntervalsFilter = dateTimeIntervals;
         }
+
         public override Expression<Func<Game, bool>> Execute(Expression<Func<Game, bool>> input)
         {
             if (_dateTimeIntervalsFilter != DateTimeIntervals.AllTime)

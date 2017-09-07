@@ -40,6 +40,7 @@ namespace GameStore.Web.Infrastructure.Helpers
                 tag.AddCssClass("btn btn-default");
                 result.Append(tag.ToString());
             }
+
             return MvcHtmlString.Create(result.ToString());
         }
 

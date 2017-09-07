@@ -8,7 +8,9 @@ namespace GameStore.Web.ViewModels
     public class PagingInfoViewModel
     {
         public int TotalItems { set; get; }
+
         public string ItemsPerPage { set; get; }
+
         public int CurrentPage { set; get; }
         [Display(Name = "ItemsPerPage", ResourceType = typeof(Resources))]
         public IList<string> QuantityItems => new List<string>

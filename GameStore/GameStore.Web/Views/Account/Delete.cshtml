@@ -8,7 +8,7 @@
 @Html.ValidationSummary()
 @Html.DisplayForModel()
 
-@using (Html.BeginForm("ConfirmedDelete"))
+@using (Html.BeginForm("ConfirmDelete"))
 {
     @Html.AntiForgeryToken()
     @Html.Hidden("id", Model.Id)

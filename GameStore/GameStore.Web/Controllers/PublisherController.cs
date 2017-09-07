@@ -28,7 +28,6 @@ namespace GameStore.Web.Controllers
 
         [AllowAnonymous]
         [ActionName("details")]
-        // GET: Publisher
         public ActionResult GetPublisherDetails(string companyName)
         {
             var publisher = _publisherService.GetPublisherByCompanyName(companyName, CurrentLanguageCode);
@@ -126,7 +125,7 @@ namespace GameStore.Web.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult ConfirmedDelete(string id)
+        public ActionResult ConfirmDelete(string id)
         {
             var publisher = _publisherService.First(x => x.Id == id, CurrentLanguageCode);
             if (ModelState.IsValid)

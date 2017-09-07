@@ -8,6 +8,7 @@ namespace GameStore.DataAccess.Mongo.MongoEntities
     public class MongoCategoryEntity : BasicMongoEntity
     {
         public int CategoryID { set; get; }
+
         public string CategoryName { set; get; }
         [BsonIgnore]
         public IEnumerable<GenreLocal> Locals { set; get; }

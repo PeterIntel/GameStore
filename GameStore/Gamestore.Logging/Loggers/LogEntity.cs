@@ -15,10 +15,13 @@ namespace GameStore.Logging.Loggers
         {
             CurrentEntity = JsonConvert.SerializeObject(currentEntity);
         }
-        public string CurrentEntity { set; get; }
-        public string UpdatedEntity { set; get; }
-        public Operation Operation { set; get; }
 
+        public string CurrentEntity { set; get; }
+
+        public string UpdatedEntity { set; get; }
+
+        public Operation Operation { set; get; }
+        
         public string EntityType { set; get; }
 
         public DateTime DataTimeLogging { set; get; }

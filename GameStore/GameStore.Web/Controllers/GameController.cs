@@ -21,6 +21,7 @@ namespace GameStore.Web.Controllers
         private readonly IPlatformTypeService _platformTypeService;
         private readonly IPublisherService _publisherService;
         private readonly IMapper _mapper;
+
         public GameController(IGameService gameService, IGenreService genreService, IPlatformTypeService platformTypeService, IPublisherService publisherService, IMapper mapper, IAuthentication authentication) : base(authentication)
         {
             _gameService = gameService;

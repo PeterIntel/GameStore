@@ -38,13 +38,13 @@ namespace GameStore.Authorization.Implementation
                     }
                     else
                     {
-                        _currentUser = new UserProvider();
+                        _currentUser = new UserProvider(null, _userRepository);
                     }
                 }
                 catch (Exception ex)
                 {
                     _logger.Write(null, ex, "Error when getting user", LogLevels.Error);
-                    _currentUser = new UserProvider();
+                    _currentUser = new UserProvider(null, _userRepository);
                 }
 
                 return _currentUser;
