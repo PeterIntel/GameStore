@@ -8,6 +8,7 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 using GameStore.Services.ServicesImplementation.FilterImplementation.OrderFilter;
 
 namespace GameStore.Services.ServicesImplementation
@@ -20,7 +21,8 @@ namespace GameStore.Services.ServicesImplementation
         private readonly TimeSpan _periodDatetime = TimeSpan.FromDays(30);
         private readonly OrderPipeLine _orderPipeLine;
 
-        public OrderService(IUnitOfWork unitOfWork, IDecoratorOrderRepository decoratorOrderRepository, IGameRepository gameRepository, IGenericDataRepository<OrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger) : base(decoratorOrderRepository, unitOfWork, logger)
+        public OrderService(IUnitOfWork unitOfWork, IDecoratorOrderRepository decoratorOrderRepository, IGameRepository gameRepository, IGenericDataRepository<OrderDetailsEntity, OrderDetails> orderDetailsRepository, IMongoLogger<Order> logger,
+            ILocalizationProvider<Order> localizationProvider) : base(decoratorOrderRepository, unitOfWork, logger, localizationProvider)
         {
             _decoratorOrderRepository = decoratorOrderRepository;
             _gameRepository = gameRepository;
@@ -35,14 +37,14 @@ namespace GameStore.Services.ServicesImplementation
             AddGameToOrder(order, game.Key);
         }
 
-        public void AddGameToCustomerOrder(string gamekey, string customerId)
+        public void AddGameToCustomerOrder(string gamekey, string customerId, string cultureCode)
         {
             if (customerId == null)
             {
                 throw new ArgumentNullException(nameof(customerId) + " references to NULL");
             }
 
-            var order = GetOrderByCustomerId(customerId);
+            var order = GetOrderByCustomerId(customerId, cultureCode);
             AddGameToOrder(order, gamekey);
 
         }
@@ -74,7 +76,7 @@ namespace GameStore.Services.ServicesImplementation
 
         }
 
-        public Order GetOrderByCustomerId(string id)
+        public Order GetOrderByCustomerId(string id, string cultureCode)
         {
             Order order = _decoratorOrderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Paid).FirstOrDefault();
 
@@ -86,7 +88,7 @@ namespace GameStore.Services.ServicesImplementation
                     Status = CompletionStatus.InComplete,
                     CustomerId = id,
                     OrderDate = DateTime.UtcNow,
-                });
+                }, cultureCode);
 
                 order = _decoratorOrderRepository.Get(x => x.CustomerId == id && x.Status != CompletionStatus.Paid).FirstOrDefault();
             }

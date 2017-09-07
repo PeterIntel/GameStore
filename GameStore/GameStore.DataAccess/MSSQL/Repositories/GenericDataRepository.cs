@@ -140,6 +140,7 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             if (filter != null)
             {
                 IQueryable<TEntity> queryToEntities = _dbSet.Where(x => x.IsDeleted == false).Where(filterEntity);
+                var d = queryToEntities.ToList();
                 return queryToEntities.ProjectTo<TDomain>(_mapper.ConfigurationProvider).FirstOrDefault();
             }
 
@@ -165,6 +166,11 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             }
 
             return domainEntities;
+        }
+
+        protected string GetGuidId()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

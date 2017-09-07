@@ -1,8 +1,8 @@
 ﻿@model string
 @{
-    ViewBag.Title = "DownloadPage";
+    ViewBag.Title = Resources.Download;
 }
 
-<h2>DownloadPage</h2>
+<h2>@Resources.Download</h2>
 
-@Html.ActionLink("download", "DownloadGame", new { gamekey = Model })
+@Html.ActionLink(Resources.Download, "DownloadGame", new { gamekey = Model })

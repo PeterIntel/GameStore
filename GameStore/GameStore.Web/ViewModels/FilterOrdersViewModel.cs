@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.ViewModels
 {
@@ -18,7 +19,7 @@ namespace GameStore.Web.ViewModels
         {
             if (DateTo != null && DateFrom != null && DateFrom > DateTo)
             {
-                yield return new ValidationResult(errorMessage: "DateTo less than DateFrom");
+                yield return new ValidationResult(errorMessage: Resources.DateError);
             }
         }
     }

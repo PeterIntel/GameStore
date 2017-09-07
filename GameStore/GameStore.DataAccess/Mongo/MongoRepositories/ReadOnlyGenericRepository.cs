@@ -26,34 +26,36 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public virtual IEnumerable<TDomain> Get()
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
-            var result = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
-            
-            return result;
+            var queryToDomain = Mapper.Map<IQueryable<TEntity>, IEnumerable<TDomain>>(queryToEntity);
+
+            return queryToDomain;
         }
 
         public virtual IEnumerable<TDomain> Get(Expression<Func<TDomain, bool>> filterToDomain)
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
+            var queryToDomain = Mapper.Map<IQueryable<TEntity>, IEnumerable<TDomain>>(queryToEntity);
+
             if (filterToDomain != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filterToDomain);
-                queryToEntity = queryToEntity.Where(filterToEntity);
+                var predicate = filterToDomain.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
-            var queryToDomain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider);
 
             return queryToDomain;
         }
 
-        public int GetCountObject(Expression<Func<TDomain, bool>> filter)
+        public virtual int GetCountObject(Expression<Func<TDomain, bool>> filter)
         {
-            var domainItems = Collection.AsQueryable().ProjectTo<TDomain>(Mapper.ConfigurationProvider);
+            IEnumerable<TEntity> queryToEntity = Collection.AsQueryable();
+            var queryToDomain = Mapper.Map<IEnumerable<TEntity>, IEnumerable<TDomain>>(queryToEntity);
 
             if (filter != null)
             {
-                domainItems = domainItems.Where(filter);
+                queryToDomain = queryToDomain.AsQueryable().Where(filter);
             }
 
-            var result = domainItems.Count();
+            var result = queryToDomain.ToList().Count();
 
             return result;
         }
@@ -75,15 +77,17 @@ namespace GameStore.DataAccess.Mongo.MongoRepositories
         public virtual TDomain First(Expression<Func<TDomain, bool>> filter)
         {
             IQueryable<TEntity> queryToEntity = Collection.AsQueryable();
+            var queryToDomain = Mapper.Map<IEnumerable<TEntity>, IEnumerable<TDomain>>(queryToEntity.ToList());
 
             if (filter != null)
             {
-                var filterToEntity = Mapper.Map<Expression<Func<TDomain, bool>>, Expression<Func<TEntity, bool>>>(filter);
-                queryToEntity = queryToEntity.Where(filterToEntity); 
+                var predicate = filter.Compile();
+                queryToDomain = queryToDomain.Where(predicate);
             }
-            TDomain domain = queryToEntity.ProjectTo<TDomain>(Mapper.ConfigurationProvider).FirstOrDefault();
 
-            return domain;
+            var result = queryToDomain.FirstOrDefault();
+
+            return result;
         }
     }
 }

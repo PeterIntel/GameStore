@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<GenreViewModel>
 
 @{
-    ViewBag.Title = "GetGenres";
+    ViewBag.Title = Resources.Genres;
 }
 
-<h2>GetGenres</h2>
+<h2>@Resources.Genres'</h2>
 
 <p>
-    @Html.ActionLink("Create New", "new")
+    @Html.ActionLink(Resources.Add, "new")
 </p>
 <table class="table">
     <tr>
@@ -30,8 +30,11 @@
                 @Html.DisplayFor(modelItem => item.ParentGenreName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { key = item.Name }) |
-                @Html.ActionLink("Delete", "Delete", new { key = item.Name })
+                @if (item.IsSqlEntity == true)
+                {
+                    @Html.ActionLink(Resources.Edit, "Edit", new {key = item.Name}); <span>|</span>
+                    @Html.ActionLink(Resources.Delete, "Delete", new {key = item.Name});
+                }
             </td>
         </tr>
     }

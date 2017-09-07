@@ -12,6 +12,9 @@ using GameStore.Services.ServicesImplementation;
 using GameStore.DataAccess;
 using GameStore.DataAccess.Mongo;
 using GameStore.DataAccess.MSSQL;
+using GameStore.Domain.BusinessObjects;
+using GameStore.Services.Localization;
+using GameStore.Services.Localization.Specific;
 using Ninject.Web.Common;
 
 namespace GameStore.Web.Infrastructure.NinjectConfiguration
@@ -46,6 +49,12 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
             _kernel.Bind<IOrderService>().To<OrderService>();
             _kernel.Bind<IAccountService>().To<AccountService>();
             _kernel.Bind<IAuthentication>().To<CustomAuthentication>().InRequestScope();
+
+            _kernel.Bind(typeof(ILocalizationProvider<>)).To(typeof(LocalizationProvider<>));
+            _kernel.Bind<ILocalizationProvider<Game>>().To<GameLocalizationProvider>();
+            _kernel.Bind<ILocalizationProvider<Genre>>().To<GenreLocalizationProvider>();
+            _kernel.Bind<ILocalizationProvider<Publisher>>().To<PublisherLocalizationProvider>();
+            _kernel.Bind<ILocalizationProvider<PlatformType>>().To<PlatformTypeLocalizationProvider>();
         }
     }
 }

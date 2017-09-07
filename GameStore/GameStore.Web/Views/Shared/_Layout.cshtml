@@ -14,7 +14,7 @@
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="@Url.Action("games", "game")" class="navbar-brand">Game Store</a>
+                <a href="@Url.Action("games", "game")" class="navbar-brand">@Resources.GameStore</a>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
                     <span class="icon-bar"></span>
@@ -26,35 +26,36 @@
                 <ul class="nav navbar-nav">
                     @if (User.IsInRole(RoleEnum.Publisher.ToString()))
                     {
-                        <li><a href="@Url.Action("EditProfile", "publisher")">Profile</a></li>
+                        <li><a href="@Url.Action("EditProfile", "publisher")">@Resources.Profile</a></li>
                     }
 
                     @if (User.IsInRole(RoleEnum.Manager.ToString()))
                     {
-                        <li><a href="@Url.Action("new", "game")">Add game</a></li>
-                        <li><a href="@Url.Action("getPublishers", "publisher")">Publishers</a></li>
-                        <li><a href="@Url.Action("getGenres", "genre")">Genres</a></li>
-                        <li><a href="@Url.Action("history", "order")">History orders</a></li>
-                        <li><a href="@Url.Action("getCurrentOrders", "order")">Current orders</a></li>
+                        <li><a href="@Url.Action("new", "game")">@Resources.AddGame</a></li>
+                        <li><a href="@Url.Action("getPublishers", "publisher")">@Resources.Publishers</a></li>
+                        <li><a href="@Url.Action("getGenres", "genre")">@Resources.Genres</a></li>
+                        <li><a href="@Url.Action("history", "order")">@Resources.History</a></li>
+                        <li><a href="@Url.Action("getCurrentOrders", "order")">@Resources.CurrentOrders</a></li>
                     }
 
                     @if (User.IsInRole(RoleEnum.Administrator.ToString()))
                     {
-                        <li><a href="@Url.Action("getUsers", "account")">Users</a></li>
+                        <li><a href="@Url.Action("getUsers", "account")">@Resources.Users</a></li>
                     }
 
                     @if (User.IsInRole(RoleEnum.User.ToString()))
                     {
-                        <li><a href="@Url.Action("busket", "order")">busket</a></li>
+                        <li><a href="@Url.Action("busket", "order")">@Resources.CurrentOrder</a></li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
+           
         </div>
     </div>
     <div class="mynavbar clearfix">
         <div class="quantityGames">
-            Quantity of games: @Cache["GamesQuantity"]
+            @Resources.GameQuantity: @Cache["GamesQuantity"]
         </div>
     </div>
     <div class="main">
@@ -67,5 +68,8 @@
     <script type="text/javascript" src="~/Scripts/JavaScript.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("Scripts", required: false)
+    <script>
+
+    </script>
 </body>
 </html>

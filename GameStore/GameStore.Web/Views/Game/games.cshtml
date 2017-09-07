@@ -1,18 +1,19 @@
 ﻿@model GamesAndFilterViewModel
-
 @{
-    ViewBag.Title = "GetGames";
+    ViewBag.Title = Resources.Games;
 }
-
-<h2>GetGames</h2>
+<h2>@Resources.Games</h2>
+@Html.ValidationSummary()
 @using (Html.BeginForm("filter", "game", FormMethod.Get, new { id = "filterForm" }))
 {
     @Html.Partial("_Filters", Model.Filter)
     <br>
-    <input type="hidden" id="page" name="page"/>
-    @Html.DropDownList("size", new SelectList(Model.PagingInfo.QuantityItems.Select(x => new { Value = x, Text = x}), "Value", "Text"))
+    <input type="hidden" id="page" name="page" />
+    @Html.LabelFor(m => m.PagingInfo.QuantityItems)
     <br>
-    <input id="filterButton" type="button" value="Apply Filters">
+    @Html.DropDownList("size", new SelectList(Model.PagingInfo.QuantityItems.Select(x => new { Value = x, Text = x }), "Value", "Text"))
+    <br>
+    <input id="filterButton" type="button" value="@Resources.ApplyFilters">
 }
 <div class="games">
     @foreach (var game in Model.Games)
@@ -20,11 +21,9 @@
         @Html.DisplayFor(m => game)
     }
 </div>
-
 <div id="pageLinks" class="links">
     @Html.PageLinks(Model.PagingInfo)
 </div>
-
 @section Scripts{
     <script>
         $(document).ready(function () {
@@ -57,9 +56,7 @@
                     }
                 });
             }
-
         })
     </script>
 }
-
 

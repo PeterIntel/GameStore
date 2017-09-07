@@ -91,3 +91,9 @@ label {
 .edit {
     text-align: center;
 }
+
+ul.custom-dropdown-menu, ul.custom-dropdown-menu>li>a {
+    color: #9d9d9d;
+    background-color: #222;
+}
+

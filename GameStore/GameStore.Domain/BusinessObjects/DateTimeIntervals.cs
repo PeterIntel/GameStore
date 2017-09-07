@@ -6,7 +6,7 @@
         LastWeek,
         LastMonth,
         LastYear,
-        TwoYear,
-        TreeYear
+        TwoYears,
+        ThreeYears
     }
 }

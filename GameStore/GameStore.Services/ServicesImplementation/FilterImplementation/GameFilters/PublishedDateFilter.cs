@@ -35,9 +35,9 @@ namespace GameStore.Services.ServicesImplementation.FilterImplementation.GameFil
                     return DateTime.UtcNow.AddMonths(-1);
                 case DateTimeIntervals.LastYear:
                     return DateTime.UtcNow.AddYears(-1);
-                case DateTimeIntervals.TwoYear:
+                case DateTimeIntervals.TwoYears:
                     return DateTime.UtcNow.AddYears(-2);
-                case DateTimeIntervals.TreeYear:
+                case DateTimeIntervals.ThreeYears:
                     return DateTime.UtcNow.AddYears(-3);
                 default:
                     return new DateTime();

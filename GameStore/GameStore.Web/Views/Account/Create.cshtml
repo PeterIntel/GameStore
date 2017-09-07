@@ -1,17 +1,14 @@
 ﻿@model UserViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Resources.Create;
 }
-
-<h2>Create</h2>
-
 
 <div class="container">
     @using (Html.BeginForm())
     {
         <div class="col-md-12">
-            <h2>Registration</h2>
+            <h2>@Resources.Registration</h2>
 
             @Html.AntiForgeryToken()
             <div class="validation-errors">
@@ -23,7 +20,7 @@
                 <div class="form-group clearfix">
                     @Html.LabelFor(model => model.SelectedPublisher, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "Id", "CompanyName"), Model.Publisher != null ? Model.Publisher.CompanyName : "Not spesified", new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.SelectedPublisher, new SelectList(Model.Publishers, "Id", "CompanyName"), Model.Publisher != null ? Model.Publisher.CompanyName : Resources.NotSpecified, new { @class = "form-control" })
                     </div>
                 </div>
 
@@ -33,10 +30,10 @@
                 @for (int i = 0; i < Model.Roles.Count; i++)
                 {
                     @Html.CustomCheckBox("Role" + i, "IdRoles", Model.Roles[i].Role.ToString(), Model.Roles[i].IsChecked)
-                    @Html.Label("Role" + i, Model.Roles[i].Role.ToString())
+                    @Html.Label("Role" + i, Resources.ResourceManager.GetString(Model.Roles[i].Role.ToString()))
                 }
 
-                <input type="submit" value="Create" />
+                <input type="submit" value="@Resources.Create" />
             </fieldset>
         </div>
     }

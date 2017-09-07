@@ -8,6 +8,7 @@ using AutoMapper.QueryableExtensions;
 using GameStore.DataAccess.Infrastructure;
 using GameStore.DataAccess.Interfaces;
 using GameStore.DataAccess.MSSQL.Entities;
+using GameStore.DataAccess.MSSQL.Entities.Localization;
 using GameStore.Domain.BusinessObjects;
 
 namespace GameStore.DataAccess.MSSQL.Repositories
@@ -18,12 +19,16 @@ namespace GameStore.DataAccess.MSSQL.Repositories
         private readonly IPlatformTypeRepository _platformRepository;
         private readonly IGenericDataRepository<PublisherEntity, Publisher> _publisherRepository;
         private readonly IGenericDataRepository<GameInfoEntity, GameInfo> _gameInfoRepository;
-        public GameRepository(GamesSqlContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository) : base(context, mapper)
+        private readonly ICultureRepository _cultureRepository;
+
+        public GameRepository(GamesSqlContext context, IMapper mapper, IGenreRepository genreRepository, IPlatformTypeRepository platformRepository, IGenericDataRepository<PublisherEntity, Publisher> publisherRepository, IGenericDataRepository<GameInfoEntity, GameInfo> gameInfoRepository,
+            ICultureRepository cultureRepository) : base(context, mapper)
         {
             _genreRepository = genreRepository;
             _platformRepository = platformRepository;
             _publisherRepository = publisherRepository;
             _gameInfoRepository = gameInfoRepository;
+            _cultureRepository = cultureRepository;
         }
 
         public override void Add(Game game)
@@ -32,6 +37,20 @@ namespace GameStore.DataAccess.MSSQL.Repositories
             {
                 var gameEntity = InitGame(game);
                 gameEntity.IsSqlEntity = true;
+
+                var id = GetGuidId();
+                var currentCulture = game.Locals.First().Culture.Code;
+                var description = game.Locals.First().Description;
+                gameEntity.Locals = new List<GameLocalEntity>
+                {
+                    new GameLocalEntity()
+                    {
+                        Id = id,
+                        Culture = _cultureRepository.GetCultureByCode(currentCulture),
+                        Description = description
+                    }
+                };
+
                 gameEntity.GameInfo = new GameInfoEntity() { IsSqlEntity = true, UploadDate = DateTime.UtcNow, CountOfViews = 0 };
                 _dbSet.Add(gameEntity);
             }
@@ -132,6 +151,28 @@ namespace GameStore.DataAccess.MSSQL.Repositories
                 foreach (var platformEntity in addedPlatforms)
                 {
                     existingGame.PlatformTypes.Add(platformEntity);
+                }
+
+                var currentCulture = game.Locals.First().Culture.Code;
+                var description = game.Locals.First().Description;
+                var local = _dbSet.Local.FirstOrDefault(x => x.Id == entityGame.Id && x.Locals.Any(y => y.Culture.Code == currentCulture));
+
+                if (local == null)
+                {
+                    var id = GetGuidId();
+                    existingGame.Locals.Add(
+
+                        new GameLocalEntity()
+                        {
+                            Id = id,
+                            Culture = _cultureRepository.GetCultureByCode(currentCulture),
+                            Description = description
+                        }
+                    );
+                }
+                else
+                {
+                    local.Locals.First(x => x.Culture.Code == currentCulture).Description = game.Locals.First().Description;
                 }
 
                 if (_context.Entry(existingGame).State == EntityState.Detached)

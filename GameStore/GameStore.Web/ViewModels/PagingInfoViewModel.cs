@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using GameStore.Web.App_LocalResources;
 
 namespace GameStore.Web.ViewModels
 {
@@ -10,7 +12,7 @@ namespace GameStore.Web.ViewModels
         public string ItemsPerPage { set; get; }
 
         public int CurrentPage { set; get; }
-
+        [Display(Name = "ItemsPerPage", ResourceType = typeof(Resources))]
         public IList<string> QuantityItems => new List<string>
         {
             "10", "20", "50", "100", "ALL"

@@ -8,7 +8,6 @@ namespace GameStore.DataAccess.MSSQL.EntitiesConfigurations
         public PublisherConfiguration()
         {
             Property(p => p.CompanyName).HasColumnType("nvarchar").HasMaxLength(40);
-            Property(p => p.Description).HasColumnType("ntext");
             Property(p => p.HomePage).HasColumnType("ntext");
         }
     }

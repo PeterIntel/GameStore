@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameStore.Domain.BusinessObjects.LocalizationObjects;
 using Newtonsoft.Json;
 
 namespace GameStore.Domain.BusinessObjects
@@ -15,5 +16,7 @@ namespace GameStore.Domain.BusinessObjects
 
         [JsonIgnore]
         public virtual IEnumerable<Game> Games { set; get; }
+        [JsonIgnore]
+        public IEnumerable<PublisherLocal> Locals { get; set; } = new List<PublisherLocal>();
     }
 }

@@ -1,14 +1,21 @@
-﻿@if (Request.IsAuthenticated)
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="name">Hello @User.Identity.Name!</li>
-        <li><a href="@Url.Action("LogOff","Account")"><span class="glyphicon glyphicon-log-out"></span><span>Sign out</span></a></li>
-    </ul>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="@Url.Action("RegisterUser", "Account")"><span class="glyphicon glyphicon-user"></span><span>Sign Up</span></a></li>
-        <li><a href="@Url.Action("Login","Account")"><span class="glyphicon glyphicon-log-in"></span><span>Sign In</span></a></li>
-    </ul>
-}
+﻿<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="glyphicon glyphicon-globe"></span> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu custom-dropdown-menu">
+            @Url.LangSwitcher("English", ViewContext, "en")
+            @Url.LangSwitcher("Руский", ViewContext, "ru")
+        </ul>
+    </li>
+    @if (Request.IsAuthenticated)
+    {
+        <li class="name">@Resources.Hello @User.Identity.Name!</li>
+        <li><a href="@Url.Action("LogOff", "Account")"><span class="glyphicon glyphicon-log-out"></span><span>@Resources.SignOut</span></a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("RegisterUser", "Account")"><span class="glyphicon glyphicon-user"></span><span>@Resources.SignUp</span></a></li>
+        <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-log-in"></span><span>@Resources.SignIn</span></a></li>
+    }
+</ul>

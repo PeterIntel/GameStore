@@ -7,13 +7,16 @@ using GameStore.DataAccess.UnitOfWork;
 using GameStore.Domain.BusinessObjects;
 using GameStore.Domain.ServicesInterfaces;
 using GameStore.Logging.Loggers;
+using GameStore.Services.Localization;
 
 namespace GameStore.Services.ServicesImplementation
 {
     public class CommentService : BasicService<CommentEntity, Comment>, ICommentService
     {
         private readonly IGenericDataRepository<CommentEntity, Comment> _commentRepository;
-        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger) : base(commentRepository, unitOfWork, logger)
+        public CommentService(IUnitOfWork unitOfWork, IGenericDataRepository<CommentEntity, Comment> commentRepository, IMongoLogger<Comment> logger,
+            ILocalizationProvider<Comment> localizatorProvider) :
+            base(commentRepository, unitOfWork, logger, localizatorProvider)
         {
             _commentRepository = commentRepository;
         }

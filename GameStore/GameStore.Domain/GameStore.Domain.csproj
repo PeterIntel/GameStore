@@ -78,6 +78,12 @@
     <Compile Include="BusinessObjects\DateTimeIntervalFlag.cs" />
     <Compile Include="BusinessObjects\FilterCriteria.cs" />
     <Compile Include="BusinessObjects\FilterOrders.cs" />
+    <Compile Include="BusinessObjects\LocalizationObjects\AbstractLocalizationDomain.cs" />
+    <Compile Include="BusinessObjects\LocalizationObjects\Culture.cs" />
+    <Compile Include="BusinessObjects\LocalizationObjects\GameLocal.cs" />
+    <Compile Include="BusinessObjects\LocalizationObjects\GenreLocal.cs" />
+    <Compile Include="BusinessObjects\LocalizationObjects\PlatformTypeLocal.cs" />
+    <Compile Include="BusinessObjects\LocalizationObjects\PublisherLocal.cs" />
     <Compile Include="BusinessObjects\PaginationGames.cs" />
     <Compile Include="BusinessObjects\Game.cs" />
     <Compile Include="BusinessObjects\GameInfo.cs" />

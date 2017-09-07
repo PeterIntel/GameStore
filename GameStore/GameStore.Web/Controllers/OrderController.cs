@@ -23,9 +23,9 @@ namespace GameStore.Web.Controllers
         [HttpGet]
         [ActionName("busket")]
         [CustomAuthorize(RoleEnum.User)]
-        public ActionResult GetOrderDetails()
+        public ActionResult GetOrderDetails(string cultureCode)
         {
-            var order = _orderService.GetOrderByCustomerId(CurrentUser.Id);
+            var order = _orderService.GetOrderByCustomerId(CurrentUser.Id, cultureCode);
 
             return View(_mapper.Map<Order, OrderViewModel>(order));
         }
@@ -33,9 +33,9 @@ namespace GameStore.Web.Controllers
         [ActionName("buy")]
         [HttpPost]
         [CustomAuthorize(RoleEnum.User)]
-        public ActionResult AddGameToOrder(string gameKey)
+        public ActionResult AddGameToOrder(string gameKey, string cultureCode)
         {
-            _orderService.AddGameToCustomerOrder(gameKey, CurrentUser.Id);
+            _orderService.AddGameToCustomerOrder(gameKey, CurrentUser.Id, cultureCode);
 
             return RedirectToAction("busket");
         }
@@ -93,7 +93,7 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.User)]
         public ActionResult Pay(string orderId)
         {
-            var order = _orderService.First(x => x.Id == orderId);
+            var order = _orderService.First(x => x.Id == orderId, CurrentLanguageCode);
             if (order.OrderDetails == null || order.OrderDetails.Count == 0)
             {
                 ModelState.AddModelError("", @"The busket have no games");
@@ -102,7 +102,7 @@ namespace GameStore.Web.Controllers
             if (ModelState.IsValid)
             {
                 order.Status = CompletionStatus.Paid;
-                _orderService.Update(order);
+                _orderService.Update(order, CurrentLanguageCode);
 
                 return RedirectToAction("games", "game");
             }
@@ -114,7 +114,7 @@ namespace GameStore.Web.Controllers
         [CustomAuthorize(RoleEnum.Manager)]
         public ActionResult Edit(string key)
         {
-            var order = _orderService.First(x => x.Id == key);
+            var order = _orderService.First(x => x.Id == key, CurrentLanguageCode);
 
             return View(_mapper.Map<Order, OrderViewModel>(order));
         }
@@ -124,7 +124,7 @@ namespace GameStore.Web.Controllers
         public ActionResult Edit(OrderViewModel model)
         {
             var order = _mapper.Map<OrderViewModel, Order>(model);
-            _orderService.Update(order);
+            _orderService.Update(order, CurrentLanguageCode);
 
             return RedirectToAction("GetCurrentOrders");
         }

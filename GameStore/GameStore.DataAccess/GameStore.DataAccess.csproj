@@ -63,6 +63,10 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -110,6 +114,7 @@
     <Compile Include="Decorators\OrderDecoratorRepository.cs" />
     <Compile Include="Infrastructure\IdDomainComparer.cs" />
     <Compile Include="Infrastructure\IdEntityComparer.cs" />
+    <Compile Include="Interfaces\ICultureRepository.cs" />
     <Compile Include="Interfaces\IGameRepository.cs" />
     <Compile Include="Interfaces\IDecoratorOrderRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
@@ -123,9 +128,9 @@
     <Compile Include="Migrations\201708091322243_raname_IsMongoEntity.Designer.cs">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709060912240_update.cs" />
-    <Compile Include="Migrations\201709060912240_update.Designer.cs">
-      <DependentUpon>201709060912240_update.cs</DependentUpon>
+    <Compile Include="Migrations\201709071240208_update-database.cs" />
+    <Compile Include="Migrations\201709071240208_update-database.Designer.cs">
+      <DependentUpon>201709071240208_update-database.cs</DependentUpon>
     </Compile>
     <Compile Include="Mongo\CustomMongoSerializers\DecimalSerializer.cs" />
     <Compile Include="Mongo\CustomMongoSerializers\StringSerializer.cs" />
@@ -135,6 +140,12 @@
     <Compile Include="Mongo\MongoEntities\BasicMongoEntity.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyOrderRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGameRepository.cs" />
+    <Compile Include="MSSQL\Entities\Localization\AbstractLocalizationEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\CultureEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\GameLocalEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\GenreLocalEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\PlatformTypeLocalEntity.cs" />
+    <Compile Include="MSSQL\Entities\Localization\PublisherLocalEntity.cs" />
     <Compile Include="MSSQL\Entities\RoleEntity.cs" />
     <Compile Include="MSSQL\Entities\UserEntity.cs" />
     <Compile Include="MSSQL\GamesSqlContext.cs" />
@@ -188,7 +199,9 @@
     <Compile Include="Mongo\MongoEntities\MongoSupplierEntity.cs" />
     <Compile Include="Interfaces\IReadOnlyGenericRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGenericRepository.cs" />
+    <Compile Include="MSSQL\Repositories\CultureRepository.cs" />
     <Compile Include="MSSQL\Repositories\OrderRepository.cs" />
+    <Compile Include="MSSQL\Repositories\PublisherRepository.cs" />
     <Compile Include="MSSQL\Repositories\RoleRepository.cs" />
     <Compile Include="MSSQL\Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -205,6 +218,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,8 +234,8 @@
     <EmbeddedResource Include="Migrations\201708091322243_raname_IsMongoEntity.resx">
       <DependentUpon>201708091322243_raname_IsMongoEntity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709060912240_update.resx">
-      <DependentUpon>201709060912240_update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709071240208_update-database.resx">
+      <DependentUpon>201709071240208_update-database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MSSQL\Migrations\201707191200526_Init.resx">
       <DependentUpon>201707191200526_Init.cs</DependentUpon>

@@ -1,20 +1,20 @@
 ﻿@model OrderViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resources.Edit;
 }
 
-<h2>Edit</h2>
+<h2>@Resources.Edit</h2>
 
 @Html.LabelFor(m => m.OrderDate)
 <br>
 @Html.DisplayFor(m => m.OrderDate)
 <table class="table">
     <tr>
-        <th>Game</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Discount</th>
+        <th>@Resources.Game</th>
+        <th>@Resources.Price</th>
+        <th>@Resources.Quantity</th>
+        <th>@Resources.Discount</th>
     </tr>
 
     @foreach (var details in Model.OrderDetails)
@@ -30,5 +30,5 @@
     @Html.LabelFor(m => m.Status)
     @Html.EditorFor(m => m.Status)
  
-    <input type="submit" value="Edit" />
+    <input type="submit" value="@Resources.Edit" />
 }
