@@ -66,7 +66,7 @@ namespace GameStore.Authorization.Implementation
         public User Login(string userName, string password, bool isPersistent = false)
         {
 
-            User user = _userRepository.First(u => u.Login == userName || u.Email == userName && u.Password == password);
+            User user = _userRepository.First(u => (u.Login == userName || u.Email == userName) && u.Password == password);
 
             if (user != null)
             {

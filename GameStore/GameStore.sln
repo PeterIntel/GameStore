@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{235EC747
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.services.tests", "GameStore.services.tests\GameStore.services.tests.csproj", "{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Security", "GameStore.Security\GameStore.Security.csproj", "{82CFECC0-61D7-437A-8CBE-7396BAC0CB44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55DA52DC-73CC-47B9-9A5A-A469F4CCCB33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CFECC0-61D7-437A-8CBE-7396BAC0CB44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CFECC0-61D7-437A-8CBE-7396BAC0CB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CFECC0-61D7-437A-8CBE-7396BAC0CB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CFECC0-61D7-437A-8CBE-7396BAC0CB44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

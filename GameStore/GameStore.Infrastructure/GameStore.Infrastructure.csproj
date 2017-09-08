@@ -64,6 +64,7 @@
     <Compile Include="AutomapperConfiguration\GenreResolver.cs" />
     <Compile Include="NinjectConfiguration\LogNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\RepositoryNinjectModule.cs" />
+    <Compile Include="NinjectConfiguration\SecuriryNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\UnitOfWorkNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +89,10 @@
     <ProjectReference Include="..\GameStore.Logging\GameStore.Logging.csproj">
       <Project>{610b36f9-1c94-444f-86de-b5991fa7c1e1}</Project>
       <Name>GameStore.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameStore.Security\GameStore.Security.csproj">
+      <Project>{82cfecc0-61d7-437a-8cbe-7396bac0cb44}</Project>
+      <Name>GameStore.Security</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameStore.Services\GameStore.Services.csproj">
       <Project>{dc9f595c-917a-49aa-b108-6c29e6d1fbc4}</Project>
