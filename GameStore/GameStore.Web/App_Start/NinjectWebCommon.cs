@@ -1,3 +1,5 @@
+using System.Web.Http;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(GameStore.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(GameStore.Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -51,6 +53,8 @@ namespace GameStore.Web.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
+                GlobalConfiguration.Configuration.DependencyResolver = new Ninject.Web.WebApi.NinjectDependencyResolver(kernel);
 
                 return kernel;
             }
