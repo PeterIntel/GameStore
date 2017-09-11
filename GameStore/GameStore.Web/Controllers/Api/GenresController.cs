@@ -23,6 +23,20 @@ namespace GameStore.Web.Controllers.Api
             _mapper = mapper;
         }
 
+        public IHttpActionResult GetAllByGameKey(string key, string contentType)
+        {
+            if (!_genreService.Any(x => x.Games.Any(y => y.Key == key)))
+            {
+                return Content(HttpStatusCode.BadRequest, "Game with such key does not have genres");
+            }
+
+            var genres = _genreService.Get(x => x.Games.Any(y => y.Key == key), CurrentLanguage);
+
+            var model = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(genres);
+
+            return Serialize(model, contentType);
+        }
+
         public IHttpActionResult GetGenres(string contentType)
         {
             return Serialize(_mapper.Map<IEnumerable<Genre>, IEnumerable<GenreViewModel>>(_genreService.Get(CurrentLanguage)), contentType);

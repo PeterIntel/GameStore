@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 using AutoMapper;
@@ -21,6 +22,21 @@ namespace GameStore.Web.Controllers.Api
             _mapper = mapper;
         }
 
+        public IHttpActionResult GetAllByGameKey(string key, string contentType)
+        {
+            if (!_publisherService.Any(x => x.Games.Any(y => y.Key == key)))
+            {
+                return Content(HttpStatusCode.BadRequest, "Game with such key does not have publishers");
+            }
+
+            var publishers = _publisherService.Get(x => x.Games.Any(y => y.Key == key), CurrentLanguage);
+
+            var model = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(publishers);
+
+            return Serialize(model, contentType);
+        }
+
+        [ActionName("publishers")]
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Manager)]
         public IHttpActionResult GetPublishers(string contentType)
         {

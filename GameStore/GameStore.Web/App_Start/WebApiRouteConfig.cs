@@ -17,6 +17,13 @@ namespace GameStore.Web
              );
 
             config.Routes.MapHttpRoute(
+                "CommentsGenresPublishersOfGame",
+                "api/{lang}/games/{key}/{controller}/{contentType}",
+                new { contentType = "json", action = "GetAllByGameKey" },
+                new { lang = LanguageConstraint, contentType = ContentTypeConstraint, controller = "comments|genres|publishers" }
+            );
+
+            config.Routes.MapHttpRoute(
                 "Get",
                 "api/{lang}/{controller}/{action}/{contentType}",
                 new { contentType = "json" },
@@ -31,15 +38,8 @@ namespace GameStore.Web
             );
 
             config.Routes.MapHttpRoute(
-                "CommentsGenresPublishersOfGame",
-                "api/{lang}/games/{key}/{controller}/{action}/{contentType}",
-                new { contentType = "json", action = "GetAllByGameKey" },
-                new { lang = LanguageConstraint, contentType = ContentTypeConstraint, controller = "comments|genres|publishers" }
-            );
-
-            config.Routes.MapHttpRoute(
                 "Comments",
-                "api/{lang}/games/{key}/comments/{id}/{contentType}",
+                "api/{lang}/games/{key}/comments/{action}/{id}/{contentType}",
                 new { contentType = "json", controller = "comments" },
                 new { lang = LanguageConstraint, contentType = ContentTypeConstraint }
             );
