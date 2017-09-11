@@ -15,6 +15,7 @@ namespace GameStore.Web.Controllers.Api
     {
         private readonly ICommentService _commentService;
         private readonly IMapper _mapper;
+
         public CommentsController(IApiAuthentication authentication, ICommentService commentService, IMapper mapper) : base(authentication)
         {
             _commentService = commentService;
