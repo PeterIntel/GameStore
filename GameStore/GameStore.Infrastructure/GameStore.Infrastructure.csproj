@@ -65,6 +65,7 @@
     <Compile Include="NinjectConfiguration\LogNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\RepositoryNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\SecuriryNinjectModule.cs" />
+    <Compile Include="NinjectConfiguration\ServicesNinjectModule.cs" />
     <Compile Include="NinjectConfiguration\UnitOfWorkNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

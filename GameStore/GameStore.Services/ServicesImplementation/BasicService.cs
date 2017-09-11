@@ -110,5 +110,12 @@ namespace GameStore.Services.ServicesImplementation
                 throw new ArgumentException(exceptionMessage);
             }
         }
+
+        public TDomain GetItemById(string id)
+        {
+            var result = _genericRepository.GetItemById(id);
+
+            return result;
+        }
     }
 }

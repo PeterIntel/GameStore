@@ -73,7 +73,6 @@ namespace GameStore.Authorization.Implementation
                 CreateCookie(userName);
             }
             
-
             return user;
         }
 

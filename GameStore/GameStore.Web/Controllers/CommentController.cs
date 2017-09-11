@@ -65,6 +65,17 @@ namespace GameStore.Web.Controllers
             throw new ArgumentException("The game was not specified!!!");
         }
 
+        [HttpGet]
+        [CustomAuthorize(RoleEnum.Moderator)]
+        public ActionResult ChangeCommentState(string key)
+        {
+            var comment = _commentService.First(x => x.Id == key, CurrentLanguageCode);
+            comment.IsDisabled = !comment.IsDisabled;
+            _commentService.Update(comment, CurrentLanguageCode);
+
+            return RedirectToAction("comments", new { gameKey = comment.Game.Key });
+        }
+
         private CommentsViewModel InitComments(string gameKey)
         {
             var comments = _commentService.GetStructureOfComments(_commentService.GetAllCommentsByGameKey(gameKey));
@@ -82,17 +93,6 @@ namespace GameStore.Web.Controllers
             };
 
             return commentsViewModel;
-        }
-
-        [HttpGet]
-        [CustomAuthorize(RoleEnum.Moderator)]
-        public ActionResult ChangeCommentState(string key)
-        {
-            var comment = _commentService.First(x => x.Id == key, CurrentLanguageCode);
-            comment.IsDisabled = !comment.IsDisabled;
-            _commentService.Update(comment, CurrentLanguageCode);
-
-            return RedirectToAction("comments", new {gameKey = comment.Game.Key});
         }
     }
 }

@@ -45,7 +45,11 @@ namespace GameStore.Web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var modules = new INinjectModule[] { new RepositoryNinjectModule(), new UnitOfWorkNinjectModule(), new LogNinjectModule(), new AutoMapperModule()};
+            var modules = new INinjectModule[]
+            {
+                new RepositoryNinjectModule(), new UnitOfWorkNinjectModule(), new LogNinjectModule(), new AutoMapperModule(),
+                new SecuriryNinjectModule(), new ServicesNinjectModule()
+            };
             var kernel = new StandardKernel(modules);
             try
             {

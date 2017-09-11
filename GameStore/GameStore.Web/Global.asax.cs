@@ -15,10 +15,14 @@ namespace GameStore.Web
     {
         protected void Application_Start()
         {
+            GlobalConfiguration.Configure(WebApiRouteConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            GlobalConfiguration.Configure(WebApiRouteConfig.Register);
+        }
+
+        protected void Application_Error()
+        {
         }
     }
 }

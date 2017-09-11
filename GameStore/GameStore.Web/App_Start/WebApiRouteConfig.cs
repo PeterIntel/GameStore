@@ -1,5 +1,4 @@
-﻿using System.Security.Policy;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace GameStore.Web
 {
@@ -12,22 +11,28 @@ namespace GameStore.Web
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                 "Login",
+                 "api/{lang}/login",
+                 new { controller = "Base", action = "Login" }
+             );
+
+            config.Routes.MapHttpRoute(
                 "Get",
-                "api/{lang}/{controller}/{contentType}",
+                "api/{lang}/{controller}/{action}/{contentType}",
                 new { contentType = "json" },
                 new { lang = LanguageConstraint, contentType = ContentTypeConstraint }
             );
 
             config.Routes.MapHttpRoute(
-                "GetPostPutDelete",
-                "api/{lang}/{controller}/{key}/{contentType}",
+                "GetPutDelete",
+                "api/{lang}/{controller}/{action}/{key}/{contentType}",
                 new { contentType = "json" },
                 new { lang = LanguageConstraint, contentType = ContentTypeConstraint }
             );
 
             config.Routes.MapHttpRoute(
-                "CommentsGenresPpublishersOfGame",
-                "api/{lang}/games/{key}/{controller}/{contentType}",
+                "CommentsGenresPublishersOfGame",
+                "api/{lang}/games/{key}/{controller}/{action}/{contentType}",
                 new { contentType = "json", action = "GetAllByGameKey" },
                 new { lang = LanguageConstraint, contentType = ContentTypeConstraint, controller = "comments|genres|publishers" }
             );
@@ -52,8 +57,6 @@ namespace GameStore.Web
                 new { contentType = "json", action = "GetAllByGenreName", controller = "games" },
                 new { lang = LanguageConstraint, contentType = ContentTypeConstraint }
             );
-
-
         }
     }
 }
