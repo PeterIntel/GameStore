@@ -60,7 +60,7 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Manager)]
         public IHttpActionResult Get(string key, string contentType)
         {
-            var publisher = _publisherService.First(x => x.CompanyName == key, CurrentLanguage); //TODO Consider: use 'var' here
+            var publisher = _publisherService.First(x => x.CompanyName == key, CurrentLanguage);
 
 			if (publisher == null)
             {
@@ -77,7 +77,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (CurrentUser.User.Publisher != null)
             {
-                var publisher = _publisherService.First(x => x.CompanyName == CurrentUser.User.Publisher.CompanyName, CurrentLanguage); //TODO Consider: use 'var' here
+                var publisher = _publisherService.First(x => x.CompanyName == CurrentUser.User.Publisher.CompanyName, CurrentLanguage);
 
 				if (publisher == null)
                 {

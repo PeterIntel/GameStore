@@ -125,7 +125,7 @@ namespace GameStore.Web.Controllers.Api
         {
             PaginationGames games = _gameService.Get(CurrentLanguage);
 
-            FilterCriteria filter = new FilterCriteria //TODO Required: remove useless '()'
+            FilterCriteria filter = new FilterCriteria
             {
                 Genres = _genreService.Get(CurrentLanguage),
                 Platformtypes = _platformTypeService.Get(CurrentLanguage),
@@ -134,13 +134,12 @@ namespace GameStore.Web.Controllers.Api
 
             var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
 
-            var pageInfo = new PagingInfoViewModel //TODO Required: remove useless '()'
+            var pageInfo = new PagingInfoViewModel
             {
                 CurrentPage = 1,
                 ItemsPerPage = "10",
                 TotalItems = games.Count
             };
-            //TODO Required: Line per Property
 
             var result = Serialize(new GamesAndFilterViewModel
             {
@@ -148,7 +147,7 @@ namespace GameStore.Web.Controllers.Api
                 Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games),
                 PagingInfo = pageInfo
             },
-            contentType); //TODO Required: remove useless '()'
+            contentType);
 
             return result;
         }
@@ -156,8 +155,6 @@ namespace GameStore.Web.Controllers.Api
         [ActionName("filter")]
         public IHttpActionResult FilterGames(string contentType, FilterCriteriaViewModel filterViewModel, string size, int page = 1)
         {
-            //TODO Required: Join declaration and assignment
-
             if (!ModelState.IsValid)
             {
                 return Content(HttpStatusCode.BadRequest, CreateError());
@@ -169,14 +166,13 @@ namespace GameStore.Web.Controllers.Api
             filterViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(filterViewModel.NamePlatformTypes, CurrentLanguage));
             filterViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAllPublishersAndMarkSelected(filterViewModel.NamePublishers, CurrentLanguage));
 
-            var pageInfo = new PagingInfoViewModel //TODO Required: remove useless '()'
+            var pageInfo = new PagingInfoViewModel
             {
                 CurrentPage = page,
                 ItemsPerPage = size,
                 TotalItems = games.Count
             };
 
-            //TODO Required: Line per Property
             var result = Serialize(new GamesAndFilterViewModel()
             {
                 Filter = filterViewModel,

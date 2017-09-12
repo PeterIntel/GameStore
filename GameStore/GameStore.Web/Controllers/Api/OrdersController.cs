@@ -114,7 +114,7 @@ namespace GameStore.Web.Controllers.Api
 
             if (order.OrderDetails == null && order.OrderDetails.Count == 0)
             {
-                ModelState.AddModelError("", @"The basket have no games"); //TODO Required: fix typo in 'busket'
+                ModelState.AddModelError("", @"The basket have no games");
 
                 return BadRequest(ModelState);
             }
@@ -145,14 +145,14 @@ namespace GameStore.Web.Controllers.Api
         {
             var ordersViewModel = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
 
-            return new FilterOrdersViewModel { Orders = ordersViewModel }; //TODO Required: remove useless '()'
+            return new FilterOrdersViewModel { Orders = ordersViewModel }; 
         }
 
         private FilterOrdersViewModel FilterOrders(IEnumerable<Order> orders)
         {
             IList<OrderViewModel> ordersViewModel = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
 
-            return new FilterOrdersViewModel { Orders = ordersViewModel }; //TODO Required: remove useless '()'
+            return new FilterOrdersViewModel { Orders = ordersViewModel };
         }
     }
 }

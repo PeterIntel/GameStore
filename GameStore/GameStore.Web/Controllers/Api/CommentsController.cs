@@ -24,19 +24,14 @@ namespace GameStore.Web.Controllers.Api
 
         public IHttpActionResult GetAllByGameKey(string key, string contentType)
         {
-            //TODO Consider: Return 200Ok with empty comments array
-
             var comments = _commentService.GetAllCommentsByGameKey(key);
             var model = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments);
 
             return Serialize(model, contentType);
         }
 
-        public IHttpActionResult Get(string id, string contentType) //TODO Required: remove 'key'
+        public IHttpActionResult Get(string id, string contentType)
         {
-            //TODO Required: remove
-            //TODO Consider: Return 200Ok with empty comments array
-
             if (!_commentService.Any(x => x.Id == id))
             {
                 return Content(HttpStatusCode.OK, "Comment with such id does not exist");
@@ -52,8 +47,6 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Forbid, RoleEnum.Moderator, RoleEnum.Administrator, RoleEnum.Manager)]
         public IHttpActionResult Post(CommentViewModel commentViewModel)
         {
-            //TODO Required: remove
-
             if (!ModelState.IsValid)
             {
                 return Content(HttpStatusCode.BadRequest, CreateError());
@@ -68,8 +61,6 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Moderator)]
         public IHttpActionResult Put(CommentViewModel model)
         {
-            //TODO Required: remove
-
             if (!ModelState.IsValid)
             {
                 return Content(HttpStatusCode.BadRequest, CreateError());
@@ -82,10 +73,8 @@ namespace GameStore.Web.Controllers.Api
         }
 
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Moderator)]
-        public IHttpActionResult Delete(string id) //TODO Required: remove 'key'
+        public IHttpActionResult Delete(string id)
         {
-            //TODO Required: remove
-
             if (!_commentService.Any(x => x.Id == id))
             {
                 return Content(HttpStatusCode.OK, "Comment with such id does not exist");
