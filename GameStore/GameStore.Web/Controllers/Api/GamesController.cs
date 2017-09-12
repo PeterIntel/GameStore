@@ -142,7 +142,13 @@ namespace GameStore.Web.Controllers.Api
             };
             //TODO Required: Line per Property
 
-            var result = Serialize(new GamesAndFilterViewModel { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo }, contentType); //TODO Required: remove useless '()'
+            var result = Serialize(new GamesAndFilterViewModel
+            {
+                Filter = filterViewModel,
+                Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games),
+                PagingInfo = pageInfo
+            },
+            contentType); //TODO Required: remove useless '()'
 
             return result;
         }
@@ -171,7 +177,13 @@ namespace GameStore.Web.Controllers.Api
             };
 
             //TODO Required: Line per Property
-            var result = Serialize(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo }, contentType);
+            var result = Serialize(new GamesAndFilterViewModel()
+            {
+                Filter = filterViewModel,
+                Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games),
+                PagingInfo = pageInfo
+            },
+            contentType);
 
             return result;
         }
