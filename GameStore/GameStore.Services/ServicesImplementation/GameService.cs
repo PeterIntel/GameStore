@@ -38,7 +38,7 @@ namespace GameStore.Services.ServicesImplementation
             AssignIdIfEmpty(item);
             if (item.Genres == null)
             {
-                item.Genres = item.NameGenres != null ? _genreRepository.LoadDomainEntities(item.NameGenres) : _genreRepository.Get(genre => genre.Name == "Other").ToList();
+                item.Genres = item.NameGenres != null ? _genreRepository.LoadDomainEntities(item.NameGenres) : _genreRepository.Get(genre => genre.Locals.Any(z => z.Name == "Other")).ToList();
             }
 
             item.PlatformTypes = item.NamePlatformTypes != null ? _platformRepository.LoadDomainEntities(item.NamePlatformTypes) : null;

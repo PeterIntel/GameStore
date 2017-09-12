@@ -85,7 +85,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<PlatformType, PlatformTypeEntity>()
                 .MaxDepth(1);
             CreateMap<User, UserEntity>();
-               CreateMap<Role, RoleEntity>();
+            CreateMap<Role, RoleEntity>();
             CreateMap<Publisher, PublisherEntity>()
                 .MaxDepth(1);
             CreateMap<Order, OrderEntity>();
@@ -112,6 +112,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Description, opt => opt.Ignore())
                 .ForMember(dst => dst.CompanyName, opt => opt.MapFrom(src => src.CompanyName))
+                .ForMember(dst => dst.Games, opt => opt.MapFrom(src => src.Products))
                 .ForMember(dst => dst.Locals, opt => opt.ResolveUsing(
                     m => new List<PublisherLocal>
                     {
@@ -121,6 +122,7 @@ namespace GameStore.Infrastructure.AutomapperConfiguration
             CreateMap<MongoCategoryEntity, Genre>()
                 .ForMember(dst => dst.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dst => dst.Name, opt => opt.MapFrom(src => src.CategoryName))
+                 .ForMember(dst => dst.Games, opt => opt.MapFrom(src => src.Products))
                 .ForMember(dst => dst.Locals, opt => opt.ResolveUsing(
                     m => new List<GenreLocal>
                     {

@@ -73,7 +73,38 @@ namespace GameStore.DataAccess.Mongo.DataProviders
             return (IQueryable<MongoOrderEntity>)newOrders.AsQueryable();
         }
 
+        public static IQueryable<MongoCategoryEntity> GetNestedEntities(this IQueryable<MongoCategoryEntity> categories)
+        {
+            var newCategories = from category in (IEnumerable<MongoCategoryEntity>)categories
+                                join product in Products.AsQueryable() on category.CategoryID equals product.CategoryID
+                                into categoryProducts
+                                select new MongoCategoryEntity
+                                {
+                                    Id = category.Id,
+                                    CategoryID = category.CategoryID,
+                                    CategoryName = category.CategoryName,
+                                    Products = categoryProducts
+                                };
 
+            return (IQueryable<MongoCategoryEntity>)newCategories.AsQueryable();
+        }
+
+        public static IQueryable<MongoSupplierEntity> GetNestedEntities(this IQueryable<MongoSupplierEntity> suppliers)
+        {
+            var newSuppliers = from supplier in (IEnumerable<MongoSupplierEntity>)suppliers
+                                join product in Products.AsQueryable() on supplier.SupplierID equals product.SupplierID
+                                into supplierProducts
+                                select new MongoSupplierEntity
+                                {
+                                    Id = supplier.Id,
+                                    CompanyName = supplier.CompanyName,
+                                    SupplierID = supplier.SupplierID,
+                                    HomePage = supplier.HomePage,
+                                    Products = supplierProducts
+                                };
+
+            return (IQueryable<MongoSupplierEntity>)newSuppliers.AsQueryable();
+        }
     }
 }
 

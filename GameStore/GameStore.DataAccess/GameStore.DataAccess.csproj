@@ -138,8 +138,11 @@
     <Compile Include="Mongo\GamesMongoContext.cs" />
     <Compile Include="Mongo\CollectionName.cs" />
     <Compile Include="Mongo\MongoEntities\BasicMongoEntity.cs" />
+    <Compile Include="Mongo\MongoRepositories\ReadOnlyGenreRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyOrderRepository.cs" />
     <Compile Include="Mongo\MongoRepositories\ReadOnlyGameRepository.cs" />
+    <Compile Include="Mongo\MongoRepositories\ReadOnlyPublisherRepository.cs" />
+    <Compile Include="Mongo\MongoRepositories\Supplier.cs" />
     <Compile Include="MSSQL\Entities\Localization\AbstractLocalizationEntity.cs" />
     <Compile Include="MSSQL\Entities\Localization\CultureEntity.cs" />
     <Compile Include="MSSQL\Entities\Localization\GameLocalEntity.cs" />

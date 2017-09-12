@@ -41,20 +41,9 @@ namespace GameStore.Web.Infrastructure.NinjectConfiguration
         {
             _kernel.Bind<GamesSqlContext>().ToSelf().InRequestScope();
             _kernel.Bind<GamesMongoContext>().ToSelf().InRequestScope();
-            _kernel.Bind<IGameService>().To<GameService>();
-            _kernel.Bind<ICommentService>().To<CommentService>();
-            _kernel.Bind<IGenreService>().To<GenreService>();
-            _kernel.Bind<IPlatformTypeService>().To<PlatformTypeService>();
-            _kernel.Bind<IPublisherService>().To<PublisherService>();
-            _kernel.Bind<IOrderService>().To<OrderService>();
-            _kernel.Bind<IAccountService>().To<AccountService>();
+           
             _kernel.Bind<IAuthentication>().To<CustomAuthentication>().InRequestScope();
-
-            _kernel.Bind(typeof(ILocalizationProvider<>)).To(typeof(LocalizationProvider<>));
-            _kernel.Bind<ILocalizationProvider<Game>>().To<GameLocalizationProvider>();
-            _kernel.Bind<ILocalizationProvider<Genre>>().To<GenreLocalizationProvider>();
-            _kernel.Bind<ILocalizationProvider<Publisher>>().To<PublisherLocalizationProvider>();
-            _kernel.Bind<ILocalizationProvider<PlatformType>>().To<PlatformTypeLocalizationProvider>();
+            _kernel.Bind<IApiAuthentication>().To<ApiAuthentication>().InRequestScope();
         }
     }
 }

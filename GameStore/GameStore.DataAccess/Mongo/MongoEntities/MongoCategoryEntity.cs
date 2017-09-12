@@ -11,6 +11,6 @@ namespace GameStore.DataAccess.Mongo.MongoEntities
 
         public string CategoryName { set; get; }
         [BsonIgnore]
-        public IEnumerable<GenreLocal> Locals { set; get; }
+        public IEnumerable<MongoProductEntity> Products { set; get; }
     }
 }

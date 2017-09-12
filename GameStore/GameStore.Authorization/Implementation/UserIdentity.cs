@@ -51,7 +51,7 @@ namespace GameStore.Authorization.Implementation
         {
             if (!string.IsNullOrEmpty(name))
             {
-                User = userRepository.First(u => u.Login == name || u.Email == name);
+                User = userRepository.First(u => u.Login == name || u.Id == name || u.Email == name);
             }
         }
     }

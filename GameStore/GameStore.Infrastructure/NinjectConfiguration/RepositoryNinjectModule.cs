@@ -37,6 +37,8 @@ namespace GameStore.Infrastructure.NinjectConfiguration
             Bind<IGenericDataRepository<PublisherEntity, Publisher>>().To<PublisherRepository>();
 
             Bind(typeof(IReadOnlyGenericRepository<,>)).To(typeof(ReadOnlyGenericRepository<,>));
+            Bind(typeof(IReadOnlyGenericRepository<MongoCategoryEntity, Genre>)).To<ReadOnlyGenreRepository>();
+            Bind(typeof(IReadOnlyGenericRepository<MongoSupplierEntity, Publisher>)).To<ReadOnlyPublisherRepository>();
             Bind<IReadOnlyGenericRepository<MongoOrderEntity, Order>>().To<ReadOnlyOrderRepository>();
             Bind<IReadOnlyGenericRepository<MongoProductEntity, Game>>().To<ReadOnlyGameRepository>();
         }

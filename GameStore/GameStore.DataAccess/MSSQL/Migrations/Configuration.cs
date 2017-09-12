@@ -179,7 +179,24 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                             Culture = context.Cultures.First(c=>c.Code == "ru")
                         }
                     }
-                });
+                },
+                new GenreEntity()
+                {
+                    Id = new Guid("d6224e00-2078-4243-aed5-7e31b76a9978").ToString(),
+                    ParentGenreId = null,
+                    IsDeleted = false,
+                    IsSqlEntity = true,
+                    Locals = new List<GenreLocalEntity>()
+                    {
+                        new GenreLocalEntity()
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            Name = "Other",
+                            Culture = context.Cultures.First(c=>c.Code == "en")
+                        }
+                    }
+                }
+                );
 
             context.SaveChanges();
 
@@ -507,7 +524,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     LastName = "Ivanow",
                     Login = "admin",
                     Email = "admin@ukr.net",
-                    Password = "customer1",
+                    Password = "111111",
                     BirthDay = DateTime.UtcNow.AddYears(20),
                     IsDeleted = false,
                     IsSqlEntity = true,
@@ -523,7 +540,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     LastName = "Ivanow",
                     Login = "moderator",
                     Email = "moderator@ukr.net",
-                    Password = "customer1",
+                    Password = "111111",
                     BirthDay = DateTime.UtcNow.AddYears(20),
                     IsDeleted = false,
                     IsSqlEntity = true,
@@ -539,7 +556,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     LastName = "Ivanow",
                     Login = "user",
                     Email = "user@ukr.net",
-                    Password = "customer1",
+                    Password = "111111",
                     BirthDay = DateTime.UtcNow.AddYears(20),
                     IsDeleted = false,
                     IsSqlEntity = true,
@@ -555,7 +572,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     LastName = "Ivanow",
                     Login = "manager",
                     Email = "manager@ukr.net",
-                    Password = "customer1",
+                    Password = "111111",
                     BirthDay = DateTime.UtcNow.AddYears(20),
                     IsDeleted = false,
                     IsSqlEntity = true,
@@ -571,7 +588,7 @@ namespace GameStore.DataAccess.MSSQL.Migrations
                     LastName = "Ivanow",
                     Login = "publisher",
                     Email = "publisher@ukr.net",
-                    Password = "customer1",
+                    Password = "111111",
                     BirthDay = DateTime.UtcNow.AddYears(20),
                     IsDeleted = false,
                     IsSqlEntity = true,

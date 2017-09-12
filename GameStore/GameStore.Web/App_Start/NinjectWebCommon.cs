@@ -1,3 +1,5 @@
+using System.Web.Http;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(GameStore.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(GameStore.Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -43,7 +45,11 @@ namespace GameStore.Web.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var modules = new INinjectModule[] { new RepositoryNinjectModule(), new UnitOfWorkNinjectModule(), new LogNinjectModule(), new AutoMapperModule()};
+            var modules = new INinjectModule[]
+            {
+                new RepositoryNinjectModule(), new UnitOfWorkNinjectModule(), new LogNinjectModule(), new AutoMapperModule(),
+                new SecuriryNinjectModule(), new ServicesNinjectModule()
+            };
             var kernel = new StandardKernel(modules);
             try
             {
@@ -51,6 +57,8 @@ namespace GameStore.Web.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+
+                GlobalConfiguration.Configuration.DependencyResolver = new Ninject.Web.WebApi.NinjectDependencyResolver(kernel);
 
                 return kernel;
             }
