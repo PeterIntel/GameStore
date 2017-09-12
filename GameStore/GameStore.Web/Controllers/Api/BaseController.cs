@@ -86,7 +86,7 @@ namespace GameStore.Web.Controllers.Api
 
         protected ErrorViewModel CreateError()
         {
-            var error = new ErrorViewModel()
+            var error = new ErrorViewModel() //TODO Required: remove useless '()'
             {
                 Message = "ModelState contains errors",
                 Errors = ModelState.Values.SelectMany(e => e.Errors.Select(er => er.ErrorMessage))
