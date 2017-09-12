@@ -24,28 +24,22 @@ namespace GameStore.Web.Controllers.Api
 
         public IHttpActionResult GetAllByGameKey(string key, string contentType)
         {
-            if (!_commentService.Any(x => x.Game.Key == key))
-            {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not have comments"); //TODO Consider: Return 200Ok with empty comments array
-			}
+            //TODO Consider: Return 200Ok with empty comments array
 
             var comments = _commentService.GetAllCommentsByGameKey(key);
-
             var model = _mapper.Map<IEnumerable<Comment>, IList<CommentViewModel>>(comments);
 
             return Serialize(model, contentType);
         }
 
-        public IHttpActionResult Get(string key, string id, string contentType) //TODO Required: remove 'key'
-		{
-            if (!_commentService.Any(x => x.Game.Key == key)) //TODO Required: remove
-            {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not have comments"); //TODO Consider: Return 200Ok with empty comments array
-			}
+        public IHttpActionResult Get(string id, string contentType) //TODO Required: remove 'key'
+        {
+            //TODO Required: remove
+            //TODO Consider: Return 200Ok with empty comments array
 
             if (!_commentService.Any(x => x.Id == id))
             {
-                return Content(HttpStatusCode.BadRequest, "Comment with such id does not exist");
+                return Content(HttpStatusCode.OK, "Comment with such id does not exist");
             }
 
             var comment = _commentService.GetItemById(id);
@@ -58,10 +52,7 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Forbid, RoleEnum.Moderator, RoleEnum.Administrator, RoleEnum.Manager)]
         public IHttpActionResult Post(CommentViewModel commentViewModel)
         {
-            if (!_commentService.Any(x => x.Game.Key == commentViewModel.GameKey)) //TODO Required: remove
-			{
-                return Content(HttpStatusCode.BadRequest, "This game does not have comments");
-            }
+            //TODO Required: remove
 
             if (!ModelState.IsValid)
             {
@@ -77,15 +68,7 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Moderator)]
         public IHttpActionResult Put(CommentViewModel model)
         {
-            if (!_commentService.Any(x => x.Game.Key == model.GameKey))
-            {
-                return Content(HttpStatusCode.BadRequest, "This game does not have comments"); //TODO Required: remove
-			}
-
-            if (!_commentService.Any(x => x.Id == model.Id))
-            {
-                return Content(HttpStatusCode.BadRequest, "Comment with such id does not exist");
-            }
+            //TODO Required: remove
 
             if (!ModelState.IsValid)
             {
@@ -99,16 +82,13 @@ namespace GameStore.Web.Controllers.Api
         }
 
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Moderator)]
-        public IHttpActionResult Delete(string key, string id) //TODO Required: remove 'key'
-		{
-            if (!_commentService.Any(x => x.Game.Key == key))
-            {
-                return Content(HttpStatusCode.BadRequest, "This does not have comments"); //TODO Required: remove
-			}
+        public IHttpActionResult Delete(string id) //TODO Required: remove 'key'
+        {
+            //TODO Required: remove
 
             if (!_commentService.Any(x => x.Id == id))
             {
-                return Content(HttpStatusCode.BadRequest, "Comment with such id does not exist");
+                return Content(HttpStatusCode.OK, "Comment with such id does not exist");
             }
 
             _commentService.Remove(id);

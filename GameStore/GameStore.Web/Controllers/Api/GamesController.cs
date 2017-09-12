@@ -33,7 +33,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (!_publisherService.Any(x => x.CompanyName == key))
             {
-                return Content(HttpStatusCode.BadRequest, "Publisher with such company name does not exist");
+                return Content(HttpStatusCode.OK, "Publisher with such company name does not exist");
             }
 
             var games = _gameService.Get(x => x.Publisher.CompanyName == key, CurrentLanguage);
@@ -46,7 +46,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (!_genreService.Any(x => x.Locals.Any(y => y.Name == key)))
             {
-                return Content(HttpStatusCode.BadRequest, "Genre with such name does not exist");
+                return Content(HttpStatusCode.OK, "Genre with such name does not exist");
             }
 
             var games = _gameService.Get(x => x.Genres.Any(y => y.Locals.Any(z => z.Name == key)), CurrentLanguage);
@@ -59,7 +59,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (!_gameService.Any(x => x.Key == key))
             {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not exist");
+                return Content(HttpStatusCode.OK, "Game with such key does not exist");
             }
 
             _gameService.AddViewToGame(key, CurrentLanguage);
@@ -84,11 +84,11 @@ namespace GameStore.Web.Controllers.Api
         }
 
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Manager)]
-        public IHttpActionResult Put(string key)
+        public IHttpActionResult Put(GameViewModel model)
         {
-            if (!_gameService.Any(x => x.Key == key))
+            if (!_gameService.Any(x => x.Key == model.Key))
             {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not exist");
+                return Content(HttpStatusCode.OK, "Game with such key does not exist");
             }
 
             if (!ModelState.IsValid)
@@ -96,7 +96,7 @@ namespace GameStore.Web.Controllers.Api
                 return Content(HttpStatusCode.BadRequest, CreateError());
             }
 
-            var game = _gameService.First(x => x.Key == key, CurrentLanguage);
+            var game = _mapper.Map<GameViewModel, Game>(model);
             _gameService.Update(game, CurrentLanguage);
 
             return Ok();
@@ -105,12 +105,12 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Manager)]
         public IHttpActionResult Delete(string key)
         {
-            var game = _gameService.First(x => x.Key == key, CurrentLanguage);
-
             if (!_gameService.Any(x => x.Key == key))
             {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not exist");
+                return Content(HttpStatusCode.OK, "Game with such key does not exist");
             }
+
+            var game = _gameService.First(x => x.Key == key, CurrentLanguage);
 
             if (ModelState.IsValid)
             {
@@ -125,7 +125,7 @@ namespace GameStore.Web.Controllers.Api
         {
             PaginationGames games = _gameService.Get(CurrentLanguage);
 
-            FilterCriteria filter = new FilterCriteria() //TODO Required: remove useless '()'
+            FilterCriteria filter = new FilterCriteria //TODO Required: remove useless '()'
             {
                 Genres = _genreService.Get(CurrentLanguage),
                 Platformtypes = _platformTypeService.Get(CurrentLanguage),
@@ -134,42 +134,44 @@ namespace GameStore.Web.Controllers.Api
 
             var filterViewModel = _mapper.Map<FilterCriteria, FilterCriteriaViewModel>(filter);
 
-            var pageInfo = new PagingInfoViewModel() //TODO Required: remove useless '()'
-			{
+            var pageInfo = new PagingInfoViewModel //TODO Required: remove useless '()'
+            {
                 CurrentPage = 1,
                 ItemsPerPage = "10",
                 TotalItems = games.Count
             };
-	        //TODO Required: Line per Property
-			var result = Serialize(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo }, contentType); //TODO Required: remove useless '()'
+            //TODO Required: Line per Property
 
-			return result;
+            var result = Serialize(new GamesAndFilterViewModel { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo }, contentType); //TODO Required: remove useless '()'
+
+            return result;
         }
 
         [ActionName("filter")]
         public IHttpActionResult FilterGames(string contentType, FilterCriteriaViewModel filterViewModel, string size, int page = 1)
         {
-            PaginationGames games; //TODO Required: Join declaration and assignment
+            //TODO Required: Join declaration and assignment
 
-			if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Content(HttpStatusCode.BadRequest, CreateError());
             }
             FilterCriteria filters = _mapper.Map<FilterCriteriaViewModel, FilterCriteria>(filterViewModel);
-            games = _gameService.FilterGames(filters, page, size, CurrentLanguage);
+            PaginationGames games = _gameService.FilterGames(filters, page, size, CurrentLanguage);
 
             filterViewModel.Genres = _mapper.Map<IEnumerable<Genre>, IList<GenreViewModel>>(_genreService.GetAllGenresAndMarkSelectedForFilter(filterViewModel.NameGenres, CurrentLanguage));
             filterViewModel.PlatformTypes = _mapper.Map<IEnumerable<PlatformType>, IList<PlatformTypeViewModel>>(_platformTypeService.GetAllPlatformTypesAndMarkSelected(filterViewModel.NamePlatformTypes, CurrentLanguage));
             filterViewModel.Publishers = _mapper.Map<IEnumerable<Publisher>, IList<PublisherViewModel>>(_publisherService.GetAllPublishersAndMarkSelected(filterViewModel.NamePublishers, CurrentLanguage));
 
-            var pageInfo = new PagingInfoViewModel() //TODO Required: remove useless '()'
-			{
+            var pageInfo = new PagingInfoViewModel //TODO Required: remove useless '()'
+            {
                 CurrentPage = page,
                 ItemsPerPage = size,
                 TotalItems = games.Count
             };
-	        //TODO Required: Line per Property
-			var result = Serialize(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo }, contentType);
+
+            //TODO Required: Line per Property
+            var result = Serialize(new GamesAndFilterViewModel() { Filter = filterViewModel, Games = _mapper.Map<IEnumerable<Game>, IList<GameViewModel>>(games.Games), PagingInfo = pageInfo }, contentType);
 
             return result;
         }

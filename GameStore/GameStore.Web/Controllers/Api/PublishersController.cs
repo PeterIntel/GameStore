@@ -26,7 +26,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (!_publisherService.Any(x => x.Games.Any(y => y.Key == key)))
             {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not have publishers");
+                return Content(HttpStatusCode.OK, "Game with such key does not have publishers");
             }
 
             var publishers = _publisherService.Get(x => x.Games.Any(y => y.Key == key), CurrentLanguage);
@@ -60,7 +60,7 @@ namespace GameStore.Web.Controllers.Api
         [CustomApiAuthorize(AuthorizationMode.Allow, RoleEnum.Manager)]
         public IHttpActionResult Get(string key, string contentType)
         {
-            Publisher publisher = _publisherService.First(x => x.CompanyName == key, CurrentLanguage); //TODO Consider: use 'var' here
+            var publisher = _publisherService.First(x => x.CompanyName == key, CurrentLanguage); //TODO Consider: use 'var' here
 
 			if (publisher == null)
             {
@@ -77,7 +77,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (CurrentUser.User.Publisher != null)
             {
-                Publisher publisher = _publisherService.First(x => x.CompanyName == CurrentUser.User.Publisher.CompanyName, CurrentLanguage); //TODO Consider: use 'var' here
+                var publisher = _publisherService.First(x => x.CompanyName == CurrentUser.User.Publisher.CompanyName, CurrentLanguage); //TODO Consider: use 'var' here
 
 				if (publisher == null)
                 {

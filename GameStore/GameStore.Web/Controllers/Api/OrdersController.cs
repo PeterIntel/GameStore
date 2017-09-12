@@ -112,11 +112,11 @@ namespace GameStore.Web.Controllers.Api
 
             var order = _orderService.First(x => x.Id == orderId, CurrentLanguage);
 
-            if (order.OrderDetails == null || order.OrderDetails.Count == 0)
+            if (order.OrderDetails == null && order.OrderDetails.Count == 0)
             {
-                ModelState.AddModelError("", @"The busket have no games"); //TODO Required: fix typo in 'busket'
+                ModelState.AddModelError("", @"The basket have no games"); //TODO Required: fix typo in 'busket'
 
-				return BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
 
 
@@ -130,6 +130,11 @@ namespace GameStore.Web.Controllers.Api
         [HttpPost]
         public IHttpActionResult Put(OrderViewModel model)
         {
+            if (!_orderService.Any(x => x.Id == model.Id))
+            {
+                return Content(HttpStatusCode.OK, "There is no such order!");
+            }
+
             var order = _mapper.Map<OrderViewModel, Order>(model);
             _orderService.Update(order, CurrentLanguage);
 
@@ -140,14 +145,14 @@ namespace GameStore.Web.Controllers.Api
         {
             var ordersViewModel = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
 
-            return new FilterOrdersViewModel() { Orders = ordersViewModel }; //TODO Required: remove useless '()'
-		}
+            return new FilterOrdersViewModel { Orders = ordersViewModel }; //TODO Required: remove useless '()'
+        }
 
         private FilterOrdersViewModel FilterOrders(IEnumerable<Order> orders)
         {
             IList<OrderViewModel> ordersViewModel = _mapper.Map<IEnumerable<Order>, IList<OrderViewModel>>(orders);
 
-            return new FilterOrdersViewModel() { Orders = ordersViewModel }; //TODO Required: remove useless '()'
-		}
+            return new FilterOrdersViewModel { Orders = ordersViewModel }; //TODO Required: remove useless '()'
+        }
     }
 }

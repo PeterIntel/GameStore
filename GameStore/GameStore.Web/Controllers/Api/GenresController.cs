@@ -27,7 +27,7 @@ namespace GameStore.Web.Controllers.Api
         {
             if (!_genreService.Any(x => x.Games.Any(y => y.Key == key)))
             {
-                return Content(HttpStatusCode.BadRequest, "Game with such key does not have genres");
+                return Content(HttpStatusCode.OK, "Game with such key does not have genres");
             }
 
             var genres = _genreService.Get(x => x.Games.Any(y => y.Key == key), CurrentLanguage);
